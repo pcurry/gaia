@@ -67,7 +67,7 @@ ax.scatter(xk, yk, zk, s=40, c='#FFA500', marker='o')
 ax.scatter(xm, ym, zm, s=10, c='red', marker='o')
 ax.scatter(xl, yl, zl, s=5, c='#964B00', marker='o')
 ax.scatter(xd, yd, zd, s=5, c='white', marker='o')
-#approximating that unknown stars are red dwards until further refinement can be made
+#approximating that unknown stars are red dwarfs until further refinement can be made
 ax.scatter(xu, yu, zu, s=10, c='red', marker='o')
 ax.set_xlabel('')
 ax.set_ylabel('')
