@@ -17,16 +17,16 @@ table = job.get_results()
 df = table.to_pandas()
 #add stars which were too bright for Gaia (e.g. due to detector saturation)
 bright_stars = {
-    'designation': ["Sol", "Alpha Centauri A", "Alpha Centauri B", "Sirius", "Procyon"], 
-    'l': [0, 315.7341713, 315.7300838, 227.2302913, 213.7022414], 
-    'b': [0, -0.67965625, -0.68171325, -8.89028121, 13.01939682],
-    'parallax': [8800, 742.12, 742.12, 379.21, 284.56]}
+    'designation': ["Alpha Centauri A", "Alpha Centauri B", "Sirius", "Procyon"], 
+    'l': [315.7341713, 315.7300838, 227.2302913, 213.7022414], 
+    'b': [-0.67965625, -0.68171325, -8.89028121, 13.01939682],
+    'parallax': [742.12, 742.12, 379.21, 284.56]}
 bright_df = pd.DataFrame(bright_stars)
 df_combined = pd.concat([df, bright_df], ignore_index=True)
 #create new column and calculate distance to star (in parsecs) based on Gaia parallax
 p=df_combined["parallax"]
 d=df_combined["distance"]=1/p*1000
-#convert galactic coordinates in Gaia from degrees to radians
+#convert galactic coordinates from degrees to radians
 l=np.radians(df_combined["l"])
 b=np.radians(df_combined["b"])
 #create new column with calculated x-coordinates (where positive x is coreward and negative x is rimward)
@@ -35,5 +35,18 @@ df_combined["X"]=d*np.cos(b)*np.cos(l)
 df_combined["Y"]=d*np.cos(b)*np.sin(l)
 #create new column with calculated z-coordinates (where positive z is "galactic north" and negative z is "galactic south" per arbitrary convention)
 df_combined["Z"]=d*np.sin(b)
-print(df_combined)
 # %%
+#add special case - the Sun
+sol = {
+    'designation': ["Sol"], 
+    'l': [0.0], 
+    'b': [0.0],
+    'parallax': [0.0],
+    'distance': [0.0],
+    'X': [0.0],
+    'Y': [0.0],
+    'Z': [0.0]}
+df_sol = pd.DataFrame(sol)
+df_final = pd.concat([df_combined, df_sol], ignore_index=True)
+# %%
+print(df_final)
