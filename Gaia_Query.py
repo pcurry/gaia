@@ -14,15 +14,11 @@ WHERE parallax > 40
 job = Gaia.launch_job_async(query)
 table = job.get_results()
 #%%
-df = table.to_pandas()
-#add stars which were too bright for Gaia (e.g. due to detector saturation)
-bright_stars = {
-    'designation': ["Alpha Centauri A", "Alpha Centauri B", "Sirius", "Procyon"], 
-    'l': [315.7341713, 315.7300838, 227.2302913, 213.7022414], 
-    'b': [-0.67965625, -0.68171325, -8.89028121, 13.01939682],
-    'parallax': [742.12, 742.12, 379.21, 284.56]}
-bright_df = pd.DataFrame(bright_stars)
-df_combined = pd.concat([df, bright_df], ignore_index=True)
+gaia_DR3_df = table.to_pandas()
+#add stars which do not appear in Gaia DR1, DR2 or DR3 (mostly those that are too bright / not detected due to detector saturation)
+csv_file_path = 'not_in_any_Gaia_DR.csv'
+not_in_any_Gaia_DR_df = pd.read_csv(csv_file_path)
+df_combined = pd.concat([gaia_DR3_df, not_in_any_Gaia_DR_df], ignore_index=True)
 #create new column and calculate distance to star (in parsecs) based on Gaia parallax
 p=df_combined["parallax"]
 d=df_combined["distance"]=1/p*1000
@@ -41,7 +37,7 @@ sol = {
     'designation': ["Sol"], 
     'l': [0.0], 
     'b': [0.0],
-    'parallax': [np.nan],
+    'parallax': [0.0],
     'distance': [0.0],
     'X': [0.0],
     'Y': [0.0],
