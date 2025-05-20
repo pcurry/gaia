@@ -22,15 +22,21 @@ mostly these are stars which are too bright for Gaia / saturated the detector
 minor exception: Procyon B - dim white dwarf which was not in any Gaia dataset (presumably due to proximity to the bright star Procyon A)
 
 minor exception: Beta Phonenicis - used parallax value of 17.63 mas instead of 0.12 mas (which is the value in SIMBAD)
-per wikipedia: **The distance to Beta Phoenicis is poorly known. The original reduction of the Hipparcos satellite's data yielded a parallax value of 16 milliarcseconds, yet its standard error was larger than the parallax value itself. An individual note in the Hipparcos catalogue provided a more likely parallax of 17.63±2.09 mas, corresponding to a distance of 185±22 light-years, consistent with the expected distance implied by the absolute visual magnitude of a G8 giant. The new reduction of the Hipparcos data gave 0.12 ± 14.62 milliarcseconds, still unusable. The General Catalogue of Trigonometric Parallaxes, an older catalogue of ground-based parallaxes, lists the parallax as 20 ± 16 milliarcseconds, corresponding to about 200 light-years (61 pc)**
+per wikipedia: "The distance to Beta Phoenicis is poorly known. The original reduction of the Hipparcos satellite's data yielded a parallax value of 16 milliarcseconds, yet its standard error was larger than the parallax value itself. An individual note in the Hipparcos catalogue provided a more likely parallax of 17.63±2.09 mas, corresponding to a distance of 185±22 light-years, consistent with the expected distance implied by the absolute visual magnitude of a G8 giant. The new reduction of the Hipparcos data gave 0.12 ± 14.62 milliarcseconds, still unusable. The General Catalogue of Trigonometric Parallaxes, an older catalogue of ground-based parallaxes, lists the parallax as 20 ± 16 milliarcseconds, corresponding to about 200 light-years (61 pc)"
+
+(n.b. a parallax of 0.12 mas would be equivalent to a distance of 27,180 light years, which seems unreasonable for a star bright enough to saturate Gaia's detectors)
 
 in cases where no stand-alone parallax was available in SIMBAD, the parallax from parent entry (e.g. parallax from STARNAME for STARNAME A) or the parallax from a sibling entry (STARNAME A for STARNAME B) are used
-    - pros: stars which are physically related will end up being plotted close to each other (but not at the exact same spot, since l and b values are different)
-    - cons: it is not literally true that the A and B components of a binary star system are exactly the same distance from Sol and have exactly the same parallax
+
+- pros: stars which are physically related will end up being plotted close to each other (but not at the exact same spot, since l and b values are different)
+
+- cons: it is not literally true that the A and B components of a binary star system are exactly the same distance from Sol and have exactly the same parallax
 
 in the cases of stars flagged as spectroscopic binaries in SIMBAD, gal-lon, gal-lat and parallax values were duplicated for both the A and B stars 
-    - pros: stars which are physically distinct have separate entries in the panda dataframe
-    - cons: these stars will be plotted in the same location unless/until further tweak is made to Gaia_Query_py
+
+- pros: stars which are physically distinct have separate entries in the panda dataframe
+
+- cons: these stars will be plotted in the same location unless/until further tweak is made to Gaia_Query_py
 
 file will be revised if/when further missing-from-Gaia stars are identified and any refinements determined for l, b and parallax values of the initial 105 stars
 
