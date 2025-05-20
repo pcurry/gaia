@@ -39,8 +39,9 @@ punch list / road map for continued development:
  
 ** separate script to be written **
 
-- ingests .csv file into 10 parsec x 10 parsec x 10 parsec cubes
-- create 3D plots as "sector maps" (Iota_Pegasi_Sector.py being a prototype)
+- ingests .csv file produced by Gaia_Query.py
+- parses into 10 parsec x 10 parsec x 10 parsec cubes
+- creates 3D plots as sector maps (Iota_Pegasi_Sector.py being a prototype)
 - color of markers to be keyed to spectral type (OBAFGKM) of star
 - size of markers to be keyed to the brightness of the star
 - markers to be labeled by star name
