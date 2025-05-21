@@ -7,7 +7,7 @@ import pandas as pd
 #query Gaia dataset for galactic longitude, latitude and parallax of nearby stars (within 25 parsecs)
 #will need to update to gaia data release 4 (gaiadr4) when it comes out (no earlier than mid-2026) and gaiadr5 (eta 2030)
 query = """
-SELECT designation, l, b, parallax
+SELECT designation, l, b, parallax, phot_g_mean_mag
 FROM gaiadr3.gaia_source
 WHERE parallax > 40
 """
@@ -37,6 +37,7 @@ sol = {
     'designation': ["Sol"], 
     'l': [0.0], 
     'b': [0.0],
+    'phot_g_mean_mag': [100.0],
     'parallax': [0.0],
     'distance': [0.0],
     'X': [0.0],

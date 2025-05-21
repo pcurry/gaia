@@ -43,7 +43,7 @@ file will be revised if/when further missing-from-Gaia stars are identified and 
 ## File: Gaia_Query.py ##
 
 current functionality:
-- query Gaia dataset by pre-set parallax cut-off for stars within set distance of Sol - get approx 5K stars with Gaia DR3 designation, gal-lon, gal-lat and parallax (as measured by Gaia space telescope)
+- query Gaia dataset by pre-set parallax cut-off for stars within set distance of Sol - get approx 5K stars with Gaia DR3 designation, gal-lon, gal-lat, parallax and G-band magnitude (as measured by Gaia space telescope)
 - ingests into a Panda dataframe
 - adds 105 stars which do not appear in any current Gaia data release (mostly due to brightness / detector saturation)
 - calculates distance from Sol in parsecs (from Gaia-measured parallax), adds as column to Panda dataframe
@@ -53,14 +53,14 @@ current functionality:
 - exports panda datadframe as gaia_query_results.csv
 
 punch list / road map for continued development:
-- add G-Flux to parameters downloaded from Gaia
-- user prompted for distance from Sol to be sampled from Gaia
-- ingest .csv file of stars which appeared in Gaia DR1 and/or DR2 but not in DR3 (including gal-lat, gal-lon, parallax, G-Flux)
-- calculates normalized brightness of stars based on G-Flux and distance (note this is not the same as absolute magntiude / luminosity, but close enough to work as a proxy for our purposes), add as column to Panda data frame
+- update not_in_any_Gaia_DR.csv file to include actual G-mag values and not placeholder values
+- ingest .csv file of stars which appeared in Gaia DR1 and/or DR2 but not in DR3 (including gal-lat, gal-lon, parallax, G-Mag)
+- calculate normalized brightness of stars based on G-Mag and distance (note this is not the same as absolute magntiude / luminosity, but close enough to work as a proxy for our purposes), including special handling where no G-Mag value is present from Gaia dataset, add as column to Panda data frame
 - query SIMBAD to cross-match Gaia designations with Star Names and Spectral Classifications, add as columns to Panda data frame
 - include handling of when SIMBAD has no cross-matched entries
 - include handling of when SIMBAD has cross-match but no spectral type
 - convert SIMBAD rendering of Bayer and Flamsteed designations to more human-friendly text
+- prompt user to define distance from Sol to be sampled from Gaia
 
 ## File: gaia_query_results.csv ##
 output file from gaia_query_results.csv
@@ -68,6 +68,7 @@ output file from gaia_query_results.csv
 - column 2 - l - galactic longitude - in degrees (as measured by Gaia in most cases)
 - column 3 - b - galactic latitude - in degrees (as measured by Gaia in most cases)
 - column 4 - parallax - in milliarcseconds (mas) (as measured by Gaia in most cases)
+- column 5 - phot_g_mean_mag (from Gaia) or 100.00 as placeholder
 - column 5 - distance - in parsecs from Sol
 - column 6 - X - cartesian coordinates in units of parsecs where positive X is coreward from Sol and negative X is rimward
 - column 7 - Y - cartesian coordinates in units of parsecs where positive Y is spinward from Sol and negative Y is trailing (in context of the direction of galactic disk rotation)
