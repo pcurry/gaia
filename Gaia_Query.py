@@ -38,7 +38,7 @@ sol = {
     'l': [0.0], 
     'b': [0.0],
     'phot_g_mean_mag': [100.0],
-    'parallax': [0.0],
+    'parallax': [np.nan],
     'distance': [0.0],
     'X': [0.0],
     'Y': [0.0],
