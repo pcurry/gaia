@@ -26,7 +26,7 @@ per wikipedia: "The distance to Beta Phoenicis is poorly known. The original red
 
 (n.b. a parallax of 0.12 mas would be equivalent to a distance of 27,180 light years, which seems unreasonable for a star bright enough to saturate Gaia's detectors)
 
-in cases where no stand-alone parallax was available in SIMBAD, the parallax from parent entry (e.g. parallax from STARNAME for STARNAME A) or the parallax from a sibling entry (STARNAME A for STARNAME B) are used
+in cases where no stand-alone parallax was available in SIMBAD for members of a binary or multiple system, the parallax from parent entry (e.g. using parallax from STARNAME for STARNAME A and STARNAME B) or the parallax from a sibling entry (e.g. using parallax from STARNAME A for STARNAME B) are used
 
 - pros: stars which are physically related will end up being plotted close to each other (but not at the exact same spot, since l and b values are different)
 
@@ -38,7 +38,7 @@ in the cases of stars flagged as spectroscopic binaries in SIMBAD, gal-lon, gal-
 
 - cons: these stars will be plotted in the same location unless/until further tweak is made to Gaia_Query_py
 
-file will be revised if/when further missing-from-Gaia stars are identified and any refinements determined for l, b and parallax values of the initial 105 stars
+file will be revised if/when further missing-from-Gaia stars are identified and any refinements determined for galactic longitude, galactic latitude and parallax values of the initial 105 stars
 
 ## File: Gaia_Query.py ##
 
@@ -50,6 +50,7 @@ current functionality:
 - calculates x,y,z coordinates (with Sol as the origin, X-axis as Coreward/Rimward, Y-axis as Spinward/Trailing, Z-axis as Galactic North/South) in parsecs from Gaia-measured G-lon and G-lat, adds as column to Panda dataframe
 - inserts Sol as special case (e.g. also a star too bright to be detected by Gaia, and by definition has no parallax)
 - prints panda dataframe
+- exports panda datadframe as gaia_query_results.csv
 
 punch list / road map for continued development:
 - add G-Flux to parameters downloaded from Gaia
@@ -60,11 +61,21 @@ punch list / road map for continued development:
 - include handling of when SIMBAD has no cross-matched entries
 - include handling of when SIMBAD has cross-match but no spectral type
 - convert SIMBAD rendering of Bayer and Flamsteed designations to more human-friendly text
-- exports final panda dataframe as a .csv file
+
+## File: gaia_query_results.csv ##
+output file from gaia_query_results.csv
+- column 1 - designation - Gaia DR3 (if any) or name of star not in any Gaia data release
+- column 2 - l - galactic longitude - in degrees (as measured by Gaia in most cases)
+- column 3 - b - galactic latitude - in degrees (as measured by Gaia in most cases)
+- column 4 - parallax - in milliarcseconds (mas) (as measured by Gaia in most cases)
+- column 5 - distance - in parsecs from Sol
+- column 6 - X - cartesian coordinates in units of parsecs where positive X is coreward from Sol and negative X is rimward
+- column 7 - Y - cartesian coordinates in units of parsecs where positive Y is spinward from Sol and negative Y is trailing (in context of the direction of galactic disk rotation)
+- column 8 - Z - cartesian coordinates in units of parsecs where positive Z is "galactic north" and negative Z is "galactic south"
  
 ## Separate script to be written ##
 
-- ingests .csv file produced by Gaia_Query.py
+- ingests gaia_query_results.csv file produced by Gaia_Query.py
 - parses into 10 parsec x 10 parsec x 10 parsec cubes
 - creates 3D plots as sector maps (Iota_Pegasi_Sector.py being a prototype)
 - color of markers to be keyed to spectral type (OBAFGKM) of star

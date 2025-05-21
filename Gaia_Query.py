@@ -46,3 +46,5 @@ df_sol = pd.DataFrame(sol)
 df_final = pd.concat([df_combined, df_sol], ignore_index=True)
 # %%
 print(df_final)
+df_final.to_csv('gaia_query_result.csv', index=False)
+print("Gaia Query Result Exported to 'gaia_query.result.csv'")
