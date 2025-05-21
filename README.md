@@ -16,12 +16,15 @@ current functionality:
 ## File: not_in_any_Gaia_DR.csv ##
 
 contains 105 stars formatted for ingest into panda dataframe by Gaia_Query.py
+
 specifically: stars with Bayer and/or Flamsteed Designations but no matching entries in DR1, DR2 or DR3 (based on queries made in SIMBAD and cross-checking to remove cases where binary systems had separate entries in Gaia DR3 and/or DR2)
+
 mostly these are stars which are too bright for Gaia / saturated the detector
 
 minor exception: Procyon B - dim white dwarf which was not in any Gaia dataset (presumably due to proximity to the bright star Procyon A)
 
-minor exception: Beta Phonenicis - used parallax value of 17.63 mas instead of 0.12 mas (which is the value in SIMBAD)
+minor exception: Beta Phoenicis - used parallax value of 17.63 mas instead of 0.12 mas (which is the value in SIMBAD)
+
 per wikipedia: "The distance to Beta Phoenicis is poorly known. The original reduction of the Hipparcos satellite's data yielded a parallax value of 16 milliarcseconds, yet its standard error was larger than the parallax value itself. An individual note in the Hipparcos catalogue provided a more likely parallax of 17.63±2.09 mas, corresponding to a distance of 185±22 light-years, consistent with the expected distance implied by the absolute visual magnitude of a G8 giant. The new reduction of the Hipparcos data gave 0.12 ± 14.62 milliarcseconds, still unusable. The General Catalogue of Trigonometric Parallaxes, an older catalogue of ground-based parallaxes, lists the parallax as 20 ± 16 milliarcseconds, corresponding to about 200 light-years (61 pc)"
 
 (n.b. a parallax of 0.12 mas would be equivalent to a distance of 27,180 light years, which seems unreasonable for a star bright enough to saturate Gaia's detectors)
