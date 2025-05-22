@@ -50,14 +50,13 @@ current functionality:
 - ingests into a Panda dataframe
 - adds 105 stars which do not appear in any current Gaia data release (mostly due to brightness / detector saturation)
 - calculates distance from Sol in parsecs (from Gaia-measured parallax), adds as column to Panda dataframe
-- calculates adjusted G-mag for stars (e.g. conceptually equivalent to Absolute Magnitude but only in the G-band, useful as a proxy for overall stellar brightness), or in the case of non-Gaia stars converts from Apparent to Absolute Magnitude, adds as column to Panda dataframe
+- calculates adjusted mag for stars (approx. equivalent to Absolute Magnitude) from G-band for Gaia stars, from V-band for non-Gaia stars, adds as column to Panda dataframe
 - calculates x,y,z coordinates (with Sol as the origin, X-axis as Coreward/Rimward, Y-axis as Spinward/Trailing, Z-axis as Galactic North/South) in parsecs from Gaia-measured G-lon and G-lat, adds as column to Panda dataframe
 - inserts Sol as special case (e.g. also a star too bright to be detected by Gaia, and by definition has no parallax)
 - prints panda dataframe
 - exports panda datadframe as gaia_query_results.csv
 
 punch list / road map for continued development:
-- update not_in_any_Gaia_DR.csv file to include actual G-mag values and not placeholder values
 - ingest .csv file of stars which appeared in Gaia DR1 and/or DR2 but not in DR3 (including gal-lat, gal-lon, parallax, G-Mag)
 - include special handling where no G-Mag value is present from Gaia dataset
 - query SIMBAD to cross-match Gaia designations with Star Names and Spectral Classifications, add as columns to Panda data frame

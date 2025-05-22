@@ -21,13 +21,13 @@ not_in_any_Gaia_DR_df = pd.read_csv(csv_file_path)
 df_combined = pd.concat([gaia_DR3_df, not_in_any_Gaia_DR_df], ignore_index=True)
 #prepare columns that will be used in further calculations
 p=df_combined["parallax"]
-g=df_combined["phot_g_mean_mag"]
+m=df_combined["phot_g_mean_mag"].fillna(df_combined["v_mag"])
 #create new column and calculate distance to star (in parsecs) based on Gaia parallax
 df_combined["distance"]=1/p*1000
 #prepare column that will be used in further calculation
 d=df_combined["distance"]
-#create a new column that normalizes G-Mag to a distance of 10 parsecs (equivalent to the more general case of Absolute vs Apparent Magnitude)  
-df_combined["adjusted_g_mag"]=g-5*(np.log(d/10))
+#create a new column that normalizes Gaia G-Mag (and non-Gaia V-Mag) to a distance of 10 parsecs
+df_combined["adjusted_mag"]=m-5*(np.log(d/10))
 #convert galactic coordinates from degrees to radians in preparation for xyz coordinate calculations
 l=np.radians(df_combined["l"])
 b=np.radians(df_combined["b"])
@@ -46,7 +46,7 @@ sol = {
     'phot_g_mean_mag': [100.0],
     'parallax': [np.nan],
     'distance': [0.0],
-    'adjusted_g_mag': [4.66],
+    'adjusted_mag': [4.66],
     'X': [0.0],
     'Y': [0.0],
     'Z': [0.0]}
