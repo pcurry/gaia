@@ -50,7 +50,7 @@ current functionality:
 - ingests into a Panda dataframe
 - adds 105 stars which do not appear in any current Gaia data release (mostly due to brightness / detector saturation)
 - calculates distance from Sol in parsecs (from Gaia-measured parallax), adds as column to Panda dataframe
-- calculates adjust G-mag for stars (e.g. conceptually equivalent to Absolute Magnitude but only in the G-band, useful as a proxy for overall stellar brightness), adds as column to Panda dataframe
+- calculates adjusted G-mag for stars (e.g. conceptually equivalent to Absolute Magnitude but only in the G-band, useful as a proxy for overall stellar brightness), or in the case of non-Gaia stars converts from Apparent to Absolute Magnitude, adds as column to Panda dataframe
 - calculates x,y,z coordinates (with Sol as the origin, X-axis as Coreward/Rimward, Y-axis as Spinward/Trailing, Z-axis as Galactic North/South) in parsecs from Gaia-measured G-lon and G-lat, adds as column to Panda dataframe
 - inserts Sol as special case (e.g. also a star too bright to be detected by Gaia, and by definition has no parallax)
 - prints panda dataframe
@@ -74,9 +74,10 @@ output file from gaia_query_results.csv
 - column 4 - parallax - in milliarcseconds (mas) (as measured by Gaia in most cases)
 - column 5 - phot_g_mean_mag (from Gaia) or 100.00 as placeholder
 - column 5 - distance - in parsecs from Sol
-- column 6 - X - cartesian coordinates in units of parsecs where positive X is coreward from Sol and negative X is rimward
-- column 7 - Y - cartesian coordinates in units of parsecs where positive Y is spinward from Sol and negative Y is trailing (in context of the direction of galactic disk rotation)
-- column 8 - Z - cartesian coordinates in units of parsecs where positive Z is "galactic north" and negative Z is "galactic south"
+- column 6 - adjusted_g_mag - value after Apparent Magnitude has been converted to Absolute Magnitude for non-Gaia stars, or the equivalent operation applied to G-band magnitudes from Gaia stars
+- column 7 - X - cartesian coordinates in units of parsecs where positive X is coreward from Sol and negative X is rimward
+- column 8 - Y - cartesian coordinates in units of parsecs where positive Y is spinward from Sol and negative Y is trailing (in context of the direction of galactic disk rotation)
+- column 9 - Z - cartesian coordinates in units of parsecs where positive Z is "galactic north" and negative Z is "galactic south"
  
 ## Separate script to be written ##
 
