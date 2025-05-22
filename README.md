@@ -71,12 +71,13 @@ output file from gaia_query_results.csv
 - column 2 - l - galactic longitude - in degrees (as measured by Gaia in most cases)
 - column 3 - b - galactic latitude - in degrees (as measured by Gaia in most cases)
 - column 4 - parallax - in milliarcseconds (mas) (as measured by Gaia in most cases)
-- column 5 - phot_g_mean_mag (from Gaia) or 100.00 as placeholder
-- column 5 - distance - in parsecs from Sol
-- column 6 - adjusted_g_mag - value after Apparent Magnitude has been converted to Absolute Magnitude for non-Gaia stars, or the equivalent operation applied to G-band magnitudes from Gaia stars
-- column 7 - X - cartesian coordinates in units of parsecs where positive X is coreward from Sol and negative X is rimward
-- column 8 - Y - cartesian coordinates in units of parsecs where positive Y is spinward from Sol and negative Y is trailing (in context of the direction of galactic disk rotation)
-- column 9 - Z - cartesian coordinates in units of parsecs where positive Z is "galactic north" and negative Z is "galactic south"
+- column 5 - phot_g_mean_mag (from Gaia)
+- column 6 - v_mag (from SIMBAD, for stars not in Gaia)
+- column 7 - distance - in parsecs from Sol
+- column 8 - adjusted_mag - value after Apparent Magnitude has been converted to Absolute Magnitude for non-Gaia stars, or the equivalent operation applied to G-band magnitudes from Gaia stars
+- column 9 - X - cartesian coordinates in units of parsecs where positive X is coreward from Sol and negative X is rimward
+- column 10 - Y - cartesian coordinates in units of parsecs where positive Y is spinward from Sol and negative Y is trailing (in context of the direction of galactic disk rotation)
+- column 11 - Z - cartesian coordinates in units of parsecs where positive Z is "galactic north" and negative Z is "galactic south"
  
 ## Separate script to be written ##
 
