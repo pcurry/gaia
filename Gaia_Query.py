@@ -45,10 +45,11 @@ sol = {
     'designation': ["Sol"], 
     'l': [0.0], 
     'b': [0.0],
-    'phot_g_mean_mag': [100.0],
+    'phot_g_mean_mag': [np.nan],
+    'v_mag': [-26.83],
     'parallax': [np.nan],
     'distance': [0.0],
-    'adjusted_mag': [4.66],
+    'adjusted_mag': [4.83],
     'X': [0.0],
     'Y': [0.0],
     'Z': [0.0]}
