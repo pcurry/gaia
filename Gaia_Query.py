@@ -15,10 +15,12 @@ job = Gaia.launch_job_async(query)
 table = job.get_results()
 #%%
 gaia_DR3_df = table.to_pandas()
-#add stars which do not appear in Gaia DR1, DR2 or DR3 (mostly those that are too bright / not detected due to detector saturation)
-csv_file_path = 'not_in_any_Gaia_DR.csv'
-not_in_any_Gaia_DR_df = pd.read_csv(csv_file_path)
-df_combined = pd.concat([gaia_DR3_df, not_in_any_Gaia_DR_df], ignore_index=True)
+#add stars which do not appear in any Gaia data release or do not appear in DR3
+csv_file_path_1 = 'not_in_Gaia_DR3.csv'
+csv_file_path_2 = 'not_in_any_Gaia_DR.csv'
+not_in_Gaia_DR3_df = pd.read_csv(csv_file_path_1)
+not_in_any_Gaia_DR_df = pd.read_csv(csv_file_path_2)
+df_combined = pd.concat([gaia_DR3_df, not_in_Gaia_DR3_df, not_in_any_Gaia_DR_df], ignore_index=True)
 #prepare columns that will be used in further calculations
 p=df_combined["parallax"]
 m=df_combined["phot_g_mean_mag"].fillna(df_combined["v_mag"])

@@ -15,7 +15,7 @@ current functionality:
 
 ## File: not_in_any_Gaia_DR.csv ##
 
-contains 105 stars formatted for ingest into panda dataframe by Gaia_Query.py
+contains 106 stars formatted for ingest into panda dataframe by Gaia_Query.py
 
 specifically: stars with Bayer and/or Flamsteed Designations but no matching entries in DR1, DR2 or DR3 (based on queries made in SIMBAD and cross-checking to remove cases where binary systems had separate entries in Gaia DR3 and/or DR2)
 
@@ -43,12 +43,17 @@ in the cases of stars flagged as spectroscopic binaries in SIMBAD, gal-lon, gal-
 
 file will be revised if/when further missing-from-Gaia stars are identified and any refinements determined for galactic longitude, galactic latitude and parallax values of the initial 105 stars
 
+## File: not_in_Gaia_DR3.csv ##
+
+contains 47 stars (which appeared in Gaia DR1 and/or DR2 but not DR3) formatted for ingest into panda dataframe by Gaia_Query.py
+
 ## File: Gaia_Query.py ##
 
 current functionality:
 - query Gaia dataset by pre-set parallax cut-off for stars within set distance of Sol - get approx 5K stars with Gaia DR3 designation, gal-lon, gal-lat, parallax and G-band magnitude (as measured by Gaia space telescope)
 - ingests into a Panda dataframe
-- adds 105 stars which do not appear in any current Gaia data release (mostly due to brightness / detector saturation)
+- adds 106 stars which do not appear in any current Gaia data release (mostly due to brightness / detector saturation)
+- adds 47 stars which appeared in earlier Gaia data releases but not in DR3
 - calculates distance from Sol in parsecs (from Gaia-measured parallax), adds as column to Panda dataframe
 - calculates adjusted mag for stars (approx. equivalent to Absolute Magnitude) from G-band for Gaia stars, from V-band for non-Gaia stars, adds as column to Panda dataframe
 - calculates x,y,z coordinates (with Sol as the origin, X-axis as Coreward/Rimward, Y-axis as Spinward/Trailing, Z-axis as Galactic North/South) in parsecs from Gaia-measured G-lon and G-lat, adds as column to Panda dataframe
@@ -57,7 +62,6 @@ current functionality:
 - exports panda datadframe as gaia_query_results.csv
 
 punch list / road map for continued development:
-- ingest .csv file of stars which appeared in Gaia DR1 and/or DR2 but not in DR3 (including gal-lat, gal-lon, parallax, G-Mag)
 - include special handling where no G-Mag value is present from Gaia dataset
 - query SIMBAD to cross-match Gaia designations with Star Names and Spectral Classifications, add as columns to Panda data frame
 - include handling of when SIMBAD has no cross-matched entries
