@@ -11,28 +11,32 @@ overall purpose: parsing ESA Gaia data into 3D sector maps for sci-fi purposes
 ## File: Gaia_Query.py ##
 
 current functionality:
+- loads cached file with previous merged Gaia and SIMBAD data (if present) 
 - query Gaia dataset by pre-set parallax cut-off for stars within set distance of Sol - gets approx 5K stars with Gaia DR3 designation, gal-lon, gal-lat, parallax and G-band magnitude (as measured by Gaia space telescope)
 - ingests these into a Panda dataframe
 - calculates distance from Sol in parsecs (from Gaia-measured parallax), adds as column to Panda dataframe
 - calculates adjusted mag for stars (approx. equivalent to Absolute Magnitude) from G-band for Gaia stars, adds as column to Panda dataframe
 - query SIMBAD to cross-match Gaia designations with Star Names and Spectral Classifications, add as columns to Panda data frame
-- NOTE: this step is currently a bottleneck and takes several tens of minutes to run and initially produces the following warning:
+- Note: this step is a bottleneck (takes 10 to 30 minutes to run) and initially produces the following warning:
 
 ```WARNING: NoResultsWarning: The request executed correctly, but there was no data corresponding to these criteria in SIMBAD [astroquery.simbad.core]```
 
-... but the script will continue to run and get matching data for almost all of the stars pulled from Gaia
+... but the script will continue to run and get matching data for almost all of the stars pulled from Gaia (and the issue is avoided if cached file is present)
 - calculates x,y,z coordinates (with Sol as the origin, X-axis as Coreward/Rimward, Y-axis as Spinward/Trailing, Z-axis as Galactic North/South) in parsecs from Gaia-measured G-lon and G-lat, adds as column to Panda dataframe
 - adds 140+ stars from not_in_Gaia_DR3.csv
 - exports panda datadframe as gaia_query_results.csv
 
 punch list / road map for continued development:
 - continue to vet the data in not_in_Gaia_DR3.csv (e.g. missing spectral types, absolute magnitudes)
-- see if can reduce bottleneck during SIMBAD query step
 - include special handling where no G-Mag value is present from Gaia dataset
 - include better handling of when SIMBAD has no cross-matched entries
 - include better handling of when SIMBAD has cross-match but no spectral type
 - convert SIMBAD IDs to more human-friendly text
 - prompt user to define distance from Sol to be sampled from Gaia
+
+## File: gaia_cached.csv ##
+contains results of previous runs that ran SIMBAD quert from Gaia data
+(not mirrored on github)
 
 ## File: gaia_query_results.csv ##
 output file from gaia_query_results.csv

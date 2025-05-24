@@ -65,9 +65,6 @@ else:
     print(f"Loading from cached {cached_file}")
     gaia_DR3_df = pd.read_csv(cached_file)
 
-
-    
-    
 print("Calculating Cartesian Coordinates")
 #convert galactic coordinates from degrees to radians in preparation for xyz coordinate calculations
 l=np.radians(gaia_DR3_df["l"])
