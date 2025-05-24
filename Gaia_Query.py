@@ -53,8 +53,8 @@ if not os.path.exists(cached_file):
             star_names.append(simbad_1)
             spectral_types.append(simbad_2)
         else:
-            star_names.append("No Match in SIMBAD")
-            spectral_types.append("Unknown")
+            star_names.append("")
+            spectral_types.append("")
     # %%
     print ("Merging SIMBAD and Gaia Results")
     gaia_DR3_df["SIMBAD_ID"]=star_names
@@ -79,6 +79,27 @@ gaia_DR3_df["Y"]=d*np.cos(b)*np.sin(l)
 #create new column with calculated z-coordinates (where positive z is "galactic north" and negative z is "galactic south" per arbitrary convention)
 gaia_DR3_df["Z"]=d*np.sin(b)
 # %%
+
+print("Converting SIMBAD IDs to proper star names")
+#create duplicate of SIMBAD ID column
+gaia_DR3_df["interim_ID"] = gaia_DR3_df["SIMBAD_ID"]
+#clean up weird bits of SIMBAD ID format
+column_to_clean="interim_ID"
+string_1_to_remove="V* "
+string_2_to_remove="** "
+string_3_to_remove="* "
+string_4_to_remove="NAME "
+gaia_DR3_df[column_to_clean]= (
+    gaia_DR3_df[column_to_clean]
+    .astype(str)
+    .str.replace(string_1_to_remove, '', regex=False)
+    .str.replace(string_2_to_remove, '', regex=False)
+    .str.replace(string_3_to_remove, '', regex=False)
+    .str.replace(string_4_to_remove, '', regex=False)
+    .str.strip()
+)
+# %%
+
 print("Adding Stars Outside of Gaia DR3")
 #add stars which do not appear in any Gaia data release or do not appear in DR3
 csv_file_path = 'not_in_Gaia_DR3.csv'
@@ -87,5 +108,3 @@ df_final = pd.concat([gaia_DR3_df, not_in_Gaia_DR3_df], ignore_index=True)
 # %%
 df_final.to_csv('gaia_query_result.csv', index=False)
 print("Results Exported to 'gaia_query.result.csv'")
-
-
