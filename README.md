@@ -19,12 +19,11 @@ contains 142 stars formatted for ingest into panda dataframe by Gaia_Query.py
 
 specifically: stars with Bayer and/or Flamsteed Designations but no matching entries in DR3 (based on queries made in SIMBAD and cross-checking to remove cases where binary systems had separate entries in Gaia DR3 and/or DR2)
 
-includes parallax, gal-lon, gal-lat, parallax and spectral type from SIMBAD
-
-mostly these are stars which are too bright for Gaia / saturated the detector
-some (~40) appear in DR1 and/or DR2 but not DR3
+mostly these are stars which are too bright for Gaia / saturated the detector, while some (~40) appear in DR1 and/or DR2 but not DR3
 
 minor exception: Procyon B - dim white dwarf which was not in any Gaia dataset (presumably due to proximity to the bright star Procyon A)
+
+includes parallax, gal-lon, gal-lat, parallax and spectral type from SIMBAD
 
 minor exception: Beta Phoenicis - used parallax value of 17.63 mas instead of 0.12 mas (which is the value in SIMBAD)
 
@@ -35,8 +34,8 @@ per wikipedia: "The distance to Beta Phoenicis is poorly known. The original red
 ## File: Gaia_Query.py ##
 
 current functionality:
-- query Gaia dataset by pre-set parallax cut-off for stars within set distance of Sol - get approx 5K stars with Gaia DR3 designation, gal-lon, gal-lat, parallax and G-band magnitude (as measured by Gaia space telescope)
-- ingests into a Panda dataframe
+- query Gaia dataset by pre-set parallax cut-off for stars within set distance of Sol - gets approx 5K stars with Gaia DR3 designation, gal-lon, gal-lat, parallax and G-band magnitude (as measured by Gaia space telescope)
+- ingests these into a Panda dataframe
 - calculates distance from Sol in parsecs (from Gaia-measured parallax), adds as column to Panda dataframe
 - calculates adjusted mag for stars (approx. equivalent to Absolute Magnitude) from G-band for Gaia stars, adds as column to Panda dataframe
 - query SIMBAD to cross-match Gaia designations with Star Names and Spectral Classifications, add as columns to Panda data frame
@@ -49,20 +48,20 @@ punch list / road map for continued development:
 - continue to vet the data in not_in_Gaia_DR3.csv (e.g. missing spectral types, absolute magnitudes)
 - see if can reduce bottleneck during SIMBAD query step
 - include special handling where no G-Mag value is present from Gaia dataset
-- include handling of when SIMBAD has no cross-matched entries
-- include handling of when SIMBAD has cross-match but no spectral type
+- include better handling of when SIMBAD has no cross-matched entries
+- include better handling of when SIMBAD has cross-match but no spectral type
 - convert SIMBAD IDs to more human-friendly text
 - prompt user to define distance from Sol to be sampled from Gaia
 
 ## File: gaia_query_results.csv ##
 output file from gaia_query_results.csv
 - column 1 - designation from Gaia DR3 (or from DR2 or DR1 if not in DR3), empty if not in any Gaia DR
-- column 2 - l - galactic longitude - in degrees (as measured by Gaia in most cases)
-- column 3 - b - galactic latitude - in degrees (as measured by Gaia in most cases)
-- column 4 - parallax - in milliarcseconds (mas) (as measured by Gaia in most cases)
+- column 2 - l - galactic longitude - in degrees (as measured by Gaia in most cases, otherwise from SIMBAD)
+- column 3 - b - galactic latitude - in degrees (as measured by Gaia in most cases, otherwise from SIMBAD)
+- column 4 - parallax - in milliarcseconds (mas) (as measured by Gaia in most cases, otherwise from SIMBAD)
 - column 5 - phot_g_mean_mag (from Gaia)
 - column 6 - distance - in parsecs from Sol
-- column 7 - adjusted_mag - value after Apparent Magnitude has been converted to Absolute Magnitude for non-Gaia stars, or the equivalent operation applied to G-band magnitudes from Gaia stars
+- column 7 - adjusted_mag - value after the equivalent of the conversion from Apparent Magnitude to Absolute Magnitude has been doen to the G_band measurement by Gaia (or the Absolute Magnitude value of non-Gaia stars from the csv)
 - column 8 - SIMBAD ID - main id in SIMBAD
 - column 9 - Spectral Type - spectral classification in SIMBAD (if any)
 - column 10 - X - cartesian coordinates in units of parsecs where positive X is coreward from Sol and negative X is rimward
