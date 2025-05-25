@@ -75,7 +75,7 @@ if not os.path.exists(cached_file):
     gaia_DR3_df["SIMBAD_ID"]=star_names
     gaia_DR3_df["Spectral_Type"]=spectral_types
     print(f"Writing to cached {cached_file}")    
-    gaia_DR3_df.to_csv(cached_file)
+    gaia_DR3_df.to_csv(cached_file, index=False)
 else:
     print(f"Loading from cached {cached_file}")
     gaia_DR3_df = pd.read_csv(cached_file)
@@ -105,18 +105,23 @@ gaia_DR3_df["Y"]=d*np.cos(b)*np.sin(l)
 gaia_DR3_df["Z"]=d*np.sin(b)
 # %%
 
-print("Converting SIMBAD IDs to proper star names")
+print("Generating Star Names from SIMBAD IDs")
 
 #create duplicate of SIMBAD ID column
-gaia_DR3_df["interim_ID"] = gaia_DR3_df["SIMBAD_ID"]
-column_to_clean="interim_ID"
+gaia_DR3_df["label_name"] = gaia_DR3_df["SIMBAD_ID"]
+gaia_DR3_df["label_name"] = gaia_DR3_df["label_name"].fillna('')
+column_to_clean="label_name"
 
-#remove unwanted prefixes from SIMBAD ID format
-string_1_to_remove="V* "
-string_2_to_remove="** "
-string_3_to_remove="* "
-string_4_to_remove="NAME "
-string_5_to_remove="  "
+#remove unwanted prefixes and other nonsense from SIMBAD ID format
+string_1_to_remove="Cl* "
+string_2_to_remove="V* "
+string_3_to_remove="** "
+string_4_to_remove="*   "
+string_5_to_remove="*  "
+string_6_to_remove="* "
+string_7_to_remove="NAME "
+string_8_to_remove="  "
+string_1_to_replace=" star"
 gaia_DR3_df[column_to_clean]= (
     gaia_DR3_df[column_to_clean]
     .astype(str)
@@ -124,141 +129,172 @@ gaia_DR3_df[column_to_clean]= (
     .str.replace(string_2_to_remove, '', regex=False)
     .str.replace(string_3_to_remove, '', regex=False)
     .str.replace(string_4_to_remove, '', regex=False)
+    .str.replace(string_5_to_remove, '', regex=False)
+    .str.replace(string_6_to_remove, '', regex=False)
+    .str.replace(string_7_to_remove, '', regex=False)
     #remove annoying double spaces
-    .str.replace(string_5_to_remove, ' ', regex=False)
+    .str.replace(string_8_to_remove, ' ', regex=False)
     #and again to get rid of those very annoying triple spaces
-    .str.replace(string_5_to_remove, ' ', regex=False)
+    .str.replace(string_8_to_remove, ' ', regex=False)
+    .str.replace(string_1_to_replace, ' Star', regex=False)
 )
 # %%
 
 #replace simbad abbreviations with full greek letters
 
 simbad_greek_letters = {
-    'alf': 'Alpha',
-    'bet': 'Beta',
-    'gam': 'Gamma',
-    'del': 'Delta',
-    'eps': 'Epsilon',
-    'zet': 'Zeta',
-    'eta': 'Eta',
-    'tet': 'Theta',
-    'iot': 'Iota',
-    'lap': 'Kappa',
-    'lam': 'Lambda',
+    'alf ': 'Alpha ',
+    #out of order to sidestep the ZEta/BEta problem
+    'eta ': 'Eta ',
+    'bet ': 'Beta ',
+    'gam ': 'Gamma ',
+    'del ': 'Delta ',
+    'eps ': 'Epsilon ',
+    'zet ': 'Zeta ',
+    'tet ': 'Theta ',
+    'iot ': 'Iota ',
+    'kap ': 'Kappa ',
+    'lam ': 'Lambda ',
     'mu.': 'Mu',
     'nu.': 'Nu',
-    'ksi': 'Xi',
-    'omi': 'Omicron',
+    'ksi ': 'Xi ',
+    'omi ': 'Omicron ',
     'pi.': 'Pi',
-    'rho': 'Rho',
-    'sig': 'Sigma',
-    'tau': 'Tau',
-    'ups': 'Upsilon',
-    'phi': 'Phi',
-    'khi': 'Chi',
-    'psi': 'Psi',
-    'ome': 'Omega'}
+    'rho ': 'Rho ',
+    'sig ': 'Sigma ',
+    'tau ': 'Tau ',
+    'ups ': 'Upsilon ',
+    'phi ': 'Phi ',
+    'chi ': 'Chi ',
+    'psi ': 'Psi ',
+    'ome ': 'Omega ',
+    'alf0': 'Alpha-',
+    'bet0': 'Beta-',
+    'gam0': 'Gamma-',
+    'del0': 'Delta-',
+    'eps0': 'Epsilon-',
+    'zet0': 'Zeta-',
+    'eta0': 'Eta-',
+    'tet0': 'Theta-',
+    'iot0': 'Iota-',
+    'kap0': 'Kappa-',
+    'lam0': 'Lambda-',
+    'mu.0': 'Mu-',
+    'nu.0': 'Nu-',
+    'ksi0': 'Xi-',
+    'omi0': 'Omicron-',
+    'pi.0': 'Pi-',
+    'rho0': 'Rho-',
+    'sig0': 'Sigma-',
+    'tau0': 'Tau-',
+    'ups0': 'Upsilon-',
+    'phi0': 'Phi-',
+    'chi0': 'Chi-',
+    'psi0': 'Psi-',
+    'ome0': 'Omega-'}
 
-#need to insert code to edit interim_ID column based on above dictionary
+for key, value in simbad_greek_letters.items():
+    gaia_DR3_df['label_name'] = gaia_DR3_df['label_name'].str.replace(key, value, regex=False)
 
 # %%
 
 #replace SIMBAD constellation abbreviations with genitive forms of constellation names
 
-simbad_constellation_abbreviations = {
-    'And': 'Andromedae',
-    'Ant': 'Antliae',
-    'Aps': 'Apodis',
-    'Aqr': 'Aquarii',
-    'Aql': 'Aquilae',
-    'Ara': 'Arae',
-    'Ari': 'Arietis',
-    'Aur': 'Aurigae',
-    'Boo': 'Boötis',
-    'Cae': 'Caeli',
-    'Cam': 'Camelopardalis',
-    'Cnc': 'Cancri',
-    'CVn': 'Canum Venaticorum',
-    'CMa': 'Canis Majoris',
-    'CMi': 'Canis Minoris',
-    'Cap': 'Capricorni',
-    'Car': 'Carinae',
-    'Cas': 'Cassiopeiae',
-    'Cen': 'Centauri',
-    'Cep': 'Cephei',
-    'Cet': 'Ceti',
-    'Cha': 'Chamaeleontis',
-    'Cir': 'Circini',
-    'Col': 'Columbae',
-    'Com': 'Comae Berenices',
-    'CrA': 'Coronae Australis',
-    'CrB': 'Coronae Borealis',
-    'Crv': 'Corvi',
-    'Crt': 'Crateris',
-    'Cru': 'Crucis',
-    'Cyg': 'Cygni',
-    'Del': 'Delphini',
-    'Dor': 'Doradus',
-    'Dra': 'Draconis',
-    'Eql': 'Equulei',
-    'Eri': 'Eridani',
-    'For': 'Fornacis',
-    'Gem': 'Geminorum',
-    'Gru': 'Gruis',
-    'Her': 'Herculis',
-    'Hor': 'Horologii',
-    'Hya': 'Hydrae',
-    'Hyi': 'Hydri',
-    'Ind': 'Indi',
-    'Lac': 'Lacertae',
-    'Leo': 'Leonis',
-    'LMi': 'Leonis Minoris',
-    'Lep': 'Leporis',
-    'Lib': 'Librae',
-    'Lup': 'Lupi',
-    'Lyn': 'Lyncis',
-    'Lyr': 'Lyrae',
-    'Men': 'Mensae',
-    'Mic': 'Microscopii',
-    'Mon': 'Monocerotis',
-    'Mus': 'Muscae',
-    'Nor': 'Normae',
-    'Oct': 'Octantis',
-    'Oph': 'Ophiuchi',
-    'Ori': 'Orionis',
-    'Pav': 'Pavonis',
-    'Peg': 'Pegasi',
-    'Per': 'Persei',
-    'Phe': 'Phoenicis',
-    'Pic': 'Pictoris',
-    'Psc': 'Piscium',
-    'PsA': 'Piscis Austrini',
-    'Pup': 'Puppis',
-    'Pyx': 'Pyxidis',
-    'Ret': 'Reticulii',
-    'Sge': 'Sagittae',
-    'Sgr': 'Sagittarii',
-    'Sco': 'Scorpii',
-    'Scl': 'Sculptoris',
-    'Sct': 'Scuti',
-    'Ser': 'Serpentis',
-    'Sex': 'Sextantis',
-    'Tau': 'Tauri',
-    'Tel': 'Telescopii',
-    'Tri': 'Trianguli',
-    'TrA': 'Trianguli Australis',
-    'Tuc': 'Tucanae',
-    'UMa': 'Ursae Majoris',
-    'UMi': 'Ursae Minoris',
-    'Vel': 'Velorum',
-    'Vir': 'Virginis',
-    'Vol': 'Volantis',
-    'Vul': 'Vulpeculae'}
+simbad_const_abbrv = {
+    ' And': ' Andromedae',
+    ' Ant': ' Antliae',
+    ' Aps': ' Apodis',
+    ' Aqr': ' Aquarii',
+    ' Aql': ' Aquilae',
+    ' Ara': ' Arae',
+    ' Ari': ' Arietis',
+    ' Aur': ' Aurigae',
+    ' Boo': ' Bootis',
+    ' Cae': ' Caeli',
+    ' Cam': ' Camelopardalis',
+    ' Cnc': ' Cancri',
+    ' CVn': ' Canum Venaticorum',
+    ' CMa': ' Canis Majoris',
+    ' CMi': ' Canis Minoris',
+    ' Cap': ' Capricorni',
+    ' Car': ' Carinae',
+    ' Cas': ' Cassiopeiae',
+    ' Cen': ' Centauri',
+    #fix issue created with Proxima Centauri
+    'Centauritauri': 'Centauri',
+    ' Cep': ' Cephei',
+    ' Cet': ' Ceti',
+    ' Cha': ' Chamaeleontis',
+    ' Cir': ' Circini',
+    ' Col': ' Columbae',
+    ' Com': ' Comae Berenices',
+    ' CrA': ' Coronae Australis',
+    ' CrB': ' Coronae Borealis',
+    ' Crv': ' Corvi',
+    ' Crt': ' Crateris',
+    ' Cru': ' Crucis',
+    ' Cyg': ' Cygni',
+    ' Del': ' Delphini',
+    ' Dor': ' Doradus',
+    ' Dra': ' Draconis',
+    ' Eql': ' Equulei',
+    ' Eri': ' Eridani',
+    ' For': ' Fornacis',
+    ' Gem': ' Geminorum',
+    ' Gru': ' Gruis',
+    ' Her': ' Herculis',
+    ' Hor': ' Horologii',
+    ' Hya': ' Hydrae',
+    ' Hyi': ' Hydri',
+    ' Ind': ' Indi',
+    ' Lac': ' Lacertae',
+    ' Leo': ' Leonis',
+    ' LMi': ' Leonis Minoris',
+    ' Lep': ' Leporis',
+    ' Lib': ' Librae',
+    ' Lup': ' Lupi',
+    ' Lyn': ' Lyncis',
+    ' Lyr': ' Lyrae',
+    ' Men': ' Mensae',
+    ' Mic': ' Microscopii',
+    ' Mon': ' Monocerotis',
+    ' Mus': ' Muscae',
+    ' Nor': ' Normae',
+    ' Oct': ' Octantis',
+    ' Oph': ' Ophiuchi',
+    ' Ori': ' Orionis',
+    ' Pav': ' Pavonis',
+    ' Peg': ' Pegasi',
+    ' Per': ' Persei',
+    ' Phe': ' Phoenicis',
+    ' Pic': ' Pictoris',
+    ' Psc': ' Piscium',
+    ' PsA': ' Piscis Austrini',
+    ' Pup': ' Puppis',
+    ' Pyx': ' Pyxidis',
+    ' Ret': ' Reticulii',
+    ' Sge': ' Sagittae',
+    ' Sgr': ' Sagittarii',
+    ' Sco': ' Scorpii',
+    ' Scl': ' Sculptoris',
+    ' Sct': ' Scuti',
+    ' Ser': ' Serpentis',
+    ' Sex': ' Sextantis',
+    ' Tau': ' Tauri',
+    ' Tel': ' Telescopii',
+    ' Tri': ' Trianguli',
+    ' TrA': ' Trianguli Australis',
+    ' Tuc': ' Tucanae',
+    ' UMa': ' Ursae Majoris',
+    ' UMi': ' Ursae Minoris',
+    ' Vel': ' Velorum',
+    ' Vir': ' Virginis',
+    ' Vol': ' Volantis',
+    ' Vul': ' Vulpeculae'}
 
-#need to insert code to edit interim_ID column based on above dictionary
-
+for key, value in simbad_const_abbrv.items():
+    gaia_DR3_df['label_name'] = gaia_DR3_df['label_name'].str.replace(key, value, regex=False)
 # %%
-
 print("Adding Stars Outside of Gaia DR3")
 #add stars which do not appear in any Gaia data release or do not appear in DR3
 csv_file_path = 'not_in_Gaia_DR3.csv'

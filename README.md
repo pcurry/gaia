@@ -11,6 +11,7 @@ overall purpose: parsing ESA Gaia data into 3D sector maps for sci-fi purposes
 ## File: Gaia_Query.py ##
 
 initial functions:
+- loads relevant libraries
 - throws out a random inspriational quote
 - loads cached file with previous merged Gaia and SIMBAD data (if present) 
 
@@ -28,6 +29,7 @@ if cached file was already present (or has been generated):
 - calculates distance from Sol in parsecs (from Gaia-measured parallax), adds as column to Panda dataframe
 - calculates adjusted mag for stars (approx. equivalent to Absolute Magnitude) from G-band for Gaia stars, adds as column to Panda dataframe
 - calculates x,y,z coordinates (with Sol as the origin, X-axis as Coreward/Rimward, Y-axis as Spinward/Trailing, Z-axis as Galactic North/South) in parsecs from Gaia-measured G-lon and G-lat, adds as column to Panda dataframe
+- converts SIMBAD IDs to more human-friendly text for star labels in eventual 3D plots
 - adds 140+ stars from not_in_Gaia_DR3.csv
 - exports panda datadframe as gaia_query_results.csv
 
@@ -36,10 +38,10 @@ punch list / road map for continued development:
 - include better handling of when no G-Mag value is present from Gaia dataset
 - include better handling of when SIMBAD has no cross-matched entries
 - include better handling of when SIMBAD has cross-match but no spectral type
-- convert SIMBAD IDs to more human-friendly text
+- resolve remaining difficulties in converting SIMBAD IDs to star labels
 
 ## File: gaia_cached.csv ##
-contains results of previous runs that ran SIMBAD quert from Gaia data
+contains results of previous runs which cross-matched Gaia and SIMBAD data
 (not mirrored on github)
 
 ## File: gaia_query_results.csv ##
@@ -53,13 +55,11 @@ output file from gaia_query_results.csv
 - column 6 - SIMBAD ID - main id in SIMBAD (if a match existed between Gaia and SIMBAD)
 - column 7 - Spectral Type - spectral classification in SIMBAD (if any)
 - column 8 - distance - in parsecs from Sol
-- column 9 - adjusted_mag - value after the equivalent of the conversion from Apparent Magnitude to Absolute Magnitude has been doen to the G_band measurement by Gaia (or the Absolute Magnitude value of non-Gaia stars from the csv)
+- column 9 - adjusted_mag - value after the equivalent of the conversion from Apparent Magnitude to Absolute Magnitude has been done to the G_band magnitude from Gaia (or the Absolute Magnitude value of non-Gaia stars from the csv)
 - column 10 - X - cartesian coordinates in units of parsecs where positive X is coreward from Sol and negative X is rimward
 - column 11 - Y - cartesian coordinates in units of parsecs where positive Y is spinward from Sol and negative Y is trailing (in context of the direction of galactic disk rotation)
-- column 12 - Z - cartesian coordinates in units of parsecs where positive Z is "galactic north" and negative Z is "galactic south"
-- column 13 - interim_ID - "worksheet" column for translation of SIMBAD ID to more readable format
-- column 14 - Absolute_Mag - absolute magnitude of bright stars not present in Gaia DR3
-- column 15 - star_name - readable star names to use for labelling in 3D sector maps
+- column 12 - Z - cartesian coordinates in units of parsecs where positive Z is "galactic north" and negative Z is "galactic south
+- column 13 - label_name - readable star names to use for labelling in 3D sector maps
 
 ## File: not_in_Gaia_DR3.csv ##
 
