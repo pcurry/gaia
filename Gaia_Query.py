@@ -8,7 +8,6 @@ from astroquery.gaia import Gaia
 from astroquery.simbad import Simbad
 from astropy.table import Table
 import pandas as pd
-Simbad.add_votable_fields('main_id', 'sp_type')
 
 cached_file = "gaia_cached.csv"
 
@@ -46,19 +45,9 @@ if not os.path.exists(cached_file):
     print("GAIA done")
     #%%
     gaia_DR3_df = table.to_pandas()
-
-    print("Calculating Distances and Magnitudes")
-    #prepare columns that will be used in further calculations
-    p=gaia_DR3_df["parallax"]
-    m=gaia_DR3_df["phot_g_mean_mag"]
-    #create new column and calculate distance to star (in parsecs) based on Gaia parallax
-    gaia_DR3_df["distance"]=1/p*1000
-    #prepare column that will be used in further calculation
-    d=gaia_DR3_df["distance"]
-    #create a new column that normalizes Gaia G-Mag to a distance of 10 parsecs
-    gaia_DR3_df["adjusted_mag"]=m-5*(np.log(d/10))
     
     print("Preparing to Query SIMBAD for Star Names and Spectral Types")
+    Simbad.add_votable_fields('main_id', 'sp_type')
     #prepare lists to store the results from Simbad
     star_names = []
     spectral_types = []
@@ -91,14 +80,22 @@ else:
     print(f"Loading from cached {cached_file}")
     gaia_DR3_df = pd.read_csv(cached_file)
 
+print("Calculating Distances and Magnitudes")
+#prepare columns that will be used in further calculations
+p=gaia_DR3_df["parallax"]
+m=gaia_DR3_df["phot_g_mean_mag"]
+#create new column and calculate distance to star (in parsecs) based on Gaia parallax
+gaia_DR3_df["distance"]=1/p*1000
+#prepare column that will be used in further calculation
+d=gaia_DR3_df["distance"]
+#create a new column that normalizes Gaia G-Mag to a distance of 10 parsecs
+gaia_DR3_df["adjusted_mag"]=m-5*(np.log(d/10))
+
 print("Calculating Cartesian Coordinates")
 
 #convert galactic coordinates from degrees to radians in preparation for xyz coordinate calculations
 l=np.radians(gaia_DR3_df["l"])
 b=np.radians(gaia_DR3_df["b"])
-
-#prepare existing distance column for xzy coordinate calculations
-d=gaia_DR3_df["distance"]
 
 #create new column with calculated x-coordinates (where positive x is coreward and negative x is rimward)
 gaia_DR3_df["X"]=d*np.cos(b)*np.cos(l)

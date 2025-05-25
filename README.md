@@ -16,8 +16,6 @@ initial functions:
 
 if no cached file is present:
 - query Gaia dataset with user-defined parallax range - gets Gaia DR3 designation, gal-lon, gal-lat, parallax and G-band magnitude (as measured by Gaia space telescope) and ingests these into a Panda dataframe
-- calculates distance from Sol in parsecs (from Gaia-measured parallax), adds as column to Panda dataframe
-- calculates adjusted mag for stars (approx. equivalent to Absolute Magnitude) from G-band for Gaia stars, adds as column to Panda dataframe
 - query SIMBAD to cross-match Gaia designations with Star Names and Spectral Classifications, add as columns to Panda data frame
 - Note: this step is a bottleneck and initially produces the following warning:
 
@@ -26,7 +24,9 @@ if no cached file is present:
 ... but the script will continue to run and get matching data for almost all of the stars pulled from Gaia (and the issue is avoided if cached file is present)
 - saves a cached file with Gaia/SIMBAD query results
 
-if cached file is present (or has been generated):
+if cached file was already present (or has been generated):
+- calculates distance from Sol in parsecs (from Gaia-measured parallax), adds as column to Panda dataframe
+- calculates adjusted mag for stars (approx. equivalent to Absolute Magnitude) from G-band for Gaia stars, adds as column to Panda dataframe
 - calculates x,y,z coordinates (with Sol as the origin, X-axis as Coreward/Rimward, Y-axis as Spinward/Trailing, Z-axis as Galactic North/South) in parsecs from Gaia-measured G-lon and G-lat, adds as column to Panda dataframe
 - adds 140+ stars from not_in_Gaia_DR3.csv
 - exports panda datadframe as gaia_query_results.csv
@@ -44,18 +44,22 @@ contains results of previous runs that ran SIMBAD quert from Gaia data
 
 ## File: gaia_query_results.csv ##
 output file from gaia_query_results.csv
+
 - column 1 - designation from Gaia DR3 (or from DR2 or DR1 if not in DR3), empty if not in any Gaia DR
 - column 2 - l - galactic longitude - in degrees (as measured by Gaia in most cases, otherwise from SIMBAD)
 - column 3 - b - galactic latitude - in degrees (as measured by Gaia in most cases, otherwise from SIMBAD)
 - column 4 - parallax - in milliarcseconds (mas) (as measured by Gaia in most cases, otherwise from SIMBAD)
 - column 5 - phot_g_mean_mag (from Gaia)
-- column 6 - distance - in parsecs from Sol
-- column 7 - adjusted_mag - value after the equivalent of the conversion from Apparent Magnitude to Absolute Magnitude has been doen to the G_band measurement by Gaia (or the Absolute Magnitude value of non-Gaia stars from the csv)
-- column 8 - SIMBAD ID - main id in SIMBAD
-- column 9 - Spectral Type - spectral classification in SIMBAD (if any)
+- column 6 - SIMBAD ID - main id in SIMBAD (if a match existed between Gaia and SIMBAD)
+- column 7 - Spectral Type - spectral classification in SIMBAD (if any)
+- column 8 - distance - in parsecs from Sol
+- column 9 - adjusted_mag - value after the equivalent of the conversion from Apparent Magnitude to Absolute Magnitude has been doen to the G_band measurement by Gaia (or the Absolute Magnitude value of non-Gaia stars from the csv)
 - column 10 - X - cartesian coordinates in units of parsecs where positive X is coreward from Sol and negative X is rimward
 - column 11 - Y - cartesian coordinates in units of parsecs where positive Y is spinward from Sol and negative Y is trailing (in context of the direction of galactic disk rotation)
 - column 12 - Z - cartesian coordinates in units of parsecs where positive Z is "galactic north" and negative Z is "galactic south"
+- column 13 - interim_ID - "worksheet" column for translation of SIMBAD ID to more readable format
+- column 14 - Absolute_Mag - absolute magnitude of bright stars not present in Gaia DR3
+- column 15 - star_name - readable star names to use for labelling in 3D sector maps
 
 ## File: not_in_Gaia_DR3.csv ##
 
