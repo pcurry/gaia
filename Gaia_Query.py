@@ -66,10 +66,12 @@ else:
     gaia_DR3_df = pd.read_csv(cached_file)
 
 print("Calculating Cartesian Coordinates")
+
 #convert galactic coordinates from degrees to radians in preparation for xyz coordinate calculations
 l=np.radians(gaia_DR3_df["l"])
 b=np.radians(gaia_DR3_df["b"])
 
+#prepare existing distance column for xzy coordinate calculations
 d=gaia_DR3_df["distance"]
 
 #create new column with calculated x-coordinates (where positive x is coreward and negative x is rimward)
@@ -81,14 +83,17 @@ gaia_DR3_df["Z"]=d*np.sin(b)
 # %%
 
 print("Converting SIMBAD IDs to proper star names")
+
 #create duplicate of SIMBAD ID column
 gaia_DR3_df["interim_ID"] = gaia_DR3_df["SIMBAD_ID"]
-#clean up weird bits of SIMBAD ID format
 column_to_clean="interim_ID"
+
+#remove unwanted prefixes from SIMBAD ID format
 string_1_to_remove="V* "
 string_2_to_remove="** "
 string_3_to_remove="* "
 string_4_to_remove="NAME "
+string_5_to_remove="  "
 gaia_DR3_df[column_to_clean]= (
     gaia_DR3_df[column_to_clean]
     .astype(str)
@@ -96,8 +101,138 @@ gaia_DR3_df[column_to_clean]= (
     .str.replace(string_2_to_remove, '', regex=False)
     .str.replace(string_3_to_remove, '', regex=False)
     .str.replace(string_4_to_remove, '', regex=False)
-    .str.strip()
+    .str.replace(string_5_to_remove, ' ', regex=False)
+    #and again to get rid of annoying triple spaces
+    .str.replace(string_5_to_remove, ' ', regex=False)
 )
+# %%
+
+#replace simbad abbreviations with full greek letters
+
+simbad_greek_letters = {
+    'alf': 'Alpha',
+    'bet': 'Beta',
+    'gam': 'Gamma',
+    'del': 'Delta',
+    'eps': 'Epsilon',
+    'zet': 'Zeta',
+    'eta': 'Eta',
+    'tet': 'Theta',
+    'iot': 'Iota',
+    'lap': 'Kappa',
+    'lam': 'Lambda',
+    'mu.': 'Mu',
+    'nu.': 'Nu',
+    'ksi': 'Xi',
+    'omi': 'Omicron',
+    'pi.': 'Pi',
+    'rho': 'Rho',
+    'sig': 'Sigma',
+    'tau': 'Tau',
+    'ups': 'Upsilon',
+    'phi': 'Phi',
+    'khi': 'Chi',
+    'psi': 'Psi',
+    'ome': 'Omega'}
+
+#need to insert code to edit interim_ID column based on above dictionary
+
+# %%
+
+#replace SIMBAD constellation abbreviations with genitive forms of constellation names
+
+simbad_constellation_abbreviations = {
+    'And': 'Andromedae',
+    'Ant': 'Antliae',
+    'Aps': 'Apodis',
+    'Aqr': 'Aquarii',
+    'Aql': 'Aquilae',
+    'Ara': 'Arae',
+    'Ari': 'Arietis',
+    'Aur': 'Aurigae',
+    'Boo': 'Boötis',
+    'Cae': 'Caeli',
+    'Cam': 'Camelopardalis',
+    'Cnc': 'Cancri',
+    'CVn': 'Canum Venaticorum',
+    'CMa': 'Canis Majoris',
+    'CMi': 'Canis Minoris',
+    'Cap': 'Capricorni',
+    'Car': 'Carinae',
+    'Cas': 'Cassiopeiae',
+    'Cen': 'Centauri',
+    'Cep': 'Cephei',
+    'Cet': 'Ceti',
+    'Cha': 'Chamaeleontis',
+    'Cir': 'Circini',
+    'Col': 'Columbae',
+    'Com': 'Comae Berenices',
+    'CrA': 'Coronae Australis',
+    'CrB': 'Coronae Borealis',
+    'Crv': 'Corvi',
+    'Crt': 'Crateris',
+    'Cru': 'Crucis',
+    'Cyg': 'Cygni',
+    'Del': 'Delphini',
+    'Dor': 'Doradus',
+    'Dra': 'Draconis',
+    'Eql': 'Equulei',
+    'Eri': 'Eridani',
+    'For': 'Fornacis',
+    'Gem': 'Geminorum',
+    'Gru': 'Gruis',
+    'Her': 'Herculis',
+    'Hor': 'Horologii',
+    'Hya': 'Hydrae',
+    'Hyi': 'Hydri',
+    'Ind': 'Indi',
+    'Lac': 'Lacertae',
+    'Leo': 'Leonis',
+    'LMi': 'Leonis Minoris',
+    'Lep': 'Leporis',
+    'Lib': 'Librae',
+    'Lup': 'Lupi',
+    'Lyn': 'Lyncis',
+    'Lyr': 'Lyrae',
+    'Men': 'Mensae',
+    'Mic': 'Microscopii',
+    'Mon': 'Monocerotis',
+    'Mus': 'Muscae',
+    'Nor': 'Normae',
+    'Oct': 'Octantis',
+    'Oph': 'Ophiuchi',
+    'Ori': 'Orionis',
+    'Pav': 'Pavonis',
+    'Peg': 'Pegasi',
+    'Per': 'Persei',
+    'Phe': 'Phoenicis',
+    'Pic': 'Pictoris',
+    'Psc': 'Piscium',
+    'PsA': 'Piscis Austrini',
+    'Pup': 'Puppis',
+    'Pyx': 'Pyxidis',
+    'Ret': 'Reticulii',
+    'Sge': 'Sagittae',
+    'Sgr': 'Sagittarii',
+    'Sco': 'Scorpii',
+    'Scl': 'Sculptoris',
+    'Sct': 'Scuti',
+    'Ser': 'Serpentis',
+    'Sex': 'Sextantis',
+    'Tau': 'Tauri',
+    'Tel': 'Telescopii',
+    'Tri': 'Trianguli',
+    'TrA': 'Trianguli Australis',
+    'Tuc': 'Tucanae',
+    'UMa': 'Ursae Majoris',
+    'UMi': 'Ursae Minoris',
+    'Vel': 'Velorum',
+    'Vir': 'Virginis',
+    'Vol': 'Volantis',
+    'Vul': 'Vulpeculae'}
+
+#need to insert code to edit interim_ID column based on above dictionary
+
 # %%
 
 print("Adding Stars Outside of Gaia DR3")
