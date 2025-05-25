@@ -2,6 +2,7 @@
 
 print("Initializing...")
 import os
+import random
 import numpy as np
 from astroquery.gaia import Gaia
 from astroquery.simbad import Simbad
@@ -11,16 +12,34 @@ Simbad.add_votable_fields('main_id', 'sp_type')
 
 cached_file = "gaia_cached.csv"
 
-pmax = 40
+# %%
+
+def get_random_quote():
+
+    quotes = [
+        "'My God, it's full of stars.' ~ final transmission of Commander David Bowman during EVA from Discovery One",
+        "'We are all in the gutter, but some of us are looking at the stars.' ~ Oscar Wilde",
+        "'The wonder is, not that the field of stars is so vast, but that man has measured it.' ~ Anatole France",
+	    "'Nay, I swear by the places of the stars - and lo! that is verily a tremendous oath, if ye but knew' ~ Sura 56:75-76"
+    ]
+    return random.choice(quotes)
+
+if __name__ == "__main__":
+    print(get_random_quote())
+
+# %%
 
 if not os.path.exists(cached_file):
-    print(f"Querying Gaia DR3 for all stars with parallax greater than pmax={pmax} mas")
-    #query Gaia dataset for galactic longitude, latitude and parallax of nearby stars (within 25 parsecs)
+    print("No Cached File Found - Gaia and SIMBAD Queries Required - Please Define Parallax Range You Wish To Sample")
+    pmin = input("Enter minimum parallax in milliarcseconds - e.g. set to 770 or higher to include Proxima Centauri: ")
+    pmax = input("Enter maximum parallax in milliarcseconds - e.g. set to 40 to reach out to 25 parsecs from Sol: ")
+    print(f"Querying Gaia DR3 for all stars with parallaxes between {pmin} and {pmax} milliarcseconds")
+    #query Gaia dataset for galactic longitude, latitude and parallax of stars within user-defined parallaxes
     #will need to update to gaia data release 4 (gaiadr4) when it comes out (no earlier than mid-2026) and gaiadr5 (eta 2030)
     query = f"""
     SELECT designation, l, b, parallax, phot_g_mean_mag
     FROM gaiadr3.gaia_source
-    WHERE parallax > {pmax}
+    WHERE parallax > {pmax} AND parallax < {pmin}
     """
     job = Gaia.launch_job_async(query)
     table = job.get_results()
@@ -39,10 +58,16 @@ if not os.path.exists(cached_file):
     #create a new column that normalizes Gaia G-Mag to a distance of 10 parsecs
     gaia_DR3_df["adjusted_mag"]=m-5*(np.log(d/10))
     
-    print("Querying SIMBAD for Star Names and Spectral Types")
+    print("Preparing to Query SIMBAD for Star Names and Spectral Types")
     #prepare lists to store the results from Simbad
     star_names = []
     spectral_types = []
+    
+    print("just to let you you know, this may take a while...")
+    print("also, SIMBAD will likely return a warning message that the request executed correctly, but there was no data corresponding to these criteria")
+    print("(this is due to fraction of Gaia designations with no matching entries in SIMBAD and not a failure to find any matches)")
+    print("(it is safe to ignore this warning and allow the script to continue to run)")
+    print("okay, querying SIMBAD now...")
     #iteratively query SIMBAD from the designation row
     for index, row in gaia_DR3_df.iterrows():
         designation = row["designation"]
@@ -55,6 +80,7 @@ if not os.path.exists(cached_file):
         else:
             star_names.append("")
             spectral_types.append("")
+    print("SIMBAD Query Completed")
     # %%
     print ("Merging SIMBAD and Gaia Results")
     gaia_DR3_df["SIMBAD_ID"]=star_names
@@ -101,8 +127,9 @@ gaia_DR3_df[column_to_clean]= (
     .str.replace(string_2_to_remove, '', regex=False)
     .str.replace(string_3_to_remove, '', regex=False)
     .str.replace(string_4_to_remove, '', regex=False)
+    #remove annoying double spaces
     .str.replace(string_5_to_remove, ' ', regex=False)
-    #and again to get rid of annoying triple spaces
+    #and again to get rid of those very annoying triple spaces
     .str.replace(string_5_to_remove, ' ', regex=False)
 )
 # %%
