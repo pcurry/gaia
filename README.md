@@ -10,11 +10,11 @@ overall purpose: parsing ESA Gaia data into 3D sector maps for sci-fi purposes
 
 ## File: Gaia_Query.py ##
 
-current functionality:
+initial functions:
 - throws out a random inspriational quote
 - loads cached file with previous merged Gaia and SIMBAD data (if present) 
 
-- if no cached file is present:
+if no cached file is present:
 - query Gaia dataset with user-defined parallax range - gets Gaia DR3 designation, gal-lon, gal-lat, parallax and G-band magnitude (as measured by Gaia space telescope) and ingests these into a Panda dataframe
 - calculates distance from Sol in parsecs (from Gaia-measured parallax), adds as column to Panda dataframe
 - calculates adjusted mag for stars (approx. equivalent to Absolute Magnitude) from G-band for Gaia stars, adds as column to Panda dataframe
@@ -24,7 +24,9 @@ current functionality:
 ```WARNING: NoResultsWarning: The request executed correctly, but there was no data corresponding to these criteria in SIMBAD [astroquery.simbad.core]```
 
 ... but the script will continue to run and get matching data for almost all of the stars pulled from Gaia (and the issue is avoided if cached file is present)
+- saves a cached file with Gaia/SIMBAD query results
 
+if cached file is present (or has been generated):
 - calculates x,y,z coordinates (with Sol as the origin, X-axis as Coreward/Rimward, Y-axis as Spinward/Trailing, Z-axis as Galactic North/South) in parsecs from Gaia-measured G-lon and G-lat, adds as column to Panda dataframe
 - adds 140+ stars from not_in_Gaia_DR3.csv
 - exports panda datadframe as gaia_query_results.csv
