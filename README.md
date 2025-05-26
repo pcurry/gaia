@@ -38,7 +38,8 @@ punch list / road map for continued development:
 - include better handling of when no G-Mag value is present from Gaia dataset
 - include better handling of when SIMBAD has no cross-matched entries
 - include better handling of when SIMBAD has cross-match but no spectral type
-- resolve remaining difficulties in converting SIMBAD IDs to star labels
+- change so any blank cells in label_name is filled with Gaia DR3 desigation
+- check cache file for any remaining issues converting SIMBAD IDs to star labels
 
 ## File: gaia_cached.csv ##
 contains results of previous runs which cross-matched Gaia and SIMBAD data

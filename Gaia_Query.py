@@ -8,6 +8,7 @@ from astroquery.gaia import Gaia
 from astroquery.simbad import Simbad
 from astropy.table import Table
 import pandas as pd
+import re
 
 cached_file = "gaia_cached.csv"
 
@@ -113,6 +114,7 @@ gaia_DR3_df["label_name"] = gaia_DR3_df["label_name"].fillna('')
 column_to_clean="label_name"
 
 #remove unwanted prefixes and other nonsense from SIMBAD ID format
+
 string_1_to_remove="Cl* "
 string_2_to_remove="V* "
 string_3_to_remove="** "
@@ -122,6 +124,11 @@ string_6_to_remove="* "
 string_7_to_remove="NAME "
 string_8_to_remove="  "
 string_1_to_replace=" star"
+
+def add_space_before_letter(text):
+    text = str(text)
+    return re.sub(r'(?<! )([A-Z])$', r' \1', text)
+
 gaia_DR3_df[column_to_clean]= (
     gaia_DR3_df[column_to_clean]
     .astype(str)
@@ -137,6 +144,7 @@ gaia_DR3_df[column_to_clean]= (
     #and again to get rid of those very annoying triple spaces
     .str.replace(string_8_to_remove, ' ', regex=False)
     .str.replace(string_1_to_replace, ' Star', regex=False)
+    .apply(add_space_before_letter)
 )
 # %%
 
