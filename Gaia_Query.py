@@ -110,41 +110,22 @@ print("Generating Star Names from SIMBAD IDs")
 
 #create duplicate of SIMBAD ID column
 gaia_DR3_df["label_name"] = gaia_DR3_df["SIMBAD_ID"]
-gaia_DR3_df["label_name"] = gaia_DR3_df["label_name"].fillna('')
+gaia_DR3_df["label_name"] = gaia_DR3_df["label_name"].fillna(gaia_DR3_df["designation"])
 column_to_clean="label_name"
 
+# %%
+
 #remove unwanted prefixes and other nonsense from SIMBAD ID format
-
-string_1_to_remove="Cl* "
-string_2_to_remove="V* "
-string_3_to_remove="** "
-string_4_to_remove="*   "
-string_5_to_remove="*  "
-string_6_to_remove="* "
-string_7_to_remove="NAME "
-string_8_to_remove="  "
-string_1_to_replace=" star"
-
-def add_space_before_letter(text):
-    text = str(text)
-    return re.sub(r'(?<! )([A-Z])$', r' \1', text)
 
 gaia_DR3_df[column_to_clean]= (
     gaia_DR3_df[column_to_clean]
     .astype(str)
-    .str.replace(string_1_to_remove, '', regex=False)
-    .str.replace(string_2_to_remove, '', regex=False)
-    .str.replace(string_3_to_remove, '', regex=False)
-    .str.replace(string_4_to_remove, '', regex=False)
-    .str.replace(string_5_to_remove, '', regex=False)
-    .str.replace(string_6_to_remove, '', regex=False)
-    .str.replace(string_7_to_remove, '', regex=False)
-    #remove annoying double spaces
-    .str.replace(string_8_to_remove, ' ', regex=False)
-    #and again to get rid of those very annoying triple spaces
-    .str.replace(string_8_to_remove, ' ', regex=False)
-    .str.replace(string_1_to_replace, ' Star', regex=False)
-    .apply(add_space_before_letter)
+    .str.replace(r'star', 'Star', regex=True) #fix 'Baranrd's star' and similar occurences from SIMBAD
+    .str.replace(r'NAME ', '', regex=True) #remove SIMBAD prefix to proper star names
+    .str.replace(r'GR\*', 'GR', regex=True) #
+    .str.replace(r'.*?\*', '', regex=True) #remove prefixes to star names
+    .str.lstrip() #remove whitespace to left of any star name
+    .str.replace(r'\s{2,}', ' ', regex=True) #remove double/triple spaces
 )
 # %%
 
@@ -152,13 +133,12 @@ gaia_DR3_df[column_to_clean]= (
 
 simbad_greek_letters = {
     'alf ': 'Alpha ',
-    #out of order to sidestep the ZEta/BEta problem
-    'eta ': 'Eta ',
     'bet ': 'Beta ',
     'gam ': 'Gamma ',
     'del ': 'Delta ',
     'eps ': 'Epsilon ',
     'zet ': 'Zeta ',
+    'eta ': 'Eta ',
     'tet ': 'Theta ',
     'iot ': 'Iota ',
     'kap ': 'Kappa ',
@@ -187,11 +167,8 @@ simbad_greek_letters = {
     'iot0': 'Iota-',
     'kap0': 'Kappa-',
     'lam0': 'Lambda-',
-    'mu.0': 'Mu-',
-    'nu.0': 'Nu-',
     'ksi0': 'Xi-',
     'omi0': 'Omicron-',
-    'pi.0': 'Pi-',
     'rho0': 'Rho-',
     'sig0': 'Sigma-',
     'tau0': 'Tau-',
@@ -201,7 +178,7 @@ simbad_greek_letters = {
     'psi0': 'Psi-',
     'ome0': 'Omega-'}
 
-for key, value in simbad_greek_letters.items():
+for key, value in simbad_greek_letters.items():    
     gaia_DR3_df['label_name'] = gaia_DR3_df['label_name'].str.replace(key, value, regex=False)
 
 # %%
@@ -228,8 +205,6 @@ simbad_const_abbrv = {
     ' Car': ' Carinae',
     ' Cas': ' Cassiopeiae',
     ' Cen': ' Centauri',
-    #fix issue created with Proxima Centauri
-    'Centauritauri': 'Centauri',
     ' Cep': ' Cephei',
     ' Cet': ' Ceti',
     ' Cha': ' Chamaeleontis',
@@ -302,6 +277,26 @@ simbad_const_abbrv = {
 
 for key, value in simbad_const_abbrv.items():
     gaia_DR3_df['label_name'] = gaia_DR3_df['label_name'].str.replace(key, value, regex=False)
+# %%
+
+#clean up remaining artifacts
+
+def add_space_before_letter(text):
+    text = str(text)
+    return re.sub(r'(?<! )([A-Z])$', r' \1', text)
+
+gaia_DR3_df[column_to_clean]= (
+    gaia_DR3_df[column_to_clean]
+    .astype(str)
+    .str.replace(r'Mu0', 'Mu-', regex=True)
+    .str.replace(r'Nu0', 'Nu-', regex=True)
+    .str.replace(r'Pi0', 'Pi-', regex=True)
+    .str.replace(r'BEta', 'Beta', regex=True)
+    .str.replace(r'ZEta', 'Zeta', regex=True)
+    .str.replace(r'Centauritauri', 'Centauri', regex=True) #fix Proxima Centauri
+    .apply(add_space_before_letter)
+)
+
 # %%
 print("Adding Stars Outside of Gaia DR3")
 #add stars which do not appear in any Gaia data release or do not appear in DR3
