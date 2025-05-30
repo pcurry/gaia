@@ -60,7 +60,8 @@ output file from gaia_query_results.csv
 - column 10 - X - cartesian coordinates in units of parsecs where positive X is coreward from Sol and negative X is rimward
 - column 11 - Y - cartesian coordinates in units of parsecs where positive Y is spinward from Sol and negative Y is trailing (in context of the direction of galactic disk rotation)
 - column 12 - Z - cartesian coordinates in units of parsecs where positive Z is "galactic north" and negative Z is "galactic south
-- column 13 - label_name - readable star names to use for labelling in 3D sector maps
+- column 13 - sector reference code (e.g. C1-S1-U1 is Coreward One, Spinward One, Upward One, R4-T5-D3 is Rimward 4, Trailing 5, Downward 3)
+- column 14 - label_name - readable star names to use for labelling in 3D sector maps
 
 ## File: not_in_Gaia_DR3.csv ##
 
@@ -83,7 +84,6 @@ per wikipedia: "The distance to Beta Phoenicis is poorly known. The original red
 ## Separate script to be written ##
 
 - ingests gaia_query_results.csv file produced by Gaia_Query.py
-- parses into 10 parsec x 10 parsec x 10 parsec cubes
 - creates 3D plots as sector maps (Iota_Pegasi_Sector.py being a prototype)
 - color of markers to be keyed to spectral type (OBAFGKM) of star
 - size of markers to be keyed to the brightness of the star

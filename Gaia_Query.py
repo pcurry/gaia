@@ -9,6 +9,7 @@ from astroquery.simbad import Simbad
 from astropy.table import Table
 import pandas as pd
 import re
+import math
 
 cached_file = "gaia_cached.csv"
 
@@ -104,6 +105,29 @@ gaia_DR3_df["X"]=d*np.cos(b)*np.cos(l)
 gaia_DR3_df["Y"]=d*np.cos(b)*np.sin(l)
 #create new column with calculated z-coordinates (where positive z is "galactic north" and negative z is "galactic south" per arbitrary convention)
 gaia_DR3_df["Z"]=d*np.sin(b)
+
+# %%
+
+print("Parsing Into Sectors...")
+original_x_values = gaia_DR3_df["X"]
+original_y_values = gaia_DR3_df["Y"]
+original_z_values = gaia_DR3_df["Z"]
+
+x_prefix = original_x_values.apply(lambda val: "C" if val >= 0 else "R")
+y_prefix = original_y_values.apply(lambda val: "S" if val >= 0 else "T")
+z_prefix = original_z_values.apply(lambda val: "U" if val >= 0 else "D")
+
+x_rounded = (gaia_DR3_df["X"].abs() / 10).apply(math.ceil).astype(int)
+y_rounded = (gaia_DR3_df["Y"].abs() / 10).apply(math.ceil).astype(int)
+z_rounded = (gaia_DR3_df["Z"].abs() / 10).apply(math.ceil).astype(int)
+
+gaia_DR3_df["Sector_Reference"] = x_prefix.astype(str) + \
+                                   x_rounded.astype(str) + "-" + \
+                                   y_prefix.astype(str) + \
+                                   y_rounded.astype(str) + "-" + \
+                                   z_prefix.astype(str) + \
+                                   z_rounded.astype(str)
+
 # %%
 
 print("Generating Star Names from SIMBAD IDs")
