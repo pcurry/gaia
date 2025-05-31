@@ -8,7 +8,7 @@ overall purpose: parsing ESA Gaia data into 3D sector maps for sci-fi purposes
 - Matplotlib
 - Pandas
 
-## File: Gaia_Query.py ##
+## File: Sector_Query.py ##
 
 initial functions:
 - loads relevant libraries
@@ -29,24 +29,26 @@ if cached file was already present (or has been generated):
 - calculates distance from Sol in parsecs (from Gaia-measured parallax), adds as column to Panda dataframe
 - calculates adjusted mag for stars (approx. equivalent to Absolute Magnitude) from G-band for Gaia stars, adds as column to Panda dataframe
 - calculates x,y,z coordinates (with Sol as the origin, X-axis as Coreward/Rimward, Y-axis as Spinward/Trailing, Z-axis as Galactic North/South) in parsecs from Gaia-measured G-lon and G-lat, adds as column to Panda dataframe
+- calculates and applies a sector reference code (e.g. C1-S1-U1 is Coreward One, Spinward One, Upward One, R4-T5-D3 is Rimward 4, Trailing 5, Downward 3)
 - converts SIMBAD IDs to more human-friendly text for star labels in eventual 3D plots
 - adds 140+ stars from not_in_Gaia_DR3.csv
-- exports panda datadframe as gaia_query_results.csv
+- exports panda datadframe as all_resorts_sorted_by_sector.csv
+- parses into separate additional .csv files for every 10pc x 10 pc x 10 pc sector within the dataframe
 
 punch list / road map for continued development:
 - continue to vet the data in not_in_Gaia_DR3.csv (e.g. missing spectral types, absolute magnitudes)
+- include handling of Sol (which would appear in 8 sectors under this coordinate system)
+- include option for user to opt out of parsing into individual sector files
 - include better handling of when no G-Mag value is present from Gaia dataset
-- include better handling of when SIMBAD has no cross-matched entries
 - include better handling of when SIMBAD has cross-match but no spectral type
-- change so any blank cells in label_name is filled with Gaia DR3 desigation
 - check cache file for any remaining issues converting SIMBAD IDs to star labels
 
 ## File: gaia_cached.csv ##
 contains results of previous runs which cross-matched Gaia and SIMBAD data
 (not mirrored on github)
 
-## File: gaia_query_results.csv ##
-output file from gaia_query_results.csv
+## File: all_results_sorted_by_sector.csv ##
+primary output file from sector_query_results.csv
 
 - column 1 - designation from Gaia DR3 (or from DR2 or DR1 if not in DR3), empty if not in any Gaia DR
 - column 2 - l - galactic longitude - in degrees (as measured by Gaia in most cases, otherwise from SIMBAD)
@@ -65,13 +67,15 @@ output file from gaia_query_results.csv
 
 ## File: not_in_Gaia_DR3.csv ##
 
-contains 142 stars formatted for ingest into panda dataframe by Gaia_Query.py
+contains 141 stars formatted for ingest into panda dataframe by Gaia_Query.py
 
 specifically: stars with Bayer and/or Flamsteed Designations but no matching entries in DR3 (based on queries made in SIMBAD and cross-checking to remove cases where binary systems had separate entries in Gaia DR3 and/or DR2)
 
 mostly these are stars which are too bright for Gaia / saturated the detector, while some (~40) appear in DR1 and/or DR2 but not DR3
 
-minor exception: Procyon B - dim white dwarf which was not in any Gaia dataset (presumably due to proximity to the bright star Procyon A)
+exception: currently does not include Sol (a G2V star at X=0, Y=0, Z=0 which would be split between 8 sectors in this coordinate system)
+
+exception: includes Procyon B - dim white dwarf which was not in any Gaia dataset (presumably due to proximity to the bright star Procyon A)
 
 includes parallax, gal-lon, gal-lat, parallax and spectral type from SIMBAD
 
@@ -83,7 +87,7 @@ per wikipedia: "The distance to Beta Phoenicis is poorly known. The original red
 
 ## Separate script to be written ##
 
-- ingests gaia_query_results.csv file produced by Gaia_Query.py
+- ingests individual sector files produced by Sector_Query.py
 - creates 3D plots as sector maps (Iota_Pegasi_Sector.py being a prototype)
 - color of markers to be keyed to spectral type (OBAFGKM) of star
 - size of markers to be keyed to the brightness of the star
