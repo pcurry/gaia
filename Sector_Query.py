@@ -12,7 +12,7 @@ import re
 import math
 import sys
 
-cached_file = "gaia_cached.csv"
+cached_file = "xmatched_cached.csv"
 
 # %%
 
@@ -50,10 +50,11 @@ if not os.path.exists(cached_file):
     gaia_DR3_df = table.to_pandas()
     
     print("Preparing to Query SIMBAD for Star Names and Spectral Types")
-    Simbad.add_votable_fields('main_id', 'sp_type')
+    Simbad.add_votable_fields('main_id', 'sp_type', 'otype')
     #prepare lists to store the results from Simbad
     star_names = []
     spectral_types = []
+    object_types = []
     
     print("just to let you you know, this may take a while...")
     print("also, SIMBAD will likely return a warning message that the request executed correctly, but there was no data corresponding to these criteria")
@@ -67,16 +68,20 @@ if not os.path.exists(cached_file):
         if simbad_result is not None and len(simbad_result)>0:
             simbad_1 = simbad_result['main_id'][0] if 'main_id' in simbad_result.colnames else 'N/A'
             simbad_2 = simbad_result['sp_type'][0] if 'sp_type' in simbad_result.colnames else 'N/A'
+            simbad_3 = simbad_result['otype'][0] if 'otype' in simbad_result.colnames else 'N/A'
             star_names.append(simbad_1)
             spectral_types.append(simbad_2)
+            object_types.append(simbad_3)
         else:
             star_names.append("")
             spectral_types.append("")
+            object_types.append("")
     print("SIMBAD Query Completed")
     # %%
     print ("Merging SIMBAD and Gaia Results")
     gaia_DR3_df["SIMBAD_ID"]=star_names
     gaia_DR3_df["Spectral_Type"]=spectral_types
+    gaia_DR3_df["Object_Type"]= object_types
     print(f"Writing to cached {cached_file}")    
     gaia_DR3_df.to_csv(cached_file, index=False)
 else:
@@ -135,7 +140,7 @@ print("Generating Star Names from SIMBAD IDs")
 #rename datadframe to reflect it will now include more data sources than just Gaia DR3
 xmatched_df = gaia_DR3_df
 
-#create duplicate of SIMBAD ID column
+#create a duplicate of the SIMBAD ID column
 xmatched_df["label_name"] = xmatched_df["SIMBAD_ID"]
 xmatched_df["label_name"] = xmatched_df["label_name"].fillna(xmatched_df["designation"])
 column_to_clean="label_name"
