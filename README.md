@@ -17,7 +17,7 @@ initial functions:
 
 if no cached file is present:
 - query Gaia dataset with user-defined parallax range - gets Gaia DR3 designation, gal-lon, gal-lat, parallax and G-band magnitude (as measured by Gaia space telescope) and ingests these into a Panda dataframe
-- query SIMBAD to cross-match Gaia designations with Star Names and Spectral Classifications, add as columns to Panda data frame
+- query SIMBAD to cross-match Gaia designations with Star Names, Spectral Classifications and Object Type, add as columns to Panda data frame
 - Note: this step is a bottleneck and initially produces the following warning:
 
 ```WARNING: NoResultsWarning: The request executed correctly, but there was no data corresponding to these criteria in SIMBAD [astroquery.simbad.core]```
@@ -57,13 +57,14 @@ primary output file from sector_query_results.csv
 - column 5 - phot_g_mean_mag (from Gaia)
 - column 6 - SIMBAD ID - main id in SIMBAD (if a match existed between Gaia and SIMBAD)
 - column 7 - Spectral Type - spectral classification in SIMBAD (if any)
-- column 8 - distance - in parsecs from Sol
-- column 9 - adjusted_mag - value after the equivalent of the conversion from Apparent Magnitude to Absolute Magnitude has been done to the G_band magnitude from Gaia (or the Absolute Magnitude value of non-Gaia stars from the csv)
-- column 10 - X - cartesian coordinates in units of parsecs where positive X is coreward from Sol and negative X is rimward
-- column 11 - Y - cartesian coordinates in units of parsecs where positive Y is spinward from Sol and negative Y is trailing (in context of the direction of galactic disk rotation)
-- column 12 - Z - cartesian coordinates in units of parsecs where positive Z is "galactic north" and negative Z is "galactic south
-- column 13 - sector reference code (e.g. C1-S1-U1 is Coreward One, Spinward One, Upward One, R4-T5-D3 is Rimward 4, Trailing 5, Downward 3)
-- column 14 - label_name - readable star names to use for labelling in 3D sector maps
+- column 8 - Obect Type - object type in SIMBAD (if any)
+- column 9 - distance - in parsecs from Sol
+- column 10 - adjusted_mag - value after the equivalent of the conversion from Apparent Magnitude to Absolute Magnitude has been done to the G_band magnitude from Gaia (or the Absolute Magnitude value of non-Gaia stars from the csv)
+- column 11 - X - cartesian coordinates in units of parsecs where positive X is coreward from Sol and negative X is rimward
+- column 12 - Y - cartesian coordinates in units of parsecs where positive Y is spinward from Sol and negative Y is trailing (in context of the direction of galactic disk rotation)
+- column 13 - Z - cartesian coordinates in units of parsecs where positive Z is "galactic north" and negative Z is "galactic south
+- column 14 - sector reference code (e.g. C1-S1-U1 is Coreward One, Spinward One, Upward One, R4-T5-D3 is Rimward 4, Trailing 5, Downward 3)
+- column 15 - label_name - readable star names to use for labelling in 3D sector maps
 
 ## File: not_in_Gaia_DR3.csv ##
 
