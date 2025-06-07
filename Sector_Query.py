@@ -39,7 +39,7 @@ if not os.path.exists(cached_file):
     #query Gaia dataset for galactic longitude, latitude and parallax of stars within user-defined parallaxes
     #will need to update to gaia data release 4 (gaiadr4) when it comes out (no earlier than mid-2026) and gaiadr5 (eta 2030)
     query = f"""
-    SELECT designation, l, b, parallax, phot_g_mean_mag
+    SELECT designation, l, b, parallax, phot_g_mean_mag, teff_gspphot, mh_gspphot, logg_gspphot
     FROM gaiadr3.gaia_source
     WHERE parallax > {pmax} AND parallax < {pmin}
     """
