@@ -39,7 +39,7 @@ if not os.path.exists(cached_file):
     #query Gaia dataset for galactic longitude, latitude and parallax of stars within user-defined parallaxes
     #will need to update to gaia data release 4 (gaiadr4) when it comes out (no earlier than mid-2026) and gaiadr5 (eta 2030)
     query = f"""
-    SELECT designation, l, b, parallax, phot_g_mean_mag, teff_gspphot, mh_gspphot, logg_gspphot
+    SELECT designation, l, b, parallax, phot_g_mean_mag, bp_rp, bp_g, g_rp, teff_gspphot, mh_gspphot, logg_gspphot
     FROM gaiadr3.gaia_source
     WHERE parallax > {pmax} AND parallax < {pmin}
     """
@@ -56,6 +56,8 @@ if not os.path.exists(cached_file):
     spectral_types = []
     object_types = []
     
+    #memo to self: tweak to submit arrays to SIMBAD / improve speed
+
     print("just to let you you know, this may take a while...")
     print("also, SIMBAD will likely return a warning message that the request executed correctly, but there was no data corresponding to these criteria")
     print("(this is due to fraction of Gaia designations with no matching entries in SIMBAD and not a failure to find any matches)")
