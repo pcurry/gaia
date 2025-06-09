@@ -16,7 +16,8 @@ initial functions:
 - loads cached file with previous merged Gaia and SIMBAD data (if present) 
 
 if no cached file is present:
-- query Gaia dataset with user-defined parallax range - gets Gaia DR3 designation, gal-lon, gal-lat, parallax and G-band magnitude (as measured by Gaia space telescope) and ingests these into a Panda dataframe
+- query Gaia dataset with user-defined parallax range - gets Gaia DR3 designation, gal-lon, gal-lat, parallax, G-band magnitude, bp_rp,bp_g,g_rp,teff_gspphot,mh_gspphot 
+    and logg_gspphot and ingests these into a Panda dataframe
 - query SIMBAD to cross-match Gaia designations with Star Names, Spectral Classifications and Object Type, add as columns to Panda data frame
 - Note: this step is a bottleneck and initially produces the following warning:
 
@@ -55,16 +56,22 @@ primary output file from sector_query_results.csv
 - column 3 - b - galactic latitude - in degrees (as measured by Gaia in most cases, otherwise from SIMBAD)
 - column 4 - parallax - in milliarcseconds (mas) (as measured by Gaia in most cases, otherwise from SIMBAD)
 - column 5 - phot_g_mean_mag (from Gaia)
-- column 6 - SIMBAD ID - main id in SIMBAD (if a match existed between Gaia and SIMBAD)
-- column 7 - Spectral Type - spectral classification in SIMBAD (if any)
-- column 8 - Obect Type - object type in SIMBAD (if any)
-- column 9 - distance - in parsecs from Sol
-- column 10 - adjusted_mag - value after the equivalent of the conversion from Apparent Magnitude to Absolute Magnitude has been done to the G_band magnitude from Gaia (or the Absolute Magnitude value of non-Gaia stars from the csv)
-- column 11 - X - cartesian coordinates in units of parsecs where positive X is coreward from Sol and negative X is rimward
-- column 12 - Y - cartesian coordinates in units of parsecs where positive Y is spinward from Sol and negative Y is trailing (in context of the direction of galactic disk rotation)
-- column 13 - Z - cartesian coordinates in units of parsecs where positive Z is "galactic north" and negative Z is "galactic south
-- column 14 - sector reference code (e.g. C1-S1-U1 is Coreward One, Spinward One, Upward One, R4-T5-D3 is Rimward 4, Trailing 5, Downward 3)
-- column 15 - label_name - readable star names to use for labelling in 3D sector maps
+- column 6 - bp_rp (from Gaia)
+- column 7 - bp_g (from Gaia)
+- column 8 - g_rp (from Gaia)
+- column 9 - teff_gspphot (from Gaia - estimated stellar temperature in degrees Kelvin)
+- column 10 - mh_gspphot (from Gaia - estimated stellar metallicity in dex)
+- column 11 - logg_gspphot (fro Gaia - estimated stellar gravity)
+- column 12 - SIMBAD ID - main id in SIMBAD (if a match existed between Gaia and SIMBAD)
+- column 13 - Spectral Type - spectral classification in SIMBAD (if any)
+- column 14 - Obect Type - object type in SIMBAD (if any)
+- column 15 - distance - in parsecs from Sol
+- column 16 - adjusted_mag - value after the equivalent of the conversion from Apparent Magnitude to Absolute Magnitude has been done to the G_band magnitude from Gaia (or the Absolute Magnitude value of non-Gaia stars from the csv)
+- column 17 - X - cartesian coordinates in units of parsecs where positive X is coreward from Sol and negative X is rimward
+- column 18 - Y - cartesian coordinates in units of parsecs where positive Y is spinward from Sol and negative Y is trailing (in context of the direction of galactic disk rotation)
+- column 19 - Z - cartesian coordinates in units of parsecs where positive Z is "galactic north" and negative Z is "galactic south
+- column 20 - sector reference code (e.g. C1-S1-U1 is Coreward One, Spinward One, Upward One, R4-T5-D3 is Rimward 4, Trailing 5, Downward 3)
+- column 21 - label_name - readable star names to use for labelling in 3D sector maps
 
 ## File: not_in_Gaia_DR3.csv ##
 
