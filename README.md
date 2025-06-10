@@ -55,13 +55,13 @@ primary output file from sector_query_results.csv
 - column 2 - l - galactic longitude - in degrees (as measured by Gaia in most cases, otherwise from SIMBAD)
 - column 3 - b - galactic latitude - in degrees (as measured by Gaia in most cases, otherwise from SIMBAD)
 - column 4 - parallax - in milliarcseconds (mas) (as measured by Gaia in most cases, otherwise from SIMBAD)
-- column 5 - phot_g_mean_mag (from Gaia)
-- column 6 - bp_rp (from Gaia)
-- column 7 - bp_g (from Gaia)
-- column 8 - g_rp (from Gaia)
-- column 9 - teff_gspphot (from Gaia - estimated stellar temperature in degrees Kelvin)
-- column 10 - mh_gspphot (from Gaia - estimated stellar metallicity in dex)
-- column 11 - logg_gspphot (fro Gaia - estimated stellar gravity)
+- column 5 - phot_g_mean_mag - mean magnitude in the G-band from Gaia
+- column 6 - bp_rp - BP-RP color from Gaia
+- column 7 - bp_g - BP-G color from Gaia
+- column 8 - g_rp - G-RP color from Gaia 
+- column 9 - teff_gspphot - effective temperature from GSP-Phot (Generalized Stellar Parameterizer from Photometry) Aeneas best library using BP/RP spectra
+- column 10 - mh_gspphot - iron abundance from GSP-Phot Aeneas best library using BP/RP spectra
+- column 11 - logg_gspphot  - surface gravity from GSP-Phot Aeneas best library using BP/RP spectra
 - column 12 - SIMBAD ID - main id in SIMBAD (if a match existed between Gaia and SIMBAD)
 - column 13 - Spectral Type - spectral classification in SIMBAD (if any)
 - column 14 - Obect Type - object type in SIMBAD (if any)
