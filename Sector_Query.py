@@ -330,11 +330,16 @@ xmatched_df[column_to_clean]= (
 )
 
 # %%
-print("Adding Stars Outside of Gaia DR3")
-#add stars which do not appear in any Gaia data release or do not appear in DR3
-csv_file_path = 'not_in_Gaia_DR3.csv'
-not_in_Gaia_DR3_df = pd.read_csv(csv_file_path)
-df_merged = pd.concat([xmatched_df, not_in_Gaia_DR3_df], ignore_index=True)
+user_query = input("Do you want to add stars which were not present in Gaia DR3? (yes/no): ").lower()
+
+if user_query == "yes":
+    print("Adding Stars Outside of Gaia DR3")
+    #add stars which do not appear in any Gaia data release or do not appear in DR3
+    csv_file_path = 'not_in_Gaia_DR3.csv'
+    not_in_Gaia_DR3_df = pd.read_csv(csv_file_path)
+    df_merged = pd.concat([xmatched_df, not_in_Gaia_DR3_df], ignore_index=True)
+else:
+    print("ok - no additional stars added")
 
 # %%
 #sort panda dataframe by Sector Designations
