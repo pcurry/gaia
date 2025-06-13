@@ -338,29 +338,29 @@ if user_query == "yes":
     csv_file_path = 'not_in_Gaia_DR3.csv'
     not_in_Gaia_DR3_df = pd.read_csv(csv_file_path)
     df_merged = pd.concat([xmatched_df, not_in_Gaia_DR3_df], ignore_index=True)
+    #sort panda dataframe by Sector Designations
+    df_sorted = df_merged.sort_values(by='Sector_Reference')
+    #export a master csv with all of the Gaia/SIMBAD crossmatches sorted by sector
+    df_sorted.to_csv('all_results_sorted_by_sector.csv', index=False)
+    print("All Stars Within The Designated Parallax Range Have Been Crossmatched In SIMBAD, Parsed Into 10pc x 10 pc x 10 pc Sectors and Exported as all_results_sorted_by_sector.csv")
+
+    followup_query = input("Do you also want individual sector files?" (yes/no): ").lower()
+    if followup_query =="yes":
+        print("Parsing Into Indivual Sector Files")
+        unique_sectors = df_sorted['Sector_Reference'].unique()
+        for sector in unique_sectors:
+            # Filter df_sorted to include only rows with a particular sector
+            sector_df = df_sorted[df_sorted['Sector_Reference'] == sector]
+            # create a filename based on the sector
+            filename = f"sector_{sector.replace(' ', '_')}.csv"
+            # Export the filtered DataFrame to a CSV file
+            sector_df.to_csv(filename, index=False)
+            print(f"Exported Data for Sector '{sector}' to '{filename}'")
+            print("Finished Exporting All Data")
+    else:
+        print("ok - individual sector files were not generated")
+
 else:
     print("ok - no additional stars added")
-
-# %%
-#sort panda dataframe by Sector Designations
-df_sorted = df_merged.sort_values(by='Sector_Reference')
-
-#export a master csv with all of the Gaia/SIMBAD crossmatches sorted by sector
-df_sorted.to_csv('all_results_sorted_by_sector.csv', index=False)
-print("All Stars Within The Designated Parallax Range Have Been Crossmatched In SIMBAD, Parsed Into 10pc x 10 pc x 10 pc Sectors and Exported as all_results_sorted_by_sector.csv")
-
-# %%
-print("Parsing Into Indivual Sector Files")
-
-unique_sectors = df_sorted['Sector_Reference'].unique()
-
-for sector in unique_sectors:
-    # Filter df_sorted to include only rows with a particular sector
-    sector_df = df_sorted[df_sorted['Sector_Reference'] == sector]
-    # create a filename based on the sector
-    filename = f"sector_{sector.replace(' ', '_')}.csv"
-    # Export the filtered DataFrame to a CSV file
-    sector_df.to_csv(filename, index=False)
-    print(f"Exported Data for Sector '{sector}' to '{filename}'")
-
-print("Finished Exporting All Data")
+    xmatched_df.to_csv('DR3_results_sorted_by_sector.csv', index=False)
+    print("All Stars found in Gaia DR3 within the designated parallax range have been crossmatched in SIMBAD, parsed into 10pc x 10 pc x 10 pc Sectors and Exported as DR3_results_sorted_by_sector.csv")
