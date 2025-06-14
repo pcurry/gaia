@@ -32,14 +32,14 @@ if cached file was already present (or has been generated):
 - calculates x,y,z coordinates (with Sol as the origin, X-axis as Coreward/Rimward, Y-axis as Spinward/Trailing, Z-axis as Galactic North/South) in parsecs from Gaia-measured G-lon and G-lat, adds as column to Panda dataframe
 - calculates and applies a sector reference code (e.g. C1-S1-U1 is Coreward One, Spinward One, Upward One, R4-T5-D3 is Rimward 4, Trailing 5, Downward 3)
 - converts SIMBAD IDs to more human-friendly text for star labels in eventual 3D plots
-- adds 140+ stars from not_in_Gaia_DR3.csv
-- exports panda datadframe as all_resorts_sorted_by_sector.csv
-- parses into separate additional .csv files for every 10pc x 10 pc x 10 pc sector within the dataframe
+- adds 140+ stars from not_in_Gaia_DR3.csv (if user wants it)
+- exports panda datadframe as all_results_sorted_by_sector.csv (if user wanted non-DR3 stars added)
+- exports panda datadframe as DR3_sorted_by_sector.csv (if user did not want non-DR3 stars added)
+- parses into separate additional .csv files for every 10pc x 10 pc x 10 pc sector within the dataframe (if user wants it)
 
 punch list / road map for continued development:
 - continue to vet the data in not_in_Gaia_DR3.csv (e.g. missing spectral types, absolute magnitudes)
 - include handling of Sol (which would appear in 8 sectors under this coordinate system)
-- include option for user to opt out of parsing into individual sector files
 - include better handling of when no G-Mag value is present from Gaia dataset
 - include better handling of when SIMBAD has cross-match but no spectral type
 - check cache file for any remaining issues converting SIMBAD IDs to star labels
