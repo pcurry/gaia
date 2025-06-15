@@ -26,7 +26,7 @@ if no cached file is present:
 ... but the script will continue to run and get matching data for almost all of the stars pulled from Gaia (and the issue is avoided if cached file is present)
 - saves a cached file with Gaia/SIMBAD query results
 
-if cached file was already present (or has been generated):
+if cached file was already present (or has just been generated):
 - calculates distance from Sol in parsecs (from Gaia-measured parallax), adds as column to Panda dataframe
 - calculates adjusted mag for stars (approx. equivalent to Absolute Magnitude) from G-band for Gaia stars, adds as column to Panda dataframe
 - calculates x,y,z coordinates (with Sol as the origin, X-axis as Coreward/Rimward, Y-axis as Spinward/Trailing, Z-axis as Galactic North/South) in parsecs from Gaia-measured G-lon and G-lat, adds as column to Panda dataframe
