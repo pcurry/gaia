@@ -344,7 +344,7 @@ if user_query == "yes":
     df_sorted.to_csv('all_results_sorted_by_sector.csv', index=False)
     print("All Stars Within The Designated Parallax Range Have Been Crossmatched In SIMBAD, Parsed Into 10pc x 10 pc x 10 pc Sectors and Exported as all_results_sorted_by_sector.csv")
 
-    followup_query = input("Do you also want individual sector files?" (yes/no)).lower()
+    followup_query = input("Do you also want individual sector files? (yes/no)").lower()
     if followup_query =="yes":
         print("Parsing Into Indivual Sector Files")
         unique_sectors = df_sorted['Sector_Reference'].unique()
