@@ -6,12 +6,14 @@
 # Step 3: Arrange Components
 # Step 4: Star System Age
 
-# Roll (d100) / Population / Base / Age / Age Range
+# Roll (d100) / Population / Base Age / Age Range
 # 01-42 / Young Population I / 0.0 / 2.0
 # 43-76 / Intermediate Population I / 2.0 / 3.0
 # 77-95 / Old Population I / 5.0 / 3.0
 # 96-99 / Disk Population II / 8.0 / 1.5
 # 00 / Halo Population II / 9.5 / 3.0
+random_integer = random.randint(1, 100)
+
 
 # Step 5: Star System Metallicity
 # Step 6: Stellar Evolution
