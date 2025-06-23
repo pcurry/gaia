@@ -13,7 +13,11 @@
 # 96-99 / Disk Population II / 8.0 / 1.5
 # 00 / Halo Population II / 9.5 / 3.0
 random_integer = random.randint(1, 100)
-
+if 1 <= random_integer <= 42, then Population="Young Population I"
+if 43 <= random_integer <= 76, then Population="Intermediate Population"
+if 77 <= random_integer <= 95, then Population="Old Population I"
+if 96 <= random_integer <= 99, then Population="Disk Population II"
+if 100 = random_integer, then Populattion="Halo Population II"
 
 # Step 5: Star System Metallicity
 # Step 6: Stellar Evolution
