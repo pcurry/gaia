@@ -1,4 +1,6 @@
-# script to procedurally generate realistic (but fictional) star systems using outputs from sector_querry.py
+import random
+
+# script to procedurally generate realistic (but fictional) star systems using outputs from Sector_Query.py
 # reference: Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
 
 # Step 1: Primary Star Mass
@@ -6,12 +8,38 @@
 # Step 3: Arrange Components
 # Step 4: Star System Age
 
-random_integer = random.randint(1, 100)
-if 1 <= random_integer <= 42, then Population="Young Population I" and Base_Age="0.0" and Age_Range="2.0"
-if 43 <= random_integer <= 76, then Population="Intermediate Population" and Base_Age="2.0" and Age_Range="1.0"
-if 77 <= random_integer <= 95, then Population="Old Population I" and Base_Age="5.0" and Age_Range="3.0"
-if 96 <= random_integer <= 99, then Population="Disk Population II" and Base_Age="8.0" and Age_Range="1.5"
-if 100 = random_integer, then Populattion="Halo Population II" and Base_Age="9.5" and Age_Range="3.0"
+random_integer1 = random.randint(1, 100)
+
+Population = None
+base_age = None
+age_range = None
+
+if 1 <= random_integer1 <= 42: 
+    Population = "Young Population I"
+    Base_Age = 0.0
+    Age_Range = 2.0
+elif 43 <= random_integer1 <= 76: 
+    Population = "Intermediate Population"
+    Base_Age = 2.0
+    Age_Range = 1.0
+elif 77 <= random_integer1 <= 95: 
+    Population = "Old Population I"
+    Base_Age = 5.0
+    Age_Range= 3.0
+elif 96 <= random_integer1 <= 99: 
+    Population = "Disk Population II"
+    Base_Age = 8.0
+    Age_Range = 1.5
+elif 100 == random_integer1: 
+    Population = "Halo Population II"
+    Base_Age = 9.5
+    Age_Range = 3.0
+
+random_integer2 = random.randint(1, 100)
+star_age = Base_Age + (Age_Range*random_integer2)
+
+print(f"Stellar Population: {Population}")
+print(f"Star Age: {star_age} Gyr")
 
 # Step 5: Star System Metallicity
 # Step 6: Stellar Evolution
