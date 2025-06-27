@@ -36,7 +36,7 @@ elif 100 == random_integer1:
     Age_Range = 3.0
 
 random_integer2 = random.randint(1, 100)
-star_age = Base_Age + (Age_Range*random_integer2)
+star_age = Base_Age + (Age_Range*(random_integer2/100))
 
 print(f"Stellar Population: {Population}")
 print(f"Star Age: {star_age} Gyr")
