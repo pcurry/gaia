@@ -42,10 +42,17 @@ print(f"Star Age: {star_age} Gyr")
 
 # Step 5: Star System Metallicity
 
-# currently only randomly generated metallicity - tweak to use Gaia estimate or values from SIMBAD if available
+# currently only randomly generated metallicity - will need to tweak to use Gaia estimate or values from SIMBAD (if available)
 Metallicity = None
 random_integer3 = random.randint(3, 18)
 Metallicity = (random_integer3 / 10)*(1.2-(star_age/13.5))
+
+if Population == "Halo Population II":
+    Metallicity = (Metallacity - 0.2)
+
+if Metallicity < 0:
+    Metallicity = 0
+
 print(f"Metallicity: {Metallicity}")
 
 # Step 6: Stellar Evolution
