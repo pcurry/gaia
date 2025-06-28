@@ -8,11 +8,10 @@ import random
 # Step 3: Arrange Components
 # Step 4: Star System Age
 
-random_integer1 = random.randint(1, 100)
-
 Population = None
 base_age = None
 age_range = None
+random_integer1 = random.randint(1, 100)
 
 if 1 <= random_integer1 <= 42: 
     Population = "Young Population I"
@@ -42,6 +41,13 @@ print(f"Stellar Population: {Population}")
 print(f"Star Age: {star_age} Gyr")
 
 # Step 5: Star System Metallicity
+
+# currently only randomly generated metallicity - tweak to use Gaia estimate or values from SIMBAD if available
+Metallicity = None
+random_integer3 = random.randint(3, 18)
+Metallicity = (random_integer3 / 10)*(1.2-(star_age/13.5))
+print(f"Metallicity: {Metallicity}")
+
 # Step 6: Stellar Evolution
 # Step 7: Stellar Classification
 # Step 8: Stellar Orbital Parameters
