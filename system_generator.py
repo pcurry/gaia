@@ -1,7 +1,8 @@
 import random
 
-# script to procedurally generate realistic (but fictional) star systems using outputs from Sector_Query.py
+# script to procedurally generate realistic (but fictional) star systems
 # reference: Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
+# next step: optional conectivity to Sector_Query.py (e.g. input real parameter values from stars in Gaia DR3 dataset)
 
 # Step 1: Primary Star Mass
 
@@ -11,12 +12,16 @@ random_integer = random.randint(1,100)
 
 if 1 <= random_integer <= 3: 
     Category = "Brown Dwarf"
+    #input routine for calculating mass of this category of stars
 elif 4 <= random_integer <=77:
     Category = "Low Mass Star"
+    #input routine for calculating mass of this category of stars
 elif 78 <= random_integer <=90:
     Category = "Intermediate Mass Star"
+    #input routine for calculating mass of this category of stars
 elif 91 <= random_integer <=100:
     Category = "High Mass Star"
+    #input routine for calculating mass of this category of stars
 print(f"Star Type: {Category}")
 
 # Step 2: Stellar Multiplicity
