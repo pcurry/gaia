@@ -4,6 +4,21 @@ import random
 # reference: Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
 
 # Step 1: Primary Star Mass
+
+Category = None
+
+random_integer = random.randint(1,100)
+
+if 1 <= random_integer <= 3: 
+    Category = "Brown Dwarf"
+elif 4 <= random_integer <=77:
+    Category = "Low Mass Star"
+elif 78 <= random_integer <=90:
+    Category = "Intermediate Mass Star"
+elif 91 <= random_integer <=100:
+    Category = "High Mass Star"
+print(f"Star Type: {Category}")
+
 # Step 2: Stellar Multiplicity
 # Step 3: Arrange Components
 # Step 4: Star System Age
@@ -11,31 +26,31 @@ import random
 Population = None
 base_age = None
 age_range = None
-random_integer1 = random.randint(1, 100)
+random_integer = random.randint(1, 100)
 
-if 1 <= random_integer1 <= 42: 
+if 1 <= random_integer <= 42: 
     Population = "Young Population I"
     Base_Age = 0.0
     Age_Range = 2.0
-elif 43 <= random_integer1 <= 76: 
+elif 43 <= random_integer <= 76: 
     Population = "Intermediate Population"
     Base_Age = 2.0
     Age_Range = 1.0
-elif 77 <= random_integer1 <= 95: 
+elif 77 <= random_integer <= 95: 
     Population = "Old Population I"
     Base_Age = 5.0
     Age_Range= 3.0
-elif 96 <= random_integer1 <= 99: 
+elif 96 <= random_integer <= 99: 
     Population = "Disk Population II"
     Base_Age = 8.0
     Age_Range = 1.5
-elif 100 == random_integer1: 
+elif 100 == random_integer: 
     Population = "Halo Population II"
     Base_Age = 9.5
     Age_Range = 3.0
 
-random_integer2 = random.randint(1, 100)
-star_age = Base_Age + (Age_Range*(random_integer2/100))
+random_integer = random.randint(1, 100)
+star_age = Base_Age + (Age_Range*(random_integer/100))
 
 print(f"Stellar Population: {Population}")
 print(f"Star Age: {star_age} Gyr")
@@ -56,6 +71,9 @@ if Metallicity < 0:
 print(f"Metallicity: {Metallicity}")
 
 # Step 6: Stellar Evolution
+
+
+
 # Step 7: Stellar Classification
 # Step 8: Stellar Orbital Parameters
 # Step 9: Protoplanetary Disk
