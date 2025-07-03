@@ -35,7 +35,7 @@ if not os.path.exists(cached_file):
     print("No Cached File Found - Gaia and SIMBAD Queries Required - Please Define Parallax Range You Wish To Sample")
     pmin = input("Enter inner parallax in milliarcseconds - e.g. set to 770 or higher to include Proxima Centauri: ") 
     pmax = input("Enter outer parallax in milliarcseconds - e.g. set to 40 to reach out to 25 parsecs from Sol: ")
-    # run and cached to date: 770 to 15
+    # run and cached to date: 770 to 14
     print(f"Querying Gaia DR3 for all stars with parallaxes between {pmin} and {pmax} milliarcseconds")
     #query Gaia dataset for galactic longitude, latitude and parallax of stars within user-defined parallaxes
     #will need to update to gaia data release 4 (gaiadr4) when it comes out (no earlier than mid-2026) and gaiadr5 (eta 2030)
@@ -64,6 +64,8 @@ if not os.path.exists(cached_file):
     print("(this is due to fraction of Gaia designations with no matching entries in SIMBAD and not a failure to find any matches)")
     print("(it is safe to ignore this warning and allow the script to continue to run)")
     print("okay, querying SIMBAD now...")
+    #set SIMBAD timeout
+    Simbad.TIMEOUT = 60
     #iteratively query SIMBAD from the designation row
     for index, row in gaia_DR3_df.iterrows():
         designation = row["designation"]
