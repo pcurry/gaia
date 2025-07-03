@@ -7,12 +7,27 @@ import random
 # Step 1: Primary Star Mass
 
 Category = None
+Mass = None
 
 random_integer = random.randint(1,100)
 
 if 1 <= random_integer <= 3: 
     Category = "Brown Dwarf"
-    #input routine for calculating mass of this category of stars
+    random_integer = random.randint(1,100)
+    if 1 <= random_integer <= 10: 
+        Mass = 0.015
+    elif 11 <= random_integer <= 29:
+        Mass = 0.02
+    elif 30 <= random_integer <= 45:
+        Mass = 0.03
+    elif 46 <= random_integer <= 60:
+        Mass = 0.04
+    elif 61 <= random_integer <= 74:
+        Mass = 0.05
+    elif 75 <= random_integer <= 87:
+        Mass = 0.06
+    elif 88 <= random_integer <= 100:
+        Mass = 0.07
 elif 4 <= random_integer <=77:
     Category = "Low Mass Star"
     #input routine for calculating mass of this category of stars
@@ -23,6 +38,7 @@ elif 91 <= random_integer <=100:
     Category = "High Mass Star"
     #input routine for calculating mass of this category of stars
 print(f"Star Type: {Category}")
+print(f"Mass: {Mass}")
 
 # Step 2: Stellar Multiplicity
 # Step 3: Arrange Components
