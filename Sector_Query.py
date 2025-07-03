@@ -35,7 +35,7 @@ if not os.path.exists(cached_file):
     print("No Cached File Found - Gaia and SIMBAD Queries Required - Please Define Parallax Range You Wish To Sample")
     pmin = input("Enter inner parallax in milliarcseconds - e.g. set to 770 or higher to include Proxima Centauri: ") 
     pmax = input("Enter outer parallax in milliarcseconds - e.g. set to 40 to reach out to 25 parsecs from Sol: ")
-    # run and cached to date: 770 to 14
+    # run and cached to date: 770 to 13
     print(f"Querying Gaia DR3 for all stars with parallaxes between {pmin} and {pmax} milliarcseconds")
     #query Gaia dataset for galactic longitude, latitude and parallax of stars within user-defined parallaxes
     #will need to update to gaia data release 4 (gaiadr4) when it comes out (no earlier than mid-2026) and gaiadr5 (eta 2030)
