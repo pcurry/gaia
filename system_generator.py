@@ -250,6 +250,7 @@ if 1.30 <= Mass:
 print(f"Number of Stars in System: {Number_of_Stars}")
 
 # Step 3: Arrange Components
+# input Step 3 elements
 
 # Step 4: Star System Age
 
@@ -301,28 +302,79 @@ if Metallicity < 0:
 print(f"Metallicity: {Metallicity}")
 
 # Step 6: Stellar Evolution
+# input Step 6 elements
+
 # Step 7: Stellar Classification
+# input Step 7 elements
+
 # Step 8: Stellar Orbital Parameters
+# input Step 8 elements
+
 # Step 9: Protoplanetary Disk
+# input Step 9 elements
+
 # Step 10: Disk Instability
+# input Step 10 elements
+
 # Step 11: Core Accretion
+# input Step 11 elements
+
 # Step 12: Oligarchic Collision
+# input Step 12 elements
+
 # Step 13: Planetary Orbital Radii
+# input Step 13 elements
+
 # Step 14: Planetary Mass
+# input Step 14 elements
+
 # Step 15: Orbital Eccentricity
+# input Step 15 elements
+
 # Step 16: Physical Parameters
+# input Step 16 elements
+
 # Step 17: Natural Satellites
+# input Step 17 elements
+
 # Step 18: Orbital Period
+# input Step 18 elements
+
 # Step 19: Rotation Period
+# input Step 19 elements
+
 # Step 20: Obliquity
+# input Step 20 elements
+
 # Step 21: Local Calendar
+# input Step 21 elements
+
 # Step 22: Blackbody Temperature
+# input Step 22 elements
+
 # Step 23: Water
+# input Step 23 elements
+
 # Step 24: Geophysics
+# input Step 24 elements
+
 # Step 25: Magnetic Field
+# input Step 25 elements
+
 # Step 26: Early Atmosphere
+# input Step 26 elements
+
 # Step 27: Albedo
+# input Step 27 elements
+
 # Step 28: Carbon Dioxide
+# input Step 28 elements
+
 # Step 29: Presence of Life
+# input Step 29 elements
+
 # Step 30: Average Surface Temperature
+# input Step 30 elements
+
 # Step 31: Finalize Atmosphere
+# input Step 31 elements
