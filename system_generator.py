@@ -195,7 +195,7 @@ if Mass < 0.08:
     if 1 <= random_integer <= 13:
         Number_of_Stars = 1
     elif 14 <= random_integer <= 18:
-        random_integer = random_randint(1,100)
+        random_integer = random.randint(1,100)
         if 1 <= random_integer <= 75:
             Number_of_Stars = 2
         elif 76 <= random_integer <= 95:
@@ -206,7 +206,7 @@ if 0.08 <= Mass < 0.70:
     if 1 <= random_integer <= 12:
         Number_of_Stars = 1
     elif 13 <= random_integer <= 18:
-        random_integer = random_randint(1,100)
+        random_integer = random.randint(1,100)
         if 1 <= random_integer <= 75:
             Number_of_Stars = 2
         elif 76 <= random_integer <= 95:
@@ -217,7 +217,7 @@ if 0.7 <= Mass < 1.00:
     if 1 <= random_integer <= 11:
         Number_of_Stars = 1
     elif 12 <= random_integer <= 18:
-        random_integer = random_randint(1,100)
+        random_integer = random.randint(1,100)
         if 1 <= random_integer <= 75:
             Number_of_Stars = 2
         elif 76 <= random_integer <= 95:
@@ -228,7 +228,7 @@ if 1.00 <= Mass < 1.30:
     if 1 <= random_integer <= 10:
         Number_of_Stars = 1
     elif 11 <= random_integer <= 18:
-        random_integer = random_randint(1,100)
+        random_integer = random.randint(1,100)
         if 1 <= random_integer <= 75:
             Number_of_Stars = 2
         elif 76 <= random_integer <= 95:
@@ -239,7 +239,7 @@ if 1.30 <= Mass:
     if 1 <= random_integer <= 9:
         Number_of_Stars = 1
     elif 10 <= random_integer <= 18:
-        random_integer = random_randint(1,100)
+        random_integer = random.randint(1,100)
         if 1 <= random_integer <= 75:
             Number_of_Stars = 2
         elif 76 <= random_integer <= 95:
