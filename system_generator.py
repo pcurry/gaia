@@ -184,7 +184,7 @@ elif 91 <= random_integer <=100:
     elif 99 <= random_integer <= 100:
         Mass = 6.00
 print(f"Star Type: {Category}")
-print(f"Mass: {Mass} solar masses")
+print(f"Mass of Star A: {Mass} solar masses")
 
 # Step 2: Stellar Multiplicity
 
@@ -255,7 +255,7 @@ Mass_Ratio = None
 
 if Number_of_Stars == 1:
     print("Single Star System - skipping step #3")
-elif Number_of_Stars > 1:
+elif Number_of_Stars => 2:
     random_integer = random.randint(1,100)
     if random_integer <= 4:
         Mass_Ratio = 0.05
@@ -296,8 +296,20 @@ elif Number_of_Stars > 1:
     elif random_integer >= 88:
         Mass_Ratio = 0.95
     print(f"Mass Ratio: {Mass_Ratio}")
+    Mass_B = Mass * Mass_Ratio
+    if Mass_B < 0.15:
+        Metallicity = 0.15
+    print(f"Mass of Star B: {Mass_B} solar masses")
+    
+elif Number_of_Stars == 3:
+    random_integer = random.randint(1,2)
+    if random_integer == 1:
+        # insert procedure for BC as close companions
+    if random_integer == 2:
+        # insert procedure for AB as close companions
 
-# continue to input Step 3 elements
+elif Number_of_Stars == 4:
+    # insert procedure for quadruple star system
 
 # Step 4: Star System Age
 
