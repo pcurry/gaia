@@ -189,7 +189,7 @@ print(f"Mass of Star A: {Mass} solar masses")
 # Step 2: Stellar Multiplicity
 
 Number_of_Stars = 0
-random_integer = random.randint(3,18)
+random_integer = random.randint(1, 6) + random.randint(1,6) + random.randint(1,6)
 
 if Mass < 0.08:
     if 1 <= random_integer <= 13:
@@ -255,7 +255,7 @@ Mass_Ratio = None
 
 if Number_of_Stars == 1:
     print("Single Star System - skipping step #3")
-elif Number_of_Stars => 2:
+elif Number_of_Stars <= 2:
     random_integer = random.randint(1,100)
     if random_integer <= 4:
         Mass_Ratio = 0.05
@@ -305,7 +305,7 @@ elif Number_of_Stars == 3:
     random_integer = random.randint(1,2)
     if random_integer == 1:
         # insert procedure for BC as close companions
-    if random_integer == 2:
+    elif random_integer == 2:
         # insert procedure for AB as close companions
 
 elif Number_of_Stars == 4:
@@ -349,7 +349,7 @@ print(f"Star Age: {star_age} Gyr")
 
 # currently only randomly generated metallicity - will need to tweak to use Gaia estimate or values from SIMBAD (if available)
 Metallicity = None
-random_integer = random.randint(3, 18)
+random_integer = random.randint(1, 6) + random.randint(1,6) + random.randint(1,6)
 Metallicity = (random_integer / 10)*(1.2-(star_age/13.5))
 
 if Population == "Halo Population II":
