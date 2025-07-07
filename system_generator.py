@@ -337,8 +337,8 @@ print(f"Star Age: {star_age} Gyr")
 
 # currently only randomly generated metallicity - will need to tweak to use Gaia estimate or values from SIMBAD (if available)
 Metallicity = None
-random_integer3 = random.randint(3, 18)
-Metallicity = (random_integer3 / 10)*(1.2-(star_age/13.5))
+random_integer = random.randint(3, 18)
+Metallicity = (random_integer / 10)*(1.2-(star_age/13.5))
 
 if Population == "Halo Population II":
     Metallicity = (Metallacity - 0.2)
