@@ -195,7 +195,7 @@ if Mass < 0.08:
     if 1 <= random_integer <= 13:
         Number_of_Stars = 1
     elif 14 <= random_integer <= 18:
-        random_integer(1,100)
+        random_integer = random_randint(1,100)
         if 1 <= random_integer <= 75:
             Number_of_Stars = 2
         elif 76 <= random_integer <= 95:
@@ -206,7 +206,7 @@ if 0.08 <= Mass < 0.70:
     if 1 <= random_integer <= 12:
         Number_of_Stars = 1
     elif 13 <= random_integer <= 18:
-        random_integer(1,100)
+        random_integer = random_randint(1,100)
         if 1 <= random_integer <= 75:
             Number_of_Stars = 2
         elif 76 <= random_integer <= 95:
@@ -217,7 +217,7 @@ if 0.7 <= Mass < 1.00:
     if 1 <= random_integer <= 11:
         Number_of_Stars = 1
     elif 12 <= random_integer <= 18:
-        random_integer(1,100)
+        random_integer = random_randint(1,100)
         if 1 <= random_integer <= 75:
             Number_of_Stars = 2
         elif 76 <= random_integer <= 95:
@@ -228,7 +228,7 @@ if 1.00 <= Mass < 1.30:
     if 1 <= random_integer <= 10:
         Number_of_Stars = 1
     elif 11 <= random_integer <= 18:
-        random_integer(1,100)
+        random_integer = random_randint(1,100)
         if 1 <= random_integer <= 75:
             Number_of_Stars = 2
         elif 76 <= random_integer <= 95:
@@ -239,7 +239,7 @@ if 1.30 <= Mass:
     if 1 <= random_integer <= 9:
         Number_of_Stars = 1
     elif 10 <= random_integer <= 18:
-        random_integer(1,100)
+        random_integer = random_randint(1,100)
         if 1 <= random_integer <= 75:
             Number_of_Stars = 2
         elif 76 <= random_integer <= 95:
@@ -250,7 +250,54 @@ if 1.30 <= Mass:
 print(f"Number of Stars in System: {Number_of_Stars}")
 
 # Step 3: Arrange Components
-# input Step 3 elements
+
+Mass_Ratio = None
+
+if Number_of_Stars == 1:
+    print("Single Star System - skipping step #3")
+elif Number_of_Stars > 1:
+    random_integer = random.randint(1,100)
+    if random_integer <= 4:
+        Mass_Ratio = 0.05
+    elif 5 <= random_integer <= 8:
+        Mass_Ratio = 0.10
+    elif 9 <= random_integer <= 12:
+        Mass_Ratio = 0.15
+    elif 13 <= random_integer <= 16:
+        Mass_Ratio = 0.20
+    elif 17 <= random_integer <= 20:
+        Mass_Ratio = 0.25
+    elif 21 <= random_integer <= 24:
+        Mass_Ratio = 0.30
+    elif 25 <= random_integer <= 28:
+        Mass_Ratio = 0.35
+    elif 29 <= random_integer <= 31:
+        Mass_Ratio = 0.40
+    elif 32 <= random_integer <= 34:
+        Mass_Ratio = 0.45
+    elif 35 <= random_integer <= 38:
+        Mass_Ratio = 0.50
+    elif 39 <= random_integer <= 43:
+        Mass_Ratio = 0.55
+    elif 44 <= random_integer <= 48:
+        Mass_Ratio = 0.60
+    elif 49 <= random_integer <= 53:
+        Mass_Ratio = 0.65
+    elif 54 <= random_integer <= 58:
+        Mass_Ratio = 0.70
+    elif 59 <= random_integer <= 63:
+        Mass_Ratio = 0.75
+    elif 64 <= random_integer <= 69:
+        Mass_Ratio = 0.80
+    elif 70 <= random_integer <= 76:
+        Mass_Ratio = 0.85
+    elif 77 <= random_integer <= 86:
+        Mass_Ratio = 0.90
+    elif random_integer >= 88:
+        Mass_Ratio = 0.95
+    print(f"Mass Ratio: {Mass_Ratio}")
+
+# continue to input Step 3 elements
 
 # Step 4: Star System Age
 
