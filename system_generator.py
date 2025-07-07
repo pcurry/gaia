@@ -4,12 +4,18 @@ import random
 # reference: Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
 # next step: optional conectivity to Sector_Query.py (e.g. input real parameter values from stars in Gaia DR3 dataset)
 
+# define dice rolling functions
+def d100() -> int:
+  return random.randint(1, 100)
+def _3d6() -> int:
+  return random.randint(1, 6) + random.randint (1, 6) + random.randint (1, 6)
+
 # Step 1: Primary Star Mass
 
 Category = None
 Mass = None
 
-random_integer = random.randint(1,100)
+random_integer = d100()
 
 if 1 <= random_integer <= 3: 
     Category = "Brown Dwarf"
@@ -30,7 +36,7 @@ if 1 <= random_integer <= 3:
         Mass = 0.07
 elif 4 <= random_integer <=77:
     Category = "Low Mass Star"
-    random_integer = random.randint(1,100)
+    random_integer = d100()
     if 1 <= random_integer <= 13:
         Mass = 0.08
     elif 14 <= random_integer <= 23:
@@ -71,7 +77,7 @@ elif 4 <= random_integer <=77:
         Mass = 0.68
 elif 78 <= random_integer <=90:
     Category = "Intermediate Mass Star"
-    random_integer = random.randint(1,100)
+    random_integer = d100()
     if 1 <= random_integer <= 7:
         Mass = 0.70
     elif 8 <= random_integer <= 13:
@@ -124,7 +130,7 @@ elif 78 <= random_integer <=90:
         Mass = 1.25
 elif 91 <= random_integer <=100:
     Category = "High Mass Star"
-    random_integer = random.randint(1,100)
+    random_integer = d100()
     if 1 <= random_integer <= 3:
         Mass = 1.28
     elif 4 <= random_integer <= 6:
@@ -189,13 +195,13 @@ print(f"Mass of Star A: {Mass} solar masses")
 # Step 2: Stellar Multiplicity
 
 Number_of_Stars = 0
-random_integer = random.randint(1, 6) + random.randint(1,6) + random.randint(1,6)
+random_integer = _3d6()
 
 if Mass < 0.08:
     if 1 <= random_integer <= 13:
         Number_of_Stars = 1
     elif 14 <= random_integer <= 18:
-        random_integer = random.randint(1,100)
+        random_integer = d100()
         if 1 <= random_integer <= 75:
             Number_of_Stars = 2
         elif 76 <= random_integer <= 95:
@@ -206,7 +212,7 @@ if 0.08 <= Mass < 0.70:
     if 1 <= random_integer <= 12:
         Number_of_Stars = 1
     elif 13 <= random_integer <= 18:
-        random_integer = random.randint(1,100)
+        random_integer = d100()
         if 1 <= random_integer <= 75:
             Number_of_Stars = 2
         elif 76 <= random_integer <= 95:
@@ -217,7 +223,7 @@ if 0.7 <= Mass < 1.00:
     if 1 <= random_integer <= 11:
         Number_of_Stars = 1
     elif 12 <= random_integer <= 18:
-        random_integer = random.randint(1,100)
+        random_integer = d100()
         if 1 <= random_integer <= 75:
             Number_of_Stars = 2
         elif 76 <= random_integer <= 95:
@@ -228,7 +234,7 @@ if 1.00 <= Mass < 1.30:
     if 1 <= random_integer <= 10:
         Number_of_Stars = 1
     elif 11 <= random_integer <= 18:
-        random_integer = random.randint(1,100)
+        random_integer = d100()
         if 1 <= random_integer <= 75:
             Number_of_Stars = 2
         elif 76 <= random_integer <= 95:
@@ -239,7 +245,7 @@ if 1.30 <= Mass:
     if 1 <= random_integer <= 9:
         Number_of_Stars = 1
     elif 10 <= random_integer <= 18:
-        random_integer = random.randint(1,100)
+        random_integer = d100()
         if 1 <= random_integer <= 75:
             Number_of_Stars = 2
         elif 76 <= random_integer <= 95:
@@ -255,8 +261,9 @@ Mass_Ratio = None
 
 if Number_of_Stars == 1:
     print("Single Star System - skipping step #3")
+ 
 elif Number_of_Stars <= 2:
-    random_integer = random.randint(1,100)
+    random_integer = d100()
     if random_integer <= 4:
         Mass_Ratio = 0.05
     elif 5 <= random_integer <= 8:
@@ -316,7 +323,7 @@ elif Number_of_Stars == 4:
 Population = None
 base_age = None
 age_range = None
-random_integer = random.randint(1, 100)
+random_integer = d100()
 
 if 1 <= random_integer <= 42: 
     Population = "Young Population I"
@@ -339,7 +346,7 @@ elif 100 == random_integer:
     Base_Age = 9.5
     Age_Range = 3.0
 
-random_integer = random.randint(1, 100)
+random_integer = d100()
 star_age = Base_Age + (Age_Range*(random_integer/100))
 
 print(f"Stellar Population: {Population}")
@@ -349,11 +356,11 @@ print(f"Star Age: {star_age} Gyr")
 
 # currently only randomly generated metallicity - will need to tweak to use Gaia estimate or values from SIMBAD (if available)
 Metallicity = None
-random_integer = random.randint(1, 6) + random.randint(1,6) + random.randint(1,6)
+random_integer = _3d6()
 Metallicity = (random_integer / 10)*(1.2-(star_age/13.5))
 
 if Population == "Halo Population II":
-    Metallicity = (Metallacity - 0.2)
+    Metallicity = (Metallicity - 0.2)
 
 if Metallicity < 0:
     Metallicity = 0
