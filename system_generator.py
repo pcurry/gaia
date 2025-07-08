@@ -307,16 +307,16 @@ elif Number_of_Stars <= 2:
     if Mass_B < 0.15:
         Metallicity = 0.15
     print(f"Mass of Star B: {Mass_B} solar masses")
-    
+
 elif Number_of_Stars == 3:
-    random_integer = random.randint(1,2)
+    random_integer = random.randint(1, 2)
     if random_integer == 1:
-        # insert procedure for BC as close companions
+        print("Triple Star System - need to write more code for this")
     elif random_integer == 2:
-        # insert procedure for AB as close companions
+        print("Triple Star System - need to write more code for this")
 
 elif Number_of_Stars == 4:
-    # insert procedure for quadruple star system
+    print("Quadruple Star System - need to write more code for this")
 
 # Step 4: Star System Age
 
