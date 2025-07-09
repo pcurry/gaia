@@ -15,11 +15,11 @@ def _3d6() -> int:
 Category = None
 Mass = None
 
-random_integer = d100()
+roll_for_star_type = d100()
 
-if 1 <= random_integer <= 3: 
+if 1 <= roll_for_star_type <= 3: 
     Category = "Brown Dwarf"
-    random_integer = random.randint(1,100)
+    random_integer = d100()
     if 1 <= random_integer <= 10: 
         Mass = 0.015
     elif 11 <= random_integer <= 29:
@@ -34,7 +34,7 @@ if 1 <= random_integer <= 3:
         Mass = 0.06
     elif 88 <= random_integer <= 100:
         Mass = 0.07
-elif 4 <= random_integer <=77:
+elif 4 <= roll_for_star_type <= 77:
     Category = "Low Mass Star"
     random_integer = d100()
     if 1 <= random_integer <= 13:
@@ -75,7 +75,7 @@ elif 4 <= random_integer <=77:
         Mass = 0.65
     elif 100 == random_integer:
         Mass = 0.68
-elif 78 <= random_integer <=90:
+elif 78 <= roll_for_star_type <=90:
     Category = "Intermediate Mass Star"
     random_integer = d100()
     if 1 <= random_integer <= 7:
@@ -128,7 +128,7 @@ elif 78 <= random_integer <=90:
         Mass = 1.22
     elif 98 <= random_integer <= 100:
         Mass = 1.25
-elif 91 <= random_integer <=100:
+elif 91 <= roll_for_star_type <=100:
     Category = "High Mass Star"
     random_integer = d100()
     if 1 <= random_integer <= 3:
