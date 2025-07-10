@@ -19,175 +19,175 @@ roll_for_star_type = d100()
 
 if 1 <= roll_for_star_type <= 3: 
     Category = "Brown Dwarf"
-    random_integer = d100()
-    if 1 <= random_integer <= 10: 
+    roll_for_brown_dwarf_mass = d100()
+    if 1 <= roll_for_brown_dwarf_mass <= 10: 
         Mass = 0.015
-    elif 11 <= random_integer <= 29:
+    elif 11 <= roll_for_brown_dwarf_mass <= 29:
         Mass = 0.02
-    elif 30 <= random_integer <= 45:
+    elif 30 <= roll_for_brown_dwarf_mass <= 45:
         Mass = 0.03
-    elif 46 <= random_integer <= 60:
+    elif 46 <= roll_for_brown_dwarf_mass <= 60:
         Mass = 0.04
-    elif 61 <= random_integer <= 74:
+    elif 61 <= roll_for_brown_dwarf_mass <= 74:
         Mass = 0.05
-    elif 75 <= random_integer <= 87:
+    elif 75 <= roll_for_brown_dwarf_mass <= 87:
         Mass = 0.06
-    elif 88 <= random_integer <= 100:
+    elif 88 <= roll_for_brown_dwarf_mass <= 100:
         Mass = 0.07
 elif 4 <= roll_for_star_type <= 77:
     Category = "Low Mass Star"
-    random_integer = d100()
-    if 1 <= random_integer <= 13:
+    roll_for_low_mass_star_mass = d100()
+    if 1 <= roll_for_low_mass_star_mass <= 13:
         Mass = 0.08
-    elif 14 <= random_integer <= 23:
+    elif 14 <= roll_for_low_mass_star_mass <= 23:
         Mass = 0.10
-    elif 24 <= random_integer <= 34:
+    elif 24 <= roll_for_low_mass_star_mass <= 34:
         Mass = 0.12
-    elif 35 <= random_integer <= 43:
+    elif 35 <= roll_for_low_mass_star_mass <= 43:
         Mass = 0.15
-    elif 44 <= random_integer <= 52:
+    elif 44 <= roll_for_low_mass_star_mass <= 52:
         Mass = 0.18
-    elif 53 <= random_integer <= 59:
+    elif 53 <= roll_for_low_mass_star_mass <= 59:
         Mass = 0.22
-    elif 60 <= random_integer <= 65:
+    elif 60 <= roll_for_low_mass_star_mass <= 65:
         Mass = 0.26
-    elif 66 <= random_integer <= 70:
+    elif 66 <= roll_for_low_mass_star_mass <= 70:
         Mass = 0.30
-    elif 71 <= random_integer <= 74:
+    elif 71 <= roll_for_low_mass_star_mass <= 74:
         Mass = 0.34
-    elif 75 <= random_integer <= 77:
+    elif 75 <= roll_for_low_mass_star_mass <= 77:
         Mass = 0.38
-    elif 78 <= random_integer <= 80:
+    elif 78 <= roll_for_low_mass_star_mass <= 80:
         Mass = 0.42
-    elif 81 <= random_integer <= 83:
+    elif 81 <= roll_for_low_mass_star_mass <= 83:
         Mass = 0.46
-    elif 84 <= random_integer <= 86:
+    elif 84 <= roll_for_low_mass_star_mass <= 86:
         Mass = 0.50
-    elif 87 <= random_integer <= 89:
+    elif 87 <= roll_for_low_mass_star_mass <= 89:
         Mass = 0.53
-    elif 90 <= random_integer <= 92:
+    elif 90 <= roll_for_low_mass_star_mass <= 92:
         Mass = 0.56
-    elif 93 <= random_integer <= 95:
+    elif 93 <= roll_for_low_mass_star_mass <= 95:
         Mass = 0.59
-    elif 96 <= random_integer <= 97:
+    elif 96 <= roll_for_low_mass_star_mass <= 97:
         Mass = 0.62
-    elif 98 <= random_integer <= 99:
+    elif 98 <= roll_for_low_mass_star_mass <= 99:
         Mass = 0.65
-    elif 100 == random_integer:
+    elif 100 == roll_for_low_mass_star_mass:
         Mass = 0.68
 elif 78 <= roll_for_star_type <=90:
     Category = "Intermediate Mass Star"
-    random_integer = d100()
-    if 1 <= random_integer <= 7:
+    roll_for_intermediate_mass_star_mass = d100()
+    if 1 <= roll_for_intermediate_mass_star_mass <= 7:
         Mass = 0.70
-    elif 8 <= random_integer <= 13:
+    elif 8 <= roll_for_intermediate_mass_star_mass <= 13:
         Mass = 0.72
-    elif 14 <= random_integer <= 19:
+    elif 14 <= roll_for_intermediate_mass_star_mass <= 19:
         Mass = 0.74
-    elif 20 <= random_integer <= 24:
+    elif 20 <= roll_for_intermediate_mass_star_mass <= 24:
         Mass = 0.76
-    elif 25 <= random_integer <= 29:
+    elif 25 <= roll_for_intermediate_mass_star_mass <= 29:
         Mass = 0.78
-    elif 30 <= random_integer <= 34:
+    elif 30 <= roll_for_intermediate_mass_star_mass <= 34:
         Mass = 0.80
-    elif 35 <= random_integer <= 39:
+    elif 35 <= roll_for_intermediate_mass_star_mass <= 39:
         Mass = 0.82
-    elif 40 <= random_integer <= 43:
+    elif 40 <= roll_for_intermediate_mass_star_mass <= 43:
         Mass = 0.84
-    elif 44 <= random_integer <= 47:
+    elif 44 <= roll_for_intermediate_mass_star_mass <= 47:
         Mass = 0.86
-    elif 48 <= random_integer <= 51:
+    elif 48 <= roll_for_intermediate_mass_star_mass <= 51:
         Mass = 0.88
-    elif 52 <= random_integer <= 55:
+    elif 52 <= roll_for_intermediate_mass_star_mass <= 55:
         Mass = 0.90
-    elif 56 <= random_integer <= 59:
+    elif 56 <= roll_for_intermediate_mass_star_mass <= 59:
         Mass = 0.92
-    elif 60 <= random_integer <= 62:
+    elif 60 <= roll_for_intermediate_mass_star_mass <= 62:
         Mass = 0.94
-    elif 63 <= random_integer <= 65:
+    elif 63 <= roll_for_intermediate_mass_star_mass <= 65:
         Mass = 0.96
-    elif 66 <= random_integer <= 68:
+    elif 66 <= roll_for_intermediate_mass_star_mass <= 68:
         Mass = 0.98
-    elif 69 <= random_integer <= 71:
+    elif 69 <= roll_for_intermediate_mass_star_mass <= 71:
         Mass = 1.00
-    elif 72 <= random_integer <= 74:
+    elif 72 <= roll_for_intermediate_mass_star_mass <= 74:
         Mass = 1.02
-    elif 75 <= random_integer <= 78:
+    elif 75 <= roll_for_intermediate_mass_star_mass <= 78:
         Mass = 1.04
-    elif 79 <= random_integer <= 82:
+    elif 79 <= roll_for_intermediate_mass_star_mass <= 82:
         Mass = 1.07
-    elif 83 <= random_integer <= 85:
+    elif 83 <= roll_for_intermediate_mass_star_mass <= 85:
         Mass = 1.10
-    elif 86 <= random_integer <= 89:
+    elif 86 <= roll_for_intermediate_mass_star_mass <= 89:
         Mass = 1.13
-    elif 90 <= random_integer <= 92:
+    elif 90 <= roll_for_intermediate_mass_star_mass <= 92:
         Mass = 1.16
-    elif 93 <= random_integer <= 95:
+    elif 93 <= roll_for_intermediate_mass_star_mass <= 95:
         Mass = 1.19
-    elif 96 <= random_integer <= 97:
+    elif 96 <= roll_for_intermediate_mass_star_mass <= 97:
         Mass = 1.22
-    elif 98 <= random_integer <= 100:
+    elif 98 <= roll_for_intermediate_mass_star_mass <= 100:
         Mass = 1.25
 elif 91 <= roll_for_star_type <=100:
     Category = "High Mass Star"
-    random_integer = d100()
-    if 1 <= random_integer <= 3:
+    roll_for_high_mass_star_mass = d100()
+    if 1 <= roll_for_high_mass_star_mass <= 3:
         Mass = 1.28
-    elif 4 <= random_integer <= 6:
+    elif 4 <= roll_for_high_mass_star_mass <= 6:
         Mass = 1.31
-    elif 7 <= random_integer <= 9:
+    elif 7 <= roll_for_high_mass_star_mass <= 9:
         Mass = 1.34
-    elif 10 <= random_integer <= 12:
+    elif 10 <= roll_for_high_mass_star_mass <= 12:
         Mass = 1.37
-    elif 13 <= random_integer <= 16:
+    elif 13 <= roll_for_high_mass_star_mass <= 16:
         Mass = 1.40
-    elif 17 <= random_integer <= 19:
+    elif 17 <= roll_for_high_mass_star_mass <= 19:
         Mass = 1.44
-    elif 20 <= random_integer <= 23:
+    elif 20 <= roll_for_high_mass_star_mass <= 23:
         Mass = 1.48
-    elif 24 <= random_integer <= 27:
+    elif 24 <= roll_for_high_mass_star_mass <= 27:
         Mass = 1.53
-    elif 28 <= random_integer <= 31:
+    elif 28 <= roll_for_high_mass_star_mass <= 31:
         Mass = 1.58
-    elif 32 <= random_integer <= 35:
+    elif 32 <= roll_for_high_mass_star_mass <= 35:
         Mass = 1.64
-    elif 36 <= random_integer <= 38:
+    elif 36 <= roll_for_high_mass_star_mass <= 38:
         Mass = 1.70
-    elif 39 <= random_integer <= 41:
+    elif 39 <= roll_for_high_mass_star_mass <= 41:
         Mass = 1.76
-    elif 42 <= random_integer <= 45:
+    elif 42 <= roll_for_high_mass_star_mass <= 45:
         Mass = 1.82
-    elif 46 <= random_integer <= 49:
+    elif 46 <= roll_for_high_mass_star_mass <= 49:
         Mass = 1.90
-    elif 50 <= random_integer <= 53:
+    elif 50 <= roll_for_high_mass_star_mass <= 53:
         Mass = 2.00
-    elif 54 <= random_integer <= 56:
+    elif 54 <= roll_for_high_mass_star_mass <= 56:
         Mass = 2.10
-    elif 57 <= random_integer <= 59:
+    elif 57 <= roll_for_high_mass_star_mass <= 59:
         Mass = 2.20
-    elif 60 <= random_integer <= 62:
+    elif 60 <= roll_for_high_mass_star_mass <= 62:
         Mass = 2.30
-    elif 63 <= random_integer <= 67:
+    elif 63 <= roll_for_high_mass_star_mass <= 67:
         Mass = 2.40
-    elif 68 <= random_integer <= 71:
+    elif 68 <= roll_for_high_mass_star_mass <= 71:
         Mass = 2.60
-    elif 72 <= random_integer <= 75:
+    elif 72 <= roll_for_high_mass_star_mass <= 75:
         Mass = 2.80
-    elif 76 <= random_integer <= 78:
+    elif 76 <= roll_for_high_mass_star_mass <= 78:
         Mass = 3.00
-    elif 79 <= random_integer <= 82:
+    elif 79 <= roll_for_high_mass_star_mass <= 82:
         Mass = 3.20
-    elif 83 <= random_integer <= 87:
+    elif 83 <= roll_for_high_mass_star_mass <= 87:
         Mass = 3.50
-    elif 88 <= random_integer <= 91:
+    elif 88 <= roll_for_high_mass_star_mass <= 91:
         Mass = 4.00
-    elif 92 <= random_integer <= 94:
+    elif 92 <= roll_for_high_mass_star_mass <= 94:
         Mass = 4.50
-    elif 95 <= random_integer <= 96:
+    elif 95 <= roll_for_high_mass_star_mass <= 96:
         Mass = 5.00
-    elif 97 <= random_integer <= 98:
+    elif 97 <= roll_for_high_mass_star_mass <= 98:
         Mass = 5.50
-    elif 99 <= random_integer <= 100:
+    elif 99 <= roll_for_high_mass_star_mass <= 100:
         Mass = 6.00
 print(f"Star Type: {Category}")
 print(f"Mass of Star A: {Mass} solar masses")
@@ -195,62 +195,62 @@ print(f"Mass of Star A: {Mass} solar masses")
 # Step 2: Stellar Multiplicity
 
 Number_of_Stars = 0
-random_integer = _3d6()
+roll_for_number_of_stars = _3d6()
 
 if Mass < 0.08:
-    if 1 <= random_integer <= 13:
+    if 1 <= roll_for_number_of_stars <= 13:
         Number_of_Stars = 1
-    elif 14 <= random_integer <= 18:
+    elif 14 <= roll_for_number_of_stars <= 18:
         random_integer = d100()
-        if 1 <= random_integer <= 75:
+        if 1 <= roll_for_number_of_stars <= 75:
             Number_of_Stars = 2
-        elif 76 <= random_integer <= 95:
+        elif 76 <= roll_for_number_of_stars <= 95:
             Number_of_Stars = 3
-        elif 96 <= random_integer <= 100:
+        elif 96 <= roll_for_number_of_stars <= 100:
             Number_of_Stars = 4
 if 0.08 <= Mass < 0.70:
-    if 1 <= random_integer <= 12:
+    if 1 <= roll_for_number_of_stars <= 12:
         Number_of_Stars = 1
-    elif 13 <= random_integer <= 18:
+    elif 13 <= roll_for_number_of_stars <= 18:
         random_integer = d100()
-        if 1 <= random_integer <= 75:
+        if 1 <= roll_for_number_of_stars <= 75:
             Number_of_Stars = 2
-        elif 76 <= random_integer <= 95:
+        elif 76 <= roll_for_number_of_stars <= 95:
             Number_of_Stars = 3
-        elif 96 <= random_integer <= 100:
+        elif 96 <= roll_for_number_of_stars <= 100:
             Number_of_Stars = 4
 if 0.7 <= Mass < 1.00:
-    if 1 <= random_integer <= 11:
+    if 1 <= roll_for_number_of_stars <= 11:
         Number_of_Stars = 1
-    elif 12 <= random_integer <= 18:
+    elif 12 <= roll_for_number_of_stars <= 18:
         random_integer = d100()
-        if 1 <= random_integer <= 75:
+        if 1 <= roll_for_number_of_stars <= 75:
             Number_of_Stars = 2
-        elif 76 <= random_integer <= 95:
+        elif 76 <= roll_for_number_of_stars <= 95:
             Number_of_Stars = 3
-        elif 96 <= random_integer <= 100:
+        elif 96 <= roll_for_number_of_stars <= 100:
             Number_of_Stars = 4
 if 1.00 <= Mass < 1.30:
-    if 1 <= random_integer <= 10:
+    if 1 <= roll_for_number_of_stars <= 10:
         Number_of_Stars = 1
-    elif 11 <= random_integer <= 18:
+    elif 11 <= roll_for_number_of_stars <= 18:
         random_integer = d100()
-        if 1 <= random_integer <= 75:
+        if 1 <= roll_for_number_of_stars <= 75:
             Number_of_Stars = 2
-        elif 76 <= random_integer <= 95:
+        elif 76 <= roll_for_number_of_stars <= 95:
             Number_of_Stars = 3
-        elif 96 <= random_integer <= 100:
+        elif 96 <= roll_for_number_of_stars <= 100:
             Number_of_Stars = 4
 if 1.30 <= Mass: 
-    if 1 <= random_integer <= 9:
+    if 1 <= roll_for_number_of_stars <= 9:
         Number_of_Stars = 1
-    elif 10 <= random_integer <= 18:
+    elif 10 <= roll_for_number_of_stars <= 18:
         random_integer = d100()
-        if 1 <= random_integer <= 75:
+        if 1 <= roll_for_number_of_stars <= 75:
             Number_of_Stars = 2
-        elif 76 <= random_integer <= 95:
+        elif 76 <= roll_for_number_of_stars <= 95:
             Number_of_Stars = 3
-        elif 96 <= random_integer <= 100:
+        elif 96 <= roll_for_number_of_stars <= 100:
             Number_of_Stars = 4
 
 print(f"Number of Stars in System: {Number_of_Stars}")
@@ -263,44 +263,44 @@ if Number_of_Stars == 1:
     print("Single Star System - skipping step #3")
  
 elif Number_of_Stars <= 2:
-    random_integer = d100()
-    if random_integer <= 4:
+    roll_for_binary_mass_ratio = d100()
+    if roll_for_binary_mass_ratio <= 4:
         Mass_Ratio = 0.05
-    elif 5 <= random_integer <= 8:
+    elif 5 <= roll_for_binary_mass_ratio <= 8:
         Mass_Ratio = 0.10
-    elif 9 <= random_integer <= 12:
+    elif 9 <= roll_for_binary_mass_ratio <= 12:
         Mass_Ratio = 0.15
-    elif 13 <= random_integer <= 16:
+    elif 13 <= roll_for_binary_mass_ratio <= 16:
         Mass_Ratio = 0.20
-    elif 17 <= random_integer <= 20:
+    elif 17 <= roll_for_binary_mass_ratio <= 20:
         Mass_Ratio = 0.25
-    elif 21 <= random_integer <= 24:
+    elif 21 <= roll_for_binary_mass_ratio <= 24:
         Mass_Ratio = 0.30
-    elif 25 <= random_integer <= 28:
+    elif 25 <= roll_for_binary_mass_ratio <= 28:
         Mass_Ratio = 0.35
-    elif 29 <= random_integer <= 31:
+    elif 29 <= roll_for_binary_mass_ratio <= 31:
         Mass_Ratio = 0.40
-    elif 32 <= random_integer <= 34:
+    elif 32 <= roll_for_binary_mass_ratio <= 34:
         Mass_Ratio = 0.45
-    elif 35 <= random_integer <= 38:
+    elif 35 <= roll_for_binary_mass_ratio <= 38:
         Mass_Ratio = 0.50
-    elif 39 <= random_integer <= 43:
+    elif 39 <= roll_for_binary_mass_ratio <= 43:
         Mass_Ratio = 0.55
-    elif 44 <= random_integer <= 48:
+    elif 44 <= roll_for_binary_mass_ratio <= 48:
         Mass_Ratio = 0.60
-    elif 49 <= random_integer <= 53:
+    elif 49 <= roll_for_binary_mass_ratio <= 53:
         Mass_Ratio = 0.65
-    elif 54 <= random_integer <= 58:
+    elif 54 <= roll_for_binary_mass_ratio <= 58:
         Mass_Ratio = 0.70
-    elif 59 <= random_integer <= 63:
+    elif 59 <= roll_for_binary_mass_ratio <= 63:
         Mass_Ratio = 0.75
-    elif 64 <= random_integer <= 69:
+    elif 64 <= roll_for_binary_mass_ratio <= 69:
         Mass_Ratio = 0.80
-    elif 70 <= random_integer <= 76:
+    elif 70 <= roll_for_binary_mass_ratio <= 76:
         Mass_Ratio = 0.85
-    elif 77 <= random_integer <= 86:
+    elif 77 <= roll_for_binary_mass_ratio <= 86:
         Mass_Ratio = 0.90
-    elif random_integer >= 88:
+    elif roll_for_binary_mass_ratio >= 88:
         Mass_Ratio = 0.95
     print(f"Mass Ratio: {Mass_Ratio}")
     Mass_B = Mass * Mass_Ratio
@@ -323,31 +323,31 @@ elif Number_of_Stars == 4:
 Population = None
 base_age = None
 age_range = None
-random_integer = d100()
+roll_for_stellar_population = d100()
 
-if 1 <= random_integer <= 42: 
+if 1 <= roll_for_stellar_population <= 42: 
     Population = "Young Population I"
     Base_Age = 0.0
     Age_Range = 2.0
-elif 43 <= random_integer <= 76: 
+elif 43 <= roll_for_stellar_population <= 76: 
     Population = "Intermediate Population"
     Base_Age = 2.0
     Age_Range = 1.0
-elif 77 <= random_integer <= 95: 
+elif 77 <= roll_for_stellar_population <= 95: 
     Population = "Old Population I"
     Base_Age = 5.0
     Age_Range= 3.0
-elif 96 <= random_integer <= 99: 
+elif 96 <= roll_for_stellar_population <= 99: 
     Population = "Disk Population II"
     Base_Age = 8.0
     Age_Range = 1.5
-elif 100 == random_integer: 
+elif 100 == roll_for_stellar_population: 
     Population = "Halo Population II"
     Base_Age = 9.5
     Age_Range = 3.0
 
-random_integer = d100()
-star_age = Base_Age + (Age_Range*(random_integer/100))
+roll_for_age_range = d100()
+star_age = Base_Age + (Age_Range*(roll_for_age_range/100))
 
 print(f"Stellar Population: {Population}")
 print(f"Star Age: {star_age} Gyr")
@@ -356,8 +356,8 @@ print(f"Star Age: {star_age} Gyr")
 
 # currently only randomly generated metallicity - will need to tweak to use Gaia estimate or values from SIMBAD (if available)
 Metallicity = None
-random_integer = _3d6()
-Metallicity = (random_integer / 10)*(1.2-(star_age/13.5))
+roll_for_metallicity = _3d6()
+Metallicity = (roll_for_metallicity / 10)*(1.2-(star_age/13.5))
 
 if Population == "Halo Population II":
     Metallicity = (Metallicity - 0.2)
