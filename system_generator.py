@@ -360,9 +360,7 @@ elif Number_of_Stars == 3:
             Mass_B = 0.015
         print(f"Mass of Star B: {Mass_B} solar masses")
         roll_for_BC_mass_ratio = d100()+30
-        if roll_for_BC_mass_ratio == 30:
-            Mass_Ratio = 0.35
-        elif 29 <= roll_for_BC_mass_ratio <= 31:
+        if roll_for_BC_mass_ratio == 31:
             Mass_Ratio = 0.40
         elif 32 <= roll_for_BC_mass_ratio <= 34:
             Mass_Ratio = 0.45
@@ -395,6 +393,8 @@ elif Number_of_Stars == 3:
     elif random_integer == 2:
         Stellar_Arrangement = "AB-C"
         print("Triple Star System - AB as close companions with C as distant companion")
+
+
         print("need to write more code for this")
 
 elif Number_of_Stars == 4:
