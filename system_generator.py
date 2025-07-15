@@ -640,7 +640,21 @@ Metallicity = round(Metallicity, 2)
 print(f"Metallicity: {Metallicity}")
 
 # Step 6: Stellar Evolution
-# input Step 6 elements
+
+Temperature_Effective = None
+Luminosity = None
+
+if Mass < 0.08:
+    Temperature_Effective = 18600 * ((Mass ** 0.8) / (star_age ** 0.3))
+    print(f"Effective Temperature of Star A: {Temperature_Effective} Kelvin")
+    Luminosity = (Temperature_Effective ** 4) / (1.1e+17)
+    print(f"Luminosity of Star A: {Luminosity} solar luminosities")
+
+elif 0.08 <= Mass <= 0.5:
+    # input Step 6 elements for Red Dwarf Stars
+
+elif 0.5 < Mass:
+    # input Steps for Main Sequence Stars
 
 # Step 7: Stellar Classification
 # input Step 7 elements
