@@ -1,4 +1,5 @@
 import random
+import math
 
 # script to procedurally generate realistic (but fictional) star systems
 # reference: Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
@@ -643,90 +644,683 @@ print(f"Metallicity: {Metallicity}")
 
 Temperature_Effective = None
 Luminosity = None
+Radius = None
 
 if Mass < 0.08:
     Temperature_Effective = 18600 * ((Mass ** 0.8) / (star_age ** 0.3))
-    print(f"Effective Temperature of Star A: {Temperature_Effective} Kelvin")
     Luminosity = (Temperature_Effective ** 4) / (1.1e+17)
-    print(f"Luminosity of Star A: {Luminosity} solar luminosities")
 
 elif 0.08 <= Mass <= 0.5:
-    # input Step 6 elements for Red Dwarf Stars
+    # need to come back and redo as linear interpolation
+    if 0.08 <= Mass <= 0.09:
+        Temperature_Effective = 2500
+        Luminosity = 0.00047
+    elif 0.09 < Mass <= 0.11:
+        Temperature_Effective = 2710
+        Luminosity = 0.00087
+    elif 0.11 < Mass <= 0.135:
+        Temperature_Effective = 2930
+        Luminosity = 0.0016
+    elif 0.135 < Mass <= 0.2:
+        Temperature_Effective = 3090
+        Luminosity = 0.0029
+    elif 0.2 < Mass <= 0.24:
+        Temperature_Effective = 3370
+        Luminosity = 0.007
+    elif 0.24 < Mass <= 0.28:
+        Temperature_Effective = 3480
+        Luminosity = 0.01
+    elif 0.28 < Mass <= 0.32:
+        Temperature_Effective = 3550
+        Luminosity = 0.013
+    elif 0.32 < Mass <= 0.36:
+        Temperature_Effective = 3600
+        Luminosity = 0.017
+    elif 0.36 < Mass <= 0.4:
+        Temperature_Effective = 3640
+        Luminosity = 0.02
+    elif 0.4 < Mass <= 0.44:
+        Temperature_Effective = 3680
+        Luminosity = 0.025
+    elif 0.44 < Mass <= 0.48:
+        Temperature_Effective = 3730
+        Luminosity = 0.031
+    elif 0.48 < Mass <= 0.5:
+        Temperature_Effective = 3780
+        Luminosity = 0.039
 
 elif 0.5 < Mass:
-    # input Steps for Main Sequence Stars
+    Initial_Effective_Temperature = None
+    Final_Effective_Temperature = None
+    Initial_Luminosity = None
+    Luminosity_Growth_Rate = None
+    Main_Sequence_Lifespan = None
+
+    if 0.5 < Mass <= 0.515:
+        Initial_Effective_Temperature = 3780
+        Final_Effective_Temperature = 4330
+        Initial_Luminosity = 0.039
+        Luminosity_Growth_Rate = 1.01
+        Main_Sequence_Lifespan = 131
+    elif 0.515 < Mass <= N.NN:
+        Initial_Effective_Temperature = 
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = NNN
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = 0.436
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = 0.362
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = 0.305
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = 0.241
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = 0.171
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = 0.127
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = 0.0987
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = 0.0789
+    elif N.NN < Mass <= N.NN:
+        Initial_Effective_Temperature = NNN
+        Final_Effective_Temperature = NNN
+        Initial_Luminosity = NNN
+        Luminosity_Growth_Rate = NNN
+        Main_Sequence_Lifespan = 0.0647
+
+if 0.08 <= Mass:
+    Radius = 155000 * ((sqrt(Luminosity))/(Temperature_Effective * Temperature_Effective))
+
+print(f"Effective Temperature of Star A: {Temperature_Effective} Kelvin")
+print(f"Luminosity of Star A: {Luminosity} solar luminosities")
+print(f"Radius of Star A: {Radius} AU")
 
 # Step 7: Stellar Classification
-# input Step 7 elements
+    # input Step 7 elements
 
 # Step 8: Stellar Orbital Parameters
-# input Step 8 elements
+    # input Step 8 elements
 
 # Step 9: Protoplanetary Disk
-# input Step 9 elements
+    # input Step 9 elements
 
 # Step 10: Disk Instability
-# input Step 10 elements
+    # input Step 10 elements
 
 # Step 11: Core Accretion
-# input Step 11 elements
+    # input Step 11 elements
 
 # Step 12: Oligarchic Collision
-# input Step 12 elements
+    # input Step 12 elements
 
 # Step 13: Planetary Orbital Radii
-# input Step 13 elements
+    # input Step 13 elements
 
 # Step 14: Planetary Mass
-# input Step 14 elements
+    # input Step 14 elements
 
 # Step 15: Orbital Eccentricity
-# input Step 15 elements
+    # input Step 15 elements
 
 # Step 16: Physical Parameters
-# input Step 16 elements
+    # input Step 16 elements
 
 # Step 17: Natural Satellites
-# input Step 17 elements
+    # input Step 17 elements
 
 # Step 18: Orbital Period
-# input Step 18 elements
+    # input Step 18 elements
 
 # Step 19: Rotation Period
-# input Step 19 elements
+    # input Step 19 elements
 
 # Step 20: Obliquity
 # input Step 20 elements
 
 # Step 21: Local Calendar
-# input Step 21 elements
+    # input Step 21 elements
 
 # Step 22: Blackbody Temperature
-# input Step 22 elements
+    # input Step 22 elements
 
 # Step 23: Water
-# input Step 23 elements
+    # input Step 23 elements
 
 # Step 24: Geophysics
-# input Step 24 elements
+    # input Step 24 elements
 
 # Step 25: Magnetic Field
-# input Step 25 elements
+    # input Step 25 elements
 
 # Step 26: Early Atmosphere
-# input Step 26 elements
+    # input Step 26 elements
 
 # Step 27: Albedo
-# input Step 27 elements
+    # input Step 27 elements
 
 # Step 28: Carbon Dioxide
-# input Step 28 elements
+    # input Step 28 elements
 
 # Step 29: Presence of Life
-# input Step 29 elements
+    # input Step 29 elements
 
 # Step 30: Average Surface Temperature
-# input Step 30 elements
+    # input Step 30 elements
 
 # Step 31: Finalize Atmosphere
-# input Step 31 elements
+    # input Step 31 elements
