@@ -649,6 +649,7 @@ Radius = None
 if Mass_A < 0.08:
     Temperature_Effective = 18600 * ((Mass_A ** 0.8) / (star_age ** 0.3))
     Luminosity = (Temperature_Effective ** 4) / (1.1e+17)
+    Radius = 0.00047
 
 elif 0.08 <= Mass_A <= 0.5:
     # need to come back and redo as linear interpolation
