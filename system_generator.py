@@ -652,7 +652,10 @@ if Mass_A < 0.08:
     Radius = 0.00047
 
 elif 0.08 <= Mass_A <= 0.5:
-    # need to come back and redo as linear interpolation
+    Temperature_Effective = (42 * Mass) + 42
+    Luminosity = (42 * Mass) + 42
+    Radius = (42 * Mass) + 42
+    # number 42s above are placeholders for actual values - need to calculate and put in
 
 elif 0.5 < Mass:
     Initial_Effective_Temperature = None
