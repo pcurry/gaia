@@ -199,7 +199,7 @@ Number_of_Stars = 0
 first_roll_for_number_of_stars = _3d6()
 second_roll_for_number_of_stars = d100()
 
-if Mass < 0.08:
+if Mass_A < 0.08:
     if 1 <= first_roll_for_number_of_stars <= 13:
         Number_of_Stars = 1
     elif 14 <= first_roll_for_number_of_stars <= 18:
@@ -209,7 +209,7 @@ if Mass < 0.08:
             Number_of_Stars = 3
         elif 96 <= second_roll_for_number_of_stars <= 100:
             Number_of_Stars = 4
-elif 0.08 <= Mass < 0.70:
+elif 0.08 <= Mass_A < 0.70:
     if 1 <= first_roll_for_number_of_stars <= 12:
         Number_of_Stars = 1
     elif 13 <= first_roll_for_number_of_stars <= 18:
@@ -219,7 +219,7 @@ elif 0.08 <= Mass < 0.70:
             Number_of_Stars = 3
         elif 96 <= second_roll_for_number_of_stars <= 100:
             Number_of_Stars = 4
-elif 0.7 <= Mass < 1.00:
+elif 0.7 <= Mass_A < 1.00:
     if 1 <= first_roll_for_number_of_stars <= 11:
         Number_of_Stars = 1
     elif 12 <= first_roll_for_number_of_stars <= 18:
@@ -229,7 +229,7 @@ elif 0.7 <= Mass < 1.00:
             Number_of_Stars = 3
         elif 96 <= second_roll_for_number_of_stars <= 100:
             Number_of_Stars = 4
-elif 1.00 <= Mass < 1.30:
+elif 1.00 <= Mass_A < 1.30:
     if 1 <= first_roll_for_number_of_stars <= 10:
         Number_of_Stars = 1
     elif 11 <= first_roll_for_number_of_stars <= 18:
@@ -239,7 +239,7 @@ elif 1.00 <= Mass < 1.30:
             Number_of_Stars = 3
         elif 96 <= second_roll_for_number_of_stars <= 100:
             Number_of_Stars = 4
-elif 1.30 <= Mass: 
+elif 1.30 <= Mass_A: 
     if 1 <= first_roll_for_number_of_stars <= 9:
         Number_of_Stars = 1
     elif 10 <= first_roll_for_number_of_stars <= 18:
@@ -629,7 +629,7 @@ print(f"System Age: {system_age} Gyr")
 # currently only randomly generated metallicity - will need to tweak to use Gaia estimate or values from SIMBAD (if available)
 Metallicity = None
 roll_for_metallicity = _3d6()
-Metallicity = (roll_for_metallicity / 10)*(1.2-(star_age/13.5))
+Metallicity = (roll_for_metallicity / 10)*(1.2-(system_age/13.5))
 
 if Population == "Halo Population II":
     Metallicity = (Metallicity - 0.2)
@@ -647,17 +647,15 @@ Luminosity = None
 Radius = None
 
 if Mass_A < 0.08:
-    Temperature_Effective = 18600 * ((Mass_A ** 0.8) / (star_age ** 0.3))
+    Temperature_Effective = 18600 * ((Mass_A ** 0.8) / (system_age ** 0.3))
     Luminosity = (Temperature_Effective ** 4) / (1.1e+17)
     Radius = 0.00047
 
 elif 0.08 <= Mass_A <= 0.5:
-    Temperature_Effective = (42 * Mass) + 42
-    Luminosity = (42 * Mass) + 42
-    Radius = (42 * Mass) + 42
-    # number 42s above are placeholders for actual values - need to calculate and put in
+    Temperature_Effective = -78806*(Mass_A ** 4) + 125050*(Mass_A ** 3) - 74194*(Mass_A ** 2) + (20692*Mass_A) + 1272.2
+    Luminosity = 2.1901*(Mass_A ** 4) - 2.2436*(Mass_A ** 3) + 0.919*(Mass_A ** 2) - (0.1023*Mass_A) + 0.0039
 
-elif 0.5 < Mass:
+elif 0.5 < Mass_A:
     Initial_Effective_Temperature = None
     Final_Effective_Temperature = None
     Initial_Luminosity = None
@@ -665,8 +663,8 @@ elif 0.5 < Mass:
     Main_Sequence_Lifespan = None
     # need to come back and redo as linear interpolation
 
-if 0.08 <= Mass:
-    Radius = 155000 * ((sqrt(Luminosity))/(Temperature_Effective * Temperature_Effective))
+if 0.08 <= Mass_A:
+    Radius = 155000 * ((math.sqrt(Luminosity))/(Temperature_Effective * Temperature_Effective))
 
 print(f"Effective Temperature of Star A: {Temperature_Effective} Kelvin")
 print(f"Luminosity of Star A: {Luminosity} solar luminosities")
