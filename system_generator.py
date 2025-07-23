@@ -302,7 +302,7 @@ elif Number_of_Stars <= 2:
     elif 87 <= roll_for_binary_mass_ratio <= 100:
         Mass_Ratio = 0.95
     print(f"Mass Ratio Between Star A and Star B: {Mass_Ratio}")
-    Mass_B = Mass * Mass_Ratio
+    Mass_B = Mass_A * Mass_Ratio
     if Mass_B < 0.015:
         Mass_B = 0.015
     print(f"Mass of Star B: {Mass_B} solar masses")
@@ -666,6 +666,9 @@ elif 0.5 < Mass_A:
 if 0.08 <= Mass_A:
     Radius = 155000 * ((math.sqrt(Luminosity))/(Temperature_Effective * Temperature_Effective))
 
+Temperature_Effective = round(Temperature_Effective, 1)
+Luminosity = round(Luminosity, 5)
+Radius = round(Radius, 5)
 print(f"Effective Temperature of Star A: {Temperature_Effective} Kelvin")
 print(f"Luminosity of Star A: {Luminosity} solar luminosities")
 print(f"Radius of Star A: {Radius} AU")
