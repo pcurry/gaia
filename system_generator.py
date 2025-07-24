@@ -3,7 +3,7 @@ import math
 
 # script to procedurally generate realistic (but fictional) star systems
 # reference: Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
-# next step: optional conectivity to Sector_Query.py (e.g. input real parameter values from stars in Gaia DR3 dataset)
+# input user query - option to input real parameter values from stars in Gaia DR3 dataset - e.g. connect with Sectory_Query.py
 
 # define dice rolling functions
 def d100() -> int:
