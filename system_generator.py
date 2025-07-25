@@ -352,7 +352,7 @@ elif Number_of_Stars == 3:
         elif roll_for_AB_mass_ratio >= 88:
             Mass_Ratio = 0.95
         print(f"Mass Ratio Between Star A and Star B: {Mass_Ratio}")
-        Mass_B = Mass * Mass_Ratio
+        Mass_B = Mass_A * Mass_Ratio
         if Mass_B < 0.015:
             Mass_B = 0.015
         print(f"Mass of Star B: {Mass_B} solar masses")
@@ -416,7 +416,7 @@ elif Number_of_Stars == 3:
         elif roll_for_AB_mass_ratio >= 88:
             Mass_Ratio = 0.95
         print(f"Mass Ratio Between Star A and Star B: {Mass_Ratio}")
-        Mass_B = Mass * Mass_Ratio
+        Mass_B = Mass_A * Mass_Ratio
         if Mass_B < 0.015:
             Mass_B = 0.015
         print(f"Mass of Star B: {Mass_B} solar masses")
@@ -460,7 +460,7 @@ elif Number_of_Stars == 3:
         elif roll_for_AC_mass_ratio >= 88:
             Mass_Ratio = 0.95
         print(f"Mass Ratio Between Star A and Star C: {Mass_Ratio}")
-        Mass_C = Mass * Mass_Ratio
+        Mass_C = Mass_A * Mass_Ratio
         if Mass_C < 0.015:
             Mass_C = 0.015
         print(f"Mass of Star C: {Mass_C} solar masses")
