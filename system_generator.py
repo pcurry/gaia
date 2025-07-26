@@ -657,11 +657,14 @@ elif 0.08 <= Mass_A <= 0.5:
 
 elif 0.5 < Mass_A:
     Initial_Effective_Temperature = None
+    Temperature_Effective = 42
+    # determine interpolation equation and use instead of 42 placeholder
     Final_Effective_Temperature = None
     Initial_Luminosity = None
     Luminosity_Growth_Rate = None
+    Luminosity = 42
+    # determine interploation equaiton and use instead of 42 placeholder
     Main_Sequence_Lifespan = None
-    # need to come back and redo as linear interpolation
 
 if 0.08 <= Mass_A:
     Radius = 155000 * ((math.sqrt(Luminosity))/(Temperature_Effective * Temperature_Effective))
