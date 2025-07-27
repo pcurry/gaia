@@ -643,39 +643,42 @@ print(f"Metallicity: {Metallicity}")
 
 # Step 6: Stellar Evolution
 
-Temperature_Effective = None
-Luminosity = None
-Radius = None
-
-if Mass_A < 0.08:
-    Temperature_Effective = 18600 * ((Mass_A ** 0.8) / (system_age ** 0.3))
-    Luminosity = (Temperature_Effective ** 4) / (1.1e+17)
-    Radius = 0.00047
-
-elif 0.08 <= Mass_A <= 0.5:
-    Temperature_Effective = -78806*(Mass_A ** 4) + 125050*(Mass_A ** 3) - 74194*(Mass_A ** 2) + (20692*Mass_A) + 1272.2
-    Luminosity = 2.1901*(Mass_A ** 4) - 2.2436*(Mass_A ** 3) + 0.919*(Mass_A ** 2) - (0.1023*Mass_A) + 0.0039
-
-elif 0.5 < Mass_A:
-    Initial_Effective_Temperature = None
-    Temperature_Effective = 42
-    # determine interpolation equation and use instead of 42 placeholder
-    Final_Effective_Temperature = None
-    Initial_Luminosity = None
-    Luminosity_Growth_Rate = None
-    Luminosity = 42
-    # determine interploation equaiton and use instead of 42 placeholder
-    Main_Sequence_Lifespan = None
-
-if 0.08 <= Mass_A:
-    Radius = 155000 * ((math.sqrt(Luminosity))/(Temperature_Effective * Temperature_Effective))
-
-Temperature_Effective = round(Temperature_Effective, 1)
-Luminosity = round(Luminosity, 5)
-Radius = round(Radius, 5)
-print(f"Effective Temperature of Star A: {Temperature_Effective} Kelvin")
-print(f"Luminosity of Star A: {Luminosity} solar luminosities")
-print(f"Radius of Star A: {Radius} AU")
+if Number_of_Stars == 1:
+    Temperature_Effective = None
+    Luminosity = None
+    Radius = None
+    # need to rename parameters to be specific to Star A
+    if Mass_A < 0.08:
+        Temperature_Effective = 18600 * ((Mass_A ** 0.8) / (system_age ** 0.3))
+        Luminosity = (Temperature_Effective ** 4) / (1.1e+17)
+        Radius = 0.00047
+    elif 0.08 <= Mass_A <= 0.5:
+        Temperature_Effective = -78806*(Mass_A ** 4) + 125050*(Mass_A ** 3) - 74194*(Mass_A ** 2) + (20692*Mass_A) + 1272.2
+        Luminosity = 2.1901*(Mass_A ** 4) - 2.2436*(Mass_A ** 3) + 0.919*(Mass_A ** 2) - (0.1023*Mass_A) + 0.0039
+    elif 0.5 < Mass_A:
+        Initial_Effective_Temperature = None
+        Temperature_Effective = 42
+        # determine interpolation equation and use instead of 42 placeholder
+        Final_Effective_Temperature = None
+        Initial_Luminosity = None
+        Luminosity_Growth_Rate = None
+        Luminosity = 42
+        # determine interploation equaiton and use instead of 42 placeholder
+        Main_Sequence_Lifespan = None
+    if 0.08 <= Mass_A:
+        Radius = 155000 * ((math.sqrt(Luminosity))/(Temperature_Effective * Temperature_Effective))
+    Temperature_Effective = round(Temperature_Effective, 1)
+    Luminosity = round(Luminosity, 5)
+    Radius = round(Radius, 5)
+    print(f"Effective Temperature of Star A: {Temperature_Effective} Kelvin")
+    print(f"Luminosity of Star A: {Luminosity} solar luminosities")
+    print(f"Radius of Star A: {Radius} AU")
+elif Number_of_Stars == 2:
+    print("need to code for multi-star case")
+elif Number_of_Stars == 3:
+    print("need to code for multi-star case")
+elif Number_of_Stars == 4:
+    print("need to code for multi-star case")
 
 # Step 7: Stellar Classification
     # input Step 7 elements
