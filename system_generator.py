@@ -643,7 +643,7 @@ print(f"Metallicity: {Metallicity}")
 
 # Step 6: Stellar Evolution
 
-if Number_of_Stars == 1:
+if Number_of_Stars >= 1:
     Temperature_Effective = None
     Luminosity = None
     Radius = None
@@ -673,9 +673,9 @@ if Number_of_Stars == 1:
     print(f"Effective Temperature of Star A: {Temperature_Effective} Kelvin")
     print(f"Luminosity of Star A: {Luminosity} solar luminosities")
     print(f"Radius of Star A: {Radius} AU")
-elif Number_of_Stars == 2:
+elif Number_of_Stars >= 2:
     print("need to code for multi-star case")
-elif Number_of_Stars == 3:
+elif Number_of_Stars >= 3:
     print("need to code for multi-star case")
 elif Number_of_Stars == 4:
     print("need to code for multi-star case")
