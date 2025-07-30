@@ -644,17 +644,17 @@ print(f"Metallicity: {Metallicity}")
 # Step 6: Stellar Evolution
 
 if Number_of_Stars >= 1:
-    Temperature_Effective = None
-    Luminosity = None
-    Radius = None
+    Temperature_Effective_of_Star_A = None
+    Luminosity_of_Star_A = None
+    Radius_of_Star_A = None
     # need to rename parameters to be specific to Star A
     if Mass_A < 0.08:
-        Temperature_Effective = 18600 * ((Mass_A ** 0.8) / (system_age ** 0.3))
-        Luminosity = (Temperature_Effective ** 4) / (1.1e+17)
-        Radius = 0.00047
+        Temperature_Effective_of_Star_A = 18600 * ((Mass_A ** 0.8) / (system_age ** 0.3))
+        Luminosity_of_Star_A = (Temperature_Effective ** 4) / (1.1e+17)
+        Radius_of_Star_A = 0.00047
     elif 0.08 <= Mass_A <= 0.5:
-        Temperature_Effective = -78806*(Mass_A ** 4) + 125050*(Mass_A ** 3) - 74194*(Mass_A ** 2) + (20692*Mass_A) + 1272.2
-        Luminosity = 2.1901*(Mass_A ** 4) - 2.2436*(Mass_A ** 3) + 0.919*(Mass_A ** 2) - (0.1023*Mass_A) + 0.0039
+        Temperature_Effective_of_Star_A = -78806*(Mass_A ** 4) + 125050*(Mass_A ** 3) - 74194*(Mass_A ** 2) + (20692*Mass_A) + 1272.2
+        Luminosity_of_Star_A = 2.1901*(Mass_A ** 4) - 2.2436*(Mass_A ** 3) + 0.919*(Mass_A ** 2) - (0.1023*Mass_A) + 0.0039
     elif 0.5 < Mass_A:
         Initial_Effective_Temperature = None
         Temperature_Effective = 42
@@ -662,17 +662,17 @@ if Number_of_Stars >= 1:
         Final_Effective_Temperature = None
         Initial_Luminosity = None
         Luminosity_Growth_Rate = None
-        Luminosity = 42
+        Luminosity_of_Star_A = 42
         # determine interploation equaiton and use instead of 42 placeholder
         Main_Sequence_Lifespan = None
     if 0.08 <= Mass_A:
-        Radius = 155000 * ((math.sqrt(Luminosity))/(Temperature_Effective * Temperature_Effective))
-    Temperature_Effective = round(Temperature_Effective, 1)
-    Luminosity = round(Luminosity, 5)
-    Radius = round(Radius, 5)
-    print(f"Effective Temperature of Star A: {Temperature_Effective} Kelvin")
-    print(f"Luminosity of Star A: {Luminosity} solar luminosities")
-    print(f"Radius of Star A: {Radius} AU")
+        Radius_of_Star_A = 155000 * ((math.sqrt(Luminosity_of_Star_A))/(Temperature_Effective_of_Star_A * Temperature_Effective_of_Star_A))
+    Temperature_Effective_of_Star_A = round(Temperature_Effective_of_Star_A, 1)
+    Luminosity_of_Star_A = round(Luminosity_of_Star_A, 5)
+    Radius_of_Star_A = round(Radius_of_Star_A, 5)
+    print(f"Effective Temperature of Star A: {Temperature_Effective_of_Star_A} Kelvin")
+    print(f"Luminosity of Star A: {Luminosity_of_Star_A} solar luminosities")
+    print(f"Radius of Star A: {Radius_of_Star_A} AU")
 elif Number_of_Stars >= 2:
     print("need to code for multi-star case")
 elif Number_of_Stars >= 3:
