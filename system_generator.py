@@ -647,7 +647,6 @@ if Number_of_Stars >= 1:
     Temperature_Effective_of_Star_A = None
     Luminosity_of_Star_A = None
     Radius_of_Star_A = None
-    # need to rename parameters to be specific to Star A
     if Mass_A < 0.08:
         Temperature_Effective_of_Star_A = 18600 * ((Mass_A ** 0.8) / (system_age ** 0.3))
         Luminosity_of_Star_A = (Temperature_Effective ** 4) / (1.1e+17)
@@ -674,10 +673,19 @@ if Number_of_Stars >= 1:
     print(f"Luminosity of Star A: {Luminosity_of_Star_A} solar luminosities")
     print(f"Radius of Star A: {Radius_of_Star_A} AU")
 elif Number_of_Stars >= 2:
+    Temperature_Effective_of_Star_B = None
+    Luminosity_of_Star_B = None
+    Radius_of_Star_B = None
     print("need to code for multi-star case")
 elif Number_of_Stars >= 3:
+    Temperature_Effective_of_Star_C = None
+    Luminosity_of_Star_C = None
+    Radius_of_Star_C = None
     print("need to code for multi-star case")
 elif Number_of_Stars == 4:
+    Temperature_Effective_of_Star_D = None
+    Luminosity_of_Star_D = None
+    Radius_of_Star_D = None
     print("need to code for multi-star case")
 
 # Step 7: Stellar Classification
