@@ -649,7 +649,7 @@ if Number_of_Stars >= 1:
     Radius_of_Star_A = None
     if Mass_A < 0.08:
         Temperature_Effective_of_Star_A = 18600 * ((Mass_A ** 0.8) / (system_age ** 0.3))
-        Luminosity_of_Star_A = (Temperature_Effective ** 4) / (1.1e+17)
+        Luminosity_of_Star_A = (Temperature_Effective_of_Star_A ** 4) / (1.1e+17)
         Radius_of_Star_A = 0.00047
     elif 0.08 <= Mass_A <= 0.5:
         Temperature_Effective_of_Star_A = -78806*(Mass_A ** 4) + 125050*(Mass_A ** 3) - 74194*(Mass_A ** 2) + (20692*Mass_A) + 1272.2
@@ -676,7 +676,31 @@ elif Number_of_Stars >= 2:
     Temperature_Effective_of_Star_B = None
     Luminosity_of_Star_B = None
     Radius_of_Star_B = None
-    print("need to code for multi-star case")
+    if Mass_B < 0.08:
+        Temperature_Effective_of_Star_B = 18600 * ((Mass_B ** 0.8) / (system_age ** 0.3))
+        Luminosity_of_Star_B = (Temperature_Effective_of_Star_B ** 4) / (1.1e+17)
+        Radius_of_Star_B = 0.00047
+    elif 0.08 <= Mass_B <= 0.5:
+        Temperature_Effective_of_Star_A = -78806*(Mass_B ** 4) + 125050*(Mass_B ** 3) - 74194*(Mass_B ** 2) + (20692*Mass_B) + 1272.2
+        Luminosity_of_Star_B = 2.1901*(Mass_B ** 4) - 2.2436*(Mass_B ** 3) + 0.919*(Mass_B ** 2) - (0.1023*Mass_B) + 0.0039
+    elif 0.5 < Mass_B:
+        Initial_Effective_Temperature_of_Star_B = None
+        Temperature_Effective_of_Star_B = 42
+        # determine interpolation equation and use instead of 42 placeholder
+        Final_Effective_Temperature = None
+        Initial_Luminosity = None
+        Luminosity_Growth_Rate = None
+        Luminosity_of_Star_B = 42
+        # determine interploation equaiton and use instead of 42 placeholder
+        Main_Sequence_Lifespan = None
+    if 0.08 <= Mass_B:
+        Radius_of_Star_B = 155000 * ((math.sqrt(Luminosity_of_Star_B))/(Temperature_Effective_of_Star_B * Temperature_Effective_of_Star_B))
+    Temperature_Effective_of_Star_A = round(Temperature_Effective_of_Star_A, 1)
+    Luminosity_of_Star_A = round(Luminosity_of_Star_B, 5)
+    Radius_of_Star_A = round(Radius_of_Star_B, 5)
+    print(f"Effective Temperature of Star B: {Temperature_Effective_of_Star_B} Kelvin")
+    print(f"Luminosity of Star B: {Luminosity_of_Star_B} solar luminosities")
+    print(f"Radius of Star B: {Radius_of_Star_B} AU")
 elif Number_of_Stars >= 3:
     Temperature_Effective_of_Star_C = None
     Luminosity_of_Star_C = None
