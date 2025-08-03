@@ -740,7 +740,7 @@ elif Number_of_Stars == 4:
         Radius_of_Star_D = 0.00047
     elif 0.08 <= Mass_D <= 0.5:
         Temperature_Effective_of_Star_D = -78806*(Mass_D ** 4) + 125050*(Mass_D ** 3) - 74194*(Mass_D ** 2) + (20692*Mass_D) + 1272.2
-        Luminosity_of_Star_D = 2.1901*(Mass_D ** 4) - 2.2436*(Mass_D ** 3) + 0.919*(Mass_C ** D) - (0.1023*Mass_D) + 0.0039
+        Luminosity_of_Star_D = 2.1901*(Mass_D ** 4) - 2.2436*(Mass_D ** 3) + 0.919*(Mass_D ** 2) - (0.1023*Mass_D) + 0.0039
     elif 0.5 < Mass_D:
         Initial_Effective_Temperature_of_Star_D = None
         Temperature_Effective_of_Star_D = 42
