@@ -656,11 +656,11 @@ if Number_of_Stars >= 1:
         Luminosity_of_Star_A = 2.1901*(Mass_A ** 4) - 2.2436*(Mass_A ** 3) + 0.919*(Mass_A ** 2) - (0.1023*Mass_A) + 0.0039
     elif 0.5 < Mass_A:
         Initial_Effective_Temperature = None
-        Temperature_Effective = 42
+        Temperature_Effective_of_Star_A = 42
         # determine interpolation equation and use instead of 42 placeholder
-        Final_Effective_Temperature = None
-        Initial_Luminosity = None
-        Luminosity_Growth_Rate = None
+        Final_Effective_Temperature_of_Star_A = None
+        Initial_Luminosity_of_Star_A = None
+        Luminosity_Growth_Rate_of_Star_A = None
         Luminosity_of_Star_A = 42
         # determine interploation equaiton and use instead of 42 placeholder
         Main_Sequence_Lifespan = None
@@ -687,17 +687,17 @@ elif Number_of_Stars >= 2:
         Initial_Effective_Temperature_of_Star_B = None
         Temperature_Effective_of_Star_B = 42
         # determine interpolation equation and use instead of 42 placeholder
-        Final_Effective_Temperature = None
-        Initial_Luminosity = None
-        Luminosity_Growth_Rate = None
+        Final_Effective_Temperature_of_Star_B = None
+        Initial_Luminosity_of_Star_B = None
+        Luminosity_Growth_Rate_of_Star_B = None
         Luminosity_of_Star_B = 42
         # determine interploation equaiton and use instead of 42 placeholder
         Main_Sequence_Lifespan = None
     if 0.08 <= Mass_B:
         Radius_of_Star_B = 155000 * ((math.sqrt(Luminosity_of_Star_B))/(Temperature_Effective_of_Star_B * Temperature_Effective_of_Star_B))
-    Temperature_Effective_of_Star_A = round(Temperature_Effective_of_Star_A, 1)
-    Luminosity_of_Star_A = round(Luminosity_of_Star_B, 5)
-    Radius_of_Star_A = round(Radius_of_Star_B, 5)
+    Temperature_Effective_of_Star_B = round(Temperature_Effective_of_Star_B, 1)
+    Luminosity_of_Star_B = round(Luminosity_of_Star_B, 5)
+    Radius_of_Star_B = round(Radius_of_Star_B, 5)
     print(f"Effective Temperature of Star B: {Temperature_Effective_of_Star_B} Kelvin")
     print(f"Luminosity of Star B: {Luminosity_of_Star_B} solar luminosities")
     print(f"Radius of Star B: {Radius_of_Star_B} AU")
@@ -705,7 +705,31 @@ elif Number_of_Stars >= 3:
     Temperature_Effective_of_Star_C = None
     Luminosity_of_Star_C = None
     Radius_of_Star_C = None
-    print("need to code for multi-star case")
+    if Mass_B < 0.08:
+        Temperature_Effective_of_Star_C = 18600 * ((Mass_C ** 0.8) / (system_age ** 0.3))
+        Luminosity_of_Star_C = (Temperature_Effective_of_Star_C ** 4) / (1.1e+17)
+        Radius_of_Star_C = 0.00047
+    elif 0.08 <= Mass_C <= 0.5:
+        Temperature_Effective_of_Star_C = -78806*(Mass_C ** 4) + 125050*(Mass_C ** 3) - 74194*(Mass_C ** 2) + (20692*Mass_C) + 1272.2
+        Luminosity_of_Star_C = 2.1901*(Mass_C ** 4) - 2.2436*(Mass_C ** 3) + 0.919*(Mass_C ** 2) - (0.1023*Mass_C) + 0.0039
+    elif 0.5 < Mass_C:
+        Initial_Effective_Temperature_of_Star_C = None
+        Temperature_Effective_of_Star_C = 42
+        # determine interpolation equation and use instead of 42 placeholder
+        Final_Effective_Temperature_of_Star_C = None
+        Initial_Luminosity_of_Star_C = None
+        Luminosity_Growth_Rate_of_Star_C = None
+        Luminosity_of_Star_C = 42
+        # determine interploation equaiton and use instead of 42 placeholder
+        Main_Sequence_Lifespan = None
+    if 0.08 <= Mass_C:
+        Radius_of_Star_C = 155000 * ((math.sqrt(Luminosity_of_Star_C))/(Temperature_Effective_of_Star_C * Temperature_Effective_of_Star_C))
+    Temperature_Effective_of_Star_C = round(Temperature_Effective_of_Star_C, 1)
+    Luminosity_of_Star_C = round(Luminosity_of_Star_C, 5)
+    Radius_of_Star_C = round(Radius_of_Star_C, 5)
+    print(f"Effective Temperature of Star C: {Temperature_Effective_of_Star_C} Kelvin")
+    print(f"Luminosity of Star C: {Luminosity_of_Star_C} solar luminosities")
+    print(f"Radius of Star C: {Radius_of_Star_C} AU")
 elif Number_of_Stars == 4:
     Temperature_Effective_of_Star_D = None
     Luminosity_of_Star_D = None
