@@ -705,7 +705,7 @@ elif Number_of_Stars >= 3:
     Temperature_Effective_of_Star_C = None
     Luminosity_of_Star_C = None
     Radius_of_Star_C = None
-    if Mass_B < 0.08:
+    if Mass_C < 0.08:
         Temperature_Effective_of_Star_C = 18600 * ((Mass_C ** 0.8) / (system_age ** 0.3))
         Luminosity_of_Star_C = (Temperature_Effective_of_Star_C ** 4) / (1.1e+17)
         Radius_of_Star_C = 0.00047
@@ -734,7 +734,31 @@ elif Number_of_Stars == 4:
     Temperature_Effective_of_Star_D = None
     Luminosity_of_Star_D = None
     Radius_of_Star_D = None
-    print("need to code for multi-star case")
+    if Mass_D < 0.08:
+        Temperature_Effective_of_Star_D = 18600 * ((Mass_D ** 0.8) / (system_age ** 0.3))
+        Luminosity_of_Star_D = (Temperature_Effective_of_Star_D ** 4) / (1.1e+17)
+        Radius_of_Star_D = 0.00047
+    elif 0.08 <= Mass_D <= 0.5:
+        Temperature_Effective_of_Star_D = -78806*(Mass_D ** 4) + 125050*(Mass_D ** 3) - 74194*(Mass_D ** 2) + (20692*Mass_D) + 1272.2
+        Luminosity_of_Star_D = 2.1901*(Mass_D ** 4) - 2.2436*(Mass_D ** 3) + 0.919*(Mass_C ** D) - (0.1023*Mass_D) + 0.0039
+    elif 0.5 < Mass_D:
+        Initial_Effective_Temperature_of_Star_D = None
+        Temperature_Effective_of_Star_D = 42
+        # determine interpolation equation and use instead of 42 placeholder
+        Final_Effective_Temperature_of_Star_D = None
+        Initial_Luminosity_of_Star_D = None
+        Luminosity_Growth_Rate_of_Star_D = None
+        Luminosity_of_Star_D = 42
+        # determine interploation equaiton and use instead of 42 placeholder
+        Main_Sequence_Lifespan = None
+    if 0.08 <= Mass_D:
+        Radius_of_Star_D = 155000 * ((math.sqrt(Luminosity_of_Star_D))/(Temperature_Effective_of_Star_D * Temperature_Effective_of_Star_D))
+    Temperature_Effective_of_Star_D = round(Temperature_Effective_of_Star_D, 1)
+    Luminosity_of_Star_D = round(Luminosity_of_Star_D, 5)
+    Radius_of_Star_D = round(Radius_of_Star_D, 5)
+    print(f"Effective Temperature of Star D: {Temperature_Effective_of_Star_D} Kelvin")
+    print(f"Luminosity of Star D: {Luminosity_of_Star_D} solar luminosities")
+    print(f"Radius of Star D: {Radius_of_Star_D} AU")
 
 # Step 7: Stellar Classification
     # input Step 7 elements
