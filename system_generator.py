@@ -656,14 +656,17 @@ if Number_of_Stars >= 1:
         Luminosity_of_Star_A = 2.1901*(Mass_A ** 4) - 2.2436*(Mass_A ** 3) + 0.919*(Mass_A ** 2) - (0.1023*Mass_A) + 0.0039
     elif 0.5 < Mass_A:
         Initial_Effective_Temperature = None
-        Temperature_Effective_of_Star_A = 42
-        # determine interpolation equation and use instead of 42 placeholder
         Final_Effective_Temperature_of_Star_A = None
         Initial_Luminosity_of_Star_A = None
         Luminosity_Growth_Rate_of_Star_A = None
+        Main_Sequence_Lifespan = None
+
+        Temperature_Effective_of_Star_A = 42
+        # determine interpolation equation and use instead of 42 placeholder
+
         Luminosity_of_Star_A = 42
         # determine interploation equaiton and use instead of 42 placeholder
-        Main_Sequence_Lifespan = None
+
     if 0.08 <= Mass_A:
         Radius_of_Star_A = 155000 * ((math.sqrt(Luminosity_of_Star_A))/(Temperature_Effective_of_Star_A * Temperature_Effective_of_Star_A))
     Temperature_Effective_of_Star_A = round(Temperature_Effective_of_Star_A, 1)
@@ -685,14 +688,17 @@ elif Number_of_Stars >= 2:
         Luminosity_of_Star_B = 2.1901*(Mass_B ** 4) - 2.2436*(Mass_B ** 3) + 0.919*(Mass_B ** 2) - (0.1023*Mass_B) + 0.0039
     elif 0.5 < Mass_B:
         Initial_Effective_Temperature_of_Star_B = None
-        Temperature_Effective_of_Star_B = 42
-        # determine interpolation equation and use instead of 42 placeholder
         Final_Effective_Temperature_of_Star_B = None
         Initial_Luminosity_of_Star_B = None
         Luminosity_Growth_Rate_of_Star_B = None
+        Main_Sequence_Lifespan = None
+
+        Temperature_Effective_of_Star_B = 42
+        # determine interpolation equation and use instead of 42 placeholder
+
         Luminosity_of_Star_B = 42
         # determine interploation equaiton and use instead of 42 placeholder
-        Main_Sequence_Lifespan = None
+
     if 0.08 <= Mass_B:
         Radius_of_Star_B = 155000 * ((math.sqrt(Luminosity_of_Star_B))/(Temperature_Effective_of_Star_B * Temperature_Effective_of_Star_B))
     Temperature_Effective_of_Star_B = round(Temperature_Effective_of_Star_B, 1)
@@ -714,14 +720,17 @@ elif Number_of_Stars >= 3:
         Luminosity_of_Star_C = 2.1901*(Mass_C ** 4) - 2.2436*(Mass_C ** 3) + 0.919*(Mass_C ** 2) - (0.1023*Mass_C) + 0.0039
     elif 0.5 < Mass_C:
         Initial_Effective_Temperature_of_Star_C = None
-        Temperature_Effective_of_Star_C = 42
-        # determine interpolation equation and use instead of 42 placeholder
         Final_Effective_Temperature_of_Star_C = None
         Initial_Luminosity_of_Star_C = None
         Luminosity_Growth_Rate_of_Star_C = None
+        Main_Sequence_Lifespan = None
+
+        Temperature_Effective_of_Star_C = 42
+        # determine interpolation equation and use instead of 42 placeholder
+
         Luminosity_of_Star_C = 42
         # determine interploation equaiton and use instead of 42 placeholder
-        Main_Sequence_Lifespan = None
+
     if 0.08 <= Mass_C:
         Radius_of_Star_C = 155000 * ((math.sqrt(Luminosity_of_Star_C))/(Temperature_Effective_of_Star_C * Temperature_Effective_of_Star_C))
     Temperature_Effective_of_Star_C = round(Temperature_Effective_of_Star_C, 1)
@@ -743,19 +752,30 @@ elif Number_of_Stars == 4:
         Luminosity_of_Star_D = 2.1901*(Mass_D ** 4) - 2.2436*(Mass_D ** 3) + 0.919*(Mass_D ** 2) - (0.1023*Mass_D) + 0.0039
     elif 0.5 < Mass_D:
         Initial_Effective_Temperature_of_Star_D = None
-        Temperature_Effective_of_Star_D = 42
-        # determine interpolation equation and use instead of 42 placeholder
         Final_Effective_Temperature_of_Star_D = None
         Initial_Luminosity_of_Star_D = None
         Luminosity_Growth_Rate_of_Star_D = None
+        Main_Sequence_Lifespan = None
+
+        Temperature_Effective_of_Star_D = 42
+        # determine interpolation equation and use instead of 42 placeholder
+
         Luminosity_of_Star_D = 42
         # determine interploation equaiton and use instead of 42 placeholder
-        Main_Sequence_Lifespan = None
+
     if 0.08 <= Mass_D:
         Radius_of_Star_D = 155000 * ((math.sqrt(Luminosity_of_Star_D))/(Temperature_Effective_of_Star_D * Temperature_Effective_of_Star_D))
+    
     Temperature_Effective_of_Star_D = round(Temperature_Effective_of_Star_D, 1)
     Luminosity_of_Star_D = round(Luminosity_of_Star_D, 5)
     Radius_of_Star_D = round(Radius_of_Star_D, 5)
+
+# If the system’s age is less than the star’s Main Sequence Lifespan, then the star is still on the main sequence.
+
+# If the system’s age exceeds the star’s Main Sequence Lifespan by no more than 15%, then the star will be a subgiant or red giant
+
+# If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
+
     print(f"Effective Temperature of Star D: {Temperature_Effective_of_Star_D} Kelvin")
     print(f"Luminosity of Star D: {Luminosity_of_Star_D} solar luminosities")
     print(f"Radius of Star D: {Radius_of_Star_D} AU")
