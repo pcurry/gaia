@@ -773,6 +773,9 @@ elif Number_of_Stars == 4:
 # If the system’s age is less than the star’s Main Sequence Lifespan, then the star is still on the main sequence.
 
 # If the system’s age exceeds the star’s Main Sequence Lifespan by no more than 15%, then the star will be a subgiant or red giant
+# On a roll of 01-60, the star is a subgiant
+# On a roll of 61-90, the star is on the red giant branch
+# On a roll of 91-00, the star is on the horizontal branch
 
 # If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
 
