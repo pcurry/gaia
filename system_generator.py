@@ -655,11 +655,13 @@ if Number_of_Stars >= 1:
         Temperature_Effective_of_Star_A = -78806*(Mass_A ** 4) + 125050*(Mass_A ** 3) - 74194*(Mass_A ** 2) + (20692*Mass_A) + 1272.2
         Luminosity_of_Star_A = 2.1901*(Mass_A ** 4) - 2.2436*(Mass_A ** 3) + 0.919*(Mass_A ** 2) - (0.1023*Mass_A) + 0.0039
     elif 0.5 < Mass_A:
-        Initial_Effective_Temperature = None
+        Initial_Effective_Temperature_of_Star_A = None
         Final_Effective_Temperature_of_Star_A = None
         Initial_Luminosity_of_Star_A = None
         Luminosity_Growth_Rate_of_Star_A = None
         Main_Sequence_Lifespan = None
+
+        Initial_Temperature_Effective_of_Star_A = 15.992*(Mass_A ** 4) - 198.64*(Mass_A ** 3) + 578.86*(Mass_A ** 2) + (3020.1*Mass_A) + 2060
 
         Temperature_Effective_of_Star_A = 42
         # determine interpolation equation and use instead of 42 placeholder
@@ -669,12 +671,14 @@ if Number_of_Stars >= 1:
 
     if 0.08 <= Mass_A:
         Radius_of_Star_A = 155000 * ((math.sqrt(Luminosity_of_Star_A))/(Temperature_Effective_of_Star_A * Temperature_Effective_of_Star_A))
+
     Temperature_Effective_of_Star_A = round(Temperature_Effective_of_Star_A, 1)
     Luminosity_of_Star_A = round(Luminosity_of_Star_A, 5)
     Radius_of_Star_A = round(Radius_of_Star_A, 5)
     print(f"Effective Temperature of Star A: {Temperature_Effective_of_Star_A} Kelvin")
     print(f"Luminosity of Star A: {Luminosity_of_Star_A} solar luminosities")
     print(f"Radius of Star A: {Radius_of_Star_A} AU")
+
 elif Number_of_Stars >= 2:
     Temperature_Effective_of_Star_B = None
     Luminosity_of_Star_B = None
@@ -707,6 +711,7 @@ elif Number_of_Stars >= 2:
     print(f"Effective Temperature of Star B: {Temperature_Effective_of_Star_B} Kelvin")
     print(f"Luminosity of Star B: {Luminosity_of_Star_B} solar luminosities")
     print(f"Radius of Star B: {Radius_of_Star_B} AU")
+
 elif Number_of_Stars >= 3:
     Temperature_Effective_of_Star_C = None
     Luminosity_of_Star_C = None
@@ -739,6 +744,7 @@ elif Number_of_Stars >= 3:
     print(f"Effective Temperature of Star C: {Temperature_Effective_of_Star_C} Kelvin")
     print(f"Luminosity of Star C: {Luminosity_of_Star_C} solar luminosities")
     print(f"Radius of Star C: {Radius_of_Star_C} AU")
+
 elif Number_of_Stars == 4:
     Temperature_Effective_of_Star_D = None
     Luminosity_of_Star_D = None
