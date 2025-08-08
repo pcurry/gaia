@@ -664,8 +664,10 @@ if Number_of_Stars >= 1:
         Initial_Effective_Temperature_of_Star_A = 15.992*(Mass_A ** 4) - 198.64*(Mass_A ** 3) + 578.86*(Mass_A ** 2) + (3020.1*Mass_A) + 2060
         Final_Effective_Temperature_of_Star_A = 15.893*(Mass_A ** 4) + 154.37*(Mass_A ** 3) + 384.94*(Mass_A ** 2) + (2105.7*Mass_A) + 3631.6
         Initial_Luminosity_of_Star_A = -0.2707*(Mass_A ** 4) + 10.15*(Mass_A ** 3) + 28.137*(Mass_A ** 2) + (31.268*Mass_A) + 11.559
-        Luminosity_Growth_Rate_of_Star_A = 42
-        # determine interpolation equation and use instead of 42 placeholder
+        if Mass_A <= 4:
+            Luminosity_Growth_Rate_of_Star_A = 0.8295*(Mass_A ** 6) - 9.2448*(Mass_A ** 5) + 40.931*(Mass_A ** 4) - 90.562*(Mass_A ** 3) + 104.59*(Mass_A ** 2) - (59.148*Mass_A) + 13.745
+        elif Mass_A > 4:
+            Luminosity_Growth_Rate_of_Star_A = (0.000005 ** (3.9985*Mass_A)) 
         Main_Sequence_Lifespan_of_Star_A = 11.452*(Mass_A ** -3.157)
 
         Temperature_Effective_of_Star_A = Initial_Effective_Temperature_of_Star_A + (system_age / Main_Sequence_Lifespan_of_Star_A)(Final_Effective_Temperature_of_Star_A-Initial_Effective_Temperature_of_Star_A)
@@ -706,8 +708,10 @@ elif Number_of_Stars >= 2:
         Initial_Effective_Temperature_of_Star_B = 15.992*(Mass_B ** 4) - 198.64*(Mass_B ** 3) + 578.86*(Mass_B ** 2) + (3020.1*Mass_B) + 2060
         Final_Effective_Temperature_of_Star_B = 15.893*(Mass_B ** 4) + 154.37*(Mass_B ** 3) + 384.94*(Mass_B ** 2) + (2105.7*Mass_B) + 3631.6
         Initial_Luminosity_of_Star_B = -0.2707*(Mass_B ** 4) + 10.15*(Mass_B ** 3) + 28.137*(Mass_B ** 2) + (31.268*Mass_B) + 11.559
-        Luminosity_Growth_Rate_of_Star_B = 42
-        # determine interpolation equation and use instead of 42 placeholder
+        if Mass_B <= 4:
+            Luminosity_Growth_Rate_of_Star_B = 0.8295*(Mass_B ** 6) - 9.2448*(Mass_B ** 5) + 40.931*(Mass_B ** 4) - 90.562*(Mass_B ** 3) + 104.59*(Mass_B ** 2) - (59.148*Mass_B) + 13.745
+        elif Mass_B > 4:
+            Luminosity_Growth_Rate_of_Star_B = (0.000005 ** (3.9985*Mass_B)) 
         Main_Sequence_Lifespan_of_Star_B = 11.452*(Mass_B ** -3.157)
 
         Temperature_Effective_of_Star_B = Initial_Effective_Temperature_of_Star_B + (system_age / Main_Sequence_Lifespan_of_Star_B)(Final_Effective_Temperature_of_Star_B-Initial_Effective_Temperature_of_Star_B)
@@ -750,8 +754,10 @@ elif Number_of_Stars >= 3:
         Initial_Effective_Temperature_of_Star_C = 15.992*(Mass_C ** 4) - 198.64*(Mass_C ** 3) + 578.86*(Mass_C ** 2) + (3020.1*Mass_C) + 2060
         Final_Effective_Temperature_of_Star_C = 15.893*(Mass_C ** 4) + 154.37*(Mass_C ** 3) + 384.94*(Mass_C ** 2) + (2105.7*Mass_C) + 3631.6
         Initial_Luminosity_of_Star_C = -0.2707*(Mass_C ** 4) + 10.15*(Mass_C ** 3) + 28.137*(Mass_C ** 2) + (31.268*Mass_C) + 11.559
-        Luminosity_Growth_Rate_of_Star_C = 42
-        # determine interpolation equation and use instead of 42 placeholder
+        if Mass_C <= 4:
+            Luminosity_Growth_Rate_of_Star_C = 0.8295*(Mass_C ** 6) - 9.2448*(Mass_C ** 5) + 40.931*(Mass_C ** 4) - 90.562*(Mass_C ** 3) + 104.59*(Mass_C ** 2) - (59.148*Mass_C) + 13.745
+        elif Mass_C > 4:
+            Luminosity_Growth_Rate_of_Star_C = (0.000005 ** (3.9985*Mass_C)) 
         Main_Sequence_Lifespan_of_Star_C = 11.452*(Mass_C ** -3.157)
 
         Temperature_Effective_of_Star_C = Initial_Effective_Temperature_of_Star_C + (system_age / Main_Sequence_Lifespan_of_Star_C)(Final_Effective_Temperature_of_Star_C-Initial_Effective_Temperature_of_Star_C)
@@ -794,8 +800,10 @@ elif Number_of_Stars == 4:
         Initial_Effective_Temperature_of_Star_D = 15.992*(Mass_D ** 4) - 198.64*(Mass_D ** 3) + 578.86*(Mass_D ** 2) + (3020.1*Mass_D) + 2060
         Final_Effective_Temperature_of_Star_D = 15.893*(Mass_D ** 4) + 154.37*(Mass_D ** 3) + 384.94*(Mass_D ** 2) + (2105.7*Mass_D) + 3631.6
         Initial_Luminosity_of_Star_D = -0.2707*(Mass_D ** 4) + 10.15*(Mass_D ** 3) + 28.137*(Mass_D ** 2) + (31.268*Mass_D) + 11.559
-        Luminosity_Growth_Rate_of_Star_D = 42
-        # determine interpolation equation and use instead of 42 placeholder
+        if Mass_D <= 4:
+            Luminosity_Growth_Rate_of_Star_A = 0.8295*(Mass_D ** 6) - 9.2448*(Mass_D ** 5) + 40.931*(Mass_D ** 4) - 90.562*(Mass_D ** 3) + 104.59*(Mass_D ** 2) - (59.148*Mass_D) + 13.745
+        elif Mass_D > 4:
+            Luminosity_Growth_Rate_of_Star_D = (0.000005 ** (3.9985*Mass_D)) 
         Main_Sequence_Lifespan_of_Star_D = 11.452*(Mass_D ** -3.157)
 
         Temperature_Effective_of_Star_D = Initial_Effective_Temperature_of_Star_D + (system_age / Main_Sequence_Lifespan_of_Star_D)(Final_Effective_Temperature_of_Star_D-Initial_Effective_Temperature_of_Star_D)
