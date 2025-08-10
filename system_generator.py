@@ -824,6 +824,9 @@ elif Number_of_Stars == 4:
     print(f"Luminosity of Star D: {Luminosity_of_Star_D} solar luminosities")
     print(f"Radius of Star D: {Radius_of_Star_D} AU")
 
+if system_age < Main_Sequence_Lifespan_of_Star_A:
+    print("Star A is still on the main sequence")
+
 # If the system’s age is less than the star’s Main Sequence Lifespan, then the star is still on the main sequence.
 
 # If the system’s age exceeds the star’s Main Sequence Lifespan by no more than 15%, then the star will be a subgiant or red giant
