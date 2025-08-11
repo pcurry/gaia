@@ -647,19 +647,28 @@ if Number_of_Stars >= 1:
     Temperature_Effective_of_Star_A = None
     Luminosity_of_Star_A = None
     Radius_of_Star_A = None
+    Main_Sequence_Lifespan_of_Star_A = None
+
     if Mass_A < 0.08:
         Temperature_Effective_of_Star_A = 18600 * ((Mass_A ** 0.8) / (system_age ** 0.3))
         Luminosity_of_Star_A = (Temperature_Effective_of_Star_A ** 4) / (1.1e+17)
         Radius_of_Star_A = 0.00047
+        
+        Main_Sequence_Lifespan_of_Star_A = (1 / (Mass_A ** 2.5)) / 10
+        # theoretical main sequence lifespan, in practice brown dwarf lifespans are longer than the current age of the universe
+
     elif 0.08 <= Mass_A <= 0.5:
         Temperature_Effective_of_Star_A = -78806*(Mass_A ** 4) + 125050*(Mass_A ** 3) - 74194*(Mass_A ** 2) + (20692*Mass_A) + 1272.2
         Luminosity_of_Star_A = 2.1901*(Mass_A ** 4) - 2.2436*(Mass_A ** 3) + 0.919*(Mass_A ** 2) - (0.1023*Mass_A) + 0.0039
+        
+        Main_Sequence_Lifespan_of_Star_A = (1 / (Mass_A ** 2.5)) / 10
+        # theoretical main sequence lifespan, in practice red dwarf lifespans are longer than the current age of the universe
+        
     elif 0.5 < Mass_A:
         Initial_Effective_Temperature_of_Star_A = None
         Final_Effective_Temperature_of_Star_A = None
         Initial_Luminosity_of_Star_A = None
         Luminosity_Growth_Rate_of_Star_A = None
-        Main_Sequence_Lifespan_of_Star_A = None
 
         Initial_Effective_Temperature_of_Star_A = 15.992*(Mass_A ** 4) - 198.64*(Mass_A ** 3) + 578.86*(Mass_A ** 2) + (3020.1*Mass_A) + 2060
         Final_Effective_Temperature_of_Star_A = 15.893*(Mass_A ** 4) + 154.37*(Mass_A ** 3) + 384.94*(Mass_A ** 2) + (2105.7*Mass_A) + 3631.6
@@ -670,7 +679,7 @@ if Number_of_Stars >= 1:
             Luminosity_Growth_Rate_of_Star_A = (0.000005 ** (3.9985*Mass_A)) 
         Main_Sequence_Lifespan_of_Star_A = 11.452*(Mass_A ** -3.157)
 
-        Temperature_Effective_of_Star_A = Initial_Effective_Temperature_of_Star_A + (system_age / Main_Sequence_Lifespan_of_Star_A)(Final_Effective_Temperature_of_Star_A-Initial_Effective_Temperature_of_Star_A)
+        Temperature_Effective_of_Star_A = Initial_Effective_Temperature_of_Star_A + (system_age / Main_Sequence_Lifespan_of_Star_A)(Final_Effective_Temperature_of_Star_A - Initial_Effective_Temperature_of_Star_A)
 
         if (system_age <= (0.8*Main_Sequence_Lifespan_of_Star_A)):
                 Luminosity_of_Star_A = Initial_Luminosity_of_Star_A * (Luminosity_Growth_Rate_of_Star_A ** system_age)
