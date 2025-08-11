@@ -687,7 +687,7 @@ if Number_of_Stars >= 1:
     print(f"Luminosity of Star A: {Luminosity_of_Star_A} solar luminosities")
     print(f"Radius of Star A: {Radius_of_Star_A} AU")
 
-elif Number_of_Stars >= 2:
+if Number_of_Stars >= 2:
     Temperature_Effective_of_Star_B = None
     Luminosity_of_Star_B = None
     Radius_of_Star_B = None
@@ -731,7 +731,7 @@ elif Number_of_Stars >= 2:
     print(f"Luminosity of Star B: {Luminosity_of_Star_B} solar luminosities")
     print(f"Radius of Star B: {Radius_of_Star_B} AU")
 
-elif Number_of_Stars >= 3:
+if Number_of_Stars >= 3:
     
     Temperature_Effective_of_Star_C = None
     Luminosity_of_Star_C = None
@@ -777,7 +777,7 @@ elif Number_of_Stars >= 3:
     print(f"Luminosity of Star C: {Luminosity_of_Star_C} solar luminosities")
     print(f"Radius of Star C: {Radius_of_Star_C} AU")
 
-elif Number_of_Stars == 4:
+if Number_of_Stars == 4:
     
     Temperature_Effective_of_Star_D = None
     Luminosity_of_Star_D = None
@@ -824,17 +824,122 @@ elif Number_of_Stars == 4:
     print(f"Luminosity of Star D: {Luminosity_of_Star_D} solar luminosities")
     print(f"Radius of Star D: {Radius_of_Star_D} AU")
 
-if system_age < Main_Sequence_Lifespan_of_Star_A:
-    print("Star A is still on the main sequence")
+Evolutionary_Stage_of_Star_A = None
+Evolutionary_Stage_of_Star_B = None
+Evolutionary_Stage_of_Star_C = None
+Evolutionary_Stage_of_Star_D = None
 
-# If the system’s age is less than the star’s Main Sequence Lifespan, then the star is still on the main sequence.
+if Number_of_Stars >= 1:
+    if system_age < Main_Sequence_Lifespan_of_Star_A:
+        Evolutionary_Stage_of_Star_A = "Main Sequence"
+        print("Star A is still on the main sequence")
+        # If the system’s age is less than the star’s Main Sequence Lifespan, then the star is still on the main sequence.
 
-# If the system’s age exceeds the star’s Main Sequence Lifespan by no more than 15%, then the star will be a subgiant or red giant
-# On a roll of 01-60, the star is a subgiant
-# On a roll of 61-90, the star is on the red giant branch
-# On a roll of 91-00, the star is on the horizontal branch
+    elif system_age <= (1.15 * Main_Sequence_Lifespan_of_Star_A):
+        print("Star A has evolved beyond the Main Sequence")
+        # If the system’s age exceeds the star’s Main Sequence Lifespan by no more than 15%, then the star will be a subgiant or red giant
+        roll_for_giant_type = d100()
+        if roll_for_giant_type <= 60:
+            Evolutionary_Stage_of_Star_A = "Subgiant"
+            print("Specifically - Star A has evolved into a subgiant")
+            # On a roll of 01-60, the star is a subgiant
+        if 61 <= roll_for_giant_type <= 90:
+            Evolutionary_Stage_of_Star_A = "Red Giant Branch"
+            print("Specifically Star has evolved onto the Red Giant Branch")
+            # On a roll of 61-90, the star is on the red giant branch
+        if 91 <= roll_for_giant_type <= 100:
+            Evolutionary_Stage_of_Star_A = "Horizonal Branch"
+            print("Specifically Star A has evolved onto the Horizontal Branch")
+            # On a roll of 91-00, the star is on the horizontal branch
 
-# If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
+    elif system_age > (1.15 * Main_Sequence_Lifespan_of_Star_A):
+        Evolutionary_Stage_of_Star_A = "White Dwarf"
+        print("Star A has evolved into a White Dwarf")
+        # If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
+
+if Number_of_Stars >= 2:
+    if system_age < Main_Sequence_Lifespan_of_Star_B:
+        Evolutionary_Stage_of_Star_B = "Main Sequence"
+        print("Star A is still on the main sequence")
+        # If the system’s age is less than the star’s Main Sequence Lifespan, then the star is still on the main sequence.
+
+    elif system_age <= (1.15 * Main_Sequence_Lifespan_of_Star_B):
+        print("Star B has evolved beyond the Main Sequence")
+        # If the system’s age exceeds the star’s Main Sequence Lifespan by no more than 15%, then the star will be a subgiant or red giant
+        roll_for_giant_type = d100()
+        if roll_for_giant_type <= 60:
+            Evolutionary_Stage_of_Star_B = "Subgiant"
+            print("Specifically - Star B has evolved into a subgiant")
+            # On a roll of 01-60, the star is a subgiant
+        if 61 <= roll_for_giant_type <= 90:
+            Evolutionary_Stage_of_Star_B = "Red Giant Branch"
+            print("Specifically Star has evolved onto the Red Giant Branch")
+            # On a roll of 61-90, the star is on the red giant branch
+        if 91 <= roll_for_giant_type <= 100:
+            Evolutionary_Stage_of_Star_B = "Horizonal Branch"
+            print("Specifically Star B has evolved onto the Horizontal Branch")
+            # On a roll of 91-00, the star is on the horizontal branch
+
+    elif system_age > (1.15 * Main_Sequence_Lifespan_of_Star_B):
+        Evolutionary_Stage_of_Star_B = "White Dwarf"
+        print("Star B has evolved into a White Dwarf")
+        # If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
+
+if Number_of_Stars >= 3:
+    if system_age < Main_Sequence_Lifespan_of_Star_C:
+        Evolutionary_Stage_of_Star_C = "Main Sequence"
+        print("Star C is still on the main sequence")
+        # If the system’s age is less than the star’s Main Sequence Lifespan, then the star is still on the main sequence.
+
+    elif system_age <= (1.15 * Main_Sequence_Lifespan_of_Star_C):
+        print("Star C has evolved beyond the Main Sequence")
+        # If the system’s age exceeds the star’s Main Sequence Lifespan by no more than 15%, then the star will be a subgiant or red giant
+        roll_for_giant_type = d100()
+        if roll_for_giant_type <= 60:
+            Evolutionary_Stage_of_Star_C = "Subgiant"
+            print("Specifically - Star C has evolved into a subgiant")
+            # On a roll of 01-60, the star is a subgiant
+        if 61 <= roll_for_giant_type <= 90:
+            Evolutionary_Stage_of_Star_C = "Red Giant Branch"
+            print("Specifically Star has evolved onto the Red Giant Branch")
+            # On a roll of 61-90, the star is on the red giant branch
+        if 91 <= roll_for_giant_type <= 100:
+            Evolutionary_Stage_of_Star_C = "Horizonal Branch"
+            print("Specifically Star C has evolved onto the Horizontal Branch")
+            # On a roll of 91-00, the star is on the horizontal branch
+
+    elif system_age > (1.15 * Main_Sequence_Lifespan_of_Star_C):
+        Evolutionary_Stage_of_Star_C = "White Dwarf"
+        print("Star C has evolved into a White Dwarf")
+        # If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
+
+if Number_of_Stars == 4:
+    if system_age < Main_Sequence_Lifespan_of_Star_D:
+        Evolutionary_Stage_of_Star_D = "Main Sequence"
+        print("Star A is still on the main sequence")
+        # If the system’s age is less than the star’s Main Sequence Lifespan, then the star is still on the main sequence.
+
+    elif system_age <= (1.15 * Main_Sequence_Lifespan_of_Star_D):
+        print("Star D has evolved beyond the Main Sequence")
+        # If the system’s age exceeds the star’s Main Sequence Lifespan by no more than 15%, then the star will be a subgiant or red giant
+        roll_for_giant_type = d100()
+        if roll_for_giant_type <= 60:
+            Evolutionary_Stage_of_Star_D = "Subgiant"
+            print("Specifically - Star D has evolved into a subgiant")
+            # On a roll of 01-60, the star is a subgiant
+        if 61 <= roll_for_giant_type <= 90:
+            Evolutionary_Stage_of_Star_D = "Red Giant Branch"
+            print("Specifically Star has evolved onto the Red Giant Branch")
+            # On a roll of 61-90, the star is on the red giant branch
+        if 91 <= roll_for_giant_type <= 100:
+            Evolutionary_Stage_of_Star_D = "Horizonal Branch"
+            print("Specifically Star D has evolved onto the Horizontal Branch")
+            # On a roll of 91-00, the star is on the horizontal branch
+
+    elif system_age > (1.15 * Main_Sequence_Lifespan_of_Star_D):
+        Evolutionary_Stage_of_Star_D = "White Dwarf"
+        print("Star D has evolved into a White Dwarf")
+        # If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
 
 # Step 7: Stellar Classification
     # input Step 7 elements
