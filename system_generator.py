@@ -653,14 +653,12 @@ if Number_of_Stars >= 1:
         Temperature_Effective_of_Star_A = 18600 * ((Mass_A ** 0.8) / (system_age ** 0.3))
         Luminosity_of_Star_A = (Temperature_Effective_of_Star_A ** 4) / (1.1e+17)
         Radius_of_Star_A = 0.00047
-        
         Main_Sequence_Lifespan_of_Star_A = (1 / (Mass_A ** 2.5)) / 10
         # theoretical main sequence lifespan, in practice brown dwarf lifespans are longer than the current age of the universe
 
     elif 0.08 <= Mass_A <= 0.5:
         Temperature_Effective_of_Star_A = -78806*(Mass_A ** 4) + 125050*(Mass_A ** 3) - 74194*(Mass_A ** 2) + (20692*Mass_A) + 1272.2
         Luminosity_of_Star_A = 2.1901*(Mass_A ** 4) - 2.2436*(Mass_A ** 3) + 0.919*(Mass_A ** 2) - (0.1023*Mass_A) + 0.0039
-        
         Main_Sequence_Lifespan_of_Star_A = (1 / (Mass_A ** 2.5)) / 10
         # theoretical main sequence lifespan, in practice red dwarf lifespans are longer than the current age of the universe
         
@@ -700,19 +698,26 @@ if Number_of_Stars >= 2:
     Temperature_Effective_of_Star_B = None
     Luminosity_of_Star_B = None
     Radius_of_Star_B = None
+    Main_Sequence_Lifespan_of_Star_B = None
+    
     if Mass_B < 0.08:
         Temperature_Effective_of_Star_B = 18600 * ((Mass_B ** 0.8) / (system_age ** 0.3))
         Luminosity_of_Star_B = (Temperature_Effective_of_Star_B ** 4) / (1.1e+17)
         Radius_of_Star_B = 0.00047
+        Main_Sequence_Lifespan_of_Star_B = (1 / (Mass_B ** 2.5)) / 10
+        # theoretical main sequence lifespan, in practice brown dwarf lifespans are longer than the current age of the universe
+
     elif 0.08 <= Mass_B <= 0.5:
-        Temperature_Effective_of_Star_A = -78806*(Mass_B ** 4) + 125050*(Mass_B ** 3) - 74194*(Mass_B ** 2) + (20692*Mass_B) + 1272.2
+        Temperature_Effective_of_Star_B = -78806*(Mass_B ** 4) + 125050*(Mass_B ** 3) - 74194*(Mass_B ** 2) + (20692*Mass_B) + 1272.2
         Luminosity_of_Star_B = 2.1901*(Mass_B ** 4) - 2.2436*(Mass_B ** 3) + 0.919*(Mass_B ** 2) - (0.1023*Mass_B) + 0.0039
+        Main_Sequence_Lifespan_of_Star_B = (1 / (Mass_B ** 2.5)) / 10
+        # theoretical main sequence lifespan, in practice red dwarf lifespans are longer than the current age of the universe
+
     elif 0.5 < Mass_B:
         Initial_Effective_Temperature_of_Star_B = None
         Final_Effective_Temperature_of_Star_B = None
         Initial_Luminosity_of_Star_B = None
         Luminosity_Growth_Rate_of_Star_B = None
-        Main_Sequence_Lifespan_of_Star_B = None
 
         Initial_Effective_Temperature_of_Star_B = 15.992*(Mass_B ** 4) - 198.64*(Mass_B ** 3) + 578.86*(Mass_B ** 2) + (3020.1*Mass_B) + 2060
         Final_Effective_Temperature_of_Star_B = 15.893*(Mass_B ** 4) + 154.37*(Mass_B ** 3) + 384.94*(Mass_B ** 2) + (2105.7*Mass_B) + 3631.6
@@ -745,20 +750,26 @@ if Number_of_Stars >= 3:
     Temperature_Effective_of_Star_C = None
     Luminosity_of_Star_C = None
     Radius_of_Star_C = None
+    Main_Sequence_Lifespan_of_Star_C = None
 
     if Mass_C < 0.08:
         Temperature_Effective_of_Star_C = 18600 * ((Mass_C ** 0.8) / (system_age ** 0.3))
         Luminosity_of_Star_C = (Temperature_Effective_of_Star_C ** 4) / (1.1e+17)
         Radius_of_Star_C = 0.00047
+        Main_Sequence_Lifespan_of_Star_C = (1 / (Mass_C ** 2.5)) / 10
+        # theoretical main sequence lifespan, in practice brown dwarf lifespans are longer than the current age of the universe
+
     elif 0.08 <= Mass_C <= 0.5:
         Temperature_Effective_of_Star_C = -78806*(Mass_C ** 4) + 125050*(Mass_C ** 3) - 74194*(Mass_C ** 2) + (20692*Mass_C) + 1272.2
         Luminosity_of_Star_C = 2.1901*(Mass_C ** 4) - 2.2436*(Mass_C ** 3) + 0.919*(Mass_C ** 2) - (0.1023*Mass_C) + 0.0039
+        Main_Sequence_Lifespan_of_Star_C = (1 / (Mass_C ** 2.5)) / 10
+        # theoretical main sequence lifespan, in practice red dwarf lifespans are longer than the current age of the universe
+
     elif 0.5 < Mass_C:
         Initial_Effective_Temperature_of_Star_C = None
         Final_Effective_Temperature_of_Star_C = None
         Initial_Luminosity_of_Star_C = None
         Luminosity_Growth_Rate_of_Star_C = None
-        Main_Sequence_Lifespan_of_Star_C = None
 
         Initial_Effective_Temperature_of_Star_C = 15.992*(Mass_C ** 4) - 198.64*(Mass_C ** 3) + 578.86*(Mass_C ** 2) + (3020.1*Mass_C) + 2060
         Final_Effective_Temperature_of_Star_C = 15.893*(Mass_C ** 4) + 154.37*(Mass_C ** 3) + 384.94*(Mass_C ** 2) + (2105.7*Mass_C) + 3631.6
@@ -791,20 +802,26 @@ if Number_of_Stars == 4:
     Temperature_Effective_of_Star_D = None
     Luminosity_of_Star_D = None
     Radius_of_Star_D = None
+    Main_Sequence_Lifespan_of_Star_D = None
     
     if Mass_D < 0.08:
         Temperature_Effective_of_Star_D = 18600 * ((Mass_D ** 0.8) / (system_age ** 0.3))
         Luminosity_of_Star_D = (Temperature_Effective_of_Star_D ** 4) / (1.1e+17)
         Radius_of_Star_D = 0.00047
+        Main_Sequence_Lifespan_of_Star_A = (1 / (Mass_D ** 2.5)) / 10
+        # theoretical main sequence lifespan, in practice brown dwarf lifespans are longer than the current age of the universe
+
     elif 0.08 <= Mass_D <= 0.5:
         Temperature_Effective_of_Star_D = -78806*(Mass_D ** 4) + 125050*(Mass_D ** 3) - 74194*(Mass_D ** 2) + (20692*Mass_D) + 1272.2
         Luminosity_of_Star_D = 2.1901*(Mass_D ** 4) - 2.2436*(Mass_D ** 3) + 0.919*(Mass_D ** 2) - (0.1023*Mass_D) + 0.0039
+        Main_Sequence_Lifespan_of_Star_D = (1 / (Mass_D ** 2.5)) / 10
+        # theoretical main sequence lifespan, in practice red dwarf lifespans are longer than the current age of the universe
+
     elif 0.5 < Mass_D:
         Initial_Effective_Temperature_of_Star_D = None
         Final_Effective_Temperature_of_Star_D = None
         Initial_Luminosity_of_Star_D = None
         Luminosity_Growth_Rate_of_Star_D = None
-        Main_Sequence_Lifespan_of_Star_D = None
 
         Initial_Effective_Temperature_of_Star_D = 15.992*(Mass_D ** 4) - 198.64*(Mass_D ** 3) + 578.86*(Mass_D ** 2) + (3020.1*Mass_D) + 2060
         Final_Effective_Temperature_of_Star_D = 15.893*(Mass_D ** 4) + 154.37*(Mass_D ** 3) + 384.94*(Mass_D ** 2) + (2105.7*Mass_D) + 3631.6
