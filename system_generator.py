@@ -190,7 +190,7 @@ elif 91 <= roll_for_star_type <=100:
         Mass_A = 5.50
     elif 99 <= roll_for_high_mass_star_mass <= 100:
         Mass_A = 6.00
-print(f"Star Type: {Category}")
+print(f"Primary Star Type: {Category}")
 print(f"Mass of Star A: {Mass_A} solar masses")
 
 # Step 2: Stellar Multiplicity
@@ -677,7 +677,7 @@ if Number_of_Stars >= 1:
             Luminosity_Growth_Rate_of_Star_A = (0.000005 ** (3.9985*Mass_A)) 
         Main_Sequence_Lifespan_of_Star_A = 11.452*(Mass_A ** -3.157)
 
-        Temperature_Effective_of_Star_A = Initial_Effective_Temperature_of_Star_A + (system_age / Main_Sequence_Lifespan_of_Star_A)(Final_Effective_Temperature_of_Star_A - Initial_Effective_Temperature_of_Star_A)
+        Temperature_Effective_of_Star_A = Initial_Effective_Temperature_of_Star_A + (system_age / Main_Sequence_Lifespan_of_Star_A) * (Final_Effective_Temperature_of_Star_A - Initial_Effective_Temperature_of_Star_A)
 
         if (system_age <= (0.8*Main_Sequence_Lifespan_of_Star_A)):
                 Luminosity_of_Star_A = Initial_Luminosity_of_Star_A * (Luminosity_Growth_Rate_of_Star_A ** system_age)
@@ -728,7 +728,7 @@ if Number_of_Stars >= 2:
             Luminosity_Growth_Rate_of_Star_B = (0.000005 ** (3.9985*Mass_B)) 
         Main_Sequence_Lifespan_of_Star_B = 11.452*(Mass_B ** -3.157)
 
-        Temperature_Effective_of_Star_B = Initial_Effective_Temperature_of_Star_B + (system_age / Main_Sequence_Lifespan_of_Star_B)(Final_Effective_Temperature_of_Star_B-Initial_Effective_Temperature_of_Star_B)
+        Temperature_Effective_of_Star_B = Initial_Effective_Temperature_of_Star_B + (system_age / Main_Sequence_Lifespan_of_Star_B) * (Final_Effective_Temperature_of_Star_B-Initial_Effective_Temperature_of_Star_B)
 
         if (system_age <= (0.8*Main_Sequence_Lifespan_of_Star_B)):
                 Luminosity_of_Star_B = Initial_Luminosity_of_Star_B * (Luminosity_Growth_Rate_of_Star_B ** system_age)
@@ -780,7 +780,7 @@ if Number_of_Stars >= 3:
             Luminosity_Growth_Rate_of_Star_C = (0.000005 ** (3.9985*Mass_C)) 
         Main_Sequence_Lifespan_of_Star_C = 11.452*(Mass_C ** -3.157)
 
-        Temperature_Effective_of_Star_C = Initial_Effective_Temperature_of_Star_C + (system_age / Main_Sequence_Lifespan_of_Star_C)(Final_Effective_Temperature_of_Star_C-Initial_Effective_Temperature_of_Star_C)
+        Temperature_Effective_of_Star_C = Initial_Effective_Temperature_of_Star_C + (system_age / Main_Sequence_Lifespan_of_Star_C) * (Final_Effective_Temperature_of_Star_C-Initial_Effective_Temperature_of_Star_C)
 
         if (system_age <= (0.8*Main_Sequence_Lifespan_of_Star_C)):
                 Luminosity_of_Star_C = Initial_Luminosity_of_Star_C * (Luminosity_Growth_Rate_of_Star_C ** system_age)
@@ -832,7 +832,7 @@ if Number_of_Stars == 4:
             Luminosity_Growth_Rate_of_Star_D = (0.000005 ** (3.9985*Mass_D)) 
         Main_Sequence_Lifespan_of_Star_D = 11.452*(Mass_D ** -3.157)
 
-        Temperature_Effective_of_Star_D = Initial_Effective_Temperature_of_Star_D + (system_age / Main_Sequence_Lifespan_of_Star_D)(Final_Effective_Temperature_of_Star_D-Initial_Effective_Temperature_of_Star_D)
+        Temperature_Effective_of_Star_D = Initial_Effective_Temperature_of_Star_D + (system_age / Main_Sequence_Lifespan_of_Star_D) * (Final_Effective_Temperature_of_Star_D-Initial_Effective_Temperature_of_Star_D)
 
         if (system_age <= (0.8*Main_Sequence_Lifespan_of_Star_D)):
                 Luminosity_of_Star_A = Initial_Luminosity_of_Star_D * (Luminosity_Growth_Rate_of_Star_D ** system_age)
@@ -886,7 +886,7 @@ if Number_of_Stars >= 1:
 if Number_of_Stars >= 2:
     if system_age < Main_Sequence_Lifespan_of_Star_B:
         Evolutionary_Stage_of_Star_B = "Main Sequence"
-        print("Star A is still on the main sequence")
+        print("Star B is still on the main sequence")
         # If the system’s age is less than the star’s Main Sequence Lifespan, then the star is still on the main sequence.
 
     elif system_age <= (1.15 * Main_Sequence_Lifespan_of_Star_B):
@@ -942,7 +942,7 @@ if Number_of_Stars >= 3:
 if Number_of_Stars == 4:
     if system_age < Main_Sequence_Lifespan_of_Star_D:
         Evolutionary_Stage_of_Star_D = "Main Sequence"
-        print("Star A is still on the main sequence")
+        print("Star D is still on the main sequence")
         # If the system’s age is less than the star’s Main Sequence Lifespan, then the star is still on the main sequence.
 
     elif system_age <= (1.15 * Main_Sequence_Lifespan_of_Star_D):
