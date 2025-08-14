@@ -808,7 +808,7 @@ if Number_of_Stars == 4:
         Temperature_Effective_of_Star_D = 18600 * ((Mass_D ** 0.8) / (system_age ** 0.3))
         Luminosity_of_Star_D = (Temperature_Effective_of_Star_D ** 4) / (1.1e+17)
         Radius_of_Star_D = 0.00047
-        Main_Sequence_Lifespan_of_Star_A = (1 / (Mass_D ** 2.5)) / 10
+        Main_Sequence_Lifespan_of_Star_D = (1 / (Mass_D ** 2.5)) / 10
         # theoretical main sequence lifespan, in practice brown dwarf lifespans are longer than the current age of the universe
 
     elif 0.08 <= Mass_D <= 0.5:
@@ -827,7 +827,7 @@ if Number_of_Stars == 4:
         Final_Effective_Temperature_of_Star_D = 15.893*(Mass_D ** 4) + 154.37*(Mass_D ** 3) + 384.94*(Mass_D ** 2) + (2105.7*Mass_D) + 3631.6
         Initial_Luminosity_of_Star_D = -0.2707*(Mass_D ** 4) + 10.15*(Mass_D ** 3) + 28.137*(Mass_D ** 2) + (31.268*Mass_D) + 11.559
         if Mass_D <= 4:
-            Luminosity_Growth_Rate_of_Star_A = 0.8295*(Mass_D ** 6) - 9.2448*(Mass_D ** 5) + 40.931*(Mass_D ** 4) - 90.562*(Mass_D ** 3) + 104.59*(Mass_D ** 2) - (59.148*Mass_D) + 13.745
+            Luminosity_Growth_Rate_of_Star_D = 0.8295*(Mass_D ** 6) - 9.2448*(Mass_D ** 5) + 40.931*(Mass_D ** 4) - 90.562*(Mass_D ** 3) + 104.59*(Mass_D ** 2) - (59.148*Mass_D) + 13.745
         elif Mass_D > 4:
             Luminosity_Growth_Rate_of_Star_D = (0.000005 ** (3.9985*Mass_D)) 
         Main_Sequence_Lifespan_of_Star_D = 11.452*(Mass_D ** -3.157)
@@ -835,7 +835,7 @@ if Number_of_Stars == 4:
         Temperature_Effective_of_Star_D = Initial_Effective_Temperature_of_Star_D + (system_age / Main_Sequence_Lifespan_of_Star_D) * (Final_Effective_Temperature_of_Star_D-Initial_Effective_Temperature_of_Star_D)
 
         if (system_age <= (0.8*Main_Sequence_Lifespan_of_Star_D)):
-                Luminosity_of_Star_A = Initial_Luminosity_of_Star_D * (Luminosity_Growth_Rate_of_Star_D ** system_age)
+                Luminosity_of_Star_D = Initial_Luminosity_of_Star_D * (Luminosity_Growth_Rate_of_Star_D ** system_age)
         elif (system_age > (0.8*Main_Sequence_Lifespan_of_Star_D)):
                 Luminosity_of_Star_D = Initial_Luminosity_of_Star_D * (Luminosity_Growth_Rate_of_Star_D ** (3*system_age - 1.6*Main_Sequence_Lifespan_of_Star_D))
 
