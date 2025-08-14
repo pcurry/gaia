@@ -869,6 +869,9 @@ if Number_of_Stars >= 1:
             Evolutionary_Stage_of_Star_A = "Subgiant"
             print("Specifically - Star A has evolved into a subgiant")
             # On a roll of 01-60, the star is a subgiant
+            Luminosity_of_Star_A = Initial_Luminosity_of_Star_A * (Luminosity_Growth_Rate_of_Star_A ** (1.4 * Main_Sequence_Lifespan_of_Star_A))
+            print(f"Luminosity of Star A has increased to: {Luminosity_of_Star_A} solar luminosities")
+
         if 61 <= roll_for_giant_type <= 90:
             Evolutionary_Stage_of_Star_A = "Red Giant Branch"
             print("Specifically Star has evolved onto the Red Giant Branch")
@@ -897,6 +900,9 @@ if Number_of_Stars >= 2:
             Evolutionary_Stage_of_Star_B = "Subgiant"
             print("Specifically - Star B has evolved into a subgiant")
             # On a roll of 01-60, the star is a subgiant
+            Luminosity_of_Star_B = Initial_Luminosity_of_Star_B * (Luminosity_Growth_Rate_of_Star_B ** (1.4 * Main_Sequence_Lifespan_of_Star_B))
+            print(f"Luminosity of Star B has increased to: {Luminosity_of_Star_B} solar luminosities")
+        
         if 61 <= roll_for_giant_type <= 90:
             Evolutionary_Stage_of_Star_B = "Red Giant Branch"
             print("Specifically Star has evolved onto the Red Giant Branch")
@@ -925,6 +931,9 @@ if Number_of_Stars >= 3:
             Evolutionary_Stage_of_Star_C = "Subgiant"
             print("Specifically - Star C has evolved into a subgiant")
             # On a roll of 01-60, the star is a subgiant
+            Luminosity_of_Star_C = Initial_Luminosity_of_Star_C * (Luminosity_Growth_Rate_of_Star_C ** (1.4 * Main_Sequence_Lifespan_of_Star_C))
+            print(f"Luminosity of Star C has increased to: {Luminosity_of_Star_A} solar luminosities")
+
         if 61 <= roll_for_giant_type <= 90:
             Evolutionary_Stage_of_Star_C = "Red Giant Branch"
             print("Specifically Star has evolved onto the Red Giant Branch")
@@ -953,6 +962,9 @@ if Number_of_Stars == 4:
             Evolutionary_Stage_of_Star_D = "Subgiant"
             print("Specifically - Star D has evolved into a subgiant")
             # On a roll of 01-60, the star is a subgiant
+            Luminosity_of_Star_D = Initial_Luminosity_of_Star_D * (Luminosity_Growth_Rate_of_Star_D ** (1.4 * Main_Sequence_Lifespan_of_Star_D))
+            print(f"Luminosity of Star D has increased to: {Luminosity_of_Star_A} solar luminosities")
+
         if 61 <= roll_for_giant_type <= 90:
             Evolutionary_Stage_of_Star_D = "Red Giant Branch"
             print("Specifically Star has evolved onto the Red Giant Branch")
