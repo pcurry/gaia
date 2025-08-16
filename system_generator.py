@@ -876,16 +876,21 @@ if Number_of_Stars >= 1:
             Evolutionary_Stage_of_Star_A = "Red Giant Branch"
             print("Specifically Star has evolved onto the Red Giant Branch")
             # On a roll of 61-90, the star is on the red giant branch
-            roll_for_red_giant_varriable = d100()
+            roll_for_red_giant_varriable = (d100() / 100)
             Temperature_Effective_of_Star_A = 5000 - (roll_for_red_giant_varriable * 1000)
-            Luminosity_Growth_Rate_of_Star_A = 50 ** (1 + roll_for_red_giant_varriable)
+            Luminosity_of_Star_A = 50 ** (1 + roll_for_red_giant_varriable)
             print(f"Temperature of Star A has cooled to: {Temperature_Effective_of_Star_A} Kelvin")
-            print(f"Luminosity of Star A has increased to: {Luminosity_Growth_Rate_of_Star_A} solar luminosities")
+            print(f"Luminosity of Star A has increased to: {Luminosity_of_Star_A} solar luminosities")
 
         if 91 <= roll_for_giant_type <= 100:
             Evolutionary_Stage_of_Star_A = "Horizonal Branch"
             print("Specifically Star A has evolved onto the Horizontal Branch")
             # On a roll of 91-00, the star is on the horizontal branch
+            Temperature_Effective_of_Star_A = 5000
+            print("Temperature of Star A is now approximately 5000 Kelvin")
+            roll_for_horizontal_giant_varriable = d100()
+            Luminosity_of_Star_A = 50 + (roll_for_horizontal_giant_varriable / 2)
+            print(f"Luminosity of Star A has increased to: {Luminosity_of_Star_A} solar luminosities")
 
     elif system_age > (1.15 * Main_Sequence_Lifespan_of_Star_A):
         Evolutionary_Stage_of_Star_A = "White Dwarf"
@@ -913,16 +918,21 @@ if Number_of_Stars >= 2:
             Evolutionary_Stage_of_Star_B = "Red Giant Branch"
             print("Specifically Star has evolved onto the Red Giant Branch")
             # On a roll of 61-90, the star is on the red giant branch
-            roll_for_red_giant_varriable = d100()
+            roll_for_red_giant_varriable = (d100() / 100)
             Temperature_Effective_of_Star_B = 5000 - (roll_for_red_giant_varriable * 1000)
-            Luminosity_Growth_Rate_of_Star_B = 50 ** (1 + roll_for_red_giant_varriable)
+            Luminosity_of_Star_B = 50 ** (1 + roll_for_red_giant_varriable)
             print(f"Temperature of Star B has cooled to: {Temperature_Effective_of_Star_B} Kelvin")
-            print(f"Luminosity of Star B has increased to: {Luminosity_Growth_Rate_of_Star_B} solar luminosities")
+            print(f"Luminosity of Star B has increased to: {Luminosity_of_Star_B} solar luminosities")
 
         if 91 <= roll_for_giant_type <= 100:
             Evolutionary_Stage_of_Star_B = "Horizonal Branch"
             print("Specifically Star B has evolved onto the Horizontal Branch")
             # On a roll of 91-00, the star is on the horizontal branch
+            Temperature_Effective_of_Star_B = 5000
+            print("Temperature of Star B is now approximately 5000 Kelvin")
+            roll_for_horizontal_giant_varriable = d100()
+            Luminosity_of_Star_B = 50 + (roll_for_horizontal_giant_varriable / 2)
+            print(f"Luminosity of Star B has increased to: {Luminosity_of_Star_B} solar luminosities")
 
     elif system_age > (1.15 * Main_Sequence_Lifespan_of_Star_B):
         Evolutionary_Stage_of_Star_B = "White Dwarf"
@@ -950,16 +960,21 @@ if Number_of_Stars >= 3:
             Evolutionary_Stage_of_Star_C = "Red Giant Branch"
             print("Specifically Star has evolved onto the Red Giant Branch")
             # On a roll of 61-90, the star is on the red giant branch
-            roll_for_red_giant_varriable = d100()
+            roll_for_red_giant_varriable = (d100() / 100)
             Temperature_Effective_of_Star_C = 5000 - (roll_for_red_giant_varriable * 1000)
-            Luminosity_Growth_Rate_of_Star_C = 50 ** (1 + roll_for_red_giant_varriable)
+            Luminosity_of_Star_C = 50 ** (1 + roll_for_red_giant_varriable)
             print(f"Temperature of Star C has cooled to: {Temperature_Effective_of_Star_C} Kelvin")
-            print(f"Luminosity of Star C has increased to: {Luminosity_Growth_Rate_of_Star_C} solar luminosities")
+            print(f"Luminosity of Star C has increased to: {Luminosity_of_Star_C} solar luminosities")
 
         if 91 <= roll_for_giant_type <= 100:
             Evolutionary_Stage_of_Star_C = "Horizonal Branch"
             print("Specifically Star C has evolved onto the Horizontal Branch")
             # On a roll of 91-00, the star is on the horizontal branch
+            Temperature_Effective_of_Star_C = 5000
+            print("Temperature of Star C is now approximately 5000 Kelvin")
+            roll_for_horizontal_giant_varriable = d100()
+            Luminosity_of_Star_C = 50 + (roll_for_horizontal_giant_varriable / 2)
+            print(f"Luminosity of Star C has increased to: {Luminosity_of_Star_C} solar luminosities")
 
     elif system_age > (1.15 * Main_Sequence_Lifespan_of_Star_C):
         Evolutionary_Stage_of_Star_C = "White Dwarf"
@@ -987,16 +1002,21 @@ if Number_of_Stars == 4:
             Evolutionary_Stage_of_Star_D = "Red Giant Branch"
             print("Specifically Star has evolved onto the Red Giant Branch")
             # On a roll of 61-90, the star is on the red giant branch
-            roll_for_red_giant_varriable = d100()
+            roll_for_red_giant_varriable = (d100() / 100)
             Temperature_Effective_of_Star_D = 5000 - (roll_for_red_giant_varriable * 1000)
-            Luminosity_Growth_Rate_of_Star_D = 50 ** (1 + roll_for_red_giant_varriable)
+            Luminosity_of_Star_D = 50 ** (1 + roll_for_red_giant_varriable)
             print(f"Temperature of Star D has cooled to: {Temperature_Effective_of_Star_D} Kelvin")
-            print(f"Luminosity of Star D has increased to: {Luminosity_Growth_Rate_of_Star_D} solar luminosities")
+            print(f"Luminosity of Star D has increased to: {Luminosity_of_Star_D} solar luminosities")
 
         if 91 <= roll_for_giant_type <= 100:
             Evolutionary_Stage_of_Star_D = "Horizonal Branch"
             print("Specifically Star D has evolved onto the Horizontal Branch")
             # On a roll of 91-00, the star is on the horizontal branch
+            Temperature_Effective_of_Star_D = 5000
+            print("Temperature of Star D is now approximately 5000 Kelvin")
+            roll_for_horizontal_giant_varriable = d100()
+            Luminosity_of_Star_D = 50 + (roll_for_horizontal_giant_varriable / 2)
+            print(f"Luminosity of Star D has increased to: {Luminosity_of_Star_D} solar luminosities")
 
     elif system_age > (1.15 * Main_Sequence_Lifespan_of_Star_D):
         Evolutionary_Stage_of_Star_D = "White Dwarf"
