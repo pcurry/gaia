@@ -892,6 +892,10 @@ if Number_of_Stars >= 1:
             Luminosity_of_Star_A = 50 + (roll_for_horizontal_giant_varriable / 2)
             print(f"Luminosity of Star A has increased to: {Luminosity_of_Star_A} solar luminosities")
 
+        Radius_of_Star_A = 155000 * ((math.sqrt(Luminosity_of_Star_A))/(Temperature_Effective_of_Star_A * Temperature_Effective_of_Star_A))
+        Radius_of_Star_A = round(Radius_of_Star_A, 5)
+        print(f"Radius of Star A has evolved to: {Radius_of_Star_A} AU")
+
     elif system_age > (1.15 * Main_Sequence_Lifespan_of_Star_A):
         Evolutionary_Stage_of_Star_A = "White Dwarf"
         print("Star A has evolved into a White Dwarf")
@@ -933,6 +937,10 @@ if Number_of_Stars >= 2:
             roll_for_horizontal_giant_varriable = d100()
             Luminosity_of_Star_B = 50 + (roll_for_horizontal_giant_varriable / 2)
             print(f"Luminosity of Star B has increased to: {Luminosity_of_Star_B} solar luminosities")
+
+        Radius_of_Star_B = 155000 * ((math.sqrt(Luminosity_of_Star_B))/(Temperature_Effective_of_Star_B * Temperature_Effective_of_Star_B))
+        Radius_of_Star_B = round(Radius_of_Star_B, 5)
+        print(f"Radius of Star B has evolved to: {Radius_of_Star_B} AU")
 
     elif system_age > (1.15 * Main_Sequence_Lifespan_of_Star_B):
         Evolutionary_Stage_of_Star_B = "White Dwarf"
@@ -976,6 +984,10 @@ if Number_of_Stars >= 3:
             Luminosity_of_Star_C = 50 + (roll_for_horizontal_giant_varriable / 2)
             print(f"Luminosity of Star C has increased to: {Luminosity_of_Star_C} solar luminosities")
 
+        Radius_of_Star_C = 155000 * ((math.sqrt(Luminosity_of_Star_C))/(Temperature_Effective_of_Star_C * Temperature_Effective_of_Star_C))
+        Radius_of_Star_C = round(Radius_of_Star_C, 5)
+        print(f"Radius of Star C has evolved to: {Radius_of_Star_C} AU")
+
     elif system_age > (1.15 * Main_Sequence_Lifespan_of_Star_C):
         Evolutionary_Stage_of_Star_C = "White Dwarf"
         print("Star C has evolved into a White Dwarf")
@@ -1017,6 +1029,10 @@ if Number_of_Stars == 4:
             roll_for_horizontal_giant_varriable = d100()
             Luminosity_of_Star_D = 50 + (roll_for_horizontal_giant_varriable / 2)
             print(f"Luminosity of Star D has increased to: {Luminosity_of_Star_D} solar luminosities")
+
+        Radius_of_Star_D = 155000 * ((math.sqrt(Luminosity_of_Star_D))/(Temperature_Effective_of_Star_D * Temperature_Effective_of_Star_D))
+        Radius_of_Star_D = round(Radius_of_Star_D, 5)
+        print(f"Radius of Star D has evolved to: {Radius_of_Star_D} AU")
 
     elif system_age > (1.15 * Main_Sequence_Lifespan_of_Star_D):
         Evolutionary_Stage_of_Star_D = "White Dwarf"
