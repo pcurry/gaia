@@ -900,6 +900,8 @@ if Number_of_Stars >= 1:
         Evolutionary_Stage_of_Star_A = "White Dwarf"
         print("Star A has evolved into a White Dwarf")
         # If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
+        Mass_WDA = 0.43 + (Mass_A / 10.4)
+        print(f"Mass of Star A has decreased to: {Mass_WDA} solar masses")
 
 if Number_of_Stars >= 2:
     if system_age < Main_Sequence_Lifespan_of_Star_B:
@@ -946,6 +948,8 @@ if Number_of_Stars >= 2:
         Evolutionary_Stage_of_Star_B = "White Dwarf"
         print("Star B has evolved into a White Dwarf")
         # If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
+        Mass_WDB = 0.43 + (Mass_B / 10.4)
+        print(f"Mass of Star B has decreased to: {Mass_WDB} solar masses")
 
 if Number_of_Stars >= 3:
     if system_age < Main_Sequence_Lifespan_of_Star_C:
@@ -992,6 +996,8 @@ if Number_of_Stars >= 3:
         Evolutionary_Stage_of_Star_C = "White Dwarf"
         print("Star C has evolved into a White Dwarf")
         # If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
+        Mass_WDC = 0.43 + (Mass_C / 10.4)
+        print(f"Mass of Star A has decreased to: {Mass_WDC} solar masses")
 
 if Number_of_Stars == 4:
     if system_age < Main_Sequence_Lifespan_of_Star_D:
@@ -1038,7 +1044,9 @@ if Number_of_Stars == 4:
         Evolutionary_Stage_of_Star_D = "White Dwarf"
         print("Star D has evolved into a White Dwarf")
         # If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
-
+        Mass_WDD = 0.43 + (Mass_D / 10.4)
+        print(f"Mass of Star A has decreased to: {Mass_WDD} solar masses")
+        
 # Step 7: Stellar Classification
     # input Step 7 elements
 
