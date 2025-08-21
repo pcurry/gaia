@@ -902,7 +902,7 @@ if Number_of_Stars >= 1:
         # If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
         Mass_WDA = 0.43 + (Mass_A / 10.4)
         print(f"Mass of Star A has decreased to: {Mass_WDA} solar masses")
-        Temperature_Effective_of_White_Dwarf_A = 13500 * ((Mass_WDA * 0.25) / (((system_age - (1.15 * Main_Sequence_Lifespan_of_Star_A)) ** 0.35)))
+        Temperature_Effective_of_White_Dwarf_A = 13500 * ((Mass_WDA ** 0.25) / (((system_age - (1.15 * Main_Sequence_Lifespan_of_Star_A)) ** 0.35)))
         print(f"Temperature of Star A has evolved to: {Temperature_Effective_of_White_Dwarf_A} Kelvin")
         Radius_of_White_Dwarf_A = 42
         #placeholder for white dwarf radius calculation
@@ -956,7 +956,7 @@ if Number_of_Stars >= 2:
         # If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
         Mass_WDB = 0.43 + (Mass_B / 10.4)
         print(f"Mass of Star B has decreased to: {Mass_WDB} solar masses")
-        Temperature_Effective_of_White_Dwarf_B = 13500 * ((Mass_WDB * 0.25) / (((system_age - (1.15 * Main_Sequence_Lifespan_of_Star_B)) ** 0.35)))
+        Temperature_Effective_of_White_Dwarf_B = 13500 * ((Mass_WDB ** 0.25) / (((system_age - (1.15 * Main_Sequence_Lifespan_of_Star_B)) ** 0.35)))
         print(f"Temperature of Star B has evolved to: {Temperature_Effective_of_White_Dwarf_B} Kelvin")
         Radius_of_White_Dwarf_B = 42
         #placeholder for white dwarf radius calculation
@@ -1010,7 +1010,7 @@ if Number_of_Stars >= 3:
         # If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
         Mass_WDC = 0.43 + (Mass_C / 10.4)
         print(f"Mass of Star A has decreased to: {Mass_WDC} solar masses")
-        Temperature_Effective_of_White_Dwarf_C = 13500 * ((Mass_WDC * 0.25) / (((system_age - (1.15 * Main_Sequence_Lifespan_of_Star_C)) ** 0.35)))
+        Temperature_Effective_of_White_Dwarf_C = 13500 * ((Mass_WDC ** 0.25) / (((system_age - (1.15 * Main_Sequence_Lifespan_of_Star_C)) ** 0.35)))
         print(f"Temperature of Star C has evolved to: {Temperature_Effective_of_White_Dwarf_C} Kelvin")
         Radius_of_White_Dwarf_C = 42
         #placeholder for white dwarf radius calculation
@@ -1064,7 +1064,7 @@ if Number_of_Stars == 4:
         # If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
         Mass_WDD = 0.43 + (Mass_D / 10.4)
         print(f"Mass of Star A has decreased to: {Mass_WDD} solar masses")
-        Temperature_Effective_of_White_Dwarf_D = 13500 * ((Mass_WDD * 0.25) / (((system_age - (1.15 * Main_Sequence_Lifespan_of_Star_D)) ** 0.35)))
+        Temperature_Effective_of_White_Dwarf_D = 13500 * ((Mass_WDD ** 0.25) / (((system_age - (1.15 * Main_Sequence_Lifespan_of_Star_D)) ** 0.35)))
         print(f"Temperature of Star C has evolved to: {Temperature_Effective_of_White_Dwarf_C} Kelvin")
         Radius_of_White_Dwarf_D = 42
         #placeholder for white dwarf radius calculation
