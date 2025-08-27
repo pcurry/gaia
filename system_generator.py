@@ -1088,10 +1088,11 @@ if Number_of_Stars == 4:
             #median temeperature of 15000 Kelvin
         if 13500 <= Temperature_Effective_of_Star_A < 14500:
             Spectral_Type_of_Star_A = "B6"
-        if ((11900+13000)/2) <= Temperature_Effective_of_Star_A < 13500:
+            #median temperature of 14000 Kelvin
+        if ((11900+13000)/2) <= Temperature_Effective_of_Star_A < ((13000+14000)/2):
             Spectral_Type_of_Star_A = "B7"
             #median temperature of 13000 Kelvin
-        if ((10800+11900)/2) <= Temperature_Effective_of_Star_A < ((11900+42)/2):
+        if ((10800+11900)/2) <= Temperature_Effective_of_Star_A < ((11900+13000)/2):
             Spectral_Type_of_Star_A = "B8"
             #median temperature of 11900 Kelvin
         if ((9700+10800)/2) <= Temperature_Effective_of_Star_A < ((10800+11900)/2):
@@ -1157,158 +1158,159 @@ if Number_of_Stars == 4:
         if ((5930+6020)/2) <= Temperature_Effective_of_Star_A < ((6020+6110)/2):
             Spectral_Type_of_Star_A = "F9"
             #median temperature of 6020 Kelvin
-        if ((42+5930)/2) <= Temperature_Effective_of_Star_A < ((5930+6020)/2):
+        if ((5850+5930)/2) <= Temperature_Effective_of_Star_A < ((5930+6020)/2):
             Spectral_Type_of_Star_A = "G0"
             #median temperature of 5930 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((5850+5930)/2):
+        if ((5770+5850)/2) <= Temperature_Effective_of_Star_A < ((5850+5930)/2):
             Spectral_Type_of_Star_A = "G1"
             #median temperature of 5850 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((5770+5850)/2):
+        if ((5700+5770)/2) <= Temperature_Effective_of_Star_A < ((5770+5850)/2):
             Spectral_Type_of_Star_A = "G2"
             #median temperature of 5770 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((5700+5770)/2):
+        if ((5630+5700)/2) <= Temperature_Effective_of_Star_A < ((5700+5770)/2):
             Spectral_Type_of_Star_A = "G3"
             #median temperature of 5700 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((5630+5700)/2):
+        if ((5570+5630)/2) <= Temperature_Effective_of_Star_A < ((5630+5700)/2):
             Spectral_Type_of_Star_A = "G4"
             #median temperature of 5630 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((5570+5630)/2):
+        if ((5510+5570)/2) <= Temperature_Effective_of_Star_A < ((5570+5630)/2):
             Spectral_Type_of_Star_A = "G5"
             #median temperature of 5570 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((5510+5570)/2):
+        if ((5450+5510)/2) <= Temperature_Effective_of_Star_A < ((5510+5570)/2):
             Spectral_Type_of_Star_A = "G6"
             #median temperature of 5510 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((5450+5510)/2):
+        if ((5390+5450)/2) <= Temperature_Effective_of_Star_A < ((5450+5510)/2):
             Spectral_Type_of_Star_A = "G7"
             #median temperature of 5450 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((5390+5450)/2):
+        if ((5330+5390)/2) <= Temperature_Effective_of_Star_A < ((5390+5450)/2):
             Spectral_Type_of_Star_A = "G8"
             #median temperature of 5390 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((5330+5390)/2):
+        if ((5270+5330)/2) <= Temperature_Effective_of_Star_A < ((5330+5390)/2):
             Spectral_Type_of_Star_A = "G9"
             #median temperature of 5330 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((5270+5330)/2):
+        if ((5130+5270)/2) <= Temperature_Effective_of_Star_A < ((5270+5330)/2):
             Spectral_Type_of_Star_A = "K0"
             #median temperature of 5270 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((5130+5270)/2):
+        if ((4990+5130)/2) <= Temperature_Effective_of_Star_A < ((5130+5270)/2):
             Spectral_Type_of_Star_A = "K1"
             #median temperature of 5130 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((4990+5130)/2):
+        if ((4850+4990)/2) <= Temperature_Effective_of_Star_A < ((4990+5130)/2):
             Spectral_Type_of_Star_A = "K2"
             #median temperature of 4990 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((4850+4990)/2):
+        if ((4710+4850)/2) <= Temperature_Effective_of_Star_A < ((4850+4990)/2):
             Spectral_Type_of_Star_A = "K3"
             #median temperature of 4850 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((4710+4850)/2):
+        if ((4560+4710)/2) <= Temperature_Effective_of_Star_A < ((4710+4850)/2):
             Spectral_Type_of_Star_A = "K4"
             #median temperature of 4710 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((4560+4710)/2):
+        if ((4410+4560)/2) <= Temperature_Effective_of_Star_A < ((4560+4710)/2):
             Spectral_Type_of_Star_A = "K5"
             #median temperature of 4560 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((4410+4560)/2):
+        if ((4270+4410)/2) <= Temperature_Effective_of_Star_A < ((4410+4560)/2):
             Spectral_Type_of_Star_A = "K6"
             #median temperature of 4410 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((4270+42)/2):
+        if ((4130+4270)/2) <= Temperature_Effective_of_Star_A < ((4270+4410)/2):
             Spectral_Type_of_Star_A = "K7"
             #median temperature of 4270 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((4130+42)/2):
+        if ((3990+4130)/2) <= Temperature_Effective_of_Star_A < ((4130+4270)/2):
             Spectral_Type_of_Star_A = "K8"
             #median temperature of 4130 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((3990+42)/2):
+        if ((3850+3990)/2) <= Temperature_Effective_of_Star_A < ((3990+4130)/2):
             Spectral_Type_of_Star_A = "K9"
             #median temperature of 3990 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((3850+42)/2):
+        if ((3700+3850)/2) <= Temperature_Effective_of_Star_A < ((3850+3990)/2):
             Spectral_Type_of_Star_A = "M0"
             #median temperature of 3850 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((3700+42)/2):
+        if ((3540+3700)/2) <= Temperature_Effective_of_Star_A < ((3700+3850)/2):
             Spectral_Type_of_Star_A = "M1"
             #median temperature of 3700 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((3540+42)/2):
+        if ((3380+3540)/2) <= Temperature_Effective_of_Star_A < ((3540+3700)/2):
             Spectral_Type_of_Star_A = "M2"
             #median temperature of 3540 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((3380+42)/2):
+        if ((3220+3380)/2) <= Temperature_Effective_of_Star_A < ((3380+3540)/2):
             Spectral_Type_of_Star_A = "M3"
             #median temperature of 3380 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((3220+42)/2):
+        if ((3060+3220)/2) <= Temperature_Effective_of_Star_A < ((3220+3380)/2):
             Spectral_Type_of_Star_A = "M4"
             #median temperature of 3220 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((3060+42)/2):
+        if ((2900+3060)/2) <= Temperature_Effective_of_Star_A < ((3060+3220)/2):
             Spectral_Type_of_Star_A = "M5"
             #median temperature of 3060 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((2900+42)/2):
+        if ((2740+2900)/2) <= Temperature_Effective_of_Star_A < ((2900+3060)/2):
             Spectral_Type_of_Star_A = "M6"
             #median temperature of 2900 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((2740+42)/2):
+        if ((2580+2740)/2) <= Temperature_Effective_of_Star_A < ((2740+2900)/2):
             Spectral_Type_of_Star_A = "M7"
             #median temperature of 2740 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((2580+42)/2):
+        if ((2420+2580)/2) <= Temperature_Effective_of_Star_A < ((2580+2740)/2):
             Spectral_Type_of_Star_A = "M8"
             #median temperature of 2580 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((2420+42)/2):
+        if ((2270+2420)/2) <= Temperature_Effective_of_Star_A < ((2420+2580)/2):
             Spectral_Type_of_Star_A = "M9"
             #median temperature of 2420 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((2270+42)/2):
+        if ((2170+2270)/2) <= Temperature_Effective_of_Star_A < ((2270+2420)/2):
             Spectral_Type_of_Star_A = "L0"
             #median temperature of 2270 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((2170+42)/2):
+        if ((2070+2170)/2) <= Temperature_Effective_of_Star_A < ((2170+2270)/2):
             Spectral_Type_of_Star_A = "L1"
             #median temperature of 2170 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((2070+42)/2):
+        if ((1970+2070)/2) <= Temperature_Effective_of_Star_A < ((2070+2170)/2):
             Spectral_Type_of_Star_A = "L2"
             #median temperature of 2070 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((1970+42)/2):
+        if ((1870+1970)/2) <= Temperature_Effective_of_Star_A < ((1970+2070)/2):
             Spectral_Type_of_Star_A = "L3"
             #median temperature of 1970 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((1870+42)/2):
+        if ((1770+1870)/2) <= Temperature_Effective_of_Star_A < ((1870+1970)/2):
             Spectral_Type_of_Star_A = "L4"
             #median temperature of 1870 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((1770+42)/2):
+        if ((1660+1770)/2) <= Temperature_Effective_of_Star_A < ((1770+1870)/2):
             Spectral_Type_of_Star_A = "L5"
             #median temperature of 1770 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((1660+42)/2):
+        if ((1560+1660)/2) <= Temperature_Effective_of_Star_A < ((1660+1770)/2):
             Spectral_Type_of_Star_A = "L6"
             #median temperature of 1660 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((1560+42)/2):
+        if ((1460+1560)/2) <= Temperature_Effective_of_Star_A < ((1560+1660)/2):
             Spectral_Type_of_Star_A = "L7"
             #median temperature of 1560 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((1460+42)/2):
+        if ((1360+1460)/2) <= Temperature_Effective_of_Star_A < ((1460+1560)/2):
             Spectral_Type_of_Star_A = "L8"
             #median temperature of 1460 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((1360+42)/2):
+        if ((1260+1360)/2) <= Temperature_Effective_of_Star_A < ((1360+1460)/2):
             Spectral_Type_of_Star_A = "L9"
             #median temperature of 1360 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((1260+42)/2):
+        if ((1190+1260)/2) <= Temperature_Effective_of_Star_A < ((1260+1360)/2):
             Spectral_Type_of_Star_A = "T0"
             #median temperature of 1260 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((1190+42)/2):
+        if ((1120+1190)/2) <= Temperature_Effective_of_Star_A < ((1190+1260)/2):
             Spectral_Type_of_Star_A = "T1"
             #median temperature of 1190 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((1120+42)/2):
+        if ((1040+1120)/2) <= Temperature_Effective_of_Star_A < ((1120+1190)/2):
             Spectral_Type_of_Star_A = "T2"
             #median temperature of 1120 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < (1040+42)/2):
+        if ((960+1040)/2) <= Temperature_Effective_of_Star_A < (1040+1120)/2):
             Spectral_Type_of_Star_A = "T3"
             #median temperature of 1040 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((960+42)/2):
+        if ((880+960)/2) <= Temperature_Effective_of_Star_A < ((960+1040)/2):
             Spectral_Type_of_Star_A = "T4"
             #median temperature of 960 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((880+42)/2):
+        if ((800+880/2) <= Temperature_Effective_of_Star_A < ((880+960)/2):
             Spectral_Type_of_Star_A = "T5"
             #median temperature of 880 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((800+42)/2):
+        if ((720+800)/2) <= Temperature_Effective_of_Star_A < ((800+880)/2):
             Spectral_Type_of_Star_A = "T6"
             #median temperature of 800 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((720+42)/2):
+        if ((640+720/2) <= Temperature_Effective_of_Star_A < ((720+800)/2):
             Spectral_Type_of_Star_A = "T7"
             #median temperature of 720 Kelvin
-        if ((42+42)/2) <= Temperature_Effective_of_Star_A < ((640+42)/2):
+        if ((570+640)/2) <= Temperature_Effective_of_Star_A < ((640+720)/2):
             Spectral_Type_of_Star_A = "T8"
             #median temperature of 640 Kelvin
-        if ((500+570)/2) <= Temperature_Effective_of_Star_A < ((570+42)/2):
+        if ((500+570)/2) <= Temperature_Effective_of_Star_A < ((570+640)/2):
             Spectral_Type_of_Star_A = "T9"
             #median temperature of 570 Kelvin
         if Temperature_Effective_of_Star_A < ((500+570)/2):
             Spectral_Type_of_Star_A = "Y0"
+    print(f"Spectral Type of Star A: {Spectral_Type_of_Star_A}")
 
     Spectral_Type_of_Star_B = "None"
     # input Step 7 elements for Star B
