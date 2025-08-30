@@ -1806,7 +1806,7 @@ if Number_of_Stars >= 3:
     print(f"Spectral Type of Star C: {Spectral_Type_of_Star_C}")
 
 Spectral_Type_of_Star_D = "None"
-if Number_of_Stars >= 3:
+if Number_of_Stars == 4:
     if Evolutionary_Stage_of_Star_D == "White Dwarf":
         Spectral_Type_of_Star_D = "D"
     if Evolutionary_Stage_of_Star_D != "White Dwarf":
@@ -2024,8 +2024,8 @@ if Number_of_Stars >= 3:
             Spectral_Type_of_Star_D = "T3"
             #median temperature of 1040 Kelvin
         if ((880+960)/2) <= Temperature_Effective_of_Star_D < ((960+1040)/2):
-            Spectral_Type_of_Star_D = "T4"
-            #median temperature of 960 Kelvin
+            Spectral_Type_of_Star_D
+            #median temperatue is 960 Kelvin
         if ((800+880)/2) <= Temperature_Effective_of_Star_D < ((880+960)/2):
             Spectral_Type_of_Star_D = "T5"
             #median temperature of 880 Kelvin
