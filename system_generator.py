@@ -191,6 +191,7 @@ elif 91 <= roll_for_star_type <=100:
     elif 99 <= roll_for_high_mass_star_mass <= 100:
         Mass_A = 6.00
 print(f"Primary Star Type: {Category}")
+Mass_A = round(Mass_A, 3)
 print(f"Mass of Star A: {Mass_A} solar masses")
 
 # Step 2: Stellar Multiplicity
@@ -305,6 +306,7 @@ elif Number_of_Stars <= 2:
     Mass_B = Mass_A * Mass_Ratio
     if Mass_B < 0.015:
         Mass_B = 0.015
+    Mass_B = round(Mass_B, 3)
     print(f"Mass of Star B: {Mass_B} solar masses")
 
 elif Number_of_Stars == 3:
@@ -355,7 +357,9 @@ elif Number_of_Stars == 3:
         Mass_B = Mass_A * Mass_Ratio
         if Mass_B < 0.015:
             Mass_B = 0.015
+        Mass_B = round(Mass_B, 3)
         print(f"Mass of Star B: {Mass_B} solar masses")
+
         roll_for_BC_mass_ratio = (d100()+30)
         if roll_for_BC_mass_ratio == 31:
             Mass_Ratio = 0.40
@@ -385,6 +389,7 @@ elif Number_of_Stars == 3:
         Mass_C = Mass_B * Mass_Ratio
         if Mass_C < 0.015:
             Mass_C = 0.015
+        Mass_C = round(Mass_C, 3)
         print(f"Mass of Star C: {Mass_C} solar masses")
 
     elif random_integer == 2:
@@ -420,6 +425,7 @@ elif Number_of_Stars == 3:
         if Mass_B < 0.015:
             Mass_B = 0.015
         print(f"Mass of Star B: {Mass_B} solar masses")
+
         roll_for_AC_mass_ratio = d100()
         if roll_for_AC_mass_ratio <= 4:
             Mass_Ratio = 0.05
@@ -463,6 +469,7 @@ elif Number_of_Stars == 3:
         Mass_C = Mass_A * Mass_Ratio
         if Mass_C < 0.015:
             Mass_C = 0.015
+        Mass_C = round(Mass_C, 3)
         print(f"Mass of Star C: {Mass_C} solar masses")
 
 elif Number_of_Stars == 4:
@@ -512,6 +519,7 @@ elif Number_of_Stars == 4:
     Mass_B = Mass_A * Mass_Ratio
     if Mass_B < 0.015:
         Mass_B = 0.015
+    Mass_B = round(Mass_B, 3)
     print(f"Mass of Star B: {Mass_B} solar masses")
 
     roll_for_AC_mass_ratio = d100()
@@ -557,6 +565,7 @@ elif Number_of_Stars == 4:
     Mass_C = Mass_A * Mass_Ratio
     if Mass_C < 0.015:
         Mass_C = 0.015
+    Mass_C = round(Mass_C, 3)
     print(f"Mass of Star C: {Mass_C} solar masses")
 
     roll_for_CD_mass_ratio = (d100()+30)
@@ -588,6 +597,7 @@ elif Number_of_Stars == 4:
     Mass_D = Mass_C * Mass_Ratio
     if Mass_D < 0.015:
         Mass_D = 0.015
+    Mass_D = round(Mass_D, 3)
     print(f"Mass of Star D: {Mass_D} solar masses")
 
 # Step 4: Star System Age
