@@ -2025,7 +2025,7 @@ if Number_of_Stars == 4:
             #median temperature of 1040 Kelvin
         if ((880+960)/2) <= Temperature_Effective_of_Star_D < ((960+1040)/2):
             Spectral_Type_of_Star_D
-            #median temperatue is 960 Kelvin
+            #median temperatue of 960 Kelvin
         if ((800+880)/2) <= Temperature_Effective_of_Star_D < ((880+960)/2):
             Spectral_Type_of_Star_D = "T5"
             #median temperature of 880 Kelvin
@@ -2046,6 +2046,16 @@ if Number_of_Stars == 4:
     print(f"Spectral Type of Star D: {Spectral_Type_of_Star_D}")
 
 # Step 8: Stellar Orbital Parameters
+if Number_of_Stars == 1:
+    print("Single Star System - skipping Step #8")
+if Number_of_Stars == 2:
+    print("Binary Star System - need to write code for Step #8")
+    # input Step 8 elements
+if Number_of_Stars == 3:
+    print ("Trinary Star Systems - need to write code for Step #8")
+    # input Step 8 elements
+if Number_of_Stars == 4:
+    print ("Quadruple Star System - need to write code for Step #8")
     # input Step 8 elements
 
 # Step 9: Protoplanetary Disk
