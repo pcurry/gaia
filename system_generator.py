@@ -2047,12 +2047,35 @@ if Number_of_Stars == 4:
 
 # Step 8: Stellar Orbital Parameters
 if Number_of_Stars == 1:
+    binary_separation_type = "None"
     print("Single Star System - skipping Step #8")
 if Number_of_Stars == 2:
-    print("Binary Star System - need to write code for Step #8")
-    # input Step 8 elements
+    roll_for_binary_separation_type = _3d6()
+    if roll_for_binary_separation_type <= 3:
+        binary_separation_type = "Extremely Close"
+        binary_separation_base_distance = 0.015
+    if 4 <= roll_for_binary_separation_type <= 5:
+        binary_separation_type = "Very Close"
+        binary_separation_base_distance = 0.15
+    if 6 <= roll_for_binary_separation_type <= 8:
+        binary_separation_type = "Close"
+        binary_separation_base_distance = 1.5
+    if 9 <= roll_for_binary_separation_type <= 12:
+        binary_separation_type = "Moderate"
+        binary_separation_base_distance = 15
+    if 13 <= roll_for_binary_separation_type <= 15:
+        binary_separation_type = "Wide"
+        binary_separation_base_distance = 150
+    if 16 <= roll_for_binary_separation_type:
+        binary_separation_type = "Very Wide"
+        binary_separation_base_distance = 1500
+    print(f"Binary Star System with {binary_separation_type} Separation Between Star A and Star B")
+    print(f"Base Distance: {binary_separation_base_distance} AU")
+
+    # input other Step 8 elements - stellar orbital eccentricity table
+
 if Number_of_Stars == 3:
-    print ("Trinary Star Systems - need to write code for Step #8")
+    print ("Trinary Star System - need to write code for Step #8")
     # input Step 8 elements
 if Number_of_Stars == 4:
     print ("Quadruple Star System - need to write code for Step #8")
