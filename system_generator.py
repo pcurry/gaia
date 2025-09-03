@@ -2046,9 +2046,11 @@ if Number_of_Stars == 4:
     print(f"Spectral Type of Star D: {Spectral_Type_of_Star_D}")
 
 # Step 8: Stellar Orbital Parameters
+
 if Number_of_Stars == 1:
     binary_separation_type = "None"
     print("Single Star System - skipping Step #8")
+
 if Number_of_Stars == 2:
     roll_for_binary_separation_type = _3d6()
     if roll_for_binary_separation_type <= 3:
@@ -2071,15 +2073,51 @@ if Number_of_Stars == 2:
         binary_separation_base_distance = 1500
     print(f"Binary Star System with {binary_separation_type} Separation Between Star A and Star B")
     print(f"Base Distance: {binary_separation_base_distance} AU")
+    
+    roll_for_binary_average_distance = d100()
+    binary_average_distance = binary_separation_base_distance * (10 ** roll_for_binary_average_distance)
+    binary_distance_variance_factor = random.uniform(0.95, 1.05)
+    binary_average_distance = (binary_distance_variance_factor * binary_average_distance)
+    binary_average_distance = round(binary_average_distance, 3)
+    # Still Need to Tweak to Implement: "round off to three significant figures."
+    print(f"Average Distnace: {binary_average_distance} AU")
 
-    # input other Step 8 elements - stellar orbital eccentricity table
+    roll_for_binary_orbital_eccentricity = _3d6()
+    if roll_for_binary_orbital_eccentricity <= 3:
+        binary_eccentricity = 0.0
+    if roll_for_binary_orbital_eccentricity == 4:
+        binary_eccentricity = 0.1
+    if 5 <= roll_for_binary_orbital_eccentricity <= 6:
+        binary_eccentricity = 0.2
+    if 7 <= roll_for_binary_orbital_eccentricity <= 8:
+        binary_eccentricity = 0.3
+    if 9 <= roll_for_binary_orbital_eccentricity <= 11:
+        binary_eccentricity = 0.4
+    if 12 <= roll_for_binary_orbital_eccentricity <= 13:
+        binary_eccentricity = 0.5
+    if 14 <= roll_for_binary_orbital_eccentricity <= 15:
+        binary_eccentricity = 0.6
+    if roll_for_binary_orbital_eccentricity == 6:
+        binary_eccentricity = 0.7
+    if roll_for_binary_orbital_eccentricity == 17:
+        binary_eccentricity = 0.8
+    if roll_for_binary_orbital_eccentricity == 18:
+        binary_eccentricity = 0.9
+    print(f"Eccentricity of Binary Pair: {binary_eccentricity}")
+    
+    binary_minimum_distance = binary_average_distance * (1 - roll_for_binary_orbital_eccentricity)
+    print(f"Minium Distance Between Star A and Star B: {binary_minimum_distance} AU")
+
+    binary_maximum_distance = binary_average_distance * (1 + roll_for_binary_orbital_eccentricity)
+    print(f"Maximum Distance Between Star A and Star B: {binary_maximum_distance} AU")
 
 if Number_of_Stars == 3:
     print ("Trinary Star System - need to write code for Step #8")
-    # input Step 8 elements
+    # input Step 8 elements for trinary systems
+
 if Number_of_Stars == 4:
     print ("Quadruple Star System - need to write code for Step #8")
-    # input Step 8 elements
+    # input Step 8 elements for quadurple systems
 
 # Step 9: Protoplanetary Disk
     # input Step 9 elements
