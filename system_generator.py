@@ -911,14 +911,16 @@ if Number_of_Stars >= 1:
         print("Star A has evolved into a White Dwarf")
         # If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
         Mass_WDA = 0.43 + (Mass_A / 10.4)
-        #need to add rounding for all white dwarf parameters
-        # e.g. Mass_WDA = round(Mass_WDA, 3)
+        Mass_WDA = round(Mass_WDA, 2)
         print(f"Mass of Star A has decreased to: {Mass_WDA} solar masses")
         Temperature_Effective_of_White_Dwarf_A = 13500 * ((Mass_WDA ** 0.25) / (((system_age - (1.15 * Main_Sequence_Lifespan_of_Star_A)) ** 0.35)))
+        Temperature_Effective_of_White_Dwarf_A = round(Temperature_Effective_of_White_Dwarf_A, 0)
         print(f"Temperature of Star A has evolved to: {Temperature_Effective_of_White_Dwarf_A} Kelvin")
         Radius_of_White_Dwarf_A = 5500 / (math.cbrt(Mass_WDA))
+        Radius_of_White_Dwarf_A = round(Radius_of_White_Dwarf_A, 0)
         print(f"Radius of Star A has decreased to: {Radius_of_White_Dwarf_A} kilometers")
         Luminosity_of_White_Dwarf_A = ((Radius_of_White_Dwarf_A ** 2) * (Temperature_Effective_of_White_Dwarf_A ** 4))/ (5.4e26)
+        Luminosity_of_White_Dwarf_A = round(Luminosity_of_White_Dwarf_A, 5)
         print(f"Luminosity of Star A has evolved to: {Luminosity_of_White_Dwarf_A} solar lumunosities")
 
 if Number_of_Stars >= 2:
@@ -967,12 +969,16 @@ if Number_of_Stars >= 2:
         print("Star B has evolved into a White Dwarf")
         # If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
         Mass_WDB = 0.43 + (Mass_B / 10.4)
+        Mass_WDB = round(Mass_WDB, 2)
         print(f"Mass of Star B has decreased to: {Mass_WDB} solar masses")
         Temperature_Effective_of_White_Dwarf_B = 13500 * ((Mass_WDB ** 0.25) / (((system_age - (1.15 * Main_Sequence_Lifespan_of_Star_B)) ** 0.35)))
+        Temperature_Effective_of_White_Dwarf_B = round(Temperature_Effective_of_White_Dwarf_B, 0)
         print(f"Temperature of Star B has evolved to: {Temperature_Effective_of_White_Dwarf_B} Kelvin")
         Radius_of_White_Dwarf_B = 5500 / (math.cbrt(Mass_WDB))
+        Radius_of_White_Dwarf_B = round(Radius_of_White_Dwarf_B, 0)
         print(f"Radius of Star B has decreased to: {Radius_of_White_Dwarf_B} kilometers")
-        Luminosity_of_White_Dwarf_B = ((Radius_of_White_Dwarf_B ** 2) * (Temperature_Effective_of_White_Dwarf_B ** 4))/ (5.4e26)
+        Luminosity_of_White_Dwarf_B = ((Radius_of_White_Dwarf_B ** 2) * (Temperature_Effective_of_White_Dwarf_B ** 4)) / (5.4e26)
+        Luminosity_of_White_Dwarf_B = round(Luminosity_of_White_Dwarf_B, 5)
         print(f"Luminosity of Star B has evolved to: {Luminosity_of_White_Dwarf_B} solar lumunosities")
 
 if Number_of_Stars >= 3:
@@ -1021,12 +1027,16 @@ if Number_of_Stars >= 3:
         print("Star C has evolved into a White Dwarf")
         # If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
         Mass_WDC = 0.43 + (Mass_C / 10.4)
-        print(f"Mass of Star A has decreased to: {Mass_WDC} solar masses")
+        Mass_WDC = round(Mass_WDC, 2)
+        print(f"Mass of Star C has decreased to: {Mass_WDC} solar masses")
         Temperature_Effective_of_White_Dwarf_C = 13500 * ((Mass_WDC ** 0.25) / (((system_age - (1.15 * Main_Sequence_Lifespan_of_Star_C)) ** 0.35)))
+        Temperature_Effective_of_White_Dwarf_C = round(Temperature_Effective_of_White_Dwarf_C, 0)
         print(f"Temperature of Star C has evolved to: {Temperature_Effective_of_White_Dwarf_C} Kelvin")
         Radius_of_White_Dwarf_C = 5500 / (math.cbrt(Mass_WDC))
-        print(f"Radius of Star B has decreased to: {Radius_of_White_Dwarf_B} kilometers")
-        Luminosity_of_White_Dwarf_C = ((Radius_of_White_Dwarf_C ** 2) * (Temperature_Effective_of_White_Dwarf_C ** 4))/ (5.4e26)
+        Radius_of_White_Dwarf_C = round(Radius_of_White_Dwarf_C, 0)
+        print(f"Radius of Star C has decreased to: {Radius_of_White_Dwarf_C} kilometers")
+        Luminosity_of_White_Dwarf_C = ((Radius_of_White_Dwarf_C ** 2) * (Temperature_Effective_of_White_Dwarf_C ** 4)) / (5.4e26)
+        Luminosity_of_White_Dwarf_C = round(Luminosity_of_White_Dwarf_C, 5)
         print(f"Luminosity of Star C has evolved to: {Luminosity_of_White_Dwarf_C} solar lumunosities")
 
 if Number_of_Stars == 4:
@@ -1075,12 +1085,16 @@ if Number_of_Stars == 4:
         print("Star D has evolved into a White Dwarf")
         # If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
         Mass_WDD = 0.43 + (Mass_D / 10.4)
-        print(f"Mass of Star A has decreased to: {Mass_WDD} solar masses")
+        Mass_WDD = round(Mass_WDD, 2)
+        print(f"Mass of Star D has decreased to: {Mass_WDD} solar masses")
         Temperature_Effective_of_White_Dwarf_D = 13500 * ((Mass_WDD ** 0.25) / (((system_age - (1.15 * Main_Sequence_Lifespan_of_Star_D)) ** 0.35)))
+        Temperature_Effective_of_White_Dwarf_D = round(Temperature_Effective_of_White_Dwarf_D, 0)
         print(f"Temperature of Star D has evolved to: {Temperature_Effective_of_White_Dwarf_D} Kelvin")
         Radius_of_White_Dwarf_D = 5500 / (math.cbrt(Mass_WDD))
+        Radius_of_White_Dwarf_D = round(Radius_of_White_Dwarf_D, 0)
         print(f"Radius of Star D has decreased to: {Radius_of_White_Dwarf_D} kilometers")
-        Luminosity_of_White_Dwarf_D = ((Radius_of_White_Dwarf_D ** 2) * (Temperature_Effective_of_White_Dwarf_D ** 4))/ (5.4e26)
+        Luminosity_of_White_Dwarf_D = ((Radius_of_White_Dwarf_D ** 2) * (Temperature_Effective_of_White_Dwarf_D ** 4)) / (5.4e26)
+        Luminosity_of_White_Dwarf_D = round(Luminosity_of_White_Dwarf_D, 5)
         print(f"Luminosity of Star D has evolved to: {Luminosity_of_White_Dwarf_D} solar lumunosities")
 
 # Step 7: Stellar Classification
