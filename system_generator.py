@@ -911,6 +911,8 @@ if Number_of_Stars >= 1:
         print("Star A has evolved into a White Dwarf")
         # If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
         Mass_WDA = 0.43 + (Mass_A / 10.4)
+        #need to add rounding for all white dwarf parameters
+        # e.g. Mass_WDA = round(Mass_WDA, 3)
         print(f"Mass of Star A has decreased to: {Mass_WDA} solar masses")
         Temperature_Effective_of_White_Dwarf_A = 13500 * ((Mass_WDA ** 0.25) / (((system_age - (1.15 * Main_Sequence_Lifespan_of_Star_A)) ** 0.35)))
         print(f"Temperature of Star A has evolved to: {Temperature_Effective_of_White_Dwarf_A} Kelvin")
@@ -2079,7 +2081,6 @@ if Number_of_Stars == 2:
     binary_distance_variance_factor = random.uniform(0.95, 1.05)
     binary_average_distance = (binary_distance_variance_factor * binary_average_distance)
     binary_average_distance = round(binary_average_distance, 3)
-    # Still Need to Tweak to Implement: "round off to three significant figures."
     print(f"Average Distnace: {binary_average_distance} AU")
 
     roll_for_binary_orbital_eccentricity = _3d6()
