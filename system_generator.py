@@ -937,6 +937,7 @@ if Number_of_Stars >= 2:
             Evolutionary_Stage_of_Star_B = "Subgiant"
             print("Specifically - Star B has evolved into a subgiant")
             # On a roll of 01-60, the star is a subgiant
+            # FLAG BUG: has Initial Luminosity of Star B been defined?
             Luminosity_of_Star_B = Initial_Luminosity_of_Star_B * (Luminosity_Growth_Rate_of_Star_B ** (1.4 * Main_Sequence_Lifespan_of_Star_B))
             print(f"Luminosity of Star B has increased to: {Luminosity_of_Star_B} solar luminosities")
         
