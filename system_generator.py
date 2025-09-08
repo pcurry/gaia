@@ -2129,7 +2129,12 @@ if Number_of_Stars == 2:
 
 if Number_of_Stars == 3:
     print ("Trinary Star System - need to write code for Step #8")
-    # input Step 8 elements for trinary systems
+    if Stellar_Arrangement == "A-BC":
+    # design BC pair per binary system rules above
+    # design A-BC separation per procedures in step 8
+    if Stellar_Arrangement == "AB-C":
+    # design AB pair per binary system rules above
+    # design AB-C separation per procedures in step 8
 
 if Number_of_Stars == 4:
     print ("Quadruple Star System - need to write code for Step #8")
