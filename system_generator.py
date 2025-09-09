@@ -660,6 +660,7 @@ if Number_of_Stars >= 1:
     Main_Sequence_Lifespan_of_Star_A = None
 
     if Mass_A < 0.08:
+        # FIX BUG HERE - definte Initial Luminosity of Stars in this mass category
         Temperature_Effective_of_Star_A = 18600 * ((Mass_A ** 0.8) / (system_age ** 0.3))
         Luminosity_of_Star_A = (Temperature_Effective_of_Star_A ** 4) / (1.1e+17)
         Radius_of_Star_A = 0.00047
@@ -667,6 +668,7 @@ if Number_of_Stars >= 1:
         # theoretical main sequence lifespan, in practice brown dwarf lifespans are longer than the current age of the universe
 
     elif 0.08 <= Mass_A <= 0.5:
+        # FIX BUG HERE - definite Initial Luminsoity of Stars in this mass category
         Temperature_Effective_of_Star_A = -78806*(Mass_A ** 4) + 125050*(Mass_A ** 3) - 74194*(Mass_A ** 2) + (20692*Mass_A) + 1272.2
         Luminosity_of_Star_A = 2.1901*(Mass_A ** 4) - 2.2436*(Mass_A ** 3) + 0.919*(Mass_A ** 2) - (0.1023*Mass_A) + 0.0039
         Main_Sequence_Lifespan_of_Star_A = (1 / (Mass_A ** 2.5)) / 10
