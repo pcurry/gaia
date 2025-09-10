@@ -2091,14 +2091,14 @@ if Number_of_Stars == 2:
         binary_separation_type = "Very Wide"
         binary_separation_base_distance = 1500
     print(f"Binary Star System with {binary_separation_type} Separation Between Star A and Star B")
-    print(f"Base Distance: {binary_separation_base_distance} AU")
+    print(f"Base Distance Between Star A and Star B: {binary_separation_base_distance} AU")
     
     roll_for_binary_average_distance = d100()
     binary_average_distance = binary_separation_base_distance * (10 ** roll_for_binary_average_distance)
     binary_distance_variance_factor = random.uniform(0.95, 1.05)
     binary_average_distance = (binary_distance_variance_factor * binary_average_distance)
     binary_average_distance = round(binary_average_distance, 3)
-    print(f"Average Distnace: {binary_average_distance} AU")
+    print(f"Average Distance Between Star A and Star B: {binary_average_distance} AU")
 
     roll_for_binary_orbital_eccentricity = _3d6()
     if roll_for_binary_orbital_eccentricity <= 3:
@@ -2124,19 +2124,53 @@ if Number_of_Stars == 2:
     print(f"Eccentricity of Binary Pair: {binary_eccentricity}")
     
     binary_minimum_distance = binary_average_distance * (1 - roll_for_binary_orbital_eccentricity)
-    print(f"Minium Distance Between Star A and Star B: {binary_minimum_distance} AU")
+    print(f"Minimum Distance Between Star A and Star B: {binary_minimum_distance} AU")
 
     binary_maximum_distance = binary_average_distance * (1 + roll_for_binary_orbital_eccentricity)
     print(f"Maximum Distance Between Star A and Star B: {binary_maximum_distance} AU")
 
 if Number_of_Stars == 3:
-    print ("Trinary Star System - need to write code for Step #8")
     if Stellar_Arrangement == "A-BC":
-    # design BC pair per binary system rules above
-    # design A-BC separation per procedures in step 8
+        roll_for_BC_separation_type = ((_3d6())-3)
+        if roll_for_BC_separation_type <= 3:
+            BC_separation_type = "Extremely Close"
+            BC_separation_base_distance = 0.015
+        if 4 <= roll_for_BC_separation_type <= 5:
+            BC_separation_type = "Very Close"
+            BC_separation_base_distance = 0.15
+        if 6 <= roll_for_BC_separation_type <= 8:
+            BC_separation_type = "Close"
+            BC_separation_base_distance = 1.5
+        if 9 <= roll_for_BC_separation_type <= 12:
+            BC_separation_type = "Moderate"
+            BC_separation_base_distance = 15
+        if 13 <= roll_for_BC_separation_type <= 15:
+            BC_separation_type = "Wide"
+            BC_separation_base_distance = 150
+        print(f"A-BC Triple Star System with {BC_separation_type} Separation Between Star B and Star C")
+        print(f"Base Distance Between Star B and Star C: {BC_separation_base_distance} AU")
+        # continue with step #8 for A-BC pair
+
     if Stellar_Arrangement == "AB-C":
-    # design AB pair per binary system rules above
-    # design AB-C separation per procedures in step 8
+        roll_for_AB_separation_type = ((_3d6())-3)
+        if roll_for_AB_separation_type <= 3:
+            AB_separation_type = "Extremely Close"
+            AB_separation_base_distance = 0.015
+        if 4 <= roll_for_AB_separation_type <= 5:
+            AB_separation_type = "Very Close"
+            AB_separation_base_distance = 0.15
+        if 6 <= roll_for_AB_separation_type <= 8:
+            AB_separation_type = "Close"
+            AB_separation_base_distance = 1.5
+        if 9 <= roll_for_AB_separation_type <= 12:
+            AB_separation_type = "Moderate"
+            AB_separation_base_distance = 15
+        if 13 <= roll_for_AB_separation_type <= 15:
+            AB_separation_type = "Wide"
+            AB_separation_base_distance = 150
+        print(f"AB-C Triple Star System with {AB_separation_type} Separation Between Star A and Star B")
+        print(f"Base Distance Between Star A and Star B: {AB_separation_base_distance} AU")
+        # continue with step #8 for A-BC pair
 
 if Number_of_Stars == 4:
     print ("Quadruple Star System - need to write code for Step #8")
