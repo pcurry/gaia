@@ -2173,8 +2173,44 @@ if Number_of_Stars == 3:
         # continue with step #8 for A-BC pair
 
 if Number_of_Stars == 4:
-    print ("Quadruple Star System - need to write code for Step #8")
-    # input Step 8 elements for quadurple systems
+        roll_for_AB_separation_type = ((_3d6())-3)
+        if roll_for_AB_separation_type <= 3:
+            AB_separation_type = "Extremely Close"
+            AB_separation_base_distance = 0.015
+        if 4 <= roll_for_AB_separation_type <= 5:
+            AB_separation_type = "Very Close"
+            AB_separation_base_distance = 0.15
+        if 6 <= roll_for_AB_separation_type <= 8:
+            AB_separation_type = "Close"
+            AB_separation_base_distance = 1.5
+        if 9 <= roll_for_AB_separation_type <= 12:
+            AB_separation_type = "Moderate"
+            AB_separation_base_distance = 15
+        if 13 <= roll_for_AB_separation_type <= 15:
+            AB_separation_type = "Wide"
+            AB_separation_base_distance = 150
+        print(f"Quadruple Star System with {AB_separation_type} Separation Between Star A and Star B")
+        print(f"Base Distance Between Star A and Star B: {AB_separation_base_distance} AU")
+
+        roll_for_CD_separation_type = ((_3d6())-3)
+        if roll_for_CD_separation_type <= 3:
+            CD_separation_type = "Extremely Close"
+            CD_separation_base_distance = 0.015
+        if 4 <= roll_for_CD_separation_type <= 5:
+            CD_separation_type = "Very Close"
+            CD_separation_base_distance = 0.15
+        if 6 <= roll_for_CD_separation_type <= 8:
+            CD_separation_type = "Close"
+            CD_separation_base_distance = 1.5
+        if 9 <= roll_for_CD_separation_type <= 12:
+            CD_separation_type = "Moderate"
+            CD_separation_base_distance = 15
+        if 13 <= roll_for_CD_separation_type <= 15:
+            CD_separation_type = "Wide"
+            CD_separation_base_distance = 150
+        print(f"Quadruple Star System with {CD_separation_type} Separation Between Star C and Star D")
+        print(f"Base Distance Between Star C and Star D: {CD_separation_base_distance} AU")
+    # continue with Step 8 elements for quadurple systems
 
 # Step 9: Protoplanetary Disk
     # input Step 9 elements
