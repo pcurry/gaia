@@ -2162,7 +2162,58 @@ if Number_of_Stars == 3:
             BC_separation_base_distance = 150
         print(f"A-BC Triple Star System with {BC_separation_type} Separation Between Star B and Star C")
         print(f"Base Distance Between Star B and Star C: {BC_separation_base_distance} AU")
-        # continue with step #8 for A-BC pair
+
+        roll_for_BC_average_distance = ((d100())/100)
+        BC_average_distance = BC_separation_base_distance * (10 ** roll_for_BC_average_distance)
+        BC_distance_variance_factor = random.uniform(0.95, 1.05)
+        BC_average_distance = (BC_distance_variance_factor * BC_average_distance)
+        BC_average_distance = round(BC_average_distance, 3)
+        print(f"Average Distance Between Star B and Star C: {BC_average_distance} AU")
+
+        if BC_separation_type == "Extremely Close":
+            BC_eccentricity_roll_modifier = -8
+        if BC_separation_type == "Very Close":
+            BC_eccentricity_roll_modifier = -6
+        if BC_separation_type == "Close":
+            BC_eccentricity_roll_modifier = -4
+        if BC_separation_type == "Moderate":
+            BC_eccentricity_roll_modifier = -2
+        if BC_separation_type == "Wide":
+            BC_eccentricity_roll_modifier = 0
+        if BC_separation_type == "Very Wide":
+            BC_eccentricity_roll_modifier = 0
+
+        roll_for_BC_orbital_eccentricity = _3d6() + BC_eccentricity_roll_modifier 
+        # If at Moderate separation, modify by -2.
+        if roll_for_BC_orbital_eccentricity <= 3:
+            BC_eccentricity = 0.0
+        if roll_for_BC_orbital_eccentricity == 4:
+            BC_eccentricity = 0.1
+        if 5 <= roll_for_BC_orbital_eccentricity <= 6:
+            BC_eccentricity = 0.2
+        if 7 <= roll_for_BC_orbital_eccentricity <= 8:
+            BC_eccentricity = 0.3
+        if 9 <= roll_for_BC_orbital_eccentricity <= 11:
+            BC_eccentricity = 0.4
+        if 12 <= roll_for_BC_orbital_eccentricity <= 13:
+            BC_eccentricity = 0.5
+        if 14 <= roll_for_BC_orbital_eccentricity <= 15:
+            BC_eccentricity = 0.6
+        if roll_for_BC_orbital_eccentricity == 6:
+            BC_eccentricity = 0.7
+        if roll_for_BC_orbital_eccentricity == 17:
+            BC_eccentricity = 0.8
+        if roll_for_BC_orbital_eccentricity == 18:
+            BC_eccentricity = 0.9
+        print(f"Eccentricity of Star C orbit around Star B: {BC_eccentricity}")
+    
+        BC_minimum_distance = BC_average_distance * (1 - BC_eccentricity)
+        BC_minimum_distance = round(BC_minimum_distance, 3)
+        print(f"Minimum Distance Between Star B and Star C: {BC_minimum_distance} AU")
+
+        BC_maximum_distance = BC_average_distance * (1 + BC_eccentricity)
+        BC_maximum_distance = round(BC_maximum_distance, 3)
+        print(f"Maximum Distance Between Star B and Star C: {BC_maximum_distance} AU")
 
     if Stellar_Arrangement == "AB-C":
         roll_for_AB_separation_type = ((_3d6())-3)
