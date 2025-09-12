@@ -660,7 +660,6 @@ if Number_of_Stars >= 1:
     Main_Sequence_Lifespan_of_Star_A = None
 
     if Mass_A < 0.08:
-        # FIX BUG HERE - definte Initial Luminosity of Stars in this mass category
         Temperature_Effective_of_Star_A = 18600 * ((Mass_A ** 0.8) / (system_age ** 0.3))
         Luminosity_of_Star_A = (Temperature_Effective_of_Star_A ** 4) / (1.1e+17)
         Radius_of_Star_A = 0.00047
@@ -668,7 +667,6 @@ if Number_of_Stars >= 1:
         # theoretical main sequence lifespan, in practice brown dwarf lifespans are longer than the current age of the universe
 
     elif 0.08 <= Mass_A <= 0.5:
-        # FIX BUG HERE - definite Initial Luminsoity of Stars in this mass category
         Temperature_Effective_of_Star_A = -78806*(Mass_A ** 4) + 125050*(Mass_A ** 3) - 74194*(Mass_A ** 2) + (20692*Mass_A) + 1272.2
         Luminosity_of_Star_A = 2.1901*(Mass_A ** 4) - 2.2436*(Mass_A ** 3) + 0.919*(Mass_A ** 2) - (0.1023*Mass_A) + 0.0039
         Main_Sequence_Lifespan_of_Star_A = (1 / (Mass_A ** 2.5)) / 10
@@ -873,7 +871,7 @@ if Number_of_Stars >= 1:
         print("Star A is still on the main sequence")
         # If the system’s age is less than the star’s Main Sequence Lifespan, then the star is still on the main sequence.
 
-    elif system_age <= (1.15 * Main_Sequence_Lifespan_of_Star_A):
+    if Main_Sequence_Lifespan_of_Star_A <= system_age <= (1.15 * Main_Sequence_Lifespan_of_Star_A):
         print("Star A has evolved beyond the Main Sequence")
         # If the system’s age exceeds the star’s Main Sequence Lifespan by no more than 15%, then the star will be a subgiant or red giant
         roll_for_giant_type = d100()
@@ -889,7 +887,7 @@ if Number_of_Stars >= 1:
             print("Specifically Star has evolved onto the Red Giant Branch")
             # On a roll of 61-90, the star is on the red giant branch
             roll_for_red_giant_varriable = (d100() / 100)
-            Temperature_Effective_of_Star_A = 5000 - (roll_for_red_giant_varriable * 1000)
+            Temperature_Effective_of_Star_A = 5000 - (roll_for_red_giant_varriable * 2000)
             Luminosity_of_Star_A = 50 ** (1 + roll_for_red_giant_varriable)
             print(f"Temperature of Star A has cooled to: {Temperature_Effective_of_Star_A} Kelvin")
             print(f"Luminosity of Star A has increased to: {Luminosity_of_Star_A} solar luminosities")
@@ -908,7 +906,7 @@ if Number_of_Stars >= 1:
         Radius_of_Star_A = round(Radius_of_Star_A, 5)
         print(f"Radius of Star A has evolved to: {Radius_of_Star_A} AU")
 
-    elif system_age > (1.15 * Main_Sequence_Lifespan_of_Star_A):
+    if system_age > (1.15 * Main_Sequence_Lifespan_of_Star_A):
         Evolutionary_Stage_of_Star_A = "White Dwarf"
         print("Star A has evolved into a White Dwarf")
         # If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
@@ -931,7 +929,7 @@ if Number_of_Stars >= 2:
         print("Star B is still on the main sequence")
         # If the system’s age is less than the star’s Main Sequence Lifespan, then the star is still on the main sequence.
 
-    elif system_age <= (1.15 * Main_Sequence_Lifespan_of_Star_B):
+    if Main_Sequence_Lifespan_of_Star_B <= system_age <= (1.15 * Main_Sequence_Lifespan_of_Star_B):
         print("Star B has evolved beyond the Main Sequence")
         # If the system’s age exceeds the star’s Main Sequence Lifespan by no more than 15%, then the star will be a subgiant or red giant
         roll_for_giant_type = d100()
@@ -939,7 +937,6 @@ if Number_of_Stars >= 2:
             Evolutionary_Stage_of_Star_B = "Subgiant"
             print("Specifically - Star B has evolved into a subgiant")
             # On a roll of 01-60, the star is a subgiant
-            # FLAG BUG: has Initial Luminosity of Star B been defined?
             Luminosity_of_Star_B = Initial_Luminosity_of_Star_B * (Luminosity_Growth_Rate_of_Star_B ** (1.4 * Main_Sequence_Lifespan_of_Star_B))
             print(f"Luminosity of Star B has increased to: {Luminosity_of_Star_B} solar luminosities")
         
@@ -948,7 +945,7 @@ if Number_of_Stars >= 2:
             print("Specifically Star has evolved onto the Red Giant Branch")
             # On a roll of 61-90, the star is on the red giant branch
             roll_for_red_giant_varriable = (d100() / 100)
-            Temperature_Effective_of_Star_B = 5000 - (roll_for_red_giant_varriable * 1000)
+            Temperature_Effective_of_Star_B = 5000 - (roll_for_red_giant_varriable * 2000)
             Luminosity_of_Star_B = 50 ** (1 + roll_for_red_giant_varriable)
             print(f"Temperature of Star B has cooled to: {Temperature_Effective_of_Star_B} Kelvin")
             print(f"Luminosity of Star B has increased to: {Luminosity_of_Star_B} solar luminosities")
@@ -967,7 +964,7 @@ if Number_of_Stars >= 2:
         Radius_of_Star_B = round(Radius_of_Star_B, 5)
         print(f"Radius of Star B has evolved to: {Radius_of_Star_B} AU")
 
-    elif system_age > (1.15 * Main_Sequence_Lifespan_of_Star_B):
+    if system_age > (1.15 * Main_Sequence_Lifespan_of_Star_B):
         Evolutionary_Stage_of_Star_B = "White Dwarf"
         print("Star B has evolved into a White Dwarf")
         # If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
@@ -990,7 +987,7 @@ if Number_of_Stars >= 3:
         print("Star C is still on the main sequence")
         # If the system’s age is less than the star’s Main Sequence Lifespan, then the star is still on the main sequence.
 
-    elif system_age <= (1.15 * Main_Sequence_Lifespan_of_Star_C):
+    if Main_Sequence_Lifespan_of_Star_C <= system_age <= (1.15 * Main_Sequence_Lifespan_of_Star_C):
         print("Star C has evolved beyond the Main Sequence")
         # If the system’s age exceeds the star’s Main Sequence Lifespan by no more than 15%, then the star will be a subgiant or red giant
         roll_for_giant_type = d100()
@@ -1006,7 +1003,7 @@ if Number_of_Stars >= 3:
             print("Specifically Star has evolved onto the Red Giant Branch")
             # On a roll of 61-90, the star is on the red giant branch
             roll_for_red_giant_varriable = (d100() / 100)
-            Temperature_Effective_of_Star_C = 5000 - (roll_for_red_giant_varriable * 1000)
+            Temperature_Effective_of_Star_C = 5000 - (roll_for_red_giant_varriable * 2000)
             Luminosity_of_Star_C = 50 ** (1 + roll_for_red_giant_varriable)
             print(f"Temperature of Star C has cooled to: {Temperature_Effective_of_Star_C} Kelvin")
             print(f"Luminosity of Star C has increased to: {Luminosity_of_Star_C} solar luminosities")
@@ -1025,7 +1022,7 @@ if Number_of_Stars >= 3:
         Radius_of_Star_C = round(Radius_of_Star_C, 5)
         print(f"Radius of Star C has evolved to: {Radius_of_Star_C} AU")
 
-    elif system_age > (1.15 * Main_Sequence_Lifespan_of_Star_C):
+    if system_age > (1.15 * Main_Sequence_Lifespan_of_Star_C):
         Evolutionary_Stage_of_Star_C = "White Dwarf"
         print("Star C has evolved into a White Dwarf")
         # If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
@@ -1048,7 +1045,7 @@ if Number_of_Stars == 4:
         print("Star D is still on the main sequence")
         # If the system’s age is less than the star’s Main Sequence Lifespan, then the star is still on the main sequence.
 
-    elif system_age <= (1.15 * Main_Sequence_Lifespan_of_Star_D):
+    if Main_Sequence_Lifespan_of_Star_D <= system_age <= (1.15 * Main_Sequence_Lifespan_of_Star_D):
         print("Star D has evolved beyond the Main Sequence")
         # If the system’s age exceeds the star’s Main Sequence Lifespan by no more than 15%, then the star will be a subgiant or red giant
         roll_for_giant_type = d100()
@@ -1064,7 +1061,7 @@ if Number_of_Stars == 4:
             print("Specifically Star has evolved onto the Red Giant Branch")
             # On a roll of 61-90, the star is on the red giant branch
             roll_for_red_giant_varriable = (d100() / 100)
-            Temperature_Effective_of_Star_D = 5000 - (roll_for_red_giant_varriable * 1000)
+            Temperature_Effective_of_Star_D = 5000 - (roll_for_red_giant_varriable * 2000)
             Luminosity_of_Star_D = 50 ** (1 + roll_for_red_giant_varriable)
             print(f"Temperature of Star D has cooled to: {Temperature_Effective_of_Star_D} Kelvin")
             print(f"Luminosity of Star D has increased to: {Luminosity_of_Star_D} solar luminosities")
@@ -1083,7 +1080,7 @@ if Number_of_Stars == 4:
         Radius_of_Star_D = round(Radius_of_Star_D, 5)
         print(f"Radius of Star D has evolved to: {Radius_of_Star_D} AU")
 
-    elif system_age > (1.15 * Main_Sequence_Lifespan_of_Star_D):
+    if system_age > (1.15 * Main_Sequence_Lifespan_of_Star_D):
         Evolutionary_Stage_of_Star_D = "White Dwarf"
         print("Star D has evolved into a White Dwarf")
         # If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
@@ -2093,14 +2090,28 @@ if Number_of_Stars == 2:
     print(f"Binary Star System with {binary_separation_type} Separation Between Star A and Star B")
     print(f"Base Distance Between Star A and Star B: {binary_separation_base_distance} AU")
     
-    roll_for_binary_average_distance = d100()
+    roll_for_binary_average_distance = ((d100())/100)
     binary_average_distance = binary_separation_base_distance * (10 ** roll_for_binary_average_distance)
     binary_distance_variance_factor = random.uniform(0.95, 1.05)
     binary_average_distance = (binary_distance_variance_factor * binary_average_distance)
     binary_average_distance = round(binary_average_distance, 3)
     print(f"Average Distance Between Star A and Star B: {binary_average_distance} AU")
 
-    roll_for_binary_orbital_eccentricity = _3d6()
+    if binary_separation_type == "Extremely Close":
+        binary_eccentricity_roll_modifier = -8
+    if binary_separation_type == "Very Close":
+        binary_eccentricity_roll_modifier = -6
+    if binary_separation_type == "Close":
+        binary_eccentricity_roll_modifier = -4
+    if binary_separation_type == "Moderate":
+        binary_eccentricity_roll_modifier = -2
+    if binary_separation_type == "Wide":
+        binary_eccentricity_roll_modifier = 0
+    if binary_separation_type == "Very Wide":
+        binary_eccentricity_roll_modifier = 0
+
+    roll_for_binary_orbital_eccentricity = _3d6() + binary_eccentricity_roll_modifier 
+    # If at Moderate separation, modify by -2.
     if roll_for_binary_orbital_eccentricity <= 3:
         binary_eccentricity = 0.0
     if roll_for_binary_orbital_eccentricity == 4:
@@ -2123,10 +2134,12 @@ if Number_of_Stars == 2:
         binary_eccentricity = 0.9
     print(f"Eccentricity of Binary Pair: {binary_eccentricity}")
     
-    binary_minimum_distance = binary_average_distance * (1 - roll_for_binary_orbital_eccentricity)
+    binary_minimum_distance = binary_average_distance * (1 - binary_eccentricity)
+    binary_minimum_distance = round(binary_minimum_distance, 3)
     print(f"Minimum Distance Between Star A and Star B: {binary_minimum_distance} AU")
 
-    binary_maximum_distance = binary_average_distance * (1 + roll_for_binary_orbital_eccentricity)
+    binary_maximum_distance = binary_average_distance * (1 + binary_eccentricity)
+    binary_maximum_distance = round(binary_maximum_distance, 3)
     print(f"Maximum Distance Between Star A and Star B: {binary_maximum_distance} AU")
 
 if Number_of_Stars == 3:
