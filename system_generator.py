@@ -2285,7 +2285,7 @@ if Number_of_Stars == 3:
 
         AB_maximum_distance = AB_average_distance * (1 + AB_eccentricity)
         AB_maximum_distance = round(AB_maximum_distance, 3)
-        print(f"Maximum Distance Between Star B and Star C: {AB_maximum_distance} AU")
+        print(f"Maximum Distance Between Star A and Star B: {AB_maximum_distance} AU")
 
         #continue with step #8 elements for triple star systems
 
@@ -2309,6 +2309,58 @@ if Number_of_Stars == 4:
         print(f"Quadruple Star System with {AB_separation_type} Separation Between Star A and Star B")
         print(f"Base Distance Between Star A and Star B: {AB_separation_base_distance} AU")
 
+        roll_for_AB_average_distance = ((d100())/100)
+        AB_average_distance = AB_separation_base_distance * (10 ** roll_for_AB_average_distance)
+        AB_distance_variance_factor = random.uniform(0.95, 1.05)
+        AB_average_distance = (AB_distance_variance_factor * AB_average_distance)
+        AB_average_distance = round(AB_average_distance, 3)
+        print(f"Average Distance Between Star A and Star B: {AB_average_distance} AU")
+
+        if AB_separation_type == "Extremely Close":
+            AB_eccentricity_roll_modifier = -8
+        if AB_separation_type == "Very Close":
+            AB_eccentricity_roll_modifier = -6
+        if AB_separation_type == "Close":
+            AB_eccentricity_roll_modifier = -4
+        if AB_separation_type == "Moderate":
+            AB_eccentricity_roll_modifier = -2
+        if AB_separation_type == "Wide":
+            AB_eccentricity_roll_modifier = 0
+        if AB_separation_type == "Very Wide":
+            AB_eccentricity_roll_modifier = 0
+
+        roll_for_AB_orbital_eccentricity = _3d6() + AB_eccentricity_roll_modifier 
+        # If at Moderate separation, modify by -2.
+        if roll_for_AB_orbital_eccentricity <= 3:
+            AB_eccentricity = 0.0
+        if roll_for_AB_orbital_eccentricity == 4:
+            AB_eccentricity = 0.1
+        if 5 <= roll_for_AB_orbital_eccentricity <= 6:
+            AB_eccentricity = 0.2
+        if 7 <= roll_for_AB_orbital_eccentricity <= 8:
+            AB_eccentricity = 0.3
+        if 9 <= roll_for_AB_orbital_eccentricity <= 11:
+            AB_eccentricity = 0.4
+        if 12 <= roll_for_AB_orbital_eccentricity <= 13:
+            AB_eccentricity = 0.5
+        if 14 <= roll_for_AB_orbital_eccentricity <= 15:
+            AB_eccentricity = 0.6
+        if roll_for_AB_orbital_eccentricity == 6:
+            AB_eccentricity = 0.7
+        if roll_for_AB_orbital_eccentricity == 17:
+            AB_eccentricity = 0.8
+        if roll_for_AB_orbital_eccentricity == 18:
+            AB_eccentricity = 0.9
+        print(f"Eccentricity of Star C orbit around Star A: {AB_eccentricity}")
+    
+        AB_minimum_distance = AB_average_distance * (1 - AB_eccentricity)
+        AB_minimum_distance = round(AB_minimum_distance, 3)
+        print(f"Minimum Distance Between Star A and Star B: {AB_minimum_distance} AU")
+
+        AB_maximum_distance = AB_average_distance * (1 + AB_eccentricity)
+        AB_maximum_distance = round(AB_maximum_distance, 3)
+        print(f"Maximum Distance Between Star A and Star B: {AB_maximum_distance} AU")
+
         roll_for_CD_separation_type = ((_3d6())-3)
         if roll_for_CD_separation_type <= 3:
             CD_separation_type = "Extremely Close"
@@ -2327,6 +2379,59 @@ if Number_of_Stars == 4:
             CD_separation_base_distance = 150
         print(f"Quadruple Star System with {CD_separation_type} Separation Between Star C and Star D")
         print(f"Base Distance Between Star C and Star D: {CD_separation_base_distance} AU")
+
+        roll_for_CD_average_distance = ((d100())/100)
+        CD_average_distance = CD_separation_base_distance * (10 ** roll_for_CD_average_distance)
+        CD_distance_variance_factor = random.uniform(0.95, 1.05)
+        CD_average_distance = (CD_distance_variance_factor * CD_average_distance)
+        CD_average_distance = round(CD_average_distance, 3)
+        print(f"Average Distance Between Star C and Star D: {CD_average_distance} AU")
+
+        if CD_separation_type == "Extremely Close":
+            CD_eccentricity_roll_modifier = -8
+        if CD_separation_type == "Very Close":
+            CD_eccentricity_roll_modifier = -6
+        if CD_separation_type == "Close":
+            CD_eccentricity_roll_modifier = -4
+        if CD_separation_type == "Moderate":
+            CD_eccentricity_roll_modifier = -2
+        if CD_separation_type == "Wide":
+            CD_eccentricity_roll_modifier = 0
+        if CD_separation_type == "Very Wide":
+            CD_eccentricity_roll_modifier = 0
+
+        roll_for_CD_orbital_eccentricity = _3d6() + CD_eccentricity_roll_modifier 
+        # If at Moderate separation, modify by -2.
+        if roll_for_CD_orbital_eccentricity <= 3:
+            CD_eccentricity = 0.0
+        if roll_for_CD_orbital_eccentricity == 4:
+            CD_eccentricity = 0.1
+        if 5 <= roll_for_CD_orbital_eccentricity <= 6:
+            CD_eccentricity = 0.2
+        if 7 <= roll_for_CD_orbital_eccentricity <= 8:
+            CD_eccentricity = 0.3
+        if 9 <= roll_for_CD_orbital_eccentricity <= 11:
+            CD_eccentricity = 0.4
+        if 12 <= roll_for_CD_orbital_eccentricity <= 13:
+            CD_eccentricity = 0.5
+        if 14 <= roll_for_CD_orbital_eccentricity <= 15:
+            CD_eccentricity = 0.6
+        if roll_for_CD_orbital_eccentricity == 6:
+            CD_eccentricity = 0.7
+        if roll_for_CD_orbital_eccentricity == 17:
+            CD_eccentricity = 0.8
+        if roll_for_CD_orbital_eccentricity == 18:
+            CD_eccentricity = 0.9
+        print(f"Eccentricity of Star C orbit around Star D: {CD_eccentricity}")
+    
+        CD_minimum_distance = CD_average_distance * (1 - CD_eccentricity)
+        CD_minimum_distance = round(CD_minimum_distance, 3)
+        print(f"Minimum Distance Between Star C and Star D: {CD_minimum_distance} AU")
+
+        CD_maximum_distance = CD_average_distance * (1 + CD_eccentricity)
+        CD_maximum_distance = round(CD_maximum_distance, 3)
+        print(f"Maximum Distance Between Star C and Star D: {CD_maximum_distance} AU")
+
     # continue with Step 8 elements for quadurple systems
 
 # Step 9: Protoplanetary Disk
