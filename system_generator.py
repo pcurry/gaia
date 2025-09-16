@@ -2215,6 +2215,14 @@ if Number_of_Stars == 3:
         BC_maximum_distance = round(BC_maximum_distance, 3)
         print(f"Maximum Distance Between Star B and Star C: {BC_maximum_distance} AU")
 
+        # Once the binary pair has been designed, determine the orbital path for the pair (considered as a unit) and the single component of the star system. The minimum distance for the 
+        # pair and single components must be at least three times the maximum distance for the binary pair, otherwise the configuration will not be stable over long periods of time.
+        # If selecting an average distance for the pair and single component at random, use the Stellar Separation Table normally. If the result indicates a separation in the same category 
+        # as the binary pair (or a lower one), then set the separation to the next higher category. For example, if the binary pair is at Close separation, and the random roll produces 
+        # Extremely Close, Very Close, or Close separation for the pair and single component, then set the separation for the pair and single component at Moderate and proceed.
+        # Select an orbital eccentricity for the pair and single component normally, then compute the minimum distance and maximum distance. If the minimum distance for the pair and single
+        # component is not at least three times the maximum distance for the binary pair, increase the average distance for the pair and single component to fit the restriction
+
     if Stellar_Arrangement == "AB-C":
         roll_for_AB_separation_type = ((_3d6())-3)
         if roll_for_AB_separation_type <= 3:
