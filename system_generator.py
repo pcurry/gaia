@@ -2377,7 +2377,99 @@ if Number_of_Stars == 3:
         AB_maximum_distance = round(AB_maximum_distance, 3)
         print(f"Maximum Distance Between Star A and Star B: {AB_maximum_distance} AU")
 
-        #continue with step #8 elements for triple star systems
+        roll_for_AB_C_separation_type = _3d6()
+        if roll_for_AB_C_separation_type <= 3:
+            AB_C_separation_type = "Extremely Close"
+            AB_C_separation_base_distance = 0.015
+            if AB_separation_type == "Extremely Close":
+                AB_C_separation_type = "Very Close"
+                AB_C_separation_base_distance = 0.15
+        if 4 <= roll_for_AB_C_separation_type <= 5:
+            AB_C_separation_type = "Very Close"
+            AB_C_separation_base_distance = 0.15
+            if AB_separation_type in ["Very Close", "Extremely Close"]:
+                AB_C_seperation_type = "Close"
+                AB_C_separation_base_distance = 1.5
+        if 6 <= roll_for_AB_C_separation_type <= 8:
+            AB_C_separation_type = "Close"
+            AB_C_separation_base_distance = 1.5
+            if AB_separation_type in ["Very Close", "Extremely Close", "Close"]:
+                AB_C_separation_type = "Moderate"
+                AB_C_separation_base_distance = 15
+        if 9 <= roll_for_AB_C_separation_type <= 12:
+            AB_C_separation_type = "Moderate"
+            AB_C_separation_base_distance = 15
+            if AB_separation_type in ["Very Close", "Extremely Close", "Close", "Moderate"]:
+                AB_C_separation_type = "Wide"
+                AB_C_separation_base_distance =150
+        if 13 <= roll_for_AB_C_separation_type <= 15:
+            AB_C_separation_type = "Wide"
+            AB_C_separation_base_distance = 150
+            if AB_separation_type in ["Very Close", "Extremely Close", "Close", "Modrrate", "Wide"]:
+                AB_C_separation_type = "Very Wide"
+                AB_C_separation_base_distance = 1500
+        if 16 <= roll_for_AB_C_separation_type:
+            AB_C_separation_type = "Very Wide"
+            AB_C_separation_base_distance = 1500
+        print(f"Triple Star System with {AB_C_separation_type} Separation Between Star C and Binary Star System AB")
+        print(f"Base Distance Between Star C and Binary Star System AB: {AB_C_separation_base_distance} AU")
+    
+        roll_for_AB_C_average_distance = ((d100())/100)
+        AB_C_average_distance = AB_C_separation_base_distance * (10 ** roll_for_AB_C_average_distance)
+        AB_C_distance_variance_factor = random.uniform(0.95, 1.05)
+        AB_C_average_distance = (AB_C_distance_variance_factor * AB_C_average_distance)
+        AB_C_average_distance = round(AB_C_average_distance, 3)
+        print(f"Average Distance Between Star C and Binary Star System AB: {AB_C_average_distance} AU")
+
+        if AB_C_separation_type == "Extremely Close":
+            AB_C_eccentricity_roll_modifier = -8
+        if AB_C_separation_type == "Very Close":
+            AB_C_eccentricity_roll_modifier = -6
+        if AB_C_separation_type == "Close":
+            AB_C_eccentricity_roll_modifier = -4
+        if AB_C_separation_type == "Moderate":
+            AB_C_eccentricity_roll_modifier = -2
+        if AB_C_separation_type == "Wide":
+            AB_C_eccentricity_roll_modifier = 0
+        if AB_C_separation_type == "Very Wide":
+            AB_C_eccentricity_roll_modifier = 0
+
+        roll_for_AB_C_orbital_eccentricity = _3d6() + AB_C_eccentricity_roll_modifier 
+        # If at Moderate separation, modify by -2.
+        if roll_for_AB_C_orbital_eccentricity <= 3:
+            AB_C_eccentricity = 0.0
+        if roll_for_AB_C_orbital_eccentricity == 4:
+            AB_C_eccentricity = 0.1
+        if 5 <= roll_for_AB_C_orbital_eccentricity <= 6:
+            AB_C_eccentricity = 0.2
+        if 7 <= roll_for_AB_C_orbital_eccentricity <= 8:
+            AB_C_eccentricity = 0.3
+        if 9 <= roll_for_AB_C_orbital_eccentricity <= 11:
+            AB_C_eccentricity = 0.4
+        if 12 <= roll_for_AB_C_orbital_eccentricity <= 13:
+            AB_C_eccentricity = 0.5
+        if 14 <= roll_for_AB_C_orbital_eccentricity <= 15:
+            AB_C_eccentricity = 0.6
+        if roll_for_AB_C_orbital_eccentricity == 6:
+            AB_C_eccentricity = 0.7
+        if roll_for_AB_C_orbital_eccentricity == 17:
+            AB_C_eccentricity = 0.8
+        if roll_for_AB_C_orbital_eccentricity == 18:
+            AB_C_eccentricity = 0.9
+        print(f"Eccentricity of Star C Orbit Around Binary Pair AB: {AB_C_eccentricity}")
+    
+        AB_C_minimum_distance = AB_C_average_distance * (1 - AB_C_eccentricity)
+        if AB_C_minimum_distance < (3 * AB_maximum_distance):
+            AB_C_adjusted_average_distance = (3 * AB_maximum_distance) / (1 - AB_C_eccentricity)
+            print(f"Stability Issue Detected - Adjusting Average Distance Between Star C and Binary Star System AB to: {AB_C_adjusted_average_distance} AU")
+            AB_C_adjusted_average_distance = AB_C_average_distance
+            AB_C_minimum_distance = AB_C_average_distance * (1 - AB_C_eccentricity)       
+        AB_C_minimum_distance = round(AB_C_minimum_distance, 3)
+        print(f"Minimum Distance Between Star A and Binary Pair BC: {AB_C_minimum_distance} AU")
+
+        AB_C_maximum_distance = AB_C_average_distance * (1 + AB_C_eccentricity)
+        AB_C_maximum_distance = round(AB_C_maximum_distance, 3)
+        print(f"Maximum Distance Between Star C and Binary Pair AB: {AB_C_maximum_distance} AU")
 
 if Number_of_Stars == 4:
         roll_for_AB_separation_type = ((_3d6())-3)
