@@ -2180,8 +2180,6 @@ if Number_of_Stars == 3:
             BC_eccentricity_roll_modifier = -2
         if BC_separation_type == "Wide":
             BC_eccentricity_roll_modifier = 0
-        if BC_separation_type == "Very Wide":
-            BC_eccentricity_roll_modifier = 0
 
         roll_for_BC_orbital_eccentricity = _3d6() + BC_eccentricity_roll_modifier 
         # If at Moderate separation, modify by -2.
@@ -2219,18 +2217,33 @@ if Number_of_Stars == 3:
         if roll_for_A_BC_separation_type <= 3:
             A_BC_separation_type = "Extremely Close"
             A_BC_separation_base_distance = 0.015
+            if BC_separation_type == "Extremely Close":
+                A_BC_separation_type = "Very Close"
+                A_BC_separation_base_distance = 0.15
         if 4 <= roll_for_A_BC_separation_type <= 5:
             A_BC_separation_type = "Very Close"
             A_BC_separation_base_distance = 0.15
+            if BC_separation_type in ["Very Close", "Extremely Close"]:
+                A_BC_seperation_type = "Close"
+                A_BC_separation_base_distance = 1.5
         if 6 <= roll_for_A_BC_separation_type <= 8:
             A_BC_separation_type = "Close"
             A_BC_separation_base_distance = 1.5
+            if BC_separation_type in ["Very Close", "Extremely Close", "Close"]:
+                A_BC_separation_type = "Moderate"
+                A_BC_separation_base_distance = 15
         if 9 <= roll_for_A_BC_separation_type <= 12:
             A_BC_separation_type = "Moderate"
             A_BC_separation_base_distance = 15
+            if BC_separation_type in ["Very Close", "Extremely Close", "Close", "Moderate"]:
+                A_BC_separation_type = "Wide"
+                A_BC_separation_base_distance =150
         if 13 <= roll_for_A_BC_separation_type <= 15:
             A_BC_separation_type = "Wide"
             A_BC_separation_base_distance = 150
+            if BC_separation_type in ["Very Close", "Extremely Close", "Close", "Modrrate", "Wide"]:
+                A_BC_separation_type = "Very Wide"
+                A_BC_separation_base_distance = 1500
         if 16 <= roll_for_A_BC_separation_type:
             A_BC_separation_type = "Very Wide"
             A_BC_separation_base_distance = 1500
@@ -2282,20 +2295,17 @@ if Number_of_Stars == 3:
         print(f"Eccentricity of Binary Pair BC Orbit Around Star A: {A_BC_eccentricity}")
     
         A_BC_minimum_distance = A_BC_average_distance * (1 - A_BC_eccentricity)
+        if A_BC_minimum_distance < (3 * BC_maximum_distance):
+            A_BC_adjusted_average_distance = (3 * BC_maximum_distance) / (1 - A_BC_eccentricity)
+            print(f"Stability Issue Detected - Adjusting Average Distance Between Star A and Binary Star System BC to: {A_BC_adjusted_average_distance} AU")
+            A_BC_adjusted_average_distance = A_BC_average_distance
+            A_BC_minimum_distance = A_BC_average_distance * (1 - A_BC_eccentricity)       
         A_BC_minimum_distance = round(A_BC_minimum_distance, 3)
         print(f"Minimum Distance Between Star A and Binary Pair BC: {A_BC_minimum_distance} AU")
 
         A_BC_maximum_distance = A_BC_average_distance * (1 + A_BC_eccentricity)
         A_BC_maximum_distance = round(A_BC_maximum_distance, 3)
         print(f"Maximum Distance Between Star A and Binary Pair BC: {A_BC_maximum_distance} AU")
-
-        # IMPLEMENT: The minimum distance for the pair and single components must be at least three times the maximum distance for the binary pair, otherwise the configuration will not be 
-        # stable over long periods of time.
-        # If the result indicates a separation in the same category as the binary pair (or a lower one), then set the separation to the next higher category. For example, if the binary pair 
-        # is at Close separation, and the random roll produces Extremely Close, Very Close, or Close separation for the pair and single component, then set the separation for the pair and 
-        # single component at Moderate and proceed.
-        # Select an orbital eccentricity for the pair and single component normally, then compute the minimum distance and maximum distance. If the minimum distance for the pair and single
-        # component is not at least three times the maximum distance for the binary pair, increase the average distance for the pair and single component to fit the restriction
 
     if Stellar_Arrangement == "AB-C":
         roll_for_AB_separation_type = ((_3d6())-3)
@@ -2333,8 +2343,6 @@ if Number_of_Stars == 3:
         if AB_separation_type == "Moderate":
             AB_eccentricity_roll_modifier = -2
         if AB_separation_type == "Wide":
-            AB_eccentricity_roll_modifier = 0
-        if AB_separation_type == "Very Wide":
             AB_eccentricity_roll_modifier = 0
 
         roll_for_AB_orbital_eccentricity = _3d6() + AB_eccentricity_roll_modifier 
@@ -2408,8 +2416,6 @@ if Number_of_Stars == 4:
             AB_eccentricity_roll_modifier = -2
         if AB_separation_type == "Wide":
             AB_eccentricity_roll_modifier = 0
-        if AB_separation_type == "Very Wide":
-            AB_eccentricity_roll_modifier = 0
 
         roll_for_AB_orbital_eccentricity = _3d6() + AB_eccentricity_roll_modifier 
         # If at Moderate separation, modify by -2.
@@ -2478,8 +2484,6 @@ if Number_of_Stars == 4:
         if CD_separation_type == "Moderate":
             CD_eccentricity_roll_modifier = -2
         if CD_separation_type == "Wide":
-            CD_eccentricity_roll_modifier = 0
-        if CD_separation_type == "Very Wide":
             CD_eccentricity_roll_modifier = 0
 
         roll_for_CD_orbital_eccentricity = _3d6() + CD_eccentricity_roll_modifier 
