@@ -2237,11 +2237,11 @@ if Number_of_Stars == 3:
             A_BC_separation_base_distance = 15
             if BC_separation_type in ["Very Close", "Extremely Close", "Close", "Moderate"]:
                 A_BC_separation_type = "Wide"
-                A_BC_separation_base_distance =150
+                A_BC_separation_base_distance = 150
         if 13 <= roll_for_A_BC_separation_type <= 15:
             A_BC_separation_type = "Wide"
             A_BC_separation_base_distance = 150
-            if BC_separation_type in ["Very Close", "Extremely Close", "Close", "Modrrate", "Wide"]:
+            if BC_separation_type in ["Very Close", "Extremely Close", "Close", "Moderate", "Wide"]:
                 A_BC_separation_type = "Very Wide"
                 A_BC_separation_base_distance = 1500
         if 16 <= roll_for_A_BC_separation_type:
@@ -2401,11 +2401,11 @@ if Number_of_Stars == 3:
             AB_C_separation_base_distance = 15
             if AB_separation_type in ["Very Close", "Extremely Close", "Close", "Moderate"]:
                 AB_C_separation_type = "Wide"
-                AB_C_separation_base_distance =150
+                AB_C_separation_base_distance = 150
         if 13 <= roll_for_AB_C_separation_type <= 15:
             AB_C_separation_type = "Wide"
             AB_C_separation_base_distance = 150
-            if AB_separation_type in ["Very Close", "Extremely Close", "Close", "Modrrate", "Wide"]:
+            if AB_separation_type in ["Very Close", "Extremely Close", "Close", "Moderate", "Wide"]:
                 AB_C_separation_type = "Very Wide"
                 AB_C_separation_base_distance = 1500
         if 16 <= roll_for_AB_C_separation_type:
@@ -2610,7 +2610,106 @@ if Number_of_Stars == 4:
         CD_maximum_distance = round(CD_maximum_distance, 3)
         print(f"Maximum Distance Between Star C and Star D: {CD_maximum_distance} AU")
 
-    # continue with Step 8 elements for quadurple systems
+        roll_for_AB_CD_separation_type = _3d6()
+        if roll_for_AB_CD_separation_type <= 3:
+            AB_CD_separation_type = "Extremely Close"
+            AB_CD_separation_base_distance = 0.015
+            if AB_separation_type == "Extremely Close" or CD_separation_type == "Extremely Close":
+                AB_CD_separation_type = "Very Close"
+                AB_CD_separation_base_distance = 0.15
+        if 4 <= roll_for_AB_CD_separation_type <= 5:
+            AB_CD_separation_type = "Very Close"
+            AB_CD_separation_base_distance = 0.15
+            if AB_separation_type in ["Very Close", "Extremely Close"] or CD_separation_type in ["Very Close", "Extremey Close"]:
+                AB_CD_seperation_type = "Close"
+                AB_CD_separation_base_distance = 1.5
+        if 6 <= roll_for_AB_CD_separation_type <= 8:
+            AB_CD_separation_type = "Close"
+            AB_CD_separation_base_distance = 1.5
+            if AB_separation_type in ["Very Close", "Extremely Close", "Close"] or CD_separation_type in ["Very Close", "Extremely Close", "Close"]:
+                AB_CD_separation_type = "Moderate"
+                AB_CD_separation_base_distance = 15
+        if 9 <= roll_for_AB_CD_separation_type <= 12:
+            AB_CD_separation_type = "Moderate"
+            AB_CD_separation_base_distance = 15
+            if AB_separation_type in ["Very Close", "Extremely Close", "Close", "Moderate"]:
+                AB_CD_separation_type = "Wide"
+                AB_CD_separation_base_distance = 150
+            if CD_separation_type in ["Very Close", "Extremely Close", "Close", "Moderate"]:
+                AB_CD_separation_type = "Wide"
+                AB_CD_separation_base_distance = 150
+        if 13 <= roll_for_AB_CD_separation_type <= 15:
+            AB_CD_separation_type = "Wide"
+            AB_CD_separation_base_distance = 150
+            if AB_separation_type in ["Very Close", "Extremely Close", "Close", "Moderate", "Wide"]:
+                AB_CD_separation_type = "Very Wide"
+                AB_CD_separation_base_distance = 1500
+            if CD_separation_type in ["Very Close", "Extremey Close", "Close", "Moderate", "Wide"]:
+                AB_CD_separation_type = "Very Wide"
+                AB_CD_separation_base_distance = 1500
+        if 16 <= roll_for_AB_CD_separation_type:
+            AB_CD_separation_type = "Very Wide"
+            AB_CD_separation_base_distance = 1500
+        print(f"Quadruple Star System with {AB_CD_separation_type} Separation Between Binary Star System AB and Binary Star System CD")
+        print(f"Base Distance Between Binary Star System AB and Binary Star System CD: {AB_CD_separation_base_distance} AU")
+    
+        roll_for_AB_CD_average_distance = ((d100())/100)
+        AB_CD_average_distance = AB_CD_separation_base_distance * (10 ** roll_for_AB_CD_average_distance)
+        AB_CD_distance_variance_factor = random.uniform(0.95, 1.05)
+        AB_CD_average_distance = (AB_CD_distance_variance_factor * AB_CD_average_distance)
+        AB_CD_average_distance = round(AB_CD_average_distance, 3)
+        print(f"Average Distance Between Binary Pair AB and Binary Pair CD: {AB_CD_average_distance} AU")
+
+        if AB_CD_separation_type == "Extremely Close":
+            AB_CD_eccentricity_roll_modifier = -8
+        if AB_CD_separation_type == "Very Close":
+            AB_CD_eccentricity_roll_modifier = -6
+        if AB_CD_separation_type == "Close":
+            AB_CD_eccentricity_roll_modifier = -4
+        if AB_CD_separation_type == "Moderate":
+            AB_CD_eccentricity_roll_modifier = -2
+        if AB_CD_separation_type == "Wide":
+            AB_CD_eccentricity_roll_modifier = 0
+        if AB_CD_separation_type == "Very Wide":
+            AB_CD_eccentricity_roll_modifier = 0
+
+        roll_for_AB_CD_orbital_eccentricity = _3d6() + AB_CD_eccentricity_roll_modifier 
+        # If at Moderate separation, modify by -2.
+        if roll_for_AB_CD_orbital_eccentricity <= 3:
+            AB_CD_eccentricity = 0.0
+        if roll_for_AB_CD_orbital_eccentricity == 4:
+            AB_CD_eccentricity = 0.1
+        if 5 <= roll_for_AB_CD_orbital_eccentricity <= 6:
+            AB_CD_eccentricity = 0.2
+        if 7 <= roll_for_AB_CD_orbital_eccentricity <= 8:
+            AB_CD_eccentricity = 0.3
+        if 9 <= roll_for_AB_CD_orbital_eccentricity <= 11:
+            AB_CD_eccentricity = 0.4
+        if 12 <= roll_for_AB_CD_orbital_eccentricity <= 13:
+            AB_CD_eccentricity = 0.5
+        if 14 <= roll_for_AB_CD_orbital_eccentricity <= 15:
+            AB_CD_eccentricity = 0.6
+        if roll_for_AB_CD_orbital_eccentricity == 6:
+            AB_CD_eccentricity = 0.7
+        if roll_for_AB_CD_orbital_eccentricity == 17:
+            AB_CD_eccentricity = 0.8
+        if roll_for_AB_CD_orbital_eccentricity == 18:
+            AB_CD_eccentricity = 0.9
+        print(f"Eccentricity of Binary Pair CD Orbit Around Binary Pair AB: {AB_CD_eccentricity}")
+    
+        AB_CD_minimum_distance = AB_CD_average_distance * (1 - AB_CD_eccentricity)
+        Maximum_Binary_Distance = max(AB_maximum_distance, CD_maximum_distance)
+        if AB_CD_minimum_distance < (3 * Maximum_Binary_Distance):
+            AB_CD_adjusted_average_distance = (3 * Maximum_Binary_Distance) / (1 - AB_CD_eccentricity)
+            print(f"Stability Issue Detected - Adjusting Average Distance Between Binary Pair AB and Binary Pair CD to: {AB_CD_adjusted_average_distance} AU")
+            AB_CD_average_distance = AB_CD_adjusted_average_distance
+            AB_CD_minimum_distance = AB_CD_average_distance * (1 - AB_CD_eccentricity)       
+        AB_CD_minimum_distance = round(AB_CD_minimum_distance, 3)
+        print(f"Minimum Distance Between Binary Pair AB and Binary Pair CD: {AB_CD_minimum_distance} AU")
+
+        AB_CD_maximum_distance = AB_CD_average_distance * (1 + AB_CD_eccentricity)
+        AB_CD_maximum_distance = round(AB_CD_maximum_distance, 3)
+        print(f"Maximum Distance Between Binary Pair AB and Binary Pair CD: {AB_CD_maximum_distance} AU")
 
 # Step 9: Protoplanetary Disk
     # input Step 9 elements
