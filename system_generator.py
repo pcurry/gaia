@@ -2298,7 +2298,7 @@ if Number_of_Stars == 3:
         if A_BC_minimum_distance < (3 * BC_maximum_distance):
             A_BC_adjusted_average_distance = (3 * BC_maximum_distance) / (1 - A_BC_eccentricity)
             print(f"Stability Issue Detected - Adjusting Average Distance Between Star A and Binary Star System BC to: {A_BC_adjusted_average_distance} AU")
-            A_BC_adjusted_average_distance = A_BC_average_distance
+            A_BC_average_distance = A_BC_adjusted_average_distance
             A_BC_minimum_distance = A_BC_average_distance * (1 - A_BC_eccentricity)       
         A_BC_minimum_distance = round(A_BC_minimum_distance, 3)
         print(f"Minimum Distance Between Star A and Binary Pair BC: {A_BC_minimum_distance} AU")
@@ -2462,7 +2462,7 @@ if Number_of_Stars == 3:
         if AB_C_minimum_distance < (3 * AB_maximum_distance):
             AB_C_adjusted_average_distance = (3 * AB_maximum_distance) / (1 - AB_C_eccentricity)
             print(f"Stability Issue Detected - Adjusting Average Distance Between Star C and Binary Star System AB to: {AB_C_adjusted_average_distance} AU")
-            AB_C_adjusted_average_distance = AB_C_average_distance
+            AB_C_average_distance = AB_C_adjusted_average_distance
             AB_C_minimum_distance = AB_C_average_distance * (1 - AB_C_eccentricity)       
         AB_C_minimum_distance = round(AB_C_minimum_distance, 3)
         print(f"Minimum Distance Between Star A and Binary Pair BC: {AB_C_minimum_distance} AU")
