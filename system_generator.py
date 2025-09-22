@@ -2142,6 +2142,14 @@ if Number_of_Stars == 2:
     binary_maximum_distance = round(binary_maximum_distance, 3)
     print(f"Maximum Distance Between Star A and Star B: {binary_maximum_distance} AU")
 
+    binary_orbital_period = math.sqrt(( binary_average_distance ** 3) / (Mass_A + Mass_B))
+    binary_orbital_period = round(binary_orbital_period,2)
+    print(f"Orbital Period of Star A and Star B: {binary_orbital_period} years")
+    binary_orbital_period_days = binary_orbital_period * 365.26
+    binary_orbital_period_days = round(binary_orbital_period_days,2)
+    print(f"which is equivalent to {binary_orbital_period_days} days")
+    #need to tweak to account for white dwarfs
+
 if Number_of_Stars == 3:
     if Stellar_Arrangement == "A-BC":
         roll_for_BC_separation_type = ((_3d6())-3)
@@ -2465,7 +2473,7 @@ if Number_of_Stars == 3:
             AB_C_average_distance = AB_C_adjusted_average_distance
             AB_C_minimum_distance = AB_C_average_distance * (1 - AB_C_eccentricity)       
         AB_C_minimum_distance = round(AB_C_minimum_distance, 3)
-        print(f"Minimum Distance Between Star A and Binary Pair BC: {AB_C_minimum_distance} AU")
+        print(f"Minimum Distance Between Star C and Binary Pair AB: {AB_C_minimum_distance} AU")
 
         AB_C_maximum_distance = AB_C_average_distance * (1 + AB_C_eccentricity)
         AB_C_maximum_distance = round(AB_C_maximum_distance, 3)
