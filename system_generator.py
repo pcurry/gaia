@@ -1345,7 +1345,6 @@ if Number_of_Stars >= 2:
     if Evolutionary_Stage_of_Star_B == "White Dwarf":
         Spectral_Type_of_Star_B = "D"
     if Evolutionary_Stage_of_Star_B != "White Dwarf":
-        #need to replace all occurences of 42 (e.g. placeholder value) in this code branch
         if Temperature_Effective_of_Star_B >= 16500:
             Spectral_Type_of_Star_B = "B3"
             #median temperature of 17000 Kelvin
@@ -2142,13 +2141,20 @@ if Number_of_Stars == 2:
     binary_maximum_distance = round(binary_maximum_distance, 3)
     print(f"Maximum Distance Between Star A and Star B: {binary_maximum_distance} AU")
 
-    binary_orbital_period = math.sqrt(( binary_average_distance ** 3) / (Mass_A + Mass_B))
+    if Evolutionary_Stage_of_Star_A == "White Dwarf":
+        Mass_A_for_Orbital_Period = Mass_WDA
+    if Evolutionary_Stage_of_Star_A != "White Dwarf":
+        Mass_A_for_Orbital_Perid = Mass_A
+    if Evolutionary_Stage_of_Star_B == "White Dwarf":
+        Mass_B_for_Orbital_Period = Mass_WDB
+    if Evolutionary_Stage_of_Star_B != "White Dwarf":
+        Mass_B_for_Orbital_Perid = Mass_B
+    binary_orbital_period = math.sqrt(( binary_average_distance ** 3) / (Mass_A_for_Orbital_Period + Mass_B_for_Orbital_Period))
     binary_orbital_period = round(binary_orbital_period,2)
     print(f"Orbital Period of Star A and Star B: {binary_orbital_period} years")
     binary_orbital_period_days = binary_orbital_period * 365.26
     binary_orbital_period_days = round(binary_orbital_period_days,2)
     print(f"which is equivalent to {binary_orbital_period_days} days")
-    #need to tweak to account for white dwarfs
 
 if Number_of_Stars == 3:
     if Stellar_Arrangement == "A-BC":
