@@ -2144,11 +2144,11 @@ if Number_of_Stars == 2:
     if Evolutionary_Stage_of_Star_A == "White Dwarf":
         Mass_A_for_Orbital_Period = Mass_WDA
     if Evolutionary_Stage_of_Star_A != "White Dwarf":
-        Mass_A_for_Orbital_Perid = Mass_A
+        Mass_A_for_Orbital_Period = Mass_A
     if Evolutionary_Stage_of_Star_B == "White Dwarf":
         Mass_B_for_Orbital_Period = Mass_WDB
     if Evolutionary_Stage_of_Star_B != "White Dwarf":
-        Mass_B_for_Orbital_Perid = Mass_B
+        Mass_B_for_Orbital_Period = Mass_B
     binary_orbital_period = math.sqrt(( binary_average_distance ** 3) / (Mass_A_for_Orbital_Period + Mass_B_for_Orbital_Period))
     binary_orbital_period = round(binary_orbital_period,2)
     print(f"Orbital Period of Star A and Star B: {binary_orbital_period} years")
@@ -2230,11 +2230,11 @@ if Number_of_Stars == 3:
         if Evolutionary_Stage_of_Star_B == "White Dwarf":
             Mass_B_for_Orbital_Period = Mass_WDB
         if Evolutionary_Stage_of_Star_B != "White Dwarf":
-            Mass_B_for_Orbital_Perid = Mass_B
+            Mass_B_for_Orbital_Period = Mass_B
         if Evolutionary_Stage_of_Star_C == "White Dwarf":
             Mass_C_for_Orbital_Period = Mass_WDC
         if Evolutionary_Stage_of_Star_C != "White Dwarf":
-            Mass_C_for_Orbital_Perid = Mass_C
+            Mass_C_for_Orbital_Period = Mass_C
         BC_orbital_period = math.sqrt(( BC_average_distance ** 3) / (Mass_B_for_Orbital_Period + Mass_C_for_Orbital_Period))
         BC_orbital_period = round(BC_orbital_period,2)
         print(f"Orbital Period of Star B and Star C: {BC_orbital_period} years")
@@ -2335,6 +2335,18 @@ if Number_of_Stars == 3:
         A_BC_maximum_distance = A_BC_average_distance * (1 + A_BC_eccentricity)
         A_BC_maximum_distance = round(A_BC_maximum_distance, 3)
         print(f"Maximum Distance Between Star A and Binary Pair BC: {A_BC_maximum_distance} AU")
+
+        if Evolutionary_Stage_of_Star_A == "White Dwarf":
+            Mass_A_for_Orbital_Period = Mass_WDA
+        if Evolutionary_Stage_of_Star_A != "White Dwarf":
+            Mass_A_for_Orbital_Period = Mass_A
+        # Star B and Star C masses have already been prepared for orbital period calculation in previous step
+        A_BC_orbital_period = math.sqrt(( A_BC_average_distance ** 3) / (Mass_A_for_Orbital_Period + Mass_B_for_Orbital_Period + Mass_C_for_Orbital_Period))
+        A_BC_orbital_period = round(A_BC_orbital_period,2)
+        print(f"Orbital Period of Star A and Binary Pair BC: {A_BC_orbital_period} years")
+        A_BC_orbital_period_days = A_BC_orbital_period * 365.26
+        A_BC_orbital_period_days = round(A_BC_orbital_period_days,2)
+        print(f"which is equivalent to {A_BC_orbital_period_days} days")
 
     if Stellar_Arrangement == "AB-C":
         roll_for_AB_separation_type = ((_3d6())-3)
