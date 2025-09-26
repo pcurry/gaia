@@ -2418,6 +2418,21 @@ if Number_of_Stars == 3:
         AB_maximum_distance = round(AB_maximum_distance, 3)
         print(f"Maximum Distance Between Star A and Star B: {AB_maximum_distance} AU")
 
+        if Evolutionary_Stage_of_Star_A == "White Dwarf":
+            Mass_A_for_Orbital_Period = Mass_WDA
+        if Evolutionary_Stage_of_Star_A != "White Dwarf":
+            Mass_A_for_Orbital_Period = Mass_A
+        if Evolutionary_Stage_of_Star_B == "White Dwarf":
+            Mass_B_for_Orbital_Period = Mass_WDB
+        if Evolutionary_Stage_of_Star_B != "White Dwarf":
+            Mass_B_for_Orbital_Period = Mass_B
+        AB_orbital_period = math.sqrt(( AB_average_distance ** 3) / (Mass_A_for_Orbital_Period + Mass_B_for_Orbital_Period))
+        AB_orbital_period = round(AB_orbital_period,2)
+        print(f"Orbital Period of Star A and Star B: {AB_orbital_period} years")
+        AB_orbital_period_days = AB_orbital_period * 365.26
+        AB_orbital_period_days = round(AB_orbital_period_days,2)
+        print(f"which is equivalent to {AB_orbital_period_days} days")
+
         roll_for_AB_C_separation_type = _3d6()
         if roll_for_AB_C_separation_type <= 3:
             AB_C_separation_type = "Extremely Close"
