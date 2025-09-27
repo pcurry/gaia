@@ -2527,6 +2527,18 @@ if Number_of_Stars == 3:
         AB_C_maximum_distance = round(AB_C_maximum_distance, 3)
         print(f"Maximum Distance Between Star C and Binary Pair AB: {AB_C_maximum_distance} AU")
 
+        if Evolutionary_Stage_of_Star_C == "White Dwarf":
+            Mass_C_for_Orbital_Period = Mass_WDC
+        if Evolutionary_Stage_of_Star_C != "White Dwarf":
+            Mass_C_for_Orbital_Period = Mass_C
+        # Star A and Star B masses have already been prepared for orbital period calculation in previous step
+        AB_C_orbital_period = math.sqrt(( AB_C_average_distance ** 3) / (Mass_A_for_Orbital_Period + Mass_B_for_Orbital_Period + Mass_C_for_Orbital_Period))
+        AB_C_orbital_period = round(AB_C_orbital_period,2)
+        print(f"Orbital Period of Star C and Binary Pair AB: {AB_C_orbital_period} years")
+        AB_C_orbital_period_days = AB_C_orbital_period * 365.26
+        AB_C_orbital_period_days = round(AB_C_orbital_period_days,2)
+        print(f"which is equivalent to {AB_C_orbital_period_days} days")
+
 if Number_of_Stars == 4:
         roll_for_AB_separation_type = ((_3d6())-3)
         if roll_for_AB_separation_type <= 3:
