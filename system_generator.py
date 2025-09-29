@@ -2609,6 +2609,21 @@ if Number_of_Stars == 4:
         AB_maximum_distance = round(AB_maximum_distance, 3)
         print(f"Maximum Distance Between Star A and Star B: {AB_maximum_distance} AU")
 
+        if Evolutionary_Stage_of_Star_A == "White Dwarf":
+            Mass_A_for_Orbital_Period = Mass_WDA
+        if Evolutionary_Stage_of_Star_A != "White Dwarf":
+            Mass_A_for_Orbital_Period = Mass_A
+        if Evolutionary_Stage_of_Star_B == "White Dwarf":
+            Mass_B_for_Orbital_Period = Mass_WDB
+        if Evolutionary_Stage_of_Star_B != "White Dwarf":
+            Mass_B_for_Orbital_Period = Mass_B
+        AB_orbital_period = math.sqrt(( AB_average_distance ** 3) / (Mass_A_for_Orbital_Period + Mass_B_for_Orbital_Period))
+        AB_orbital_period = round(AB_orbital_period,2)
+        print(f"Orbital Period of Star A and Star B: {AB_orbital_period} years")
+        AB_orbital_period_days = AB_orbital_period * 365.26
+        AB_orbital_period_days = round(AB_orbital_period_days,2)
+        print(f"which is equivalent to {AB_orbital_period_days} days")
+
         roll_for_CD_separation_type = ((_3d6())-3)
         if roll_for_CD_separation_type <= 3:
             CD_separation_type = "Extremely Close"
@@ -2677,6 +2692,21 @@ if Number_of_Stars == 4:
         CD_maximum_distance = CD_average_distance * (1 + CD_eccentricity)
         CD_maximum_distance = round(CD_maximum_distance, 3)
         print(f"Maximum Distance Between Star C and Star D: {CD_maximum_distance} AU")
+
+        if Evolutionary_Stage_of_Star_C == "White Dwarf":
+            Mass_C_for_Orbital_Period = Mass_WDC
+        if Evolutionary_Stage_of_Star_C != "White Dwarf":
+            Mass_C_for_Orbital_Period = Mass_C
+        if Evolutionary_Stage_of_Star_D == "White Dwarf":
+            Mass_D_for_Orbital_Period = Mass_WDD
+        if Evolutionary_Stage_of_Star_D != "White Dwarf":
+            Mass_D_for_Orbital_Period = Mass_D
+        CD_orbital_period = math.sqrt(( CD_average_distance ** 3) / (Mass_C_for_Orbital_Period + Mass_D_for_Orbital_Period))
+        CD_orbital_period = round(CD_orbital_period,2)
+        print(f"Orbital Period of Star C and Star D: {CD_orbital_period} years")
+        CD_orbital_period_days = CD_orbital_period * 365.26
+        CD_orbital_period_days = round(CD_orbital_period_days,2)
+        print(f"which is equivalent to {CD_orbital_period_days} days")
 
         roll_for_AB_CD_separation_type = _3d6()
         if roll_for_AB_CD_separation_type <= 3:
@@ -2778,6 +2808,14 @@ if Number_of_Stars == 4:
         AB_CD_maximum_distance = AB_CD_average_distance * (1 + AB_CD_eccentricity)
         AB_CD_maximum_distance = round(AB_CD_maximum_distance, 3)
         print(f"Maximum Distance Between Binary Pair AB and Binary Pair CD: {AB_CD_maximum_distance} AU")
+
+        # Star A, B, C and D masses have already been prepared for orbital period calculation in previous steps
+        AB_CD_orbital_period = math.sqrt(( AB_CD_average_distance ** 3) / (Mass_A_for_Orbital_Period + Mass_B_for_Orbital_Period + Mass_C_for_Orbital_Period + Mass_D_for_Orbital_Period))
+        AB_CD_orbital_period = round(AB_CD_orbital_period,2)
+        print(f"Orbital Period of Binary Pair AB and Binary Pair CD: {AB_CD_orbital_period} years")
+        AB_CD_orbital_period_days = AB_CD_orbital_period * 365.26
+        AB_CD_orbital_period_days = round(AB_CD_orbital_period_days,2)
+        print(f"which is equivalent to {AB_CD_orbital_period_days} days")
 
 # Step 9: Protoplanetary Disk
     # input Step 9 elements
