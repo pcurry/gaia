@@ -2137,6 +2137,11 @@ if Number_of_Stars == 2:
     binary_minimum_distance = round(binary_minimum_distance, 3)
     print(f"Minimum Distance Between Star A and Star B: {binary_minimum_distance} AU")
 
+    # Check for Special Case: Close Binary Pairs
+    if binary_separation_type == "Extremely Close":
+        # Calculate Roche Lobe of Star A
+        # Calculate Roche Lobe of Star B
+
     binary_maximum_distance = binary_average_distance * (1 + binary_eccentricity)
     binary_maximum_distance = round(binary_maximum_distance, 3)
     print(f"Maximum Distance Between Star A and Star B: {binary_maximum_distance} AU")
