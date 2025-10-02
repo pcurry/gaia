@@ -2188,6 +2188,27 @@ if Number_of_Stars == 2:
             print("Confirmed - pair is a Detached Binary")
     
 if Number_of_Stars == 3:
+
+    # prepare mass and radius parameters for orbital calculations (final mass applies - Newton doesn't care if you are a white dwarf or main sequence)
+    if Evolutionary_Stage_of_Star_A == "White Dwarf":
+        Final_Mass_A = Mass_WDA
+        Final_Radius_A = Radius_of_White_Dwarf_A
+    if Evolutionary_Stage_of_Star_A != "White Dwarf":
+        Final_Mass_A = Mass_A
+        Final_Radius_A = Radius_of_Star_A
+    if Evolutionary_Stage_of_Star_B == "White Dwarf":
+        Final_Mass_B = Mass_WDB
+        Final_Radius_B = Radius_of_White_Dwarf_A
+    if Evolutionary_Stage_of_Star_B != "White Dwarf":
+        Final_Mass_B = Mass_B
+        Final_Radius_B = Radius_of_Star_B
+    if Evolutionary_Stage_of_Star_C == "White Dwarf":
+        Final_Mass_C = Mass_WDC
+        Final_Raduis_C = Radius_of_White_Dwarf_C
+    if Evolutionary_Stage_of_Star_C != "White Dwarf":
+        Final_Mass_C = Mass_C
+        Final_Radius_C = Radius_of_Star_C
+
     if Stellar_Arrangement == "A-BC":
         roll_for_BC_separation_type = ((_3d6())-3)
         if roll_for_BC_separation_type <= 3:
@@ -2258,18 +2279,6 @@ if Number_of_Stars == 3:
         BC_maximum_distance = round(BC_maximum_distance, 3)
         print(f"Maximum Distance Between Star B and Star C: {BC_maximum_distance} AU")
 
-        if Evolutionary_Stage_of_Star_B == "White Dwarf":
-            Final_Mass_B = Mass_WDB
-            Final_Radius_B = Radius_of_White_Dwarf_A
-        if Evolutionary_Stage_of_Star_B != "White Dwarf":
-            Final_Mass_B = Mass_B
-            Final_Radius_B = Radius_of_Star_B
-        if Evolutionary_Stage_of_Star_C == "White Dwarf":
-            Final_Mass_C = Mass_WDC
-            Final_Raduis_C = Radius_of_White_Dwarf_C
-        if Evolutionary_Stage_of_Star_C != "White Dwarf":
-            Final_Mass_C = Mass_C
-            Final_Radius_C = Radius_of_Star_C
         BC_orbital_period = math.sqrt(( BC_average_distance ** 3) / (Final_Mass_B + Final_Mass_C))
         BC_orbital_period = round(BC_orbital_period,2)
         print(f"Orbital Period of Star B and Star C: {BC_orbital_period} years")
@@ -2277,32 +2286,33 @@ if Number_of_Stars == 3:
         BC_orbital_period_days = round(BC_orbital_period_days,2)
         print(f"which is equivalent to {BC_orbital_period_days} days")
 
-        # Check for Special Case: Close Binary Pairs
+        # Check for Special Case: Close Binary Pair BC in an A-BC type triple system
+        
         Flag_for_Close_Binary_BC_in_A_BC = "No"
         if BC_separation_type == "Extremely Close":
-            Flag_for_Close_Binary == "Yes"
+            Flag_for_Close_Binary_BC_in_A_BC == "Yes"
         if BC_separation_type == "Very Close" or "Close":
             if Evolutionary_Stage_of_Star_B == "Red Giant Branch":
                 Flag_for_Close_Binary_BC_in_A_BC == "Yes"            
             if Evolutionary_Stage_of_Star_C == "Red Giant Branch":
                 Flag_for_Close_Binary_BC_in_A_BC == "Yes"
 
-            if Flag_for_Close_Binary_BC_in_A_BC == "Yes":
-                # Calculate radius of Roche Lobe of Star A
-                Roche_Lobe_Radius_B = BC_minimum_distance * (0.38 + (0.2 * math.log10(Final_Mass_B / Final_Mass_C)))
-                # Calculate radius of Roche Lobe of Star B
-                Roche_Lobe_Radius_C = BC_minimum_distance * (0.38 + (0.2 * math.log10(Final_Mass_C / Final_Mass_B)))
-                if (Roche_Lobe_Radius_B < Final_Radius_B) and (Roche_Lobe_Radius_C < Final_Radius_C):
-                    print("Binary Pair BC in an A-BC type triple star system is a Contact Binary")
-                    print("Evolution of this star system is out of scope for this model")
-                if (Roche_Lobe_Radius_B < Final_Radius_B) and (Roche_Lobe_Radius_C >= Final_Radius_C):
-                    print("Binary Pair BC in an A-BC type triple star system is Semi-Detached Biniary - Star B is larger than it's Roche Lobe")
-                    print("Evolution of this star system is out of scope for this model")
-                if (Roche_Lobe_Radius_B >= Final_Radius_B) and (Roche_Lobe_Radius_C < Final_Radius_C):
-                    print("Binary Pair BC in an A-BC type triple star system is Semi-Detached Biniary - Star C is larger than it's Roche Lobe")
-                    print("Evolution of this star system is out of scope for this model")
-                if (Roche_Lobe_Radius_B >= Final_Radius_B) and (Roche_Lobe_Radius_C >= Final_Radius_C):
-                    print("Confirmed - pair BC is a Detached Binary within an A-BC type triple star system")
+        if Flag_for_Close_Binary_BC_in_A_BC == "Yes":
+            # Calculate radius of Roche Lobe of Star A
+            Roche_Lobe_Radius_B = BC_minimum_distance * (0.38 + (0.2 * math.log10(Final_Mass_B / Final_Mass_C)))
+            # Calculate radius of Roche Lobe of Star B
+            Roche_Lobe_Radius_C = BC_minimum_distance * (0.38 + (0.2 * math.log10(Final_Mass_C / Final_Mass_B)))
+            if (Roche_Lobe_Radius_B < Final_Radius_B) and (Roche_Lobe_Radius_C < Final_Radius_C):
+                print("Binary Pair BC in an A-BC type triple star system is a Contact Binary")
+                print("Evolution of this star system is out of scope for this model")
+            if (Roche_Lobe_Radius_B < Final_Radius_B) and (Roche_Lobe_Radius_C >= Final_Radius_C):
+                print("Binary Pair BC in an A-BC type triple star system is Semi-Detached Biniary - Star B is larger than it's Roche Lobe")
+                print("Evolution of this star system is out of scope for this model")
+            if (Roche_Lobe_Radius_B >= Final_Radius_B) and (Roche_Lobe_Radius_C < Final_Radius_C):
+                print("Binary Pair BC in an A-BC type triple star system is Semi-Detached Biniary - Star C is larger than it's Roche Lobe")
+                print("Evolution of this star system is out of scope for this model")
+            if (Roche_Lobe_Radius_B >= Final_Radius_B) and (Roche_Lobe_Radius_C >= Final_Radius_C):
+                print("Confirmed - pair BC is a Detached Binary within an A-BC type triple star system")
  
         roll_for_A_BC_separation_type = _3d6()
         if roll_for_A_BC_separation_type <= 3:
@@ -2398,12 +2408,7 @@ if Number_of_Stars == 3:
         A_BC_maximum_distance = round(A_BC_maximum_distance, 3)
         print(f"Maximum Distance Between Star A and Binary Pair BC: {A_BC_maximum_distance} AU")
 
-        if Evolutionary_Stage_of_Star_A == "White Dwarf":
-            Mass_A_for_Orbital_Period = Mass_WDA
-        if Evolutionary_Stage_of_Star_A != "White Dwarf":
-            Mass_A_for_Orbital_Period = Mass_A
-        # Star B and Star C masses have already been prepared for orbital period calculation in previous step
-        A_BC_orbital_period = math.sqrt(( A_BC_average_distance ** 3) / (Mass_A_for_Orbital_Period + Mass_B_for_Orbital_Period + Mass_C_for_Orbital_Period))
+        A_BC_orbital_period = math.sqrt(( A_BC_average_distance ** 3) / (Final_Mass_A + Final_Mass_B + Final_Mass_C))
         A_BC_orbital_period = round(A_BC_orbital_period,2)
         print(f"Orbital Period of Star A and Binary Pair BC: {A_BC_orbital_period} years")
         A_BC_orbital_period_days = A_BC_orbital_period * 365.26
@@ -2480,20 +2485,39 @@ if Number_of_Stars == 3:
         AB_maximum_distance = round(AB_maximum_distance, 3)
         print(f"Maximum Distance Between Star A and Star B: {AB_maximum_distance} AU")
 
-        if Evolutionary_Stage_of_Star_A == "White Dwarf":
-            Mass_A_for_Orbital_Period = Mass_WDA
-        if Evolutionary_Stage_of_Star_A != "White Dwarf":
-            Mass_A_for_Orbital_Period = Mass_A
-        if Evolutionary_Stage_of_Star_B == "White Dwarf":
-            Mass_B_for_Orbital_Period = Mass_WDB
-        if Evolutionary_Stage_of_Star_B != "White Dwarf":
-            Mass_B_for_Orbital_Period = Mass_B
-        AB_orbital_period = math.sqrt(( AB_average_distance ** 3) / (Mass_A_for_Orbital_Period + Mass_B_for_Orbital_Period))
+        AB_orbital_period = math.sqrt(( AB_average_distance ** 3) / (Final_Mass_A + Final_Mass_B))
         AB_orbital_period = round(AB_orbital_period,2)
         print(f"Orbital Period of Star A and Star B: {AB_orbital_period} years")
         AB_orbital_period_days = AB_orbital_period * 365.26
         AB_orbital_period_days = round(AB_orbital_period_days,2)
         print(f"which is equivalent to {AB_orbital_period_days} days")
+
+        # Check for Special Case: Close Binary Pairs
+        Flag_for_Close_Binary_AB_in_AB_C = "No"
+        if AB_separation_type == "Extremely Close":
+            Flag_for_Close_Binary_AB_in_AB_C == "Yes"
+        if BC_separation_type == "Very Close" or "Close":
+            if Evolutionary_Stage_of_Star_A == "Red Giant Branch":
+                Flag_for_Close_Binary_AB_in_AB_C == "Yes"            
+            if Evolutionary_Stage_of_Star_B == "Red Giant Branch":
+                Flag_for_Close_Binary_AB_in_AB_C == "Yes"
+
+        if Flag_for_Close_Binary_AB_in_AB_C == "Yes":
+            # Calculate radius of Roche Lobe of Star A
+            Roche_Lobe_Radius_A = AB_minimum_distance * (0.38 + (0.2 * math.log10(Final_Mass_A / Final_Mass_B)))
+            # Calculate radius of Roche Lobe of Star B
+            Roche_Lobe_Radius_B = AB_minimum_distance * (0.38 + (0.2 * math.log10(Final_Mass_B / Final_Mass_A)))
+            if (Roche_Lobe_Radius_A < Final_Radius_A) and (Roche_Lobe_Radius_B < Final_Radius_B):
+                print("Binary Pair AB in an AB-C type triple star system is a Contact Binary")
+                print("Evolution of this star system is out of scope for this model")
+            if (Roche_Lobe_Radius_A < Final_Radius_A) and (Roche_Lobe_Radius_B >= Final_Radius_B):
+                print("Binary Pair AB in an AB-C type triple star system is Semi-Detached Biniary - Star B is larger than it's Roche Lobe")
+                print("Evolution of this star system is out of scope for this model")
+            if (Roche_Lobe_Radius_A >= Final_Radius_A) and (Roche_Lobe_Radius_B < Final_Radius_B):
+                print("Binary Pair AB in an AB-C type triple star system is Semi-Detached Biniary - Star A is larger than it's Roche Lobe")
+                print("Evolution of this star system is out of scope for this model")
+            if (Roche_Lobe_Radius_A >= Final_Radius_A) and (Roche_Lobe_Radius_B >= Final_Radius_B):
+                print("Confirmed - pair AB is a Detached Binary within an AB-C type triple star system")
 
         roll_for_AB_C_separation_type = _3d6()
         if roll_for_AB_C_separation_type <= 3:
@@ -2589,12 +2613,7 @@ if Number_of_Stars == 3:
         AB_C_maximum_distance = round(AB_C_maximum_distance, 3)
         print(f"Maximum Distance Between Star C and Binary Pair AB: {AB_C_maximum_distance} AU")
 
-        if Evolutionary_Stage_of_Star_C == "White Dwarf":
-            Mass_C_for_Orbital_Period = Mass_WDC
-        if Evolutionary_Stage_of_Star_C != "White Dwarf":
-            Mass_C_for_Orbital_Period = Mass_C
-        # Star A and Star B masses have already been prepared for orbital period calculation in previous step
-        AB_C_orbital_period = math.sqrt(( AB_C_average_distance ** 3) / (Mass_A_for_Orbital_Period + Mass_B_for_Orbital_Period + Mass_C_for_Orbital_Period))
+        AB_C_orbital_period = math.sqrt(( AB_C_average_distance ** 3) / (Final_Mass_A + Final_Mass_B + Final_Mass_C))
         AB_C_orbital_period = round(AB_C_orbital_period,2)
         print(f"Orbital Period of Star C and Binary Pair AB: {AB_C_orbital_period} years")
         AB_C_orbital_period_days = AB_C_orbital_period * 365.26
