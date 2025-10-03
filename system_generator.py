@@ -2496,7 +2496,7 @@ if Number_of_Stars == 3:
         Flag_for_Close_Binary_AB_in_AB_C = "No"
         if AB_separation_type == "Extremely Close":
             Flag_for_Close_Binary_AB_in_AB_C == "Yes"
-        if BC_separation_type == "Very Close" or "Close":
+        if AB_separation_type == "Very Close" or "Close":
             if Evolutionary_Stage_of_Star_A == "Red Giant Branch":
                 Flag_for_Close_Binary_AB_in_AB_C == "Yes"            
             if Evolutionary_Stage_of_Star_B == "Red Giant Branch":
@@ -2621,211 +2621,276 @@ if Number_of_Stars == 3:
         print(f"which is equivalent to {AB_C_orbital_period_days} days")
 
 if Number_of_Stars == 4:
-        roll_for_AB_separation_type = ((_3d6())-3)
-        if roll_for_AB_separation_type <= 3:
-            AB_separation_type = "Extremely Close"
-            AB_separation_base_distance = 0.015
-        if 4 <= roll_for_AB_separation_type <= 5:
-            AB_separation_type = "Very Close"
-            AB_separation_base_distance = 0.15
-        if 6 <= roll_for_AB_separation_type <= 8:
-            AB_separation_type = "Close"
-            AB_separation_base_distance = 1.5
-        if 9 <= roll_for_AB_separation_type <= 12:
-            AB_separation_type = "Moderate"
-            AB_separation_base_distance = 15
-        if 13 <= roll_for_AB_separation_type <= 15:
-            AB_separation_type = "Wide"
-            AB_separation_base_distance = 150
-        print(f"Quadruple Star System with {AB_separation_type} Separation Between Star A and Star B")
-        print(f"Base Distance Between Star A and Star B: {AB_separation_base_distance} AU")
+        
+    # prepare mass and radius parameters for orbital calculations (final mass applies - Newton doesn't care if you are a white dwarf or main sequence)
+    if Evolutionary_Stage_of_Star_A == "White Dwarf":
+        Final_Mass_A = Mass_WDA
+        Final_Radius_A = Radius_of_White_Dwarf_A
+    if Evolutionary_Stage_of_Star_A != "White Dwarf":
+        Final_Mass_A = Mass_A
+        Final_Radius_A = Radius_of_Star_A
+    if Evolutionary_Stage_of_Star_B == "White Dwarf":
+        Final_Mass_B = Mass_WDB
+        Final_Radius_B = Radius_of_White_Dwarf_A
+    if Evolutionary_Stage_of_Star_B != "White Dwarf":
+        Final_Mass_B = Mass_B
+        Final_Radius_B = Radius_of_Star_B
+    if Evolutionary_Stage_of_Star_C == "White Dwarf":
+        Final_Mass_C = Mass_WDC
+        Final_Raduis_C = Radius_of_White_Dwarf_C
+    if Evolutionary_Stage_of_Star_C != "White Dwarf":
+        Final_Mass_C = Mass_C
+        Final_Radius_C = Radius_of_Star_C
+    if Evolutionary_Stage_of_Star_D == "White Dwarf":
+        Final_Mass_D = Mass_WDD
+        Final_Raduis_D = Radius_of_White_Dwarf_D
+    if Evolutionary_Stage_of_Star_D != "White Dwarf":
+        Final_Mass_D = Mass_D
+        Final_Radius_D = Radius_of_Star_D
 
-        roll_for_AB_average_distance = ((d100())/100)
-        AB_average_distance = AB_separation_base_distance * (10 ** roll_for_AB_average_distance)
-        AB_distance_variance_factor = random.uniform(0.95, 1.05)
-        AB_average_distance = (AB_distance_variance_factor * AB_average_distance)
-        AB_average_distance = round(AB_average_distance, 3)
-        print(f"Average Distance Between Star A and Star B: {AB_average_distance} AU")
+    roll_for_AB_separation_type = ((_3d6())-3)
+    if roll_for_AB_separation_type <= 3:
+        AB_separation_type = "Extremely Close"
+        AB_separation_base_distance = 0.015
+    if 4 <= roll_for_AB_separation_type <= 5:
+        AB_separation_type = "Very Close"
+        AB_separation_base_distance = 0.15
+    if 6 <= roll_for_AB_separation_type <= 8:
+        AB_separation_type = "Close"
+        AB_separation_base_distance = 1.5
+    if 9 <= roll_for_AB_separation_type <= 12:
+        AB_separation_type = "Moderate"
+        AB_separation_base_distance = 15
+    if 13 <= roll_for_AB_separation_type <= 15:
+        AB_separation_type = "Wide"
+        AB_separation_base_distance = 150
+    print(f"Quadruple Star System with {AB_separation_type} Separation Between Star A and Star B")
+    print(f"Base Distance Between Star A and Star B: {AB_separation_base_distance} AU")
 
-        if AB_separation_type == "Extremely Close":
-            AB_eccentricity_roll_modifier = -8
-        if AB_separation_type == "Very Close":
-            AB_eccentricity_roll_modifier = -6
-        if AB_separation_type == "Close":
-            AB_eccentricity_roll_modifier = -4
-        if AB_separation_type == "Moderate":
-            AB_eccentricity_roll_modifier = -2
-        if AB_separation_type == "Wide":
-            AB_eccentricity_roll_modifier = 0
+    roll_for_AB_average_distance = ((d100())/100)
+    AB_average_distance = AB_separation_base_distance * (10 ** roll_for_AB_average_distance)
+    AB_distance_variance_factor = random.uniform(0.95, 1.05)
+    AB_average_distance = (AB_distance_variance_factor * AB_average_distance)
+    AB_average_distance = round(AB_average_distance, 3)
+    print(f"Average Distance Between Star A and Star B: {AB_average_distance} AU")
 
-        roll_for_AB_orbital_eccentricity = _3d6() + AB_eccentricity_roll_modifier 
-        # If at Moderate separation, modify by -2.
-        if roll_for_AB_orbital_eccentricity <= 3:
-            AB_eccentricity = 0.0
-        if roll_for_AB_orbital_eccentricity == 4:
-            AB_eccentricity = 0.1
-        if 5 <= roll_for_AB_orbital_eccentricity <= 6:
-            AB_eccentricity = 0.2
-        if 7 <= roll_for_AB_orbital_eccentricity <= 8:
-            AB_eccentricity = 0.3
-        if 9 <= roll_for_AB_orbital_eccentricity <= 11:
-            AB_eccentricity = 0.4
-        if 12 <= roll_for_AB_orbital_eccentricity <= 13:
-            AB_eccentricity = 0.5
-        if 14 <= roll_for_AB_orbital_eccentricity <= 15:
-            AB_eccentricity = 0.6
-        if roll_for_AB_orbital_eccentricity == 6:
-            AB_eccentricity = 0.7
-        if roll_for_AB_orbital_eccentricity == 17:
-            AB_eccentricity = 0.8
-        if roll_for_AB_orbital_eccentricity == 18:
-            AB_eccentricity = 0.9
-        print(f"Eccentricity of Star C orbit around Star A: {AB_eccentricity}")
+    if AB_separation_type == "Extremely Close":
+        AB_eccentricity_roll_modifier = -8
+    if AB_separation_type == "Very Close":
+        AB_eccentricity_roll_modifier = -6
+    if AB_separation_type == "Close":
+        AB_eccentricity_roll_modifier = -4
+    if AB_separation_type == "Moderate":
+        AB_eccentricity_roll_modifier = -2
+    if AB_separation_type == "Wide":
+        AB_eccentricity_roll_modifier = 0
+
+    roll_for_AB_orbital_eccentricity = _3d6() + AB_eccentricity_roll_modifier 
+    # If at Moderate separation, modify by -2.
+    if roll_for_AB_orbital_eccentricity <= 3:
+        AB_eccentricity = 0.0
+    if roll_for_AB_orbital_eccentricity == 4:
+        AB_eccentricity = 0.1
+    if 5 <= roll_for_AB_orbital_eccentricity <= 6:
+        AB_eccentricity = 0.2
+    if 7 <= roll_for_AB_orbital_eccentricity <= 8:
+        AB_eccentricity = 0.3
+    if 9 <= roll_for_AB_orbital_eccentricity <= 11:
+        AB_eccentricity = 0.4
+    if 12 <= roll_for_AB_orbital_eccentricity <= 13:
+        AB_eccentricity = 0.5
+    if 14 <= roll_for_AB_orbital_eccentricity <= 15:
+        AB_eccentricity = 0.6
+    if roll_for_AB_orbital_eccentricity == 6:
+        AB_eccentricity = 0.7
+    if roll_for_AB_orbital_eccentricity == 17:
+        AB_eccentricity = 0.8
+    if roll_for_AB_orbital_eccentricity == 18:
+        AB_eccentricity = 0.9
+    print(f"Eccentricity of Star C orbit around Star A: {AB_eccentricity}")
     
-        AB_minimum_distance = AB_average_distance * (1 - AB_eccentricity)
-        AB_minimum_distance = round(AB_minimum_distance, 3)
-        print(f"Minimum Distance Between Star A and Star B: {AB_minimum_distance} AU")
+    AB_minimum_distance = AB_average_distance * (1 - AB_eccentricity)
+    AB_minimum_distance = round(AB_minimum_distance, 3)
+    print(f"Minimum Distance Between Star A and Star B: {AB_minimum_distance} AU")
 
-        AB_maximum_distance = AB_average_distance * (1 + AB_eccentricity)
-        AB_maximum_distance = round(AB_maximum_distance, 3)
-        print(f"Maximum Distance Between Star A and Star B: {AB_maximum_distance} AU")
+    AB_maximum_distance = AB_average_distance * (1 + AB_eccentricity)
+    AB_maximum_distance = round(AB_maximum_distance, 3)
+    print(f"Maximum Distance Between Star A and Star B: {AB_maximum_distance} AU")
 
-        if Evolutionary_Stage_of_Star_A == "White Dwarf":
-            Mass_A_for_Orbital_Period = Mass_WDA
-        if Evolutionary_Stage_of_Star_A != "White Dwarf":
-            Mass_A_for_Orbital_Period = Mass_A
-        if Evolutionary_Stage_of_Star_B == "White Dwarf":
-            Mass_B_for_Orbital_Period = Mass_WDB
-        if Evolutionary_Stage_of_Star_B != "White Dwarf":
-            Mass_B_for_Orbital_Period = Mass_B
-        AB_orbital_period = math.sqrt(( AB_average_distance ** 3) / (Mass_A_for_Orbital_Period + Mass_B_for_Orbital_Period))
-        AB_orbital_period = round(AB_orbital_period,2)
-        print(f"Orbital Period of Star A and Star B: {AB_orbital_period} years")
-        AB_orbital_period_days = AB_orbital_period * 365.26
-        AB_orbital_period_days = round(AB_orbital_period_days,2)
-        print(f"which is equivalent to {AB_orbital_period_days} days")
+    AB_orbital_period = math.sqrt(( AB_average_distance ** 3) / (Final_Mass_A + Final_Mass_B))
+    AB_orbital_period = round(AB_orbital_period,2)
+    print(f"Orbital Period of Star A and Star B: {AB_orbital_period} years")
+    AB_orbital_period_days = AB_orbital_period * 365.26
+    AB_orbital_period_days = round(AB_orbital_period_days,2)
+    print(f"which is equivalent to {AB_orbital_period_days} days")
 
-        roll_for_CD_separation_type = ((_3d6())-3)
-        if roll_for_CD_separation_type <= 3:
-            CD_separation_type = "Extremely Close"
-            CD_separation_base_distance = 0.015
-        if 4 <= roll_for_CD_separation_type <= 5:
-            CD_separation_type = "Very Close"
-            CD_separation_base_distance = 0.15
-        if 6 <= roll_for_CD_separation_type <= 8:
-            CD_separation_type = "Close"
-            CD_separation_base_distance = 1.5
-        if 9 <= roll_for_CD_separation_type <= 12:
-            CD_separation_type = "Moderate"
-            CD_separation_base_distance = 15
-        if 13 <= roll_for_CD_separation_type <= 15:
-            CD_separation_type = "Wide"
-            CD_separation_base_distance = 150
-        print(f"Quadruple Star System with {CD_separation_type} Separation Between Star C and Star D")
-        print(f"Base Distance Between Star C and Star D: {CD_separation_base_distance} AU")
+    # Check for Special Case: Close Binary Pairs
+    Flag_for_Close_Binary_AB_in_AB_CD = "No"
+    if AB_separation_type == "Extremely Close":
+        Flag_for_Close_Binary_AB_in_AB_CD == "Yes"
+    if AB_separation_type == "Very Close" or "Close":
+        if Evolutionary_Stage_of_Star_A == "Red Giant Branch":
+            Flag_for_Close_Binary_AB_in_AB_CD == "Yes"            
+        if Evolutionary_Stage_of_Star_B == "Red Giant Branch":
+            Flag_for_Close_Binary_AB_in_AB_CD == "Yes"
 
-        roll_for_CD_average_distance = ((d100())/100)
-        CD_average_distance = CD_separation_base_distance * (10 ** roll_for_CD_average_distance)
-        CD_distance_variance_factor = random.uniform(0.95, 1.05)
-        CD_average_distance = (CD_distance_variance_factor * CD_average_distance)
-        CD_average_distance = round(CD_average_distance, 3)
-        print(f"Average Distance Between Star C and Star D: {CD_average_distance} AU")
+    if Flag_for_Close_Binary_AB_in_AB_CD == "Yes":
+        # Calculate radius of Roche Lobe of Star A
+        Roche_Lobe_Radius_A = AB_minimum_distance * (0.38 + (0.2 * math.log10(Final_Mass_A / Final_Mass_B)))
+        # Calculate radius of Roche Lobe of Star B
+        Roche_Lobe_Radius_B = AB_minimum_distance * (0.38 + (0.2 * math.log10(Final_Mass_B / Final_Mass_A)))
+        if (Roche_Lobe_Radius_A < Final_Radius_A) and (Roche_Lobe_Radius_B < Final_Radius_B):
+            print("Binary Pair AB in a quadruple star system is a Contact Binary")
+            print("Evolution of this star system is out of scope for this model")
+        if (Roche_Lobe_Radius_A < Final_Radius_A) and (Roche_Lobe_Radius_B >= Final_Radius_B):
+            print("Binary Pair AB in a quaruple star system is Semi-Detached Biniary - Star B is larger than it's Roche Lobe")
+            print("Evolution of this star system is out of scope for this model")
+        if (Roche_Lobe_Radius_A >= Final_Radius_A) and (Roche_Lobe_Radius_B < Final_Radius_B):
+            print("Binary Pair AB in a quadruple star system is Semi-Detached Biniary - Star A is larger than it's Roche Lobe")
+            print("Evolution of this star system is out of scope for this model")
+        if (Roche_Lobe_Radius_A >= Final_Radius_A) and (Roche_Lobe_Radius_B >= Final_Radius_B):
+            print("Confirmed - pair AB is a Detached Binary within an AB-C type triple star system")
 
-        if CD_separation_type == "Extremely Close":
-            CD_eccentricity_roll_modifier = -8
-        if CD_separation_type == "Very Close":
-            CD_eccentricity_roll_modifier = -6
-        if CD_separation_type == "Close":
-            CD_eccentricity_roll_modifier = -4
-        if CD_separation_type == "Moderate":
-            CD_eccentricity_roll_modifier = -2
-        if CD_separation_type == "Wide":
-            CD_eccentricity_roll_modifier = 0
+    roll_for_CD_separation_type = ((_3d6())-3)
+    if roll_for_CD_separation_type <= 3:
+        CD_separation_type = "Extremely Close"
+        CD_separation_base_distance = 0.015
+    if 4 <= roll_for_CD_separation_type <= 5:
+        CD_separation_type = "Very Close"
+        CD_separation_base_distance = 0.15
+    if 6 <= roll_for_CD_separation_type <= 8:
+        CD_separation_type = "Close"
+        CD_separation_base_distance = 1.5
+    if 9 <= roll_for_CD_separation_type <= 12:
+        CD_separation_type = "Moderate"
+        CD_separation_base_distance = 15
+    if 13 <= roll_for_CD_separation_type <= 15:
+        CD_separation_type = "Wide"
+        CD_separation_base_distance = 150
+    print(f"Quadruple Star System with {CD_separation_type} Separation Between Star C and Star D")
+    print(f"Base Distance Between Star C and Star D: {CD_separation_base_distance} AU")
 
-        roll_for_CD_orbital_eccentricity = _3d6() + CD_eccentricity_roll_modifier 
-        # If at Moderate separation, modify by -2.
-        if roll_for_CD_orbital_eccentricity <= 3:
-            CD_eccentricity = 0.0
-        if roll_for_CD_orbital_eccentricity == 4:
-            CD_eccentricity = 0.1
-        if 5 <= roll_for_CD_orbital_eccentricity <= 6:
-            CD_eccentricity = 0.2
-        if 7 <= roll_for_CD_orbital_eccentricity <= 8:
-            CD_eccentricity = 0.3
-        if 9 <= roll_for_CD_orbital_eccentricity <= 11:
-            CD_eccentricity = 0.4
-        if 12 <= roll_for_CD_orbital_eccentricity <= 13:
-            CD_eccentricity = 0.5
-        if 14 <= roll_for_CD_orbital_eccentricity <= 15:
-            CD_eccentricity = 0.6
-        if roll_for_CD_orbital_eccentricity == 6:
-            CD_eccentricity = 0.7
-        if roll_for_CD_orbital_eccentricity == 17:
-            CD_eccentricity = 0.8
-        if roll_for_CD_orbital_eccentricity == 18:
-            CD_eccentricity = 0.9
-        print(f"Eccentricity of Star C orbit around Star D: {CD_eccentricity}")
+    roll_for_CD_average_distance = ((d100())/100)
+    CD_average_distance = CD_separation_base_distance * (10 ** roll_for_CD_average_distance)
+    CD_distance_variance_factor = random.uniform(0.95, 1.05)
+    CD_average_distance = (CD_distance_variance_factor * CD_average_distance)
+    CD_average_distance = round(CD_average_distance, 3)
+    print(f"Average Distance Between Star C and Star D: {CD_average_distance} AU")
+
+    if CD_separation_type == "Extremely Close":
+        CD_eccentricity_roll_modifier = -8
+    if CD_separation_type == "Very Close":
+        CD_eccentricity_roll_modifier = -6
+    if CD_separation_type == "Close":
+        CD_eccentricity_roll_modifier = -4
+    if CD_separation_type == "Moderate":
+        CD_eccentricity_roll_modifier = -2
+    if CD_separation_type == "Wide":
+        CD_eccentricity_roll_modifier = 0
+
+    roll_for_CD_orbital_eccentricity = _3d6() + CD_eccentricity_roll_modifier 
+    # If at Moderate separation, modify by -2.
+    if roll_for_CD_orbital_eccentricity <= 3:
+        CD_eccentricity = 0.0
+    if roll_for_CD_orbital_eccentricity == 4:
+        CD_eccentricity = 0.1
+    if 5 <= roll_for_CD_orbital_eccentricity <= 6:
+        CD_eccentricity = 0.2
+    if 7 <= roll_for_CD_orbital_eccentricity <= 8:
+        CD_eccentricity = 0.3
+    if 9 <= roll_for_CD_orbital_eccentricity <= 11:
+        CD_eccentricity = 0.4
+    if 12 <= roll_for_CD_orbital_eccentricity <= 13:
+        CD_eccentricity = 0.5
+    if 14 <= roll_for_CD_orbital_eccentricity <= 15:
+        CD_eccentricity = 0.6
+    if roll_for_CD_orbital_eccentricity == 6:
+        CD_eccentricity = 0.7
+    if roll_for_CD_orbital_eccentricity == 17:
+        CD_eccentricity = 0.8
+    if roll_for_CD_orbital_eccentricity == 18:
+        CD_eccentricity = 0.9
+    print(f"Eccentricity of Star C orbit around Star D: {CD_eccentricity}")
     
-        CD_minimum_distance = CD_average_distance * (1 - CD_eccentricity)
-        CD_minimum_distance = round(CD_minimum_distance, 3)
-        print(f"Minimum Distance Between Star C and Star D: {CD_minimum_distance} AU")
+    CD_minimum_distance = CD_average_distance * (1 - CD_eccentricity)
+    CD_minimum_distance = round(CD_minimum_distance, 3)
+    print(f"Minimum Distance Between Star C and Star D: {CD_minimum_distance} AU")
 
-        CD_maximum_distance = CD_average_distance * (1 + CD_eccentricity)
-        CD_maximum_distance = round(CD_maximum_distance, 3)
-        print(f"Maximum Distance Between Star C and Star D: {CD_maximum_distance} AU")
+    CD_maximum_distance = CD_average_distance * (1 + CD_eccentricity)
+    CD_maximum_distance = round(CD_maximum_distance, 3)
+    print(f"Maximum Distance Between Star C and Star D: {CD_maximum_distance} AU")
 
-        if Evolutionary_Stage_of_Star_C == "White Dwarf":
-            Mass_C_for_Orbital_Period = Mass_WDC
-        if Evolutionary_Stage_of_Star_C != "White Dwarf":
-            Mass_C_for_Orbital_Period = Mass_C
-        if Evolutionary_Stage_of_Star_D == "White Dwarf":
-            Mass_D_for_Orbital_Period = Mass_WDD
-        if Evolutionary_Stage_of_Star_D != "White Dwarf":
-            Mass_D_for_Orbital_Period = Mass_D
-        CD_orbital_period = math.sqrt(( CD_average_distance ** 3) / (Mass_C_for_Orbital_Period + Mass_D_for_Orbital_Period))
-        CD_orbital_period = round(CD_orbital_period,2)
-        print(f"Orbital Period of Star C and Star D: {CD_orbital_period} years")
-        CD_orbital_period_days = CD_orbital_period * 365.26
-        CD_orbital_period_days = round(CD_orbital_period_days,2)
-        print(f"which is equivalent to {CD_orbital_period_days} days")
+    CD_orbital_period = math.sqrt(( CD_average_distance ** 3) / (Final_Mass_C + Final_Mass_D))
+    CD_orbital_period = round(CD_orbital_period,2)
+    print(f"Orbital Period of Star C and Star D: {CD_orbital_period} years")
+    CD_orbital_period_days = CD_orbital_period * 365.26
+    CD_orbital_period_days = round(CD_orbital_period_days,2)
+    print(f"which is equivalent to {CD_orbital_period_days} days")
 
-        roll_for_AB_CD_separation_type = _3d6()
-        if roll_for_AB_CD_separation_type <= 3:
-            AB_CD_separation_type = "Extremely Close"
-            AB_CD_separation_base_distance = 0.015
-            if AB_separation_type == "Extremely Close" or CD_separation_type == "Extremely Close":
-                AB_CD_separation_type = "Very Close"
-                AB_CD_separation_base_distance = 0.15
+    # Check for Special Case: Close Binary Pairs
+    Flag_for_Close_Binary_CD_in_AB_CD = "No"
+    if CD_separation_type == "Extremely Close":
+        Flag_for_Close_Binary_AB_in_AB_C == "Yes"
+    if CD_separation_type == "Very Close" or "Close":
+        if Evolutionary_Stage_of_Star_A == "Red Giant Branch":
+            Flag_for_Close_Binary_AB_in_AB_CD == "Yes"            
+        if Evolutionary_Stage_of_Star_B == "Red Giant Branch":
+            Flag_for_Close_Binary_AB_in_AB_CD == "Yes"
+
+    if Flag_for_Close_Binary_AB_in_AB_CD == "Yes":
+        # Calculate radius of Roche Lobe of Star C
+        Roche_Lobe_Radius_C = CD_minimum_distance * (0.38 + (0.2 * math.log10(Final_Mass_C / Final_Mass_D)))
+        # Calculate radius of Roche Lobe of Star D
+        Roche_Lobe_Radius_D = CD_minimum_distance * (0.38 + (0.2 * math.log10(Final_Mass_D / Final_Mass_C)))
+        if (Roche_Lobe_Radius_C < Final_Radius_C) and (Roche_Lobe_Radius_D < Final_Radius_D):
+            print("Binary Pair CD in a quadruple star system is a Contact Binary")
+            print("Evolution of this star system is out of scope for this model")
+        if (Roche_Lobe_Radius_C < Final_Radius_C) and (Roche_Lobe_Radius_D >= Final_Radius_D):
+            print("Binary Pair CD in a quadruple star system is a Semi-Detached Biniary - Star C is larger than it's Roche Lobe")
+            print("Evolution of this star system is out of scope for this model")
+        if (Roche_Lobe_Radius_C >= Final_Radius_C) and (Roche_Lobe_Radius_D < Final_Radius_D):
+            print("Binary Pair CD in a quadruple star system is Semi-Detached Biniary - Star D is larger than it's Roche Lobe")
+            print("Evolution of this star system is out of scope for this model")
+        if (Roche_Lobe_Radius_A >= Final_Radius_A) and (Roche_Lobe_Radius_B >= Final_Radius_B):
+            print("Confirmed - pair CD is a Detached Binary within an quadruple star system")
+
+    roll_for_AB_CD_separation_type = _3d6()
+    if roll_for_AB_CD_separation_type <= 3:
+        AB_CD_separation_type = "Extremely Close"
+        AB_CD_separation_base_distance = 0.015
+        if AB_separation_type == "Extremely Close" or CD_separation_type == "Extremely Close":
+            AB_CD_separation_type = "Very Close"
+            AB_CD_separation_base_distance = 0.15
         if 4 <= roll_for_AB_CD_separation_type <= 5:
             AB_CD_separation_type = "Very Close"
             AB_CD_separation_base_distance = 0.15
-            if AB_separation_type in ["Very Close", "Extremely Close"] or CD_separation_type in ["Very Close", "Extremey Close"]:
-                AB_CD_seperation_type = "Close"
-                AB_CD_separation_base_distance = 1.5
+        if AB_separation_type in ["Very Close", "Extremely Close"] or CD_separation_type in ["Very Close", "Extremey Close"]:
+            AB_CD_seperation_type = "Close"
+            AB_CD_separation_base_distance = 1.5
         if 6 <= roll_for_AB_CD_separation_type <= 8:
             AB_CD_separation_type = "Close"
             AB_CD_separation_base_distance = 1.5
-            if AB_separation_type in ["Very Close", "Extremely Close", "Close"] or CD_separation_type in ["Very Close", "Extremely Close", "Close"]:
-                AB_CD_separation_type = "Moderate"
-                AB_CD_separation_base_distance = 15
+        if AB_separation_type in ["Very Close", "Extremely Close", "Close"] or CD_separation_type in ["Very Close", "Extremely Close", "Close"]:
+            AB_CD_separation_type = "Moderate"
+            AB_CD_separation_base_distance = 15
         if 9 <= roll_for_AB_CD_separation_type <= 12:
             AB_CD_separation_type = "Moderate"
             AB_CD_separation_base_distance = 15
-            if AB_separation_type in ["Very Close", "Extremely Close", "Close", "Moderate"]:
-                AB_CD_separation_type = "Wide"
-                AB_CD_separation_base_distance = 150
-            if CD_separation_type in ["Very Close", "Extremely Close", "Close", "Moderate"]:
-                AB_CD_separation_type = "Wide"
-                AB_CD_separation_base_distance = 150
+        if AB_separation_type in ["Very Close", "Extremely Close", "Close", "Moderate"]:
+            AB_CD_separation_type = "Wide"
+            AB_CD_separation_base_distance = 150
+        if CD_separation_type in ["Very Close", "Extremely Close", "Close", "Moderate"]:
+            AB_CD_separation_type = "Wide"
+            AB_CD_separation_base_distance = 150
         if 13 <= roll_for_AB_CD_separation_type <= 15:
             AB_CD_separation_type = "Wide"
             AB_CD_separation_base_distance = 150
-            if AB_separation_type in ["Very Close", "Extremely Close", "Close", "Moderate", "Wide"]:
-                AB_CD_separation_type = "Very Wide"
-                AB_CD_separation_base_distance = 1500
-            if CD_separation_type in ["Very Close", "Extremey Close", "Close", "Moderate", "Wide"]:
-                AB_CD_separation_type = "Very Wide"
-                AB_CD_separation_base_distance = 1500
+        if AB_separation_type in ["Very Close", "Extremely Close", "Close", "Moderate", "Wide"]:
+            AB_CD_separation_type = "Very Wide"
+            AB_CD_separation_base_distance = 1500
+        if CD_separation_type in ["Very Close", "Extremey Close", "Close", "Moderate", "Wide"]:
+            AB_CD_separation_type = "Very Wide"
+            AB_CD_separation_base_distance = 1500
         if 16 <= roll_for_AB_CD_separation_type:
             AB_CD_separation_type = "Very Wide"
             AB_CD_separation_base_distance = 1500
@@ -2891,7 +2956,7 @@ if Number_of_Stars == 4:
         print(f"Maximum Distance Between Binary Pair AB and Binary Pair CD: {AB_CD_maximum_distance} AU")
 
         # Star A, B, C and D masses have already been prepared for orbital period calculation in previous steps
-        AB_CD_orbital_period = math.sqrt(( AB_CD_average_distance ** 3) / (Mass_A_for_Orbital_Period + Mass_B_for_Orbital_Period + Mass_C_for_Orbital_Period + Mass_D_for_Orbital_Period))
+        AB_CD_orbital_period = math.sqrt(( AB_CD_average_distance ** 3) / (Final_Mass_A + Final_Mass_B + Final_Mass_C + Final_Mass_D))
         AB_CD_orbital_period = round(AB_CD_orbital_period,2)
         print(f"Orbital Period of Binary Pair AB and Binary Pair CD: {AB_CD_orbital_period} years")
         AB_CD_orbital_period_days = AB_CD_orbital_period * 365.26
