@@ -2180,7 +2180,13 @@ if Number_of_Stars == 2:
             print("Evolution of this star system is out of scope for this model")
         if (Roche_Lobe_Radius_A < Final_Radius_A) and (Roche_Lobe_Radius_B >= Final_Radius_B):
             print("Binary Pair is Semi-Detached Biniary - Star A is larger than it's Roche Lobe")
-            print("Evolution of this star system is out of scope for this model")
+            print("Evolution of a Semi-Detached Binary is out of scope for this model")
+            if Evolutionary_Stage_of_Star_A == "White Dwarf" and Evolutionary_Stage_of_Star_B != "White Dwarf":
+                print("However - Criteria Met: Semi-Detached Binary where one star (Star A) is a White Dwarf")
+                print("Star A is a candidate to become a recurrent nova")
+            if Evolutionary_Stage_of_Star_A != "White Dwarf" and Evolutionary_Stage_of_Star_B == "White Dwarf":
+                print("However - Criteria Met: Semi-Detached Binary where one star (Star B) is a White Dwarf")
+                print("Star B is a candidate to become a recurrent nova")
         if (Roche_Lobe_Radius_A >= Final_Radius_A) and (Roche_Lobe_Radius_B < Final_Radius_B):
             print("Binary Pair is Semi-Detached Biniary - Star B is larger than it's Roche Lobe")
             print("Evolution of this star system is out of scope for this model")
