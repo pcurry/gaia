@@ -2190,6 +2190,12 @@ if Number_of_Stars == 2:
         if (Roche_Lobe_Radius_A >= Final_Radius_A) and (Roche_Lobe_Radius_B < Final_Radius_B):
             print("Binary Pair is Semi-Detached Biniary - Star B is larger than it's Roche Lobe")
             print("Evolution of this star system is out of scope for this model")
+            if Evolutionary_Stage_of_Star_A == "White Dwarf" and Evolutionary_Stage_of_Star_B != "White Dwarf":
+                print("However - Criteria Met: Semi-Detached Binary where one star (Star A) is a White Dwarf")
+                print("Star A is a candidate to become a recurrent nova")
+            if Evolutionary_Stage_of_Star_A != "White Dwarf" and Evolutionary_Stage_of_Star_B == "White Dwarf":
+                print("However - Criteria Met: Semi-Detached Binary where one star (Star B) is a White Dwarf")
+                print("Star B is a candidate to become a recurrent nova")
         if (Roche_Lobe_Radius_A >= Final_Radius_A) and (Roche_Lobe_Radius_B >= Final_Radius_B):
             print("Confirmed - pair is a Detached Binary")
     
@@ -2314,9 +2320,21 @@ if Number_of_Stars == 3:
             if (Roche_Lobe_Radius_B < Final_Radius_B) and (Roche_Lobe_Radius_C >= Final_Radius_C):
                 print("Binary Pair BC in an A-BC type triple star system is Semi-Detached Biniary - Star B is larger than it's Roche Lobe")
                 print("Evolution of this star system is out of scope for this model")
+                if Evolutionary_Stage_of_Star_B == "White Dwarf" and Evolutionary_Stage_of_Star_C != "White Dwarf":
+                    print("However - Criteria Met: Semi-Detached Binary where one star (Star B) is a White Dwarf")
+                    print("Star B is a candidate to become a recurrent nova")
+                if Evolutionary_Stage_of_Star_B != "White Dwarf" and Evolutionary_Stage_of_Star_C == "White Dwarf":
+                    print("However - Criteria Met: Semi-Detached Binary where one star (Star C) is a White Dwarf")
+                    print("Star C is a candidate to become a recurrent nova")
             if (Roche_Lobe_Radius_B >= Final_Radius_B) and (Roche_Lobe_Radius_C < Final_Radius_C):
                 print("Binary Pair BC in an A-BC type triple star system is Semi-Detached Biniary - Star C is larger than it's Roche Lobe")
                 print("Evolution of this star system is out of scope for this model")
+                if Evolutionary_Stage_of_Star_B == "White Dwarf" and Evolutionary_Stage_of_Star_C != "White Dwarf":
+                    print("However - Criteria Met: Semi-Detached Binary where one star (Star B) is a White Dwarf")
+                    print("Star B is a candidate to become a recurrent nova")
+                if Evolutionary_Stage_of_Star_B != "White Dwarf" and Evolutionary_Stage_of_Star_C == "White Dwarf":
+                    print("However - Criteria Met: Semi-Detached Binary where one star (Star C) is a White Dwarf")
+                    print("Star C is a candidate to become a recurrent nova")
             if (Roche_Lobe_Radius_B >= Final_Radius_B) and (Roche_Lobe_Radius_C >= Final_Radius_C):
                 print("Confirmed - pair BC is a Detached Binary within an A-BC type triple star system")
  
@@ -2519,9 +2537,21 @@ if Number_of_Stars == 3:
             if (Roche_Lobe_Radius_A < Final_Radius_A) and (Roche_Lobe_Radius_B >= Final_Radius_B):
                 print("Binary Pair AB in an AB-C type triple star system is Semi-Detached Biniary - Star B is larger than it's Roche Lobe")
                 print("Evolution of this star system is out of scope for this model")
+                if Evolutionary_Stage_of_Star_A == "White Dwarf" and Evolutionary_Stage_of_Star_B != "White Dwarf":
+                    print("However - Criteria Met: Semi-Detached Binary where one star (Star A) is a White Dwarf")
+                    print("Star A is a candidate to become a recurrent nova")
+                if Evolutionary_Stage_of_Star_A != "White Dwarf" and Evolutionary_Stage_of_Star_B == "White Dwarf":
+                    print("However - Criteria Met: Semi-Detached Binary where one star (Star B) is a White Dwarf")
+                    print("Star B is a candidate to become a recurrent nova")
             if (Roche_Lobe_Radius_A >= Final_Radius_A) and (Roche_Lobe_Radius_B < Final_Radius_B):
                 print("Binary Pair AB in an AB-C type triple star system is Semi-Detached Biniary - Star A is larger than it's Roche Lobe")
                 print("Evolution of this star system is out of scope for this model")
+                if Evolutionary_Stage_of_Star_A == "White Dwarf" and Evolutionary_Stage_of_Star_B != "White Dwarf":
+                    print("However - Criteria Met: Semi-Detached Binary where one star (Star A) is a White Dwarf")
+                    print("Star A is a candidate to become a recurrent nova")
+                if Evolutionary_Stage_of_Star_A != "White Dwarf" and Evolutionary_Stage_of_Star_B == "White Dwarf":
+                    print("However - Criteria Met: Semi-Detached Binary where one star (Star B) is a White Dwarf")
+                    print("Star B is a candidate to become a recurrent nova")
             if (Roche_Lobe_Radius_A >= Final_Radius_A) and (Roche_Lobe_Radius_B >= Final_Radius_B):
                 print("Confirmed - pair AB is a Detached Binary within an AB-C type triple star system")
 
@@ -2751,9 +2781,21 @@ if Number_of_Stars == 4:
         if (Roche_Lobe_Radius_A < Final_Radius_A) and (Roche_Lobe_Radius_B >= Final_Radius_B):
             print("Binary Pair AB in a quaruple star system is Semi-Detached Biniary - Star B is larger than it's Roche Lobe")
             print("Evolution of this star system is out of scope for this model")
+            if Evolutionary_Stage_of_Star_A == "White Dwarf" and Evolutionary_Stage_of_Star_B != "White Dwarf":
+                print("However - Criteria Met: Semi-Detached Binary where one star (Star A) is a White Dwarf")
+                print("Star A is a candidate to become a recurrent nova")
+            if Evolutionary_Stage_of_Star_A != "White Dwarf" and Evolutionary_Stage_of_Star_B == "White Dwarf":
+                print("However - Criteria Met: Semi-Detached Binary where one star (Star B) is a White Dwarf")
+                print("Star B is a candidate to become a recurrent nova")
         if (Roche_Lobe_Radius_A >= Final_Radius_A) and (Roche_Lobe_Radius_B < Final_Radius_B):
             print("Binary Pair AB in a quadruple star system is Semi-Detached Biniary - Star A is larger than it's Roche Lobe")
             print("Evolution of this star system is out of scope for this model")
+            if Evolutionary_Stage_of_Star_A == "White Dwarf" and Evolutionary_Stage_of_Star_B != "White Dwarf":
+                print("However - Criteria Met: Semi-Detached Binary where one star (Star A) is a White Dwarf")
+                print("Star A is a candidate to become a recurrent nova")
+            if Evolutionary_Stage_of_Star_A != "White Dwarf" and Evolutionary_Stage_of_Star_B == "White Dwarf":
+                print("However - Criteria Met: Semi-Detached Binary where one star (Star B) is a White Dwarf")
+                print("Star B is a candidate to become a recurrent nova")
         if (Roche_Lobe_Radius_A >= Final_Radius_A) and (Roche_Lobe_Radius_B >= Final_Radius_B):
             print("Confirmed - pair AB is a Detached Binary within an AB-C type triple star system")
 
@@ -2851,9 +2893,21 @@ if Number_of_Stars == 4:
         if (Roche_Lobe_Radius_C < Final_Radius_C) and (Roche_Lobe_Radius_D < Final_Radius_D):
             print("Binary Pair CD in a quadruple star system is a Contact Binary")
             print("Evolution of this star system is out of scope for this model")
+            if Evolutionary_Stage_of_Star_C == "White Dwarf" and Evolutionary_Stage_of_Star_D != "White Dwarf":
+                print("However - Criteria Met: Semi-Detached Binary where one star (Star C) is a White Dwarf")
+                print("Star C is a candidate to become a recurrent nova")
+            if Evolutionary_Stage_of_Star_C != "White Dwarf" and Evolutionary_Stage_of_Star_D == "White Dwarf":
+                print("However - Criteria Met: Semi-Detached Binary where one star (Star D) is a White Dwarf")
+                print("Star D is a candidate to become a recurrent nova")
         if (Roche_Lobe_Radius_C < Final_Radius_C) and (Roche_Lobe_Radius_D >= Final_Radius_D):
             print("Binary Pair CD in a quadruple star system is a Semi-Detached Biniary - Star C is larger than it's Roche Lobe")
             print("Evolution of this star system is out of scope for this model")
+            if Evolutionary_Stage_of_Star_C == "White Dwarf" and Evolutionary_Stage_of_Star_D != "White Dwarf":
+                print("However - Criteria Met: Semi-Detached Binary where one star (Star C) is a White Dwarf")
+                print("Star C is a candidate to become a recurrent nova")
+            if Evolutionary_Stage_of_Star_C != "White Dwarf" and Evolutionary_Stage_of_Star_D == "White Dwarf":
+                print("However - Criteria Met: Semi-Detached Binary where one star (Star D) is a White Dwarf")
+                print("Star D is a candidate to become a recurrent nova")
         if (Roche_Lobe_Radius_C >= Final_Radius_C) and (Roche_Lobe_Radius_D < Final_Radius_D):
             print("Binary Pair CD in a quadruple star system is Semi-Detached Biniary - Star D is larger than it's Roche Lobe")
             print("Evolution of this star system is out of scope for this model")
