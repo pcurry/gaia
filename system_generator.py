@@ -3024,7 +3024,233 @@ if Number_of_Stars == 4:
         print(f"which is equivalent to {AB_CD_orbital_period_days} days")
 
 # Step 9: Protoplanetary Disk
-    # input Step 9 elements
+    # calculate disk density
+    if Number_of_Stars >= 1:
+        # calculate disk density of Star A
+        roll_for_Disk_Density_of_Star_A = _3d6()
+        if roll_for_Disk_Density_of_Star_A == 3:
+            Disk_Mass_Factor_Star_A = 0.25
+            Disk_Mass_Modifier_Star_A = -6
+        if roll_for_Disk_Density_of_Star_A == 4:
+            Disk_Mass_Factor_Star_A = 0.32
+            Disk_Mass_Modifier_Star_A = -5
+        if roll_for_Disk_Density_of_Star_A == 5:
+            Disk_Mass_Factor_Star_A = 0.4
+            Disk_Mass_Modifier_Star_A = -4
+        if roll_for_Disk_Density_of_Star_A == 6:
+            Disk_Mass_Factor_Star_A = 0.5
+            Disk_Mass_Modifier_Star_A = -3
+        if roll_for_Disk_Density_of_Star_A == 7:
+            Disk_Mass_Factor_Star_A = 0.6
+            Disk_Mass_Modifier_Star_A = -2
+        if roll_for_Disk_Density_of_Star_A == 8:
+            Disk_Mass_Factor_Star_A = 0.7
+            Disk_Mass_Modifier_Star_A = -1
+        if roll_for_Disk_Density_of_Star_A == 9:
+            Disk_Mass_Factor_Star_A = 0.8
+            Disk_Mass_Modifier_Star_A = 0
+        if roll_for_Disk_Density_of_Star_A == 10:
+            Disk_Mass_Factor_Star_A = 1.0
+            Disk_Mass_Modifier_Star_A = 0
+        if roll_for_Disk_Density_of_Star_A == 11:
+            Disk_Mass_Factor_Star_A = 1.0
+            Disk_Mass_Modifier_Star_A = 0
+        if roll_for_Disk_Density_of_Star_A == 12:
+            Disk_Mass_Factor_Star_A = 1.2
+            Disk_Mass_Modifier_Star_A = 0
+        if roll_for_Disk_Density_of_Star_A == 13:
+            Disk_Mass_Factor_Star_A = 1.4
+            Disk_Mass_Modifier_Star_A = 1
+        if roll_for_Disk_Density_of_Star_A == 14:
+            Disk_Mass_Factor_Star_A = 1.7
+            Disk_Mass_Modifier_Star_A = 2
+        if roll_for_Disk_Density_of_Star_A == 15:
+            Disk_Mass_Factor_Star_A = 2.0
+            Disk_Mass_Modifier_Star_A = 3
+        if roll_for_Disk_Density_of_Star_A == 16:
+            Disk_Mass_Factor_Star_A = 2.5
+            Disk_Mass_Modifier_Star_A = 4
+        if roll_for_Disk_Density_of_Star_A == 17:
+            Disk_Mass_Factor_Star_A = 3.2
+            Disk_Mass_Modifier_Star_A = 5
+        if roll_for_Disk_Density_of_Star_A == 18:
+            Disk_Mass_Factor_Star_A = 4.0
+            Disk_Mass_Modifier_Star_A = 6
+        print(f"Disk Mass Factor for Star A: {Disk_Mass_Factor_Star_A}")
+        print(f"Disk Mass Modifier for Star A: {Disk_Mass_Modifier_Star_A}")
+
+    if Number_of_Stars >= 2:
+        # calculate disk density of Star B
+        roll_for_Disk_Density_of_Star_B = _3d6()
+        if roll_for_Disk_Density_of_Star_B == 3:
+            Disk_Mass_Factor_Star_B = 0.25
+            Disk_Mass_Modifier_Star_B = -6
+        if roll_for_Disk_Density_of_Star_B == 4:
+            Disk_Mass_Factor_Star_B = 0.32
+            Disk_Mass_Modifier_Star_B = -5
+        if roll_for_Disk_Density_of_Star_B == 5:
+            Disk_Mass_Factor_Star_B = 0.4
+            Disk_Mass_Modifier_Star_B = -4
+        if roll_for_Disk_Density_of_Star_B == 6:
+            Disk_Mass_Factor_Star_B = 0.5
+            Disk_Mass_Modifier_Star_B = -3
+        if roll_for_Disk_Density_of_Star_B == 7:
+            Disk_Mass_Factor_Star_B = 0.6
+            Disk_Mass_Modifier_Star_B = -2
+        if roll_for_Disk_Density_of_Star_B == 8:
+            Disk_Mass_Factor_Star_B = 0.7
+            Disk_Mass_Modifier_Star_B = -1
+        if roll_for_Disk_Density_of_Star_B == 9:
+            Disk_Mass_Factor_Star_B = 0.8
+            Disk_Mass_Modifier_Star_B = 0
+        if roll_for_Disk_Density_of_Star_B == 10:
+            Disk_Mass_Factor_Star_B = 1.0
+            Disk_Mass_Modifier_Star_B = 0
+        if roll_for_Disk_Density_of_Star_B == 11:
+            Disk_Mass_Factor_Star_B = 1.0
+            Disk_Mass_Modifier_Star_B = 0
+        if roll_for_Disk_Density_of_Star_B == 12:
+            Disk_Mass_Factor_Star_B = 1.2
+            Disk_Mass_Modifier_Star_B = 0
+        if roll_for_Disk_Density_of_Star_B == 13:
+            Disk_Mass_Factor_Star_B = 1.4
+            Disk_Mass_Modifier_Star_B = 1
+        if roll_for_Disk_Density_of_Star_B == 14:
+            Disk_Mass_Factor_Star_B = 1.7
+            Disk_Mass_Modifier_Star_B = 2
+        if roll_for_Disk_Density_of_Star_B == 15:
+            Disk_Mass_Factor_Star_B = 2.0
+            Disk_Mass_Modifier_Star_B = 3
+        if roll_for_Disk_Density_of_Star_B == 16:
+            Disk_Mass_Factor_Star_B = 2.5
+            Disk_Mass_Modifier_Star_B = 4
+        if roll_for_Disk_Density_of_Star_B == 17:
+            Disk_Mass_Factor_Star_B = 3.2
+            Disk_Mass_Modifier_Star_B = 5
+        if roll_for_Disk_Density_of_Star_B == 18:
+            Disk_Mass_Factor_Star_B = 4.0
+            Disk_Mass_Modifier_Star_B = 6
+        print(f"Disk Mass Factor for Star B: {Disk_Mass_Factor_Star_B}")
+        print(f"Disk Mass Modifier for Star B: {Disk_Mass_Modifier_Star_B}")
+
+    if Number_of_Stars >= 3:
+        # calculate disk density of Star C
+        roll_for_Disk_Density_of_Star_C = _3d6()
+        if roll_for_Disk_Density_of_Star_C == 3:
+            Disk_Mass_Factor_Star_C = 0.25
+            Disk_Mass_Modifier_Star_C = -6
+        if roll_for_Disk_Density_of_Star_C == 4:
+            Disk_Mass_Factor_Star_C = 0.32
+            Disk_Mass_Modifier_Star_C = -5
+        if roll_for_Disk_Density_of_Star_C == 5:
+            Disk_Mass_Factor_Star_C = 0.4
+            Disk_Mass_Modifier_Star_C = -4
+        if roll_for_Disk_Density_of_Star_C == 6:
+            Disk_Mass_Factor_Star_C = 0.5
+            Disk_Mass_Modifier_Star_C = -3
+        if roll_for_Disk_Density_of_Star_C == 7:
+            Disk_Mass_Factor_Star_C = 0.6
+            Disk_Mass_Modifier_Star_C = -2
+        if roll_for_Disk_Density_of_Star_C == 8:
+            Disk_Mass_Factor_Star_C = 0.7
+            Disk_Mass_Modifier_Star_C = -1
+        if roll_for_Disk_Density_of_Star_C == 9:
+            Disk_Mass_Factor_Star_C = 0.8
+            Disk_Mass_Modifier_Star_C = 0
+        if roll_for_Disk_Density_of_Star_C == 10:
+            Disk_Mass_Factor_Star_C = 1.0
+            Disk_Mass_Modifier_Star_C = 0
+        if roll_for_Disk_Density_of_Star_C == 11:
+            Disk_Mass_Factor_Star_C = 1.0
+            Disk_Mass_Modifier_Star_C = 0
+        if roll_for_Disk_Density_of_Star_C == 12:
+            Disk_Mass_Factor_Star_C = 1.2
+            Disk_Mass_Modifier_Star_C = 0
+        if roll_for_Disk_Density_of_Star_C == 13:
+            Disk_Mass_Factor_Star_C = 1.4
+            Disk_Mass_Modifier_Star_C = 1
+        if roll_for_Disk_Density_of_Star_C == 14:
+            Disk_Mass_Factor_Star_C = 1.7
+            Disk_Mass_Modifier_Star_C = 2
+        if roll_for_Disk_Density_of_Star_C == 15:
+            Disk_Mass_Factor_Star_C = 2.0
+            Disk_Mass_Modifier_Star_C = 3
+        if roll_for_Disk_Density_of_Star_C == 16:
+            Disk_Mass_Factor_Star_C = 2.5
+            Disk_Mass_Modifier_Star_C = 4
+        if roll_for_Disk_Density_of_Star_C == 17:
+            Disk_Mass_Factor_Star_C = 3.2
+            Disk_Mass_Modifier_Star_C = 5
+        if roll_for_Disk_Density_of_Star_C == 18:
+            Disk_Mass_Factor_Star_C = 4.0
+            Disk_Mass_Modifier_Star_C = 6
+        print(f"Disk Mass Factor for Star C: {Disk_Mass_Factor_Star_C}")
+        print(f"Disk Mass Modifier for Star C: {Disk_Mass_Modifier_Star_C}")
+
+    if Number_of_Stars == 4:
+        roll_for_Disk_Density_of_Star_D = _3d6()
+        if roll_for_Disk_Density_of_Star_D == 3:
+            Disk_Mass_Factor_Star_D = 0.25
+            Disk_Mass_Modifier_Star_D = -6
+        if roll_for_Disk_Density_of_Star_D == 4:
+            Disk_Mass_Factor_Star_D = 0.32
+            Disk_Mass_Modifier_Star_D = -5
+        if roll_for_Disk_Density_of_Star_D == 5:
+            Disk_Mass_Factor_Star_D = 0.4
+            Disk_Mass_Modifier_Star_D = -4
+        if roll_for_Disk_Density_of_Star_D == 6:
+            Disk_Mass_Factor_Star_D = 0.5
+            Disk_Mass_Modifier_Star_D = -3
+        if roll_for_Disk_Density_of_Star_D == 7:
+            Disk_Mass_Factor_Star_D = 0.6
+            Disk_Mass_Modifier_Star_D = -2
+        if roll_for_Disk_Density_of_Star_D == 8:
+            Disk_Mass_Factor_Star_D = 0.7
+            Disk_Mass_Modifier_Star_D = -1
+        if roll_for_Disk_Density_of_Star_D == 9:
+            Disk_Mass_Factor_Star_D = 0.8
+            Disk_Mass_Modifier_Star_D = 0
+        if roll_for_Disk_Density_of_Star_D == 10:
+            Disk_Mass_Factor_Star_D = 1.0
+            Disk_Mass_Modifier_Star_D = 0
+        if roll_for_Disk_Density_of_Star_D == 11:
+            Disk_Mass_Factor_Star_D = 1.0
+            Disk_Mass_Modifier_Star_D = 0
+        if roll_for_Disk_Density_of_Star_D == 12:
+            Disk_Mass_Factor_Star_D = 1.2
+            Disk_Mass_Modifier_Star_D = 0
+        if roll_for_Disk_Density_of_Star_D == 13:
+            Disk_Mass_Factor_Star_D = 1.4
+            Disk_Mass_Modifier_Star_D = 1
+        if roll_for_Disk_Density_of_Star_D == 14:
+            Disk_Mass_Factor_Star_D = 1.7
+            Disk_Mass_Modifier_Star_D = 2
+        if roll_for_Disk_Density_of_Star_D == 15:
+            Disk_Mass_Factor_Star_D = 2.0
+            Disk_Mass_Modifier_Star_D = 3
+        if roll_for_Disk_Density_of_Star_D == 16:
+            Disk_Mass_Factor_Star_D = 2.5
+            Disk_Mass_Modifier_Star_D = 4
+        if roll_for_Disk_Density_of_Star_D == 17:
+            Disk_Mass_Factor_Star_D = 3.2
+            Disk_Mass_Modifier_Star_D = 5
+        if roll_for_Disk_Density_of_Star_D == 18:
+            Disk_Mass_Factor_Star_D = 4.0
+            Disk_Mass_Modifier_Star_D = 6
+        print(f"Disk Mass Factor for Star D: {Disk_Mass_Factor_Star_D}")
+        print(f"Disk Mass Modifier for Star D: {Disk_Mass_Modifier_Star_D}")
+
+    # calculate planetismal masses
+
+    # calculate disk inner edges
+
+    # calculate ice lines
+
+    # calculate slow accretion lines
+
+    # calculate forbidden zones
+
+    # arrange planetary formation orbits
 
 # Step 10: Disk Instability
     # input Step 10 elements
