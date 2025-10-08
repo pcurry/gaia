@@ -10,6 +10,8 @@ def d100() -> int:
   return random.randint(1, 100)
 def _3d6() -> int:
   return (random.randint(1, 6) + random.randint (1, 6) + random.randint (1, 6))
+def _2d6() -> int:
+  return (random.randint(1, 6) + random.randint (1, 6))
 
 # Step 1: Primary Star Mass
 
@@ -3251,6 +3253,18 @@ if Number_of_Stars == 4:
         Planetismal_Mass_for_Star_D = Disk_Mass_Factor_Star_D * Mass_D * Metallicity
 
     # calculate disk inner edges
+    if Number_of_Stars >= 1:
+        Disk_Inner_Edge_for_Star_A = (_2d6) * 0.005 * (Mass_A ** (1/3))
+        Disk_Inner_Edge_for_Star_A = round(Disk_Inner_Edge_for_Star_A,3)
+    if Number_of_Stars >= 2:
+        Disk_Inner_Edge_for_Star_B = (_2d6) * 0.005 * (Mass_B ** (1/3))
+        Disk_Inner_Edge_for_Star_B = round(Disk_Inner_Edge_for_Star_B,3)
+    if Number_of_Stars >= 3:
+        Disk_Inner_Edge_for_Star_C = (_2d6) * 0.005 * (Mass_C ** (1/3))
+        Disk_Inner_Edge_for_Star_C = round(Disk_Inner_Edge_for_Star_C,3)
+    if Number_of_Stars == 4:
+        Disk_Inner_Edge_for_Star_D = (_2d6) * 0.005 * (Mass_D ** (1/3))
+        Disk_Inner_Edge_for_Star_D = round(Disk_Inner_Edge_for_Star_D,3)
 
     # calculate ice lines
 
