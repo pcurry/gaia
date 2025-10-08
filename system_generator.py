@@ -3241,6 +3241,14 @@ if Number_of_Stars == 4:
         print(f"Disk Mass Modifier for Star D: {Disk_Mass_Modifier_Star_D}")
 
     # calculate planetismal masses
+    if Number_of_Stars >= 1:
+        Planetismal_Mass_for_Star_A = Disk_Mass_Factor_Star_A * Mass_A * Metallicity
+    if Number_of_Stars >= 2:
+        Planetismal_Mass_for_Star_B = Disk_Mass_Factor_Star_B * Mass_B * Metallicity
+    if Number_of_Stars >= 3:
+        Planetismal_Mass_for_Star_C = Disk_Mass_Factor_Star_C * Mass_C * Metallicity
+    if Number_of_Stars == 4:
+        Planetismal_Mass_for_Star_D = Disk_Mass_Factor_Star_D * Mass_D * Metallicity
 
     # calculate disk inner edges
 
