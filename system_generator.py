@@ -3267,6 +3267,18 @@ if Number_of_Stars == 4:
         Disk_Inner_Edge_for_Star_D = round(Disk_Inner_Edge_for_Star_D,3)
 
     # calculate ice lines
+    if Number_of_Stars >= 1:
+        Radius_of_Ice_Line_for_Star_A = 4 * sqrt(Initial_Luminosity_of_Star_A)
+        Radius_of_Ice_Line_for_Star_A = round(Radius_of_Ice_Line_for_Star_A,3)
+    if Number_of_Stars >= 2:
+        Radius_of_Ice_Line_for_Star_B = 4 * sqrt(Initial_Luminosity_of_Star_B)
+        Radius_of_Ice_Line_for_Star_B = round(Radius_of_Ice_Line_for_Star_B,3)
+    if Number_of_Stars >= 3:
+        Radius_of_Ice_Line_for_Star_C = 4 * sqrt(Initial_Luminosity_of_Star_C)
+        Radius_of_Ice_Line_for_Star_C = round(Radius_of_Ice_Line_for_Star_C,3)
+    if Number_of_Stars == 4:
+        Radius_of_Ice_Line_for_Star_D = 4 * sqrt(Initial_Luminosity_of_Star_D)
+        Radius_of_Ice_Line_for_Star_D = round(Radius_of_Ice_Line_for_Star_D,3)
 
     # calculate slow accretion lines
 
