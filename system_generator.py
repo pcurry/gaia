@@ -3268,19 +3268,31 @@ if Number_of_Stars == 4:
 
     # calculate ice lines
     if Number_of_Stars >= 1:
-        Radius_of_Ice_Line_for_Star_A = 4 * sqrt(Initial_Luminosity_of_Star_A)
+        Radius_of_Ice_Line_for_Star_A = 4 * math.sqrt(Initial_Luminosity_of_Star_A)
         Radius_of_Ice_Line_for_Star_A = round(Radius_of_Ice_Line_for_Star_A,3)
     if Number_of_Stars >= 2:
-        Radius_of_Ice_Line_for_Star_B = 4 * sqrt(Initial_Luminosity_of_Star_B)
+        Radius_of_Ice_Line_for_Star_B = 4 * math.sqrt(Initial_Luminosity_of_Star_B)
         Radius_of_Ice_Line_for_Star_B = round(Radius_of_Ice_Line_for_Star_B,3)
     if Number_of_Stars >= 3:
-        Radius_of_Ice_Line_for_Star_C = 4 * sqrt(Initial_Luminosity_of_Star_C)
+        Radius_of_Ice_Line_for_Star_C = 4 * math.sqrt(Initial_Luminosity_of_Star_C)
         Radius_of_Ice_Line_for_Star_C = round(Radius_of_Ice_Line_for_Star_C,3)
     if Number_of_Stars == 4:
-        Radius_of_Ice_Line_for_Star_D = 4 * sqrt(Initial_Luminosity_of_Star_D)
+        Radius_of_Ice_Line_for_Star_D = 4 * math.sqrt(Initial_Luminosity_of_Star_D)
         Radius_of_Ice_Line_for_Star_D = round(Radius_of_Ice_Line_for_Star_D,3)
 
     # calculate slow accretion lines
+    if Number_of_Stars >= 1:
+        Radius_of_Slow_Accretion_Line_for_Star_A = 20 * (Mass_A ** (1/3))
+        Radius_of_Slow_Accretion_Line_for_Star_A = round(Radius_of_Slow_Accretion_Line_for_Star_A,3)
+    if Number_of_Stars >= 2:
+        Radius_of_Slow_Accretion_Line_for_Star_B = 20 * (Mass_B ** (1/3))
+        Radius_of_Slow_Accretion_Line_for_Star_B = round(Radius_of_Slow_Accretion_Line_for_Star_B,3)
+    if Number_of_Stars >= 3
+        Radius_of_Slow_Accretion_Line_for_Star_C = 20 * (Mass_C ** (1/3))
+        Radius_of_Slow_Accretion_Line_for_Star_C = round(Radius_of_Slow_Accretion_Line_for_Star_C,3)
+    if Number_of_Stars == 4:
+        Radius_of_Slow_Accretion_Line_for_Star_D = 20 * (Mass_D ** (1/3))
+        Radius_of_Slow_Accretion_Line_for_Star_D = round(Radius_of_Slow_Accretion_Line_for_Star_D,3)
 
     # calculate forbidden zones
 
