@@ -3245,54 +3245,70 @@ if Number_of_Stars == 4:
     # calculate planetismal masses
     if Number_of_Stars >= 1:
         Planetismal_Mass_for_Star_A = Disk_Mass_Factor_Star_A * Mass_A * Metallicity
+        print(f"Planentismal Mass for Star A: {Planetismal_Mass_for_Star_A}")
     if Number_of_Stars >= 2:
         Planetismal_Mass_for_Star_B = Disk_Mass_Factor_Star_B * Mass_B * Metallicity
+        print(f"Planentismal Mass for Star B: {Planetismal_Mass_for_Star_B}")
     if Number_of_Stars >= 3:
         Planetismal_Mass_for_Star_C = Disk_Mass_Factor_Star_C * Mass_C * Metallicity
+        print(f"Planentismal Mass for Star C: {Planetismal_Mass_for_Star_C}")
     if Number_of_Stars == 4:
         Planetismal_Mass_for_Star_D = Disk_Mass_Factor_Star_D * Mass_D * Metallicity
+        print(f"Planentismal Mass for Star D: {Planetismal_Mass_for_Star_D}")
 
     # calculate disk inner edges
     if Number_of_Stars >= 1:
         Disk_Inner_Edge_for_Star_A = (_2d6) * 0.005 * (Mass_A ** (1/3))
         Disk_Inner_Edge_for_Star_A = round(Disk_Inner_Edge_for_Star_A,3)
+        print(f"Disk Inner Edge for Star A: {Disk_Inner_Edge_for_Star_A} AU")
     if Number_of_Stars >= 2:
         Disk_Inner_Edge_for_Star_B = (_2d6) * 0.005 * (Mass_B ** (1/3))
         Disk_Inner_Edge_for_Star_B = round(Disk_Inner_Edge_for_Star_B,3)
+        print(f"Disk Inner Edge for Star B: {Disk_Inner_Edge_for_Star_B} AU")
     if Number_of_Stars >= 3:
         Disk_Inner_Edge_for_Star_C = (_2d6) * 0.005 * (Mass_C ** (1/3))
         Disk_Inner_Edge_for_Star_C = round(Disk_Inner_Edge_for_Star_C,3)
+        print(f"Disk Inner Edge for Star C: {Disk_Inner_Edge_for_Star_C} AU")
     if Number_of_Stars == 4:
         Disk_Inner_Edge_for_Star_D = (_2d6) * 0.005 * (Mass_D ** (1/3))
         Disk_Inner_Edge_for_Star_D = round(Disk_Inner_Edge_for_Star_D,3)
+        print(f"Disk Inner Edge for Star D: {Disk_Inner_Edge_for_Star_D} AU")
 
     # calculate ice lines
     if Number_of_Stars >= 1:
         Radius_of_Ice_Line_for_Star_A = 4 * math.sqrt(Initial_Luminosity_of_Star_A)
         Radius_of_Ice_Line_for_Star_A = round(Radius_of_Ice_Line_for_Star_A,3)
+        print(f"Ice Line for Star A: {Radius_of_Ice_Line_for_Star_A} AU")
     if Number_of_Stars >= 2:
         Radius_of_Ice_Line_for_Star_B = 4 * math.sqrt(Initial_Luminosity_of_Star_B)
         Radius_of_Ice_Line_for_Star_B = round(Radius_of_Ice_Line_for_Star_B,3)
+        print(f"Ice Line for Star B: {Radius_of_Ice_Line_for_Star_B} AU")
     if Number_of_Stars >= 3:
         Radius_of_Ice_Line_for_Star_C = 4 * math.sqrt(Initial_Luminosity_of_Star_C)
         Radius_of_Ice_Line_for_Star_C = round(Radius_of_Ice_Line_for_Star_C,3)
+        print(f"Ice Line for Star C: {Radius_of_Ice_Line_for_Star_C} AU")
     if Number_of_Stars == 4:
         Radius_of_Ice_Line_for_Star_D = 4 * math.sqrt(Initial_Luminosity_of_Star_D)
         Radius_of_Ice_Line_for_Star_D = round(Radius_of_Ice_Line_for_Star_D,3)
+        print(f"Ice Line for Star D: {Radius_of_Ice_Line_for_Star_D} AU")
 
     # calculate slow accretion lines
     if Number_of_Stars >= 1:
         Radius_of_Slow_Accretion_Line_for_Star_A = 20 * (Mass_A ** (1/3))
         Radius_of_Slow_Accretion_Line_for_Star_A = round(Radius_of_Slow_Accretion_Line_for_Star_A,3)
+        print(f"Slow Accretion Line for Star A: {Radius_of_Slow_Accretion_Line_for_Star_A} AU")
     if Number_of_Stars >= 2:
         Radius_of_Slow_Accretion_Line_for_Star_B = 20 * (Mass_B ** (1/3))
         Radius_of_Slow_Accretion_Line_for_Star_B = round(Radius_of_Slow_Accretion_Line_for_Star_B,3)
-    if Number_of_Stars >= 3
+        print(f"Slow Accretion Line for Star B: {Radius_of_Slow_Accretion_Line_for_Star_B} AU")
+    if Number_of_Stars >= 3:
         Radius_of_Slow_Accretion_Line_for_Star_C = 20 * (Mass_C ** (1/3))
         Radius_of_Slow_Accretion_Line_for_Star_C = round(Radius_of_Slow_Accretion_Line_for_Star_C,3)
+        print(f"Slow Accretion Line for Star C: {Radius_of_Slow_Accretion_Line_for_Star_C} AU")
     if Number_of_Stars == 4:
         Radius_of_Slow_Accretion_Line_for_Star_D = 20 * (Mass_D ** (1/3))
         Radius_of_Slow_Accretion_Line_for_Star_D = round(Radius_of_Slow_Accretion_Line_for_Star_D,3)
+        print(f"Slow Accretion Line for Star D: {Radius_of_Slow_Accretion_Line_for_Star_D} AU")
 
     # calculate forbidden zones
 
