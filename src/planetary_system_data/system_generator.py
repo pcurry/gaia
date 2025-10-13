@@ -1,5 +1,9 @@
-import random
+
+-
 import math
+import random
+
+from enum import StrEnum
 
 # script to procedurally generate realistic (but fictional) star systems
 # reference: Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
@@ -13,185 +17,202 @@ def _3d6() -> int:
 def _2d6() -> int:
   return (random.randint(1, 6) + random.randint (1, 6))
 
+
+class StarCategory(StrEnum):
+    BROWN_DWARF = "Brown Dwarf"
+    LOW_MASS_STAR = "Low Mass Star"
+    INTERMEDIATE_MASS_STAR = "Intermediate Mass Star"
+    HIGH_MASS_STAR = "High Mass Star"
+
+
+
 # Step 1: Primary Star Mass
 
-Category = None
-Mass_A = None
+def generate_star_category() -> str:
+    roll_for_star_type = d100()
+    if 1 <= roll_for_star_type <= 3: 
+        return StarCategory.BROWN_DWARF
+    elif 4 <= roll_for_star_type <= 77:
+        return StarCategory.LOW_MASS_STAR
+    elif 78 <= roll_for_star_type <=90:
+        return StarCategory.INTERMEDIATE_MASS_STAR
+    else:  # 91-100
+        return StarCategory.HIGH_MASS_STAR
 
-roll_for_star_type = d100()
 
-if 1 <= roll_for_star_type <= 3: 
-    Category = "Brown Dwarf"
-    roll_for_brown_dwarf_mass = d100()
-    if 1 <= roll_for_brown_dwarf_mass <= 10: 
-        Mass_A = 0.015
-    elif 11 <= roll_for_brown_dwarf_mass <= 29:
-        Mass_A = 0.02
-    elif 30 <= roll_for_brown_dwarf_mass <= 45:
-        Mass_A = 0.03
-    elif 46 <= roll_for_brown_dwarf_mass <= 60:
-        Mass_A = 0.04
-    elif 61 <= roll_for_brown_dwarf_mass <= 74:
-        Mass_A = 0.05
-    elif 75 <= roll_for_brown_dwarf_mass <= 87:
-        Mass_A = 0.06
-    elif 88 <= roll_for_brown_dwarf_mass <= 100:
-        Mass_A = 0.07
-elif 4 <= roll_for_star_type <= 77:
-    Category = "Low Mass Star"
-    roll_for_low_mass_star_mass = d100()
-    if 1 <= roll_for_low_mass_star_mass <= 13:
-        Mass_A = 0.08
-    elif 14 <= roll_for_low_mass_star_mass <= 23:
-        Mass_A = 0.10
-    elif 24 <= roll_for_low_mass_star_mass <= 34:
-        Mass_A = 0.12
-    elif 35 <= roll_for_low_mass_star_mass <= 43:
-        Mass_A = 0.15
-    elif 44 <= roll_for_low_mass_star_mass <= 52:
-        Mass_A = 0.18
-    elif 53 <= roll_for_low_mass_star_mass <= 59:
-        Mass_A = 0.22
-    elif 60 <= roll_for_low_mass_star_mass <= 65:
-        Mass_A = 0.26
-    elif 66 <= roll_for_low_mass_star_mass <= 70:
-        Mass_A = 0.30
-    elif 71 <= roll_for_low_mass_star_mass <= 74:
-        Mass_A = 0.34
-    elif 75 <= roll_for_low_mass_star_mass <= 77:
-        Mass_A = 0.38
-    elif 78 <= roll_for_low_mass_star_mass <= 80:
-        Mass_A = 0.42
-    elif 81 <= roll_for_low_mass_star_mass <= 83:
-        Mass_A = 0.46
-    elif 84 <= roll_for_low_mass_star_mass <= 86:
-        Mass_A = 0.50
-    elif 87 <= roll_for_low_mass_star_mass <= 89:
-        Mass_A = 0.53
-    elif 90 <= roll_for_low_mass_star_mass <= 92:
-        Mass_A = 0.56
-    elif 93 <= roll_for_low_mass_star_mass <= 95:
-        Mass_A = 0.59
-    elif 96 <= roll_for_low_mass_star_mass <= 97:
-        Mass_A = 0.62
-    elif 98 <= roll_for_low_mass_star_mass <= 99:
-        Mass_A = 0.65
-    elif 100 == roll_for_low_mass_star_mass:
-        Mass_A = 0.68
-elif 78 <= roll_for_star_type <=90:
-    Category = "Intermediate Mass Star"
-    roll_for_intermediate_mass_star_mass = d100()
-    if 1 <= roll_for_intermediate_mass_star_mass <= 7:
-        Mass_A = 0.70
-    elif 8 <= roll_for_intermediate_mass_star_mass <= 13:
-        Mass_A = 0.72
-    elif 14 <= roll_for_intermediate_mass_star_mass <= 19:
-        Mass_A = 0.74
-    elif 20 <= roll_for_intermediate_mass_star_mass <= 24:
-        Mass_A = 0.76
-    elif 25 <= roll_for_intermediate_mass_star_mass <= 29:
-        Mass_A = 0.78
-    elif 30 <= roll_for_intermediate_mass_star_mass <= 34:
-        Mass_A = 0.80
-    elif 35 <= roll_for_intermediate_mass_star_mass <= 39:
-        Mass_A = 0.82
-    elif 40 <= roll_for_intermediate_mass_star_mass <= 43:
-        Mass_A = 0.84
-    elif 44 <= roll_for_intermediate_mass_star_mass <= 47:
-        Mass_A = 0.86
-    elif 48 <= roll_for_intermediate_mass_star_mass <= 51:
-        Mass_A = 0.88
-    elif 52 <= roll_for_intermediate_mass_star_mass <= 55:
-        Mass_A = 0.90
-    elif 56 <= roll_for_intermediate_mass_star_mass <= 59:
-        Mass_A = 0.92
-    elif 60 <= roll_for_intermediate_mass_star_mass <= 62:
-        Mass_A = 0.94
-    elif 63 <= roll_for_intermediate_mass_star_mass <= 65:
-        Mass_A = 0.96
-    elif 66 <= roll_for_intermediate_mass_star_mass <= 68:
-        Mass_A = 0.98
-    elif 69 <= roll_for_intermediate_mass_star_mass <= 71:
-        Mass_A = 1.00
-    elif 72 <= roll_for_intermediate_mass_star_mass <= 74:
-        Mass_A = 1.02
-    elif 75 <= roll_for_intermediate_mass_star_mass <= 78:
-        Mass_A = 1.04
-    elif 79 <= roll_for_intermediate_mass_star_mass <= 82:
-        Mass_A = 1.07
-    elif 83 <= roll_for_intermediate_mass_star_mass <= 85:
-        Mass_A = 1.10
-    elif 86 <= roll_for_intermediate_mass_star_mass <= 89:
-        Mass_A = 1.13
-    elif 90 <= roll_for_intermediate_mass_star_mass <= 92:
-        Mass_A = 1.16
-    elif 93 <= roll_for_intermediate_mass_star_mass <= 95:
-        Mass_A = 1.19
-    elif 96 <= roll_for_intermediate_mass_star_mass <= 97:
-        Mass_A = 1.22
-    elif 98 <= roll_for_intermediate_mass_star_mass <= 100:
-        Mass_A = 1.25
-elif 91 <= roll_for_star_type <=100:
-    Category = "High Mass Star"
-    roll_for_high_mass_star_mass = d100()
-    if 1 <= roll_for_high_mass_star_mass <= 3:
-        Mass_A = 1.28
-    elif 4 <= roll_for_high_mass_star_mass <= 6:
-        Mass_A = 1.31
-    elif 7 <= roll_for_high_mass_star_mass <= 9:
-        Mass_A = 1.34
-    elif 10 <= roll_for_high_mass_star_mass <= 12:
-        Mass_A = 1.37
-    elif 13 <= roll_for_high_mass_star_mass <= 16:
-        Mass_A = 1.40
-    elif 17 <= roll_for_high_mass_star_mass <= 19:
-        Mass_A = 1.44
-    elif 20 <= roll_for_high_mass_star_mass <= 23:
-        Mass_A = 1.48
-    elif 24 <= roll_for_high_mass_star_mass <= 27:
-        Mass_A = 1.53
-    elif 28 <= roll_for_high_mass_star_mass <= 31:
-        Mass_A = 1.58
-    elif 32 <= roll_for_high_mass_star_mass <= 35:
-        Mass_A = 1.64
-    elif 36 <= roll_for_high_mass_star_mass <= 38:
-        Mass = 1.70
-    elif 39 <= roll_for_high_mass_star_mass <= 41:
-        Mass = 1.76
-    elif 42 <= roll_for_high_mass_star_mass <= 45:
-        Mass = 1.82
-    elif 46 <= roll_for_high_mass_star_mass <= 49:
-        Mass = 1.90
-    elif 50 <= roll_for_high_mass_star_mass <= 53:
-        Mass = 2.00
-    elif 54 <= roll_for_high_mass_star_mass <= 56:
-        Mass_A = 2.10
-    elif 57 <= roll_for_high_mass_star_mass <= 59:
-        Mass_A = 2.20
-    elif 60 <= roll_for_high_mass_star_mass <= 62:
-        Mass_A = 2.30
-    elif 63 <= roll_for_high_mass_star_mass <= 67:
-        Mass_A = 2.40
-    elif 68 <= roll_for_high_mass_star_mass <= 71:
-        Mass_A = 2.60
-    elif 72 <= roll_for_high_mass_star_mass <= 75:
-        Mass = 2.80
-    elif 76 <= roll_for_high_mass_star_mass <= 78:
-        Mass_A = 3.00
-    elif 79 <= roll_for_high_mass_star_mass <= 82:
-        Mass_A = 3.20
-    elif 83 <= roll_for_high_mass_star_mass <= 87:
-        Mass_A = 3.50
-    elif 88 <= roll_for_high_mass_star_mass <= 91:
-        Mass_A = 4.00
-    elif 92 <= roll_for_high_mass_star_mass <= 94:
-        Mass_A = 4.50
-    elif 95 <= roll_for_high_mass_star_mass <= 96:
-        Mass_A = 5.00
-    elif 97 <= roll_for_high_mass_star_mass <= 98:
-        Mass_A = 5.50
-    elif 99 <= roll_for_high_mass_star_mass <= 100:
-        Mass_A = 6.00
+def generate_primary_star_mass(category: StarCategory) -> float:
+    """Generate the mass of the primary star based on its category.
+    Returns the mass in solar masses."""
+    roll_for_mass = d100()
+    match category:
+        case StarCategory.BROWN_DWARF:
+            if roll_for_mass <= 10: 
+                return 0.015
+            elif roll_for_mass <= 29:
+                return 0.02
+            elif roll_for_mass <= 45:
+                return 0.03
+            elif roll_for_mass <= 60:
+                return 0.04
+            elif roll_for_mass <= 74:
+                return 0.05
+            elif roll_for_mass <= 87:
+                return 0.06
+            else:  # 88-100
+                return 0.07
+        case StarCategory.LOW_MASS_STAR:            
+            if roll_for_mass <= 13:
+                return 0.08
+            elif roll_for_mass <= 23:
+                return 0.10
+            elif roll_for_mass <= 34:
+                return 0.12
+            elif roll_for_mass <= 43:
+                return 0.15
+            elif roll_for_mass <= 52:
+                return 0.18
+            elif roll_for_mass <= 59:
+                return 0.22
+            elif roll_for_mass <= 65:
+                return 0.26
+            elif roll_for_mass <= 70:
+                return 0.30
+            elif roll_for_mass <= 74:
+                return 0.34
+            elif roll_for_mass <= 77:
+                return 0.38
+            elif roll_for_mass <= 80:
+                return 0.42
+            elif roll_for_mass <= 83:
+                return 0.46
+            elif roll_for_mass <= 86:
+                return 0.50
+            elif roll_for_mass <= 89:
+                return 0.53
+            elif roll_for_mass <= 92:
+                return 0.56
+            elif roll_for_mass <= 95:
+                return 0.59
+            elif roll_for_mass <= 97:
+                return 0.62
+            elif roll_for_mass <= 99:
+                return 0.65
+            else:  # 100
+                return 0.68
+        case StarCategory.INTERMEDIATE_MASS_STAR:
+            if roll_for_mass <= 7:
+                return 0.70
+            elif roll_for_mass <= 13:
+                return 0.72
+            elif roll_for_mass <= 19:
+                return 0.74
+            elif roll_for_mass <= 24:
+                return 0.76
+            elif roll_for_mass <= 29:
+                return 0.78
+            elif roll_for_mass <= 34:
+                return 0.80
+            elif roll_for_mass <= 39:
+                return 0.82
+            elif roll_for_mass <= 43:
+                return 0.84
+            elif roll_for_mass <= 47:
+                return 0.86
+            elif roll_for_mass <= 51:
+                return 0.88
+            elif roll_for_mass <= 55:
+                return 0.90
+            elif roll_for_mass <= 59:
+                return 0.92
+            elif roll_for_mass <= 62:
+                return 0.94
+            elif roll_for_mass <= 65:
+                return 0.96
+            elif roll_for_mass <= 68:
+                return 0.98
+            elif roll_for_mass <= 71:
+                return 1.00
+            elif roll_for_mass <= 74:
+                return 1.02
+            elif roll_for_mass <= 78:
+                return 1.04
+            elif roll_for_mass <= 82:
+                return 1.07
+            elif roll_for_mass <= 85:
+                return 1.10
+            elif roll_for_mass <= 89:
+                return 1.13
+            elif roll_for_mass <= 92:
+                return 1.16
+            elif roll_for_mass <= 95:
+                return 1.19
+            elif roll_for_mass <= 97:
+                return 1.22
+            else:  # 98-100
+                return 1.25
+        case StarCategory.HIGH_MASS_STAR:
+            if roll_for_mass <= 3:
+                return 1.28
+            elif roll_for_mass <= 6:
+                return 1.31
+            elif roll_for_mass <= 9:
+                return 1.34
+            elif roll_for_mass <= 12:
+                return 1.37
+            elif roll_for_mass <= 16:
+                return 1.40
+            elif roll_for_mass <= 19:
+                return 1.44
+            elif roll_for_mass <= 23:
+                return 1.48
+            elif roll_for_mass <= 27:
+                return 1.53
+            elif roll_for_mass <= 31:
+                return 1.58
+            elif roll_for_mass <= 35:
+                return 1.64
+            elif roll_for_mass <= 38:
+                return 1.70
+            elif roll_for_mass <= 41:
+                return 1.76
+            elif roll_for_mass <= 45:
+                return 1.82
+            elif roll_for_mass <= 49:
+                return 1.90
+            elif roll_for_mass <= 53:
+                return 2.00
+            elif roll_for_mass <= 56:
+                return 2.10
+            elif roll_for_mass <= 59:
+                return 2.20
+            elif roll_for_mass <= 62:
+                return 2.30
+            elif roll_for_mass <= 67:
+                return 2.40
+            elif roll_for_mass <= 71:
+                return 2.60
+            elif roll_for_mass <= 75:
+                return 2.80
+            elif roll_for_mass <= 78:
+                return 3.00
+            elif roll_for_mass <= 82:
+                return 3.20
+            elif roll_for_mass <= 87:
+                return 3.50
+            elif roll_for_mass <= 91:
+                return 4.00
+            elif roll_for_mass <= 94:
+                return 4.50
+            elif roll_for_mass <= 96:
+                return 5.00
+            elif roll_for_mass <= 98:
+                return 5.50
+            else:   # 99-100
+                return 6.00
+    
+Category = generate_star_category()
+Mass_A = generate_primary_star_mass(Category)
+    
 print(f"Primary Star Type: {Category}")
 Mass_A = round(Mass_A, 3)
 print(f"Mass of Star A: {Mass_A} solar masses")
@@ -199,61 +220,37 @@ print(f"Mass of Star A: {Mass_A} solar masses")
 # Step 2: Stellar Multiplicity
 
 Number_of_Stars = 0
-first_roll_for_number_of_stars = _3d6()
-second_roll_for_number_of_stars = d100()
 
-if Mass_A < 0.08:
-    if 1 <= first_roll_for_number_of_stars <= 13:
-        Number_of_Stars = 1
-    elif 14 <= first_roll_for_number_of_stars <= 18:
-        if 1 <= second_roll_for_number_of_stars <= 75:
-            Number_of_Stars = 2
-        elif 76 <= second_roll_for_number_of_stars <= 95:
-            Number_of_Stars = 3
-        elif 96 <= second_roll_for_number_of_stars <= 100:
-            Number_of_Stars = 4
-elif 0.08 <= Mass_A < 0.70:
-    if 1 <= first_roll_for_number_of_stars <= 12:
-        Number_of_Stars = 1
-    elif 13 <= first_roll_for_number_of_stars <= 18:
-        if 1 <= second_roll_for_number_of_stars <= 75:
-            Number_of_Stars = 2
-        elif 76 <= second_roll_for_number_of_stars <= 95:
-            Number_of_Stars = 3
-        elif 96 <= second_roll_for_number_of_stars <= 100:
-            Number_of_Stars = 4
-elif 0.7 <= Mass_A < 1.00:
-    if 1 <= first_roll_for_number_of_stars <= 11:
-        Number_of_Stars = 1
-    elif 12 <= first_roll_for_number_of_stars <= 18:
-        if 1 <= second_roll_for_number_of_stars <= 75:
-            Number_of_Stars = 2
-        elif 76 <= second_roll_for_number_of_stars <= 95:
-            Number_of_Stars = 3
-        elif 96 <= second_roll_for_number_of_stars <= 100:
-            Number_of_Stars = 4
-elif 1.00 <= Mass_A < 1.30:
-    if 1 <= first_roll_for_number_of_stars <= 10:
-        Number_of_Stars = 1
-    elif 11 <= first_roll_for_number_of_stars <= 18:
-        if 1 <= second_roll_for_number_of_stars <= 75:
-            Number_of_Stars = 2
-        elif 76 <= second_roll_for_number_of_stars <= 95:
-            Number_of_Stars = 3
-        elif 96 <= second_roll_for_number_of_stars <= 100:
-            Number_of_Stars = 4
-elif 1.30 <= Mass_A: 
-    if 1 <= first_roll_for_number_of_stars <= 9:
-        Number_of_Stars = 1
-    elif 10 <= first_roll_for_number_of_stars <= 18:
-        if 1 <= second_roll_for_number_of_stars <= 75:
-            Number_of_Stars = 2
-        elif 76 <= second_roll_for_number_of_stars <= 95:
-            Number_of_Stars = 3
-        elif 96 <= second_roll_for_number_of_stars <= 100:
-            Number_of_Stars = 4
+def generate_number_of_stars(primary_mass: float) -> int:
+    """Determine the number of stars in the system based on the mass of the primary star
+    and two rolls."""
 
+    first_roll_for_number_of_stars = _3d6()
+    if first_roll_for_number_of_stars < 9:
+        return 1
+    
+    second_roll_for_number_of_stars = d100()
+    multiple_stars = 2
+    if 76 <= second_roll_for_number_of_stars <= 95:
+        multiple_stars = 3
+    elif 96 <= second_roll_for_number_of_stars <= 100:
+        multiple_stars = 4
+
+    if primary_mass < 0.08:
+        return 1 if first_roll_for_number_of_stars <= 13 else multiple_stars
+    elif primary_mass < 0.70:
+        return 1 if first_roll_for_number_of_stars <= 12 else multiple_stars
+    elif primary_mass < 1.00:
+        return 1 if first_roll_for_number_of_stars <= 11 else multiple_stars
+    elif primary_mass < 1.30:
+        return 1 if first_roll_for_number_of_stars <= 10 else multiple_stars
+    else: 
+        return 1 if first_roll_for_number_of_stars <= 9 else multiple_stars
+
+
+Number_of_Stars = generate_number_of_stars(Mass_A)
 print(f"Number of Stars in System: {Number_of_Stars}")
+assert 1 <= Number_of_Stars <= 4
 
 # Step 3: Arrange Components
 
