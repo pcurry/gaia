@@ -3315,21 +3315,33 @@ if Number_of_Stars == 4:
         print("Single Star System - No Forbidden Zone for Planet Formation")
     if Number_of_Stars == 2:
         Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A = (1/3) * binary_minimum_distance
+        print(f"Forbidden Zone for Star A begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A} AU")
         Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B = (1/3) * binary_minimum_distance
+        print(f"Forbidden Zone for Star B begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B} AU")
     if Number_of_Stars == 3:
         if Stellar_Arrangement == "A-BC":
             Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A = (1/3) * A_BC_minimum_distance
+            print(f"Forbidden Zone for Star A begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A} AU")
             Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B = (1/3) * BC_minimum_distance
+            print(f"Forbidden Zone for Star B begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B} AU")
             Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C = (1/3) * BC_minimum_distance
+            print(f"Forbidden Zone for Star C begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C} AU")
         if Stellar_Arrangement == "AB-C":
             Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A = (1/3) * AB_minimum_distance
+            print(f"Forbidden Zone for Star A begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A} AU")
             Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B = (1/3) * AB_minimum_distance
+            print(f"Forbidden Zone for Star B begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B} AU")
             Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C = (1/3) * AB_C_minimum_distance
+            print(f"Forbidden Zone for Star c begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C} AU")
     if Number_of_Stars == 4:
         Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A = (1/3) * AB_minimum_distance
+        print(f"Forbidden Zone for Star A begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A} AU")
         Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B = (1/3) * AB_minimum_distance
+        print(f"Forbidden Zone for Star B begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B} AU")
         Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C = (1/3) * CD_minimum_distance
+        print(f"Forbidden Zone for Star C begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C} AU")
         Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_D = (1/3) * CD_minimum_distance
+        print(f"Forbidden Zone for Star D begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_D} AU")
 
     # arrange planetary formation orbits
 
