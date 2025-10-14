@@ -3344,6 +3344,918 @@ if Number_of_Stars == 4:
         print(f"Forbidden Zone for Star D begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_D} AU")
 
     # arrange planetary formation orbits
+    if Number_of_Stars >= 1:
+
+        Star_A_Protoplanet_1_Flag = "Yes"
+        Star_A_Protoplanet_1_Speed_Flag = "Fast"
+        Star_A_Protoplanet_2_Flag = "Yes"
+        Star_A_Protoplanet_2_Speed_Flag = "Fast"
+        Star_A_Protoplanet_3_Flag = "Yes"
+        Star_A_Protoplanet_3_Speed_Flag = "Fast"
+        Star_A_Protoplanet_4_Flag = "Yes"
+        Star_A_Protoplanet_4_Speed_Flag = "Fast"
+        Star_A_Protoplanet_5_Flag = "Yes"
+        Star_A_Protoplanet_5_Speed_Flag = "Fast"
+        Star_A_Protoplanet_6_Flag = "Yes"
+        Star_A_Protoplanet_6_Speed_Flag = "Fast"
+        Star_A_Protoplanet_7_Flag = "Yes"
+        Star_A_Protoplanet_7_Speed_Flag = "Fast"
+        Star_A_Protoplanet_8_Flag = "Yes"
+        Star_A_Protoplanet_8_Speed_Flag = "Fast"
+        Star_A_Protoplanet_9_Flag = "Yes"
+        Star_A_Protoplanet_9_Speed_Flag = "Fast"
+        Star_A_Protoplanet_10_Flag = "Yes"
+        Star_A_Protoplanet_10_Speed_Flag = "Fast"
+        Star_A_Protoplanet_11_Flag = "Yes"
+        Star_A_Protoplanet_11_Speed_Flag = "Fast"
+        Star_A_Protoplanet_12_Flag = "Yes"
+        Star_A_Protoplanet_12_Speed_Flag = "Fast"
+        Star_A_Protoplanet_13_Flag = "Yes"
+        Star_A_Protoplanet_13_Speed_Flag = "Fast"
+        Star_A_Protoplanet_14_Flag = "Yes"
+        Star_A_Protoplanet_14_Speed_Flag = "Fast"
+        Star_A_Protoplanet_15_Flag = "Yes"
+        Star_A_Protoplanet_15_Speed_Flag = "Fast"
+        Star_A_Protoplanet_16_Flag = "Yes"
+        Star_A_Protoplanet_16_Speed_Flag = "Fast"
+
+        formation_orbit_0_for_Star_A = Disk_Inner_Edge_for_Star_A
+
+        formation_orbit_1_for_Star_A = 0.6 * math.sqrt(Initial_Luminosity_of_Star_A)
+        print("Formation Orbit 1 for Star A is at {formation_orbit_1_for_Star_A} AU")
+        if formation_orbit_0_for_Star_A >= formation_orbit_1_for_Star_A:
+            print("Formation Orbit 1 is within the inner edge - no protoplanet formed")
+            Star_A_Protoplanet_1_Flag = "No"
+        if formation_orbit_1_for_Star_A >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+            print("Formation Orbit 1 is in the Forbidden Zone - no protoplanet formed")
+            Star_A_Protoplanet_1_Flag = "No"
+        if formation_orbit_1_for_Star_A >= Radius_of_Slow_Accretion_Line_for_Star_A:
+            print("Formation Orbit 1 is outisde the slow accretion line")
+            Star_A_Protoplanet_1_Speed_Flag = "Slow"
+
+        formation_orbit_2_for_Star_A = 0.8 * math.sqrt(Initial_Luminosity_of_Star_A)
+        print("Formation Orbit 2 for Star A is at {formation_orbit_2_for_Star_A} AU")
+        if formation_orbit_0_for_Star_A >= formation_orbit_2_for_Star_A:
+            print("Formation Orbit 2 is within the inner edge - no protoplanet formed")
+            Star_A_Protoplanet_2_Flag = "No"
+        if formation_orbit_2_for_Star_A >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+            print("Formation Orbit 2 is in the Forbidden Zone - no protoplanet formed")
+            Star_A_Protoplanet_2_Flag = "No"
+        if formation_orbit_2_for_Star_A >= Radius_of_Slow_Accretion_Line_for_Star_A:
+            print("Formation Orbit 2 is outisde the slow accretion line")
+            Star_A_Protoplanet_2_Speed_Flag = "Slow"
+
+        formation_orbit_3_for_Star_A = 1.2 * math.sqrt(Initial_Luminosity_of_Star_A)
+        print("Formation Orbit 3 for Star A is at {formation_orbit_3_for_Star_A} AU")
+        if formation_orbit_0_for_Star_A >= formation_orbit_3_for_Star_A:
+            print("Formation Orbit 3 is within the inner edge - no protoplanet formed") 
+            Star_A_Protoplanet_3_Flag = "No"
+        if formation_orbit_3_for_Star_A >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+            print("Formation Orbit 3 is in the Forbidden Zone - no protoplanet formed")
+            Star_A_Protoplanet_3_Flag = "No"
+        if formation_orbit_3_for_Star_A >= Radius_of_Slow_Accretion_Line_for_Star_A:
+            print("Formation Orbit 3 is outisde the slow accretion line")
+            Star_A_Protoplanet_3_Speed_Flag = "Slow"
+
+        formation_orbit_4_for_Star_A = 1.8 * math.sqrt(Initial_Luminosity_of_Star_A)
+        print("Formation Orbit 4 for Star A is at {formation_orbit_4_for_Star_A} AU")
+        if formation_orbit_0_for_Star_A >= formation_orbit_4_for_Star_A:
+            print("Formation Orbit 4 is within the inner edge - no protoplanet formed")
+            Star_A_Protoplanet_4_Flag = "No"
+        if formation_orbit_4_for_Star_A >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+            print("Formation Orbit 4 is in the Forbidden Zone - no protoplanet formed")
+            Star_A_Protoplanet_4_Flag = "No"
+        if formation_orbit_4_for_Star_A >= Radius_of_Slow_Accretion_Line_for_Star_A:
+            print("Formation Orbit 4 is outisde the slow accretion line")
+            Star_A_Protoplanet_4_Speed_Flag = "Slow"
+
+        formation_orbit_5_for_Star_A = 2.7 * math.sqrt(Initial_Luminosity_of_Star_A)
+        print("Formation Orbit 5 for Star A is at {formation_orbit_5_for_Star_A} AU")
+        if formation_orbit_0_for_Star_A >= formation_orbit_5_for_Star_A:
+            print("Formation Orbit 5 is within the inner edge - no protoplanet formed")
+            Star_A_Protoplanet_5_Flag = "No"
+        if formation_orbit_5_for_Star_A >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+            print("Formation Orbit 5 is in the Forbidden Zone - no protoplanet formed")
+            Star_A_Protoplanet_5_Flag = "No"
+        if formation_orbit_5_for_Star_A >= Radius_of_Slow_Accretion_Line_for_Star_A:
+            print("Formation Orbit 5 is outisde the slow accretion line")
+            Star_A_Protoplanet_5_Speed_Flag = "Slow"
+
+        formation_orbit_6_for_Star_A = 4.0 * math.sqrt(Initial_Luminosity_of_Star_A)
+        print("Formation Orbit 6 for Star A is at {formation_orbit_6_for_Star_A} AU")
+        if formation_orbit_0_for_Star_A >= formation_orbit_6_for_Star_A:
+            print("Formation Orbit 6 is within the inner edge - no protoplanet formed")
+            Star_A_Protoplanet_6_Flag = "No"
+        if formation_orbit_6_for_Star_A >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+            print("Formation Orbit 6 is in the Forbidden Zone - no protoplanet formed")
+            Star_A_Protoplanet_6_Flag = "No"
+        if formation_orbit_6_for_Star_A >= Radius_of_Slow_Accretion_Line_for_Star_A:
+            print("Formation Orbit 6 is outisde the slow accretion line")
+            Star_A_Protoplanet_6_Speed_Flag = "Slow"
+
+        formation_orbit_7_for_Star_A = 6.0 * math.sqrt(Initial_Luminosity_of_Star_A)
+        print("Formation Orbit 7 for Star A is at {formation_orbit_7_for_Star_A} AU")
+        if formation_orbit_0_for_Star_A >= formation_orbit_7_for_Star_A:
+            print("Formation Orbit 7 is within the inner edge - no protoplanet formed")
+            Star_A_Protoplanet_7_Flag = "No"
+        if formation_orbit_7_for_Star_A >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+            print("Formation Orbit 7 is in the Forbidden Zone - no protoplanet formed")
+            Star_A_Protoplanet_7_Flag = "No"
+        if formation_orbit_7_for_Star_A >= Radius_of_Slow_Accretion_Line_for_Star_A:
+            print("Formation Orbit 7 is outisde the slow accretion line")
+            Star_A_Protoplanet_7_Speed_Flag = "Slow"
+
+        formation_orbit_8_for_Star_A = 9.0 * math.sqrt(Initial_Luminosity_of_Star_A)
+        print("Formation Orbit 8 for Star A is at {formation_orbit_8_for_Star_A} AU")
+        if formation_orbit_0_for_Star_A >= formation_orbit_8_for_Star_A:
+            print("Formation Orbit 8 is within the inner edge - no protoplanet formed")
+            Star_A_Protoplanet_8_Flag = "No"
+        if formation_orbit_8_for_Star_A >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+            print("Formation Orbit 8 is in the Forbidden Zone - no protoplanet formed")
+            Star_A_Protoplanet_8_Flag = "No"
+        if formation_orbit_8_for_Star_A >= Radius_of_Slow_Accretion_Line_for_Star_A:
+            print("Formation Orbit 8 is outisde the slow accretion line")
+            Star_A_Protoplanet_8_Speed_Flag = "Slow"
+
+        formation_orbit_9_for_Star_A = 13.5 * math.sqrt(Initial_Luminosity_of_Star_A)
+        print("Formation Orbit 9 for Star A is at {formation_orbit_9_for_Star_A} AU")
+        if formation_orbit_0_for_Star_A >= formation_orbit_9_for_Star_A:
+            print("Formation Orbit 9 is within the inner edge - no protoplanet formed")
+            Star_A_Protoplanet_9_Flag = "No"
+        if formation_orbit_9_for_Star_A >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+            print("Formation Orbit 9 is in the Forbidden Zone - no protoplanet formed")
+            Star_A_Protoplanet_9_Flag = "No"
+        if formation_orbit_9_for_Star_A >= Radius_of_Slow_Accretion_Line_for_Star_A:
+            print("Formation Orbit 9 is outisde the slow accretion line")
+            Star_A_Protoplanet_9_Speed_Flag = "Slow"
+
+        formation_orbit_10_for_Star_A = 20.0 * math.sqrt(Initial_Luminosity_of_Star_A)
+        print("Formation Orbit 10 for Star A is at {formation_orbit_10_for_Star_A} AU")
+        if formation_orbit_0_for_Star_A >= formation_orbit_10_for_Star_A:
+            print("Formation Orbit 10 is within the inner edge - no protoplanet formed")
+            Star_A_Protoplanet_10_Flag = "No"
+        if formation_orbit_10_for_Star_A >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+            print("Formation Orbit 10 is in the Forbidden Zone - no protoplanet formed")
+            Star_A_Protoplanet_10_Flag = "No"
+        if formation_orbit_10_for_Star_A >= Radius_of_Slow_Accretion_Line_for_Star_A:
+            print("Formation Orbit 10 is outisde the slow accretion line")
+            Star_A_Protoplanet_10_Speed_Flag = "Slow"
+
+        formation_orbit_11_for_Star_A = 30.0 * math.sqrt(Initial_Luminosity_of_Star_A)
+        print("Formation Orbit 11 for Star A is at {formation_orbit_11_for_Star_A} AU")
+        if formation_orbit_0_for_Star_A >= formation_orbit_10_for_Star_A:
+            print("Formation Orbit 11 is within the inner edge - no protoplanet formed")
+            Star_A_Protoplanet_11_Flag = "No"
+        if formation_orbit_11_for_Star_A >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+            print("Formation Orbit 11 is in the Forbidden Zone - no protoplanet formed")
+            Star_A_Protoplanet_11_Flag = "No"
+        if formation_orbit_11_for_Star_A >= Radius_of_Slow_Accretion_Line_for_Star_A:
+            print("Formation Orbit 11 is outisde the slow accretion line")
+            Star_A_Protoplanet_11_Speed_Flag = "Slow"
+
+        formation_orbit_12_for_Star_A = 45.0 * math.sqrt(Initial_Luminosity_of_Star_A)
+        print("Formation Orbit 12 for Star A is at {formation_orbit_12_for_Star_A} AU")
+        if formation_orbit_0_for_Star_A >= formation_orbit_12_for_Star_A:
+            print("Formation Orbit 12 is within the inner edge - no protoplanet formed")
+            Star_A_Protoplanet_12_Flag = "No"
+        if formation_orbit_12_for_Star_A >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+            print("Formation Orbit 12 is in the Forbidden Zone - no protoplanet formed")
+            Star_A_Protoplanet_12_Flag = "No"
+        if formation_orbit_12_for_Star_A >= Radius_of_Slow_Accretion_Line_for_Star_A:
+            print("Formation Orbit 12 is outisde the slow accretion line")
+            Star_A_Protoplanet_12_Speed_Flag = "Slow"
+
+        formation_orbit_13_for_Star_A = 68.0 * math.sqrt(Initial_Luminosity_of_Star_A)
+        print("Formation Orbit 13 for Star A is at {formation_orbit_13_for_Star_A} AU")
+        if formation_orbit_0_for_Star_A >= formation_orbit_13_for_Star_A:
+            print("Formation Orbit 13 is within the inner edge - no protoplanet formed")
+            Star_A_Protoplanet_13_Flag = "No"
+        if formation_orbit_13_for_Star_A >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+            print("Formation Orbit 13 is in the Forbidden Zone - no protoplanet formed")
+            Star_A_Protoplanet_13_Flag = "No"
+        if formation_orbit_13_for_Star_A >= Radius_of_Slow_Accretion_Line_for_Star_A:
+            print("Formation Orbit 13 is outisde the slow accretion line")
+            Star_A_Protoplanet_13_Speed_Flag = "Slow"
+
+        formation_orbit_14_for_Star_A = 100.0 * math.sqrt(Initial_Luminosity_of_Star_A)
+        print("Formation Orbit 14 for Star A is at {formation_orbit_14_for_Star_A} AU")
+        if formation_orbit_0_for_Star_A >= formation_orbit_14_for_Star_A:
+            print("Formation Orbit 14 is within the inner edge - no protoplanet formed")
+            Star_A_Protoplanet_14_Flag = "No"
+        if formation_orbit_14_for_Star_A >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+            print("Formation Orbit 14 is in the Forbidden Zone - no protoplanet formed")
+            Star_A_Protoplanet_14_Flag = "No"
+        if formation_orbit_14_for_Star_A >= Radius_of_Slow_Accretion_Line_for_Star_A:
+            print("Formation Orbit 14 is outisde the slow accretion line")
+            Star_A_Protoplanet_14_Speed_Flag = "Slow"
+
+        formation_orbit_15_for_Star_A = 150.0 * math.sqrt(Initial_Luminosity_of_Star_A)
+        print("Formation Orbit 15 for Star A is at {formation_orbit_15_for_Star_A} AU")
+        if formation_orbit_0_for_Star_A >= formation_orbit_15_for_Star_A:
+            print("Formation Orbit 15 is within the inner edge - no protoplanet formed")
+            Star_A_Protoplanet_15_Flag = "No"
+        if formation_orbit_15_for_Star_A >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+            print("Formation Orbit 15 is in the Forbidden Zone - no protoplanet formed")
+            Star_A_Protoplanet_15_Flag = "No"
+        if formation_orbit_15_for_Star_A >= Radius_of_Slow_Accretion_Line_for_Star_A:
+            print("Formation Orbit 15 is outisde the slow accretion line")
+            Star_A_Protoplanet_15_Speed_Flag = "Slow"
+
+        formation_orbit_16_for_Star_A = 222.0 * math.sqrt(Initial_Luminosity_of_Star_A)
+        print("Formation Orbit 16 for Star A is at {formation_orbit_16_for_Star_A} AU")
+        if formation_orbit_0_for_Star_A >= formation_orbit_16_for_Star_A:
+            print("Formation Orbit 16 is within the inner edge - no protoplanet formed")
+            Star_A_Protoplanet_16_Flag = "No"
+        if formation_orbit_16_for_Star_A >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+            print("Formation Orbit 14 is in the Forbidden Zone - no protoplanet formed")
+            Star_A_Protoplanet_16_Flag = "No"
+        if formation_orbit_16_for_Star_A >= Radius_of_Slow_Accretion_Line_for_Star_A:
+            print("Formation Orbit 16 is outisde the slow accretion line")
+            Star_A_Protoplanet_16_Speed_Flag = "Slow"
+
+    if Number_of_Stars >= 2:
+        Star_B_Protoplanet_1_Flag = "Yes"
+        Star_B_Protoplanet_1_Speed_Flag = "Fast"
+        Star_B_Protoplanet_2_Flag = "Yes"
+        Star_B_Protoplanet_2_Speed_Flag = "Fast"
+        Star_B_Protoplanet_3_Flag = "Yes"
+        Star_B_Protoplanet_3_Speed_Flag = "Fast"
+        Star_B_Protoplanet_4_Flag = "Yes"
+        Star_B_Protoplanet_4_Speed_Flag = "Fast"
+        Star_B_Protoplanet_5_Flag = "Yes"
+        Star_B_Protoplanet_5_Speed_Flag = "Fast"
+        Star_B_Protoplanet_6_Flag = "Yes"
+        Star_B_Protoplanet_6_Speed_Flag = "Fast"
+        Star_B_Protoplanet_7_Flag = "Yes"
+        Star_B_Protoplanet_7_Speed_Flag = "Fast"
+        Star_B_Protoplanet_8_Flag = "Yes"
+        Star_B_Protoplanet_8_Speed_Flag = "Fast"
+        Star_B_Protoplanet_9_Flag = "Yes"
+        Star_B_Protoplanet_9_Speed_Flag = "Fast"
+        Star_B_Protoplanet_10_Flag = "Yes"
+        Star_B_Protoplanet_10_Speed_Flag = "Fast"
+        Star_B_Protoplanet_11_Flag = "Yes"
+        Star_B_Protoplanet_11_Speed_Flag = "Fast"
+        Star_B_Protoplanet_12_Flag = "Yes"
+        Star_B_Protoplanet_12_Speed_Flag = "Fast"
+        Star_B_Protoplanet_13_Flag = "Yes"
+        Star_B_Protoplanet_13_Speed_Flag = "Fast"
+        Star_B_Protoplanet_14_Flag = "Yes"
+        Star_B_Protoplanet_14_Speed_Flag = "Fast"
+        Star_B_Protoplanet_15_Flag = "Yes"
+        Star_B_Protoplanet_15_Speed_Flag = "Fast"
+        Star_B_Protoplanet_16_Flag = "Yes"
+        Star_B_Protoplanet_16_Speed_Flag = "Fast"
+
+        formation_orbit_0_for_Star_B = Disk_Inner_Edge_for_Star_B
+
+        formation_orbit_1_for_Star_B = 0.6 * math.sqrt(Initial_Luminosity_of_Star_B)
+        print("Formation Orbit 1 for Star A is at {formation_orbit_1_for_Star_B} AU")
+        if formation_orbit_0_for_Star_B >= formation_orbit_1_for_Star_B:
+            print("Formation Orbit 1 is within the inner edge - no protoplanet formed")
+            Star_B_Protoplanet_1_Flag = "No"
+        if formation_orbit_1_for_Star_B >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B:
+            print("Formation Orbit 1 is in the Forbidden Zone - no protoplanet formed")
+            Star_B_Protoplanet_1_Flag = "No"
+        if formation_orbit_1_for_Star_B >= Radius_of_Slow_Accretion_Line_for_Star_B:
+            print("Formation Orbit 1 is outisde the slow accretion line")
+            Star_B_Protoplanet_1_Speed_Flag = "Slow"
+
+        formation_orbit_2_for_Star_B = 0.8 * math.sqrt(Initial_Luminosity_of_Star_B)
+        print("Formation Orbit 2 for Star A is at {formation_orbit_2_for_Star_B} AU")
+        if formation_orbit_0_for_Star_B >= formation_orbit_2_for_Star_B:
+            print("Formation Orbit 2 is within the inner edge - no protoplanet formed")
+            Star_B_Protoplanet_2_Flag = "No"
+        if formation_orbit_2_for_Star_B >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B:
+            print("Formation Orbit 2 is in the Forbidden Zone - no protoplanet formed")
+            Star_B_Protoplanet_2_Flag = "No"
+        if formation_orbit_2_for_Star_B >= Radius_of_Slow_Accretion_Line_for_Star_B:
+            print("Formation Orbit 2 is outisde the slow accretion line")
+            Star_B_Protoplanet_2_Speed_Flag = "Slow"
+
+        formation_orbit_3_for_Star_B = 1.2 * math.sqrt(Initial_Luminosity_of_Star_B)
+        print("Formation Orbit 3 for Star A is at {formation_orbit_3_for_Star_B} AU")
+        if formation_orbit_0_for_Star_B >= formation_orbit_3_for_Star_B:
+            print("Formation Orbit 3 is within the inner edge - no protoplanet formed") 
+            Star_B_Protoplanet_3_Flag = "No"
+        if formation_orbit_3_for_Star_B >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B:
+            print("Formation Orbit 3 is in the Forbidden Zone - no protoplanet formed")
+            Star_B_Protoplanet_3_Flag = "No"
+        if formation_orbit_3_for_Star_B >= Radius_of_Slow_Accretion_Line_for_Star_B:
+            print("Formation Orbit 3 is outisde the slow accretion line")
+            Star_B_Protoplanet_3_Speed_Flag = "Slow"
+
+        formation_orbit_4_for_Star_B = 1.8 * math.sqrt(Initial_Luminosity_of_Star_B)
+        print("Formation Orbit 4 for Star A is at {formation_orbit_4_for_Star_B} AU")
+        if formation_orbit_0_for_Star_B >= formation_orbit_4_for_Star_B:
+            print("Formation Orbit 4 is within the inner edge - no protoplanet formed")
+            Star_B_Protoplanet_4_Flag = "No"
+        if formation_orbit_4_for_Star_B >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B:
+            print("Formation Orbit 4 is in the Forbidden Zone - no protoplanet formed")
+            Star_B_Protoplanet_4_Flag = "No"
+        if formation_orbit_4_for_Star_B >= Radius_of_Slow_Accretion_Line_for_Star_B:
+            print("Formation Orbit 4 is outisde the slow accretion line")
+            Star_B_Protoplanet_4_Speed_Flag = "Slow"
+
+        formation_orbit_5_for_Star_B = 2.7 * math.sqrt(Initial_Luminosity_of_Star_B)
+        print("Formation Orbit 5 for Star A is at {formation_orbit_5_for_Star_B} AU")
+        if formation_orbit_0_for_Star_B >= formation_orbit_5_for_Star_B:
+            print("Formation Orbit 5 is within the inner edge - no protoplanet formed")
+            Star_B_Protoplanet_5_Flag = "No"
+        if formation_orbit_5_for_Star_B >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B:
+            print("Formation Orbit 5 is in the Forbidden Zone - no protoplanet formed")
+            Star_B_Protoplanet_5_Flag = "No"
+        if formation_orbit_5_for_Star_B >= Radius_of_Slow_Accretion_Line_for_Star_B:
+            print("Formation Orbit 5 is outisde the slow accretion line")
+            Star_B_Protoplanet_5_Speed_Flag = "Slow"
+
+        formation_orbit_6_for_Star_B = 4.0 * math.sqrt(Initial_Luminosity_of_Star_B)
+        print("Formation Orbit 6 for Star A is at {formation_orbit_6_for_Star_B} AU")
+        if formation_orbit_0_for_Star_B >= formation_orbit_6_for_Star_B:
+            print("Formation Orbit 6 is within the inner edge - no protoplanet formed")
+            Star_B_Protoplanet_6_Flag = "No"
+        if formation_orbit_6_for_Star_B >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B:
+            print("Formation Orbit 6 is in the Forbidden Zone - no protoplanet formed")
+            Star_B_Protoplanet_6_Flag = "No"
+        if formation_orbit_6_for_Star_B >= Radius_of_Slow_Accretion_Line_for_Star_B:
+            print("Formation Orbit 6 is outisde the slow accretion line")
+            Star_B_Protoplanet_6_Speed_Flag = "Slow"
+
+        formation_orbit_7_for_Star_B = 6.0 * math.sqrt(Initial_Luminosity_of_Star_B)
+        print("Formation Orbit 7 for Star A is at {formation_orbit_7_for_Star_B} AU")
+        if formation_orbit_0_for_Star_B >= formation_orbit_7_for_Star_B:
+            print("Formation Orbit 7 is within the inner edge - no protoplanet formed")
+            Star_B_Protoplanet_7_Flag = "No"
+        if formation_orbit_7_for_Star_B >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B:
+            print("Formation Orbit 7 is in the Forbidden Zone - no protoplanet formed")
+            Star_B_Protoplanet_7_Flag = "No"
+        if formation_orbit_7_for_Star_B >= Radius_of_Slow_Accretion_Line_for_Star_B:
+            print("Formation Orbit 7 is outisde the slow accretion line")
+            Star_B_Protoplanet_7_Speed_Flag = "Slow"
+
+        formation_orbit_8_for_Star_B = 9.0 * math.sqrt(Initial_Luminosity_of_Star_B)
+        print("Formation Orbit 8 for Star A is at {formation_orbit_8_for_Star_B} AU")
+        if formation_orbit_0_for_Star_B >= formation_orbit_8_for_Star_B:
+            print("Formation Orbit 8 is within the inner edge - no protoplanet formed")
+            Star_B_Protoplanet_8_Flag = "No"
+        if formation_orbit_8_for_Star_B >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B:
+            print("Formation Orbit 8 is in the Forbidden Zone - no protoplanet formed")
+            Star_B_Protoplanet_8_Flag = "No"
+        if formation_orbit_8_for_Star_B >= Radius_of_Slow_Accretion_Line_for_Star_B:
+            print("Formation Orbit 8 is outisde the slow accretion line")
+            Star_B_Protoplanet_8_Speed_Flag = "Slow"
+
+        formation_orbit_9_for_Star_B = 13.5 * math.sqrt(Initial_Luminosity_of_Star_B)
+        print("Formation Orbit 9 for Star A is at {formation_orbit_9_for_Star_B} AU")
+        if formation_orbit_0_for_Star_B >= formation_orbit_9_for_Star_B:
+            print("Formation Orbit 9 is within the inner edge - no protoplanet formed")
+            Star_B_Protoplanet_9_Flag = "No"
+        if formation_orbit_9_for_Star_B >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B:
+            print("Formation Orbit 9 is in the Forbidden Zone - no protoplanet formed")
+            Star_B_Protoplanet_9_Flag = "No"
+        if formation_orbit_9_for_Star_B >= Radius_of_Slow_Accretion_Line_for_Star_B:
+            print("Formation Orbit 9 is outisde the slow accretion line")
+            Star_B_Protoplanet_9_Speed_Flag = "Slow"
+
+        formation_orbit_10_for_Star_B = 20.0 * math.sqrt(Initial_Luminosity_of_Star_B)
+        print("Formation Orbit 10 for Star A is at {formation_orbit_10_for_Star_B} AU")
+        if formation_orbit_0_for_Star_B >= formation_orbit_10_for_Star_B:
+            print("Formation Orbit 10 is within the inner edge - no protoplanet formed")
+            Star_B_Protoplanet_10_Flag = "No"
+        if formation_orbit_10_for_Star_B >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B:
+            print("Formation Orbit 10 is in the Forbidden Zone - no protoplanet formed")
+            Star_B_Protoplanet_10_Flag = "No"
+        if formation_orbit_10_for_Star_B >= Radius_of_Slow_Accretion_Line_for_Star_B:
+            print("Formation Orbit 10 is outisde the slow accretion line")
+            Star_B_Protoplanet_10_Speed_Flag = "Slow"
+
+        formation_orbit_11_for_Star_B = 30.0 * math.sqrt(Initial_Luminosity_of_Star_B)
+        print("Formation Orbit 11 for Star A is at {formation_orbit_11_for_Star_B} AU")
+        if formation_orbit_0_for_Star_B >= formation_orbit_10_for_Star_B:
+            print("Formation Orbit 11 is within the inner edge - no protoplanet formed")
+            Star_B_Protoplanet_11_Flag = "No"
+        if formation_orbit_11_for_Star_B >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B:
+            print("Formation Orbit 11 is in the Forbidden Zone - no protoplanet formed")
+            Star_B_Protoplanet_11_Flag = "No"
+        if formation_orbit_11_for_Star_B >= Radius_of_Slow_Accretion_Line_for_Star_B:
+            print("Formation Orbit 11 is outisde the slow accretion line")
+            Star_B_Protoplanet_11_Speed_Flag = "Slow"
+
+        formation_orbit_12_for_Star_B = 45.0 * math.sqrt(Initial_Luminosity_of_Star_B)
+        print("Formation Orbit 12 for Star A is at {formation_orbit_12_for_Star_B} AU")
+        if formation_orbit_0_for_Star_B >= formation_orbit_12_for_Star_B:
+            print("Formation Orbit 12 is within the inner edge - no protoplanet formed")
+            Star_B_Protoplanet_12_Flag = "No"
+        if formation_orbit_12_for_Star_B >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B:
+            print("Formation Orbit 12 is in the Forbidden Zone - no protoplanet formed")
+            Star_B_Protoplanet_12_Flag = "No"
+        if formation_orbit_12_for_Star_B >= Radius_of_Slow_Accretion_Line_for_Star_B:
+            print("Formation Orbit 12 is outisde the slow accretion line")
+            Star_B_Protoplanet_12_Speed_Flag = "Slow"
+
+        formation_orbit_13_for_Star_B = 68.0 * math.sqrt(Initial_Luminosity_of_Star_B)
+        print("Formation Orbit 13 for Star A is at {formation_orbit_13_for_Star_B} AU")
+        if formation_orbit_0_for_Star_B >= formation_orbit_13_for_Star_B:
+            print("Formation Orbit 13 is within the inner edge - no protoplanet formed")
+            Star_B_Protoplanet_13_Flag = "No"
+        if formation_orbit_13_for_Star_B >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B:
+            print("Formation Orbit 13 is in the Forbidden Zone - no protoplanet formed")
+            Star_B_Protoplanet_13_Flag = "No"
+        if formation_orbit_13_for_Star_B >= Radius_of_Slow_Accretion_Line_for_Star_B:
+            print("Formation Orbit 13 is outisde the slow accretion line")
+            Star_B_Protoplanet_13_Speed_Flag = "Slow"
+
+        formation_orbit_14_for_Star_B = 100.0 * math.sqrt(Initial_Luminosity_of_Star_B)
+        print("Formation Orbit 14 for Star A is at {formation_orbit_14_for_Star_B} AU")
+        if formation_orbit_0_for_Star_B >= formation_orbit_14_for_Star_B:
+            print("Formation Orbit 14 is within the inner edge - no protoplanet formed")
+            Star_B_Protoplanet_14_Flag = "No"
+        if formation_orbit_14_for_Star_B >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B:
+            print("Formation Orbit 14 is in the Forbidden Zone - no protoplanet formed")
+            Star_B_Protoplanet_14_Flag = "No"
+        if formation_orbit_14_for_Star_B >= Radius_of_Slow_Accretion_Line_for_Star_B:
+            print("Formation Orbit 14 is outisde the slow accretion line")
+            Star_B_Protoplanet_14_Speed_Flag = "Slow"
+
+        formation_orbit_15_for_Star_B = 150.0 * math.sqrt(Initial_Luminosity_of_Star_B)
+        print("Formation Orbit 15 for Star A is at {formation_orbit_15_for_Star_B} AU")
+        if formation_orbit_0_for_Star_B >= formation_orbit_15_for_Star_B:
+            print("Formation Orbit 15 is within the inner edge - no protoplanet formed")
+            Star_B_Protoplanet_15_Flag = "No"
+        if formation_orbit_15_for_Star_B >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B:
+            print("Formation Orbit 15 is in the Forbidden Zone - no protoplanet formed")
+            Star_B_Protoplanet_15_Flag = "No"
+        if formation_orbit_15_for_Star_B >= Radius_of_Slow_Accretion_Line_for_Star_B:
+            print("Formation Orbit 15 is outisde the slow accretion line")
+            Star_B_Protoplanet_15_Speed_Flag = "Slow"
+
+        formation_orbit_16_for_Star_B = 222.0 * math.sqrt(Initial_Luminosity_of_Star_B)
+        print("Formation Orbit 16 for Star A is at {formation_orbit_16_for_Star_B} AU")
+        if formation_orbit_0_for_Star_B >= formation_orbit_16_for_Star_B:
+            print("Formation Orbit 16 is within the inner edge - no protoplanet formed")
+            Star_B_Protoplanet_16_Flag = "No"
+        if formation_orbit_16_for_Star_B >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B:
+            print("Formation Orbit 14 is in the Forbidden Zone - no protoplanet formed")
+            Star_B_Protoplanet_16_Flag = "No"
+        if formation_orbit_16_for_Star_B >= Radius_of_Slow_Accretion_Line_for_Star_B:
+            print("Formation Orbit 16 is outisde the slow accretion line")
+            Star_B_Protoplanet_16_Speed_Flag = "Slow"
+
+    if Number_of_Stars >= 3:
+        Star_C_Protoplanet_1_Flag = "Yes"
+        Star_C_Protoplanet_1_Speed_Flag = "Fast"
+        Star_C_Protoplanet_2_Flag = "Yes"
+        Star_C_Protoplanet_2_Speed_Flag = "Fast"
+        Star_C_Protoplanet_3_Flag = "Yes"
+        Star_C_Protoplanet_3_Speed_Flag = "Fast"
+        Star_C_Protoplanet_4_Flag = "Yes"
+        Star_C_Protoplanet_4_Speed_Flag = "Fast"
+        Star_C_Protoplanet_5_Flag = "Yes"
+        Star_C_Protoplanet_5_Speed_Flag = "Fast"
+        Star_C_Protoplanet_6_Flag = "Yes"
+        Star_C_Protoplanet_6_Speed_Flag = "Fast"
+        Star_C_Protoplanet_7_Flag = "Yes"
+        Star_C_Protoplanet_7_Speed_Flag = "Fast"
+        Star_C_Protoplanet_8_Flag = "Yes"
+        Star_C_Protoplanet_8_Speed_Flag = "Fast"
+        Star_C_Protoplanet_9_Flag = "Yes"
+        Star_C_Protoplanet_9_Speed_Flag = "Fast"
+        Star_C_Protoplanet_10_Flag = "Yes"
+        Star_C_Protoplanet_10_Speed_Flag = "Fast"
+        Star_C_Protoplanet_11_Flag = "Yes"
+        Star_C_Protoplanet_11_Speed_Flag = "Fast"
+        Star_C_Protoplanet_12_Flag = "Yes"
+        Star_C_Protoplanet_12_Speed_Flag = "Fast"
+        Star_C_Protoplanet_13_Flag = "Yes"
+        Star_C_Protoplanet_13_Speed_Flag = "Fast"
+        Star_C_Protoplanet_14_Flag = "Yes"
+        Star_C_Protoplanet_14_Speed_Flag = "Fast"
+        Star_C_Protoplanet_15_Flag = "Yes"
+        Star_C_Protoplanet_15_Speed_Flag = "Fast"
+        Star_C_Protoplanet_16_Flag = "Yes"
+        Star_C_Protoplanet_16_Speed_Flag = "Fast"
+
+        formation_orbit_0_for_Star_C = Disk_Inner_Edge_for_Star_C
+
+        formation_orbit_1_for_Star_C = 0.6 * math.sqrt(Initial_Luminosity_of_Star_C)
+        print("Formation Orbit 1 for Star A is at {formation_orbit_1_for_Star_C} AU")
+        if formation_orbit_0_for_Star_C >= formation_orbit_1_for_Star_C:
+            print("Formation Orbit 1 is within the inner edge - no protoplanet formed")
+            Star_C_Protoplanet_1_Flag = "No"
+        if formation_orbit_1_for_Star_C >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C:
+            print("Formation Orbit 1 is in the Forbidden Zone - no protoplanet formed")
+            Star_C_Protoplanet_1_Flag = "No"
+        if formation_orbit_1_for_Star_C >= Radius_of_Slow_Accretion_Line_for_Star_C:
+            print("Formation Orbit 1 is outisde the slow accretion line")
+            Star_C_Protoplanet_1_Speed_Flag = "Slow"
+
+        formation_orbit_2_for_Star_C = 0.8 * math.sqrt(Initial_Luminosity_of_Star_C)
+        print("Formation Orbit 2 for Star A is at {formation_orbit_2_for_Star_C} AU")
+        if formation_orbit_0_for_Star_C >= formation_orbit_2_for_Star_C:
+            print("Formation Orbit 2 is within the inner edge - no protoplanet formed")
+            Star_C_Protoplanet_2_Flag = "No"
+        if formation_orbit_2_for_Star_C >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C:
+            print("Formation Orbit 2 is in the Forbidden Zone - no protoplanet formed")
+            Star_C_Protoplanet_2_Flag = "No"
+        if formation_orbit_2_for_Star_C >= Radius_of_Slow_Accretion_Line_for_Star_C:
+            print("Formation Orbit 2 is outisde the slow accretion line")
+            Star_C_Protoplanet_2_Speed_Flag = "Slow"
+
+        formation_orbit_3_for_Star_C = 1.2 * math.sqrt(Initial_Luminosity_of_Star_C)
+        print("Formation Orbit 3 for Star A is at {formation_orbit_3_for_Star_C} AU")
+        if formation_orbit_0_for_Star_C >= formation_orbit_3_for_Star_C:
+            print("Formation Orbit 3 is within the inner edge - no protoplanet formed") 
+            Star_C_Protoplanet_3_Flag = "No"
+        if formation_orbit_3_for_Star_C >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C:
+            print("Formation Orbit 3 is in the Forbidden Zone - no protoplanet formed")
+            Star_C_Protoplanet_3_Flag = "No"
+        if formation_orbit_3_for_Star_C >= Radius_of_Slow_Accretion_Line_for_Star_C:
+            print("Formation Orbit 3 is outisde the slow accretion line")
+            Star_C_Protoplanet_3_Speed_Flag = "Slow"
+
+        formation_orbit_4_for_Star_C = 1.8 * math.sqrt(Initial_Luminosity_of_Star_C)
+        print("Formation Orbit 4 for Star A is at {formation_orbit_4_for_Star_C} AU")
+        if formation_orbit_0_for_Star_C >= formation_orbit_4_for_Star_C:
+            print("Formation Orbit 4 is within the inner edge - no protoplanet formed")
+            Star_C_Protoplanet_4_Flag = "No"
+        if formation_orbit_4_for_Star_C >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C:
+            print("Formation Orbit 4 is in the Forbidden Zone - no protoplanet formed")
+            Star_C_Protoplanet_4_Flag = "No"
+        if formation_orbit_4_for_Star_C >= Radius_of_Slow_Accretion_Line_for_Star_C:
+            print("Formation Orbit 4 is outisde the slow accretion line")
+            Star_C_Protoplanet_4_Speed_Flag = "Slow"
+
+        formation_orbit_5_for_Star_C = 2.7 * math.sqrt(Initial_Luminosity_of_Star_C)
+        print("Formation Orbit 5 for Star A is at {formation_orbit_5_for_Star_C} AU")
+        if formation_orbit_0_for_Star_C >= formation_orbit_5_for_Star_C:
+            print("Formation Orbit 5 is within the inner edge - no protoplanet formed")
+            Star_C_Protoplanet_5_Flag = "No"
+        if formation_orbit_5_for_Star_C >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C:
+            print("Formation Orbit 5 is in the Forbidden Zone - no protoplanet formed")
+            Star_C_Protoplanet_5_Flag = "No"
+        if formation_orbit_5_for_Star_C >= Radius_of_Slow_Accretion_Line_for_Star_C:
+            print("Formation Orbit 5 is outisde the slow accretion line")
+            Star_C_Protoplanet_5_Speed_Flag = "Slow"
+
+        formation_orbit_6_for_Star_C = 4.0 * math.sqrt(Initial_Luminosity_of_Star_C)
+        print("Formation Orbit 6 for Star A is at {formation_orbit_6_for_Star_C} AU")
+        if formation_orbit_0_for_Star_C >= formation_orbit_6_for_Star_C:
+            print("Formation Orbit 6 is within the inner edge - no protoplanet formed")
+            Star_C_Protoplanet_6_Flag = "No"
+        if formation_orbit_6_for_Star_C >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C:
+            print("Formation Orbit 6 is in the Forbidden Zone - no protoplanet formed")
+            Star_C_Protoplanet_6_Flag = "No"
+        if formation_orbit_6_for_Star_C >= Radius_of_Slow_Accretion_Line_for_Star_C:
+            print("Formation Orbit 6 is outisde the slow accretion line")
+            Star_C_Protoplanet_6_Speed_Flag = "Slow"
+
+        formation_orbit_7_for_Star_C = 6.0 * math.sqrt(Initial_Luminosity_of_Star_C)
+        print("Formation Orbit 7 for Star A is at {formation_orbit_7_for_Star_C} AU")
+        if formation_orbit_0_for_Star_C >= formation_orbit_7_for_Star_C:
+            print("Formation Orbit 7 is within the inner edge - no protoplanet formed")
+            Star_C_Protoplanet_7_Flag = "No"
+        if formation_orbit_7_for_Star_C >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C:
+            print("Formation Orbit 7 is in the Forbidden Zone - no protoplanet formed")
+            Star_C_Protoplanet_7_Flag = "No"
+        if formation_orbit_7_for_Star_C >= Radius_of_Slow_Accretion_Line_for_Star_C:
+            print("Formation Orbit 7 is outisde the slow accretion line")
+            Star_C_Protoplanet_7_Speed_Flag = "Slow"
+
+        formation_orbit_8_for_Star_C = 9.0 * math.sqrt(Initial_Luminosity_of_Star_C)
+        print("Formation Orbit 8 for Star A is at {formation_orbit_8_for_Star_C} AU")
+        if formation_orbit_0_for_Star_C >= formation_orbit_8_for_Star_C:
+            print("Formation Orbit 8 is within the inner edge - no protoplanet formed")
+            Star_C_Protoplanet_8_Flag = "No"
+        if formation_orbit_8_for_Star_C >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C:
+            print("Formation Orbit 8 is in the Forbidden Zone - no protoplanet formed")
+            Star_C_Protoplanet_8_Flag = "No"
+        if formation_orbit_8_for_Star_C >= Radius_of_Slow_Accretion_Line_for_Star_C:
+            print("Formation Orbit 8 is outisde the slow accretion line")
+            Star_C_Protoplanet_8_Speed_Flag = "Slow"
+
+        formation_orbit_9_for_Star_C = 13.5 * math.sqrt(Initial_Luminosity_of_Star_C)
+        print("Formation Orbit 9 for Star A is at {formation_orbit_9_for_Star_C} AU")
+        if formation_orbit_0_for_Star_C >= formation_orbit_9_for_Star_C:
+            print("Formation Orbit 9 is within the inner edge - no protoplanet formed")
+            Star_C_Protoplanet_9_Flag = "No"
+        if formation_orbit_9_for_Star_C >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C:
+            print("Formation Orbit 9 is in the Forbidden Zone - no protoplanet formed")
+            Star_C_Protoplanet_9_Flag = "No"
+        if formation_orbit_9_for_Star_C >= Radius_of_Slow_Accretion_Line_for_Star_C:
+            print("Formation Orbit 9 is outisde the slow accretion line")
+            Star_C_Protoplanet_9_Speed_Flag = "Slow"
+
+        formation_orbit_10_for_Star_C = 20.0 * math.sqrt(Initial_Luminosity_of_Star_C)
+        print("Formation Orbit 10 for Star A is at {formation_orbit_10_for_Star_C} AU")
+        if formation_orbit_0_for_Star_C >= formation_orbit_10_for_Star_C:
+            print("Formation Orbit 10 is within the inner edge - no protoplanet formed")
+            Star_C_Protoplanet_10_Flag = "No"
+        if formation_orbit_10_for_Star_C >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C:
+            print("Formation Orbit 10 is in the Forbidden Zone - no protoplanet formed")
+            Star_C_Protoplanet_10_Flag = "No"
+        if formation_orbit_10_for_Star_C >= Radius_of_Slow_Accretion_Line_for_Star_C:
+            print("Formation Orbit 10 is outisde the slow accretion line")
+            Star_C_Protoplanet_10_Speed_Flag = "Slow"
+
+        formation_orbit_11_for_Star_C = 30.0 * math.sqrt(Initial_Luminosity_of_Star_C)
+        print("Formation Orbit 11 for Star A is at {formation_orbit_11_for_Star_C} AU")
+        if formation_orbit_0_for_Star_C >= formation_orbit_10_for_Star_C:
+            print("Formation Orbit 11 is within the inner edge - no protoplanet formed")
+            Star_C_Protoplanet_11_Flag = "No"
+        if formation_orbit_11_for_Star_C >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C:
+            print("Formation Orbit 11 is in the Forbidden Zone - no protoplanet formed")
+            Star_C_Protoplanet_11_Flag = "No"
+        if formation_orbit_11_for_Star_C >= Radius_of_Slow_Accretion_Line_for_Star_C:
+            print("Formation Orbit 11 is outisde the slow accretion line")
+            Star_C_Protoplanet_11_Speed_Flag = "Slow"
+
+        formation_orbit_12_for_Star_C = 45.0 * math.sqrt(Initial_Luminosity_of_Star_C)
+        print("Formation Orbit 12 for Star A is at {formation_orbit_12_for_Star_C} AU")
+        if formation_orbit_0_for_Star_C >= formation_orbit_12_for_Star_C:
+            print("Formation Orbit 12 is within the inner edge - no protoplanet formed")
+            Star_C_Protoplanet_12_Flag = "No"
+        if formation_orbit_12_for_Star_C >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C:
+            print("Formation Orbit 12 is in the Forbidden Zone - no protoplanet formed")
+            Star_C_Protoplanet_12_Flag = "No"
+        if formation_orbit_12_for_Star_C >= Radius_of_Slow_Accretion_Line_for_Star_C:
+            print("Formation Orbit 12 is outisde the slow accretion line")
+            Star_C_Protoplanet_12_Speed_Flag = "Slow"
+
+        formation_orbit_13_for_Star_C = 68.0 * math.sqrt(Initial_Luminosity_of_Star_C)
+        print("Formation Orbit 13 for Star A is at {formation_orbit_13_for_Star_C} AU")
+        if formation_orbit_0_for_Star_C >= formation_orbit_13_for_Star_C:
+            print("Formation Orbit 13 is within the inner edge - no protoplanet formed")
+            Star_C_Protoplanet_13_Flag = "No"
+        if formation_orbit_13_for_Star_C >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C:
+            print("Formation Orbit 13 is in the Forbidden Zone - no protoplanet formed")
+            Star_C_Protoplanet_13_Flag = "No"
+        if formation_orbit_13_for_Star_C >= Radius_of_Slow_Accretion_Line_for_Star_C:
+            print("Formation Orbit 13 is outisde the slow accretion line")
+            Star_C_Protoplanet_13_Speed_Flag = "Slow"
+
+        formation_orbit_14_for_Star_C = 100.0 * math.sqrt(Initial_Luminosity_of_Star_C)
+        print("Formation Orbit 14 for Star A is at {formation_orbit_14_for_Star_C} AU")
+        if formation_orbit_0_for_Star_C >= formation_orbit_14_for_Star_C:
+            print("Formation Orbit 14 is within the inner edge - no protoplanet formed")
+            Star_C_Protoplanet_14_Flag = "No"
+        if formation_orbit_14_for_Star_C >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C:
+            print("Formation Orbit 14 is in the Forbidden Zone - no protoplanet formed")
+            Star_C_Protoplanet_14_Flag = "No"
+        if formation_orbit_14_for_Star_C >= Radius_of_Slow_Accretion_Line_for_Star_C:
+            print("Formation Orbit 14 is outisde the slow accretion line")
+            Star_C_Protoplanet_14_Speed_Flag = "Slow"
+
+        formation_orbit_15_for_Star_C = 150.0 * math.sqrt(Initial_Luminosity_of_Star_C)
+        print("Formation Orbit 15 for Star A is at {formation_orbit_15_for_Star_C} AU")
+        if formation_orbit_0_for_Star_C >= formation_orbit_15_for_Star_C:
+            print("Formation Orbit 15 is within the inner edge - no protoplanet formed")
+            Star_C_Protoplanet_15_Flag = "No"
+        if formation_orbit_15_for_Star_C >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C:
+            print("Formation Orbit 15 is in the Forbidden Zone - no protoplanet formed")
+            Star_C_Protoplanet_15_Flag = "No"
+        if formation_orbit_15_for_Star_C >= Radius_of_Slow_Accretion_Line_for_Star_C:
+            print("Formation Orbit 15 is outisde the slow accretion line")
+            Star_C_Protoplanet_15_Speed_Flag = "Slow"
+
+        formation_orbit_16_for_Star_C = 222.0 * math.sqrt(Initial_Luminosity_of_Star_C)
+        print("Formation Orbit 16 for Star A is at {formation_orbit_16_for_Star_C} AU")
+        if formation_orbit_0_for_Star_C >= formation_orbit_16_for_Star_C:
+            print("Formation Orbit 16 is within the inner edge - no protoplanet formed")
+            Star_C_Protoplanet_16_Flag = "No"
+        if formation_orbit_16_for_Star_C >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C:
+            print("Formation Orbit 14 is in the Forbidden Zone - no protoplanet formed")
+            Star_C_Protoplanet_16_Flag = "No"
+        if formation_orbit_16_for_Star_C >= Radius_of_Slow_Accretion_Line_for_Star_C:
+            print("Formation Orbit 16 is outisde the slow accretion line")
+            Star_C_Protoplanet_16_Speed_Flag = "Slow"
+
+    if Number_of_Stars == 4:
+        Star_D_Protoplanet_1_Flag = "Yes"
+        Star_D_Protoplanet_1_Speed_Flag = "Fast"
+        Star_D_Protoplanet_2_Flag = "Yes"
+        Star_D_Protoplanet_2_Speed_Flag = "Fast"
+        Star_D_Protoplanet_3_Flag = "Yes"
+        Star_D_Protoplanet_3_Speed_Flag = "Fast"
+        Star_D_Protoplanet_4_Flag = "Yes"
+        Star_D_Protoplanet_4_Speed_Flag = "Fast"
+        Star_D_Protoplanet_5_Flag = "Yes"
+        Star_D_Protoplanet_5_Speed_Flag = "Fast"
+        Star_D_Protoplanet_6_Flag = "Yes"
+        Star_D_Protoplanet_6_Speed_Flag = "Fast"
+        Star_D_Protoplanet_7_Flag = "Yes"
+        Star_D_Protoplanet_7_Speed_Flag = "Fast"
+        Star_D_Protoplanet_8_Flag = "Yes"
+        Star_D_Protoplanet_8_Speed_Flag = "Fast"
+        Star_D_Protoplanet_9_Flag = "Yes"
+        Star_D_Protoplanet_9_Speed_Flag = "Fast"
+        Star_D_Protoplanet_10_Flag = "Yes"
+        Star_D_Protoplanet_10_Speed_Flag = "Fast"
+        Star_D_Protoplanet_11_Flag = "Yes"
+        Star_D_Protoplanet_11_Speed_Flag = "Fast"
+        Star_D_Protoplanet_12_Flag = "Yes"
+        Star_D_Protoplanet_12_Speed_Flag = "Fast"
+        Star_D_Protoplanet_13_Flag = "Yes"
+        Star_D_Protoplanet_13_Speed_Flag = "Fast"
+        Star_D_Protoplanet_14_Flag = "Yes"
+        Star_D_Protoplanet_14_Speed_Flag = "Fast"
+        Star_D_Protoplanet_15_Flag = "Yes"
+        Star_D_Protoplanet_15_Speed_Flag = "Fast"
+        Star_D_Protoplanet_16_Flag = "Yes"
+        Star_D_Protoplanet_16_Speed_Flag = "Fast"
+
+        formation_orbit_0_for_Star_D = Disk_Inner_Edge_for_Star_D
+
+        formation_orbit_1_for_Star_D = 0.6 * math.sqrt(Initial_Luminosity_of_Star_D)
+        print("Formation Orbit 1 for Star A is at {formation_orbit_1_for_Star_D} AU")
+        if formation_orbit_0_for_Star_D >= formation_orbit_1_for_Star_D:
+            print("Formation Orbit 1 is within the inner edge - no protoplanet formed")
+            Star_D_Protoplanet_1_Flag = "No"
+        if formation_orbit_1_for_Star_D >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_D:
+            print("Formation Orbit 1 is in the Forbidden Zone - no protoplanet formed")
+            Star_D_Protoplanet_1_Flag = "No"
+        if formation_orbit_1_for_Star_D >= Radius_of_Slow_Accretion_Line_for_Star_D:
+            print("Formation Orbit 1 is outisde the slow accretion line")
+            Star_D_Protoplanet_1_Speed_Flag = "Slow"
+
+        formation_orbit_2_for_Star_D = 0.8 * math.sqrt(Initial_Luminosity_of_Star_D)
+        print("Formation Orbit 2 for Star A is at {formation_orbit_2_for_Star_D} AU")
+        if formation_orbit_0_for_Star_D >= formation_orbit_2_for_Star_D:
+            print("Formation Orbit 2 is within the inner edge - no protoplanet formed")
+            Star_D_Protoplanet_2_Flag = "No"
+        if formation_orbit_2_for_Star_D >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_D:
+            print("Formation Orbit 2 is in the Forbidden Zone - no protoplanet formed")
+            Star_D_Protoplanet_2_Flag = "No"
+        if formation_orbit_2_for_Star_D >= Radius_of_Slow_Accretion_Line_for_Star_D:
+            print("Formation Orbit 2 is outisde the slow accretion line")
+            Star_D_Protoplanet_2_Speed_Flag = "Slow"
+
+        formation_orbit_3_for_Star_D = 1.2 * math.sqrt(Initial_Luminosity_of_Star_D)
+        print("Formation Orbit 3 for Star A is at {formation_orbit_3_for_Star_D} AU")
+        if formation_orbit_0_for_Star_D >= formation_orbit_3_for_Star_D:
+            print("Formation Orbit 3 is within the inner edge - no protoplanet formed") 
+            Star_D_Protoplanet_3_Flag = "No"
+        if formation_orbit_3_for_Star_D >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_D:
+            print("Formation Orbit 3 is in the Forbidden Zone - no protoplanet formed")
+            Star_D_Protoplanet_3_Flag = "No"
+        if formation_orbit_3_for_Star_D >= Radius_of_Slow_Accretion_Line_for_Star_D:
+            print("Formation Orbit 3 is outisde the slow accretion line")
+            Star_D_Protoplanet_3_Speed_Flag = "Slow"
+
+        formation_orbit_4_for_Star_D = 1.8 * math.sqrt(Initial_Luminosity_of_Star_D)
+        print("Formation Orbit 4 for Star A is at {formation_orbit_4_for_Star_D} AU")
+        if formation_orbit_0_for_Star_D >= formation_orbit_4_for_Star_D:
+            print("Formation Orbit 4 is within the inner edge - no protoplanet formed")
+            Star_D_Protoplanet_4_Flag = "No"
+        if formation_orbit_4_for_Star_D >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_D:
+            print("Formation Orbit 4 is in the Forbidden Zone - no protoplanet formed")
+            Star_D_Protoplanet_4_Flag = "No"
+        if formation_orbit_4_for_Star_D >= Radius_of_Slow_Accretion_Line_for_Star_D:
+            print("Formation Orbit 4 is outisde the slow accretion line")
+            Star_D_Protoplanet_4_Speed_Flag = "Slow"
+
+        formation_orbit_5_for_Star_D = 2.7 * math.sqrt(Initial_Luminosity_of_Star_D)
+        print("Formation Orbit 5 for Star A is at {formation_orbit_5_for_Star_D} AU")
+        if formation_orbit_0_for_Star_D >= formation_orbit_5_for_Star_D:
+            print("Formation Orbit 5 is within the inner edge - no protoplanet formed")
+            Star_D_Protoplanet_5_Flag = "No"
+        if formation_orbit_5_for_Star_D >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_D:
+            print("Formation Orbit 5 is in the Forbidden Zone - no protoplanet formed")
+            Star_D_Protoplanet_5_Flag = "No"
+        if formation_orbit_5_for_Star_D >= Radius_of_Slow_Accretion_Line_for_Star_D:
+            print("Formation Orbit 5 is outisde the slow accretion line")
+            Star_D_Protoplanet_5_Speed_Flag = "Slow"
+
+        formation_orbit_6_for_Star_D = 4.0 * math.sqrt(Initial_Luminosity_of_Star_D)
+        print("Formation Orbit 6 for Star A is at {formation_orbit_6_for_Star_D} AU")
+        if formation_orbit_0_for_Star_D >= formation_orbit_6_for_Star_D:
+            print("Formation Orbit 6 is within the inner edge - no protoplanet formed")
+            Star_D_Protoplanet_6_Flag = "No"
+        if formation_orbit_6_for_Star_D >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_D:
+            print("Formation Orbit 6 is in the Forbidden Zone - no protoplanet formed")
+            Star_D_Protoplanet_6_Flag = "No"
+        if formation_orbit_6_for_Star_D >= Radius_of_Slow_Accretion_Line_for_Star_D:
+            print("Formation Orbit 6 is outisde the slow accretion line")
+            Star_D_Protoplanet_6_Speed_Flag = "Slow"
+
+        formation_orbit_7_for_Star_D = 6.0 * math.sqrt(Initial_Luminosity_of_Star_D)
+        print("Formation Orbit 7 for Star A is at {formation_orbit_7_for_Star_D} AU")
+        if formation_orbit_0_for_Star_D >= formation_orbit_7_for_Star_D:
+            print("Formation Orbit 7 is within the inner edge - no protoplanet formed")
+            Star_D_Protoplanet_7_Flag = "No"
+        if formation_orbit_7_for_Star_D >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_D:
+            print("Formation Orbit 7 is in the Forbidden Zone - no protoplanet formed")
+            Star_D_Protoplanet_7_Flag = "No"
+        if formation_orbit_7_for_Star_D >= Radius_of_Slow_Accretion_Line_for_Star_D:
+            print("Formation Orbit 7 is outisde the slow accretion line")
+            Star_D_Protoplanet_7_Speed_Flag = "Slow"
+
+        formation_orbit_8_for_Star_D = 9.0 * math.sqrt(Initial_Luminosity_of_Star_D)
+        print("Formation Orbit 8 for Star A is at {formation_orbit_8_for_Star_D} AU")
+        if formation_orbit_0_for_Star_D >= formation_orbit_8_for_Star_D:
+            print("Formation Orbit 8 is within the inner edge - no protoplanet formed")
+            Star_D_Protoplanet_8_Flag = "No"
+        if formation_orbit_8_for_Star_D >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_D:
+            print("Formation Orbit 8 is in the Forbidden Zone - no protoplanet formed")
+            Star_D_Protoplanet_8_Flag = "No"
+        if formation_orbit_8_for_Star_D >= Radius_of_Slow_Accretion_Line_for_Star_D:
+            print("Formation Orbit 8 is outisde the slow accretion line")
+            Star_D_Protoplanet_8_Speed_Flag = "Slow"
+
+        formation_orbit_9_for_Star_D = 13.5 * math.sqrt(Initial_Luminosity_of_Star_D)
+        print("Formation Orbit 9 for Star A is at {formation_orbit_9_for_Star_D} AU")
+        if formation_orbit_0_for_Star_D >= formation_orbit_9_for_Star_D:
+            print("Formation Orbit 9 is within the inner edge - no protoplanet formed")
+            Star_D_Protoplanet_9_Flag = "No"
+        if formation_orbit_9_for_Star_D >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_D:
+            print("Formation Orbit 9 is in the Forbidden Zone - no protoplanet formed")
+            Star_D_Protoplanet_9_Flag = "No"
+        if formation_orbit_9_for_Star_D >= Radius_of_Slow_Accretion_Line_for_Star_D:
+            print("Formation Orbit 9 is outisde the slow accretion line")
+            Star_D_Protoplanet_9_Speed_Flag = "Slow"
+
+        formation_orbit_10_for_Star_D = 20.0 * math.sqrt(Initial_Luminosity_of_Star_D)
+        print("Formation Orbit 10 for Star A is at {formation_orbit_10_for_Star_D} AU")
+        if formation_orbit_0_for_Star_D >= formation_orbit_10_for_Star_D:
+            print("Formation Orbit 10 is within the inner edge - no protoplanet formed")
+            Star_D_Protoplanet_10_Flag = "No"
+        if formation_orbit_10_for_Star_D >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_D:
+            print("Formation Orbit 10 is in the Forbidden Zone - no protoplanet formed")
+            Star_D_Protoplanet_10_Flag = "No"
+        if formation_orbit_10_for_Star_D >= Radius_of_Slow_Accretion_Line_for_Star_D:
+            print("Formation Orbit 10 is outisde the slow accretion line")
+            Star_D_Protoplanet_10_Speed_Flag = "Slow"
+
+        formation_orbit_11_for_Star_D = 30.0 * math.sqrt(Initial_Luminosity_of_Star_D)
+        print("Formation Orbit 11 for Star A is at {formation_orbit_11_for_Star_D} AU")
+        if formation_orbit_0_for_Star_D >= formation_orbit_10_for_Star_D:
+            print("Formation Orbit 11 is within the inner edge - no protoplanet formed")
+            Star_D_Protoplanet_11_Flag = "No"
+        if formation_orbit_11_for_Star_D >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_D:
+            print("Formation Orbit 11 is in the Forbidden Zone - no protoplanet formed")
+            Star_D_Protoplanet_11_Flag = "No"
+        if formation_orbit_11_for_Star_D >= Radius_of_Slow_Accretion_Line_for_Star_D:
+            print("Formation Orbit 11 is outisde the slow accretion line")
+            Star_D_Protoplanet_11_Speed_Flag = "Slow"
+
+        formation_orbit_12_for_Star_D = 45.0 * math.sqrt(Initial_Luminosity_of_Star_D)
+        print("Formation Orbit 12 for Star A is at {formation_orbit_12_for_Star_D} AU")
+        if formation_orbit_0_for_Star_D >= formation_orbit_12_for_Star_D:
+            print("Formation Orbit 12 is within the inner edge - no protoplanet formed")
+            Star_D_Protoplanet_12_Flag = "No"
+        if formation_orbit_12_for_Star_D >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_D:
+            print("Formation Orbit 12 is in the Forbidden Zone - no protoplanet formed")
+            Star_D_Protoplanet_12_Flag = "No"
+        if formation_orbit_12_for_Star_D >= Radius_of_Slow_Accretion_Line_for_Star_D:
+            print("Formation Orbit 12 is outisde the slow accretion line")
+            Star_D_Protoplanet_12_Speed_Flag = "Slow"
+
+        formation_orbit_13_for_Star_D = 68.0 * math.sqrt(Initial_Luminosity_of_Star_D)
+        print("Formation Orbit 13 for Star A is at {formation_orbit_13_for_Star_D} AU")
+        if formation_orbit_0_for_Star_D >= formation_orbit_13_for_Star_D:
+            print("Formation Orbit 13 is within the inner edge - no protoplanet formed")
+            Star_D_Protoplanet_13_Flag = "No"
+        if formation_orbit_13_for_Star_D >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_D:
+            print("Formation Orbit 13 is in the Forbidden Zone - no protoplanet formed")
+            Star_D_Protoplanet_13_Flag = "No"
+        if formation_orbit_13_for_Star_D >= Radius_of_Slow_Accretion_Line_for_Star_D:
+            print("Formation Orbit 13 is outisde the slow accretion line")
+            Star_D_Protoplanet_13_Speed_Flag = "Slow"
+
+        formation_orbit_14_for_Star_D = 100.0 * math.sqrt(Initial_Luminosity_of_Star_D)
+        print("Formation Orbit 14 for Star A is at {formation_orbit_14_for_Star_D} AU")
+        if formation_orbit_0_for_Star_D >= formation_orbit_14_for_Star_D:
+            print("Formation Orbit 14 is within the inner edge - no protoplanet formed")
+            Star_D_Protoplanet_14_Flag = "No"
+        if formation_orbit_14_for_Star_D >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_D:
+            print("Formation Orbit 14 is in the Forbidden Zone - no protoplanet formed")
+            Star_D_Protoplanet_14_Flag = "No"
+        if formation_orbit_14_for_Star_D >= Radius_of_Slow_Accretion_Line_for_Star_D:
+            print("Formation Orbit 14 is outisde the slow accretion line")
+            Star_D_Protoplanet_14_Speed_Flag = "Slow"
+
+        formation_orbit_15_for_Star_D = 150.0 * math.sqrt(Initial_Luminosity_of_Star_D)
+        print("Formation Orbit 15 for Star A is at {formation_orbit_15_for_Star_D} AU")
+        if formation_orbit_0_for_Star_D >= formation_orbit_15_for_Star_D:
+            print("Formation Orbit 15 is within the inner edge - no protoplanet formed")
+            Star_D_Protoplanet_15_Flag = "No"
+        if formation_orbit_15_for_Star_D >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_D:
+            print("Formation Orbit 15 is in the Forbidden Zone - no protoplanet formed")
+            Star_D_Protoplanet_15_Flag = "No"
+        if formation_orbit_15_for_Star_D >= Radius_of_Slow_Accretion_Line_for_Star_D:
+            print("Formation Orbit 15 is outisde the slow accretion line")
+            Star_D_Protoplanet_15_Speed_Flag = "Slow"
+
+        formation_orbit_16_for_Star_D = 222.0 * math.sqrt(Initial_Luminosity_of_Star_D)
+        print("Formation Orbit 16 for Star A is at {formation_orbit_16_for_Star_D} AU")
+        if formation_orbit_0_for_Star_D >= formation_orbit_16_for_Star_D:
+            print("Formation Orbit 16 is within the inner edge - no protoplanet formed")
+            Star_D_Protoplanet_16_Flag = "No"
+        if formation_orbit_16_for_Star_D >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_D:
+            print("Formation Orbit 14 is in the Forbidden Zone - no protoplanet formed")
+            Star_D_Protoplanet_16_Flag = "No"
+        if formation_orbit_16_for_Star_D >= Radius_of_Slow_Accretion_Line_for_Star_D:
+            print("Formation Orbit 16 is outisde the slow accretion line")
+            Star_D_Protoplanet_16_Speed_Flag = "Slow"
 
 # Step 10: Disk Instability
     # input Step 10 elements
