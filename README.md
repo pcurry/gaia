@@ -3,6 +3,7 @@ overall purpose: parsing ESA Gaia data into 3D sector maps for sci-fi purposes
 
 ## Required libraries / extensions: ##
 - AstroPy
+- Astroquery
 - SciPy
 - NumPy
 - Matplotlib
