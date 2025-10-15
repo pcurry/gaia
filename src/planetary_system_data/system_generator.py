@@ -4258,31 +4258,30 @@ if Number_of_Stars == 4:
     if Number_of_Stars >= 1:
         Disk_Stability_for_Star_A = "Stable"
         roll_for_Disk_Stability_Star_A = _3d6()        
-        if roll_for_Disk_Density_of_Star_A >= 12:
+        if (roll_for_Disk_Density_of_Star_A + Disk_Mass_Modifier_Star_A) >= 12:
             Disk_Stability_for_Star_A = "Unstable"
 
     if Number_of_Stars >= 2:
         Disk_Stability_for_Star_B = "Stable"
         roll_for_Disk_Stability_Star_B = _3d6()
-        if roll_for_Disk_Density_of_Star_B >= 12:
+        if (roll_for_Disk_Density_of_Star_B + Disk_Mass_Modifier_Star_B) >= 12:
             Disk_Stability_for_Star_B = "Unstable"
 
     if Number_of_Stars >= 3:
         Disk_Stability_for_Star_C = "Stable"
         roll_for_Disk_Stability_Star_C = _3d6()        
-        if roll_for_Disk_Density_of_Star_C >= 12:
+        if (roll_for_Disk_Density_of_Star_C + Disk_Mass_Modifier_Star_C) >= 12:
             Disk_Stability_for_Star_C = "Unstable"
 
     if Number_of_Stars == 4:
         Disk_Stability_for_Star_D = "Stable"
         roll_for_Disk_Stability_Star_D = _3d6()        
-        if roll_for_Disk_Density_of_Star_D >= 12:
+        if (roll_for_Disk_Density_of_Star_D + Disk_Mass_Modifier_Star_D) >= 12:
             Disk_Stability_for_Star_D = "Unstable"
 
     if Disk_Stability_for_Star_A == "Unstable":
 
     # input Step 10 elements
-
 
 # Step 11: Core Accretion
     # input Step 11 elements
