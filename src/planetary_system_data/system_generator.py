@@ -1,225 +1,39 @@
 
--
+
 import math
 import random
 
-from enum import StrEnum
+from planetary_system_data.dice import _3d6, _2d6, d100, percentile_roll
+from planetary_system_data.dataclasses_and_enumerations import StarCategory, StellarEvolutionStage, Star, StarSystem, StellarArrangement, StellarPopulation
+from planetary_system_data.primary_star import generate_primary_star
 
 # script to procedurally generate realistic (but fictional) star systems
 # reference: Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
 # input user query - option to input real parameter values from stars in Gaia DR3 dataset - e.g. connect with Sectory_Query.py
 
-# define dice rolling functions
-def d100() -> int:
-  return random.randint(1, 100)
-def _3d6() -> int:
-  return (random.randint(1, 6) + random.randint (1, 6) + random.randint (1, 6))
-def _2d6() -> int:
-  return (random.randint(1, 6) + random.randint (1, 6))
 
-
-class StarCategory(StrEnum):
-    BROWN_DWARF = "Brown Dwarf"
-    LOW_MASS_STAR = "Low Mass Star"
-    INTERMEDIATE_MASS_STAR = "Intermediate Mass Star"
-    HIGH_MASS_STAR = "High Mass Star"
-
-
-
-# Step 1: Primary Star Mass
-
-def generate_star_category() -> str:
-    roll_for_star_type = d100()
-    if 1 <= roll_for_star_type <= 3: 
+def star_category_from_mass(mass: float) -> StarCategory:
+    if mass < 0.08:
         return StarCategory.BROWN_DWARF
-    elif 4 <= roll_for_star_type <= 77:
+    elif 0.08 <= mass < 0.70:
         return StarCategory.LOW_MASS_STAR
-    elif 78 <= roll_for_star_type <=90:
+    elif 0.70 <= mass < 1.28:
         return StarCategory.INTERMEDIATE_MASS_STAR
-    else:  # 91-100
+    else:  # mass >= 1.28
         return StarCategory.HIGH_MASS_STAR
 
 
-def generate_primary_star_mass(category: StarCategory) -> float:
-    """Generate the mass of the primary star based on its category.
-    Returns the mass in solar masses."""
-    roll_for_mass = d100()
-    match category:
-        case StarCategory.BROWN_DWARF:
-            if roll_for_mass <= 10: 
-                return 0.015
-            elif roll_for_mass <= 29:
-                return 0.02
-            elif roll_for_mass <= 45:
-                return 0.03
-            elif roll_for_mass <= 60:
-                return 0.04
-            elif roll_for_mass <= 74:
-                return 0.05
-            elif roll_for_mass <= 87:
-                return 0.06
-            else:  # 88-100
-                return 0.07
-        case StarCategory.LOW_MASS_STAR:            
-            if roll_for_mass <= 13:
-                return 0.08
-            elif roll_for_mass <= 23:
-                return 0.10
-            elif roll_for_mass <= 34:
-                return 0.12
-            elif roll_for_mass <= 43:
-                return 0.15
-            elif roll_for_mass <= 52:
-                return 0.18
-            elif roll_for_mass <= 59:
-                return 0.22
-            elif roll_for_mass <= 65:
-                return 0.26
-            elif roll_for_mass <= 70:
-                return 0.30
-            elif roll_for_mass <= 74:
-                return 0.34
-            elif roll_for_mass <= 77:
-                return 0.38
-            elif roll_for_mass <= 80:
-                return 0.42
-            elif roll_for_mass <= 83:
-                return 0.46
-            elif roll_for_mass <= 86:
-                return 0.50
-            elif roll_for_mass <= 89:
-                return 0.53
-            elif roll_for_mass <= 92:
-                return 0.56
-            elif roll_for_mass <= 95:
-                return 0.59
-            elif roll_for_mass <= 97:
-                return 0.62
-            elif roll_for_mass <= 99:
-                return 0.65
-            else:  # 100
-                return 0.68
-        case StarCategory.INTERMEDIATE_MASS_STAR:
-            if roll_for_mass <= 7:
-                return 0.70
-            elif roll_for_mass <= 13:
-                return 0.72
-            elif roll_for_mass <= 19:
-                return 0.74
-            elif roll_for_mass <= 24:
-                return 0.76
-            elif roll_for_mass <= 29:
-                return 0.78
-            elif roll_for_mass <= 34:
-                return 0.80
-            elif roll_for_mass <= 39:
-                return 0.82
-            elif roll_for_mass <= 43:
-                return 0.84
-            elif roll_for_mass <= 47:
-                return 0.86
-            elif roll_for_mass <= 51:
-                return 0.88
-            elif roll_for_mass <= 55:
-                return 0.90
-            elif roll_for_mass <= 59:
-                return 0.92
-            elif roll_for_mass <= 62:
-                return 0.94
-            elif roll_for_mass <= 65:
-                return 0.96
-            elif roll_for_mass <= 68:
-                return 0.98
-            elif roll_for_mass <= 71:
-                return 1.00
-            elif roll_for_mass <= 74:
-                return 1.02
-            elif roll_for_mass <= 78:
-                return 1.04
-            elif roll_for_mass <= 82:
-                return 1.07
-            elif roll_for_mass <= 85:
-                return 1.10
-            elif roll_for_mass <= 89:
-                return 1.13
-            elif roll_for_mass <= 92:
-                return 1.16
-            elif roll_for_mass <= 95:
-                return 1.19
-            elif roll_for_mass <= 97:
-                return 1.22
-            else:  # 98-100
-                return 1.25
-        case StarCategory.HIGH_MASS_STAR:
-            if roll_for_mass <= 3:
-                return 1.28
-            elif roll_for_mass <= 6:
-                return 1.31
-            elif roll_for_mass <= 9:
-                return 1.34
-            elif roll_for_mass <= 12:
-                return 1.37
-            elif roll_for_mass <= 16:
-                return 1.40
-            elif roll_for_mass <= 19:
-                return 1.44
-            elif roll_for_mass <= 23:
-                return 1.48
-            elif roll_for_mass <= 27:
-                return 1.53
-            elif roll_for_mass <= 31:
-                return 1.58
-            elif roll_for_mass <= 35:
-                return 1.64
-            elif roll_for_mass <= 38:
-                return 1.70
-            elif roll_for_mass <= 41:
-                return 1.76
-            elif roll_for_mass <= 45:
-                return 1.82
-            elif roll_for_mass <= 49:
-                return 1.90
-            elif roll_for_mass <= 53:
-                return 2.00
-            elif roll_for_mass <= 56:
-                return 2.10
-            elif roll_for_mass <= 59:
-                return 2.20
-            elif roll_for_mass <= 62:
-                return 2.30
-            elif roll_for_mass <= 67:
-                return 2.40
-            elif roll_for_mass <= 71:
-                return 2.60
-            elif roll_for_mass <= 75:
-                return 2.80
-            elif roll_for_mass <= 78:
-                return 3.00
-            elif roll_for_mass <= 82:
-                return 3.20
-            elif roll_for_mass <= 87:
-                return 3.50
-            elif roll_for_mass <= 91:
-                return 4.00
-            elif roll_for_mass <= 94:
-                return 4.50
-            elif roll_for_mass <= 96:
-                return 5.00
-            elif roll_for_mass <= 98:
-                return 5.50
-            else:   # 99-100
-                return 6.00
-    
-Category = generate_star_category()
-Mass_A = generate_primary_star_mass(Category)
+# Step 1: Primary Star Mass
+Star_A = generate_primary_star()    
+Category = Star_A.category
+Mass_A = Star_A.mass
     
 print(f"Primary Star Type: {Category}")
 Mass_A = round(Mass_A, 3)
 print(f"Mass of Star A: {Mass_A} solar masses")
 
-# Step 2: Stellar Multiplicity
 
-Number_of_Stars = 0
+# Step 2: Stellar Multiplicity
 
 def generate_number_of_stars(primary_mass: float) -> int:
     """Determine the number of stars in the system based on the mass of the primary star
@@ -247,7 +61,6 @@ def generate_number_of_stars(primary_mass: float) -> int:
     else: 
         return 1 if first_roll_for_number_of_stars <= 9 else multiple_stars
 
-
 Number_of_Stars = generate_number_of_stars(Mass_A)
 print(f"Number of Stars in System: {Number_of_Stars}")
 assert 1 <= Number_of_Stars <= 4
@@ -257,844 +70,224 @@ assert 1 <= Number_of_Stars <= 4
 Mass_Ratio = None
 Stellar_Arrangement = None
 
-if Number_of_Stars == 1:
-    Stellar_Arrangement = "A"
-    print("Single Star System - skipping step #3")
- 
-elif Number_of_Stars <= 2:
+
+def binary_system_mass_ratio() -> float:
     roll_for_binary_mass_ratio = d100()
     if roll_for_binary_mass_ratio <= 4:
-        Mass_Ratio = 0.05
+        return 0.05
     elif 5 <= roll_for_binary_mass_ratio <= 8:
-        Mass_Ratio = 0.10
+        return 0.10
     elif 9 <= roll_for_binary_mass_ratio <= 12:
-        Mass_Ratio = 0.15
+        return 0.15
     elif 13 <= roll_for_binary_mass_ratio <= 16:
-        Mass_Ratio = 0.20
+        return 0.20
     elif 17 <= roll_for_binary_mass_ratio <= 20:
-        Mass_Ratio = 0.25
+        return 0.25
     elif 21 <= roll_for_binary_mass_ratio <= 24:
-        Mass_Ratio = 0.30
+        return 0.30
     elif 25 <= roll_for_binary_mass_ratio <= 28:
-        Mass_Ratio = 0.35
+        return 0.35
     elif 29 <= roll_for_binary_mass_ratio <= 31:
-        Mass_Ratio = 0.40
+        return 0.40
     elif 32 <= roll_for_binary_mass_ratio <= 34:
-        Mass_Ratio = 0.45
+        return 0.45
     elif 35 <= roll_for_binary_mass_ratio <= 38:
-        Mass_Ratio = 0.50
+        return 0.50
     elif 39 <= roll_for_binary_mass_ratio <= 43:
-        Mass_Ratio = 0.55
+        return 0.55
     elif 44 <= roll_for_binary_mass_ratio <= 48:
-        Mass_Ratio = 0.60
+        return 0.60
     elif 49 <= roll_for_binary_mass_ratio <= 53:
-        Mass_Ratio = 0.65
+        return 0.65
     elif 54 <= roll_for_binary_mass_ratio <= 58:
-        Mass_Ratio = 0.70
+        return 0.70
     elif 59 <= roll_for_binary_mass_ratio <= 63:
-        Mass_Ratio = 0.75
+        return 0.75
     elif 64 <= roll_for_binary_mass_ratio <= 69:
-        Mass_Ratio = 0.80
+        return 0.80
     elif 70 <= roll_for_binary_mass_ratio <= 76:
-        Mass_Ratio = 0.85
+        return 0.85
     elif 77 <= roll_for_binary_mass_ratio <= 86:
-        Mass_Ratio = 0.90
-    elif 87 <= roll_for_binary_mass_ratio <= 100:
-        Mass_Ratio = 0.95
-    print(f"Mass Ratio Between Star A and Star B: {Mass_Ratio}")
-    Mass_B = Mass_A * Mass_Ratio
-    if Mass_B < 0.015:
-        Mass_B = 0.015
-    Mass_B = round(Mass_B, 3)
+        return 0.90
+    else: #87-100
+        return 0.95
+
+def ternary_system_mass_ratio() -> float:
+    roll_for_mass_ratio = (d100() + 30)
+    if roll_for_mass_ratio == 31:
+        return 0.40
+    elif 32 <= roll_for_mass_ratio <= 34:
+        return 0.45
+    elif 35 <= roll_for_mass_ratio <= 38:
+        return 0.50
+    elif 39 <= roll_for_mass_ratio <= 43:
+        return 0.55
+    elif 44 <= roll_for_mass_ratio <= 48:
+        return 0.60
+    elif 49 <= roll_for_mass_ratio <= 53:
+        return 0.65
+    elif 54 <= roll_for_mass_ratio <= 58:
+        return 0.70
+    elif 59 <= roll_for_mass_ratio <= 63:
+        return 0.75
+    elif 64 <= roll_for_mass_ratio <= 69:
+        return 0.80
+    elif 70 <= roll_for_mass_ratio <= 76:
+        return 0.85
+    elif 77 <= roll_for_mass_ratio <= 86:
+        return 0.90
+    else: #87-130
+        return 0.95
+
+
+def star_mass_from_ratio(primary_mass: float, mass_ratio: float) -> float:
+    secondary_mass = primary_mass * mass_ratio
+    return max(0.015, round(secondary_mass, 3))
+
+
+if Number_of_Stars == 1:
+    Stellar_Arrangement = StellarArrangement.SINGLE
+    Star_System = StarSystem(stars=[Star_A], stellar_arrangement=StellarArrangement.SINGLE)
+    print("Single Star System - skipping step #3")
+
+elif Number_of_Stars == 2:
+    mass_ratio = binary_system_mass_ratio()
+
+    print(f"Mass Ratio Between Star A and Star B: {mass_ratio}")
+    Mass_B = star_mass_from_ratio(Mass_A, mass_ratio)
     print(f"Mass of Star B: {Mass_B} solar masses")
+    Stellar_Arrangement = StellarArrangement.BINARY
+    Star_B = Star(mass=Mass_B, category=star_category_from_mass(Mass_B))
+    Star_System = StarSystem(stars=[Star_A, Star_B], stellar_arrangement=StellarArrangement.BINARY)
 
 elif Number_of_Stars == 3:
     random_integer = random.randint(1, 2)
     if random_integer == 1:
-        Stellar_Arrangement = "A-BC"
+        Stellar_Arrangement = StellarArrangement.TRINARY_DISTANT_PAIR
         print("Triple Star System - A star with distant BC pair")
-        roll_for_AB_mass_ratio = d100()
-        if roll_for_AB_mass_ratio <= 4:
-            Mass_Ratio = 0.05
-        elif 5 <= roll_for_AB_mass_ratio <= 8:
-            Mass_Ratio = 0.10
-        elif 9 <= roll_for_AB_mass_ratio <= 12:
-            Mass_Ratio = 0.15
-        elif 13 <= roll_for_AB_mass_ratio <= 16:
-            Mass_Ratio = 0.20
-        elif 17 <= roll_for_AB_mass_ratio <= 20:
-            Mass_Ratio = 0.25
-        elif 21 <= roll_for_AB_mass_ratio <= 24:
-            Mass_Ratio = 0.30
-        elif 25 <= roll_for_AB_mass_ratio <= 28:
-            Mass_Ratio = 0.35
-        elif 29 <= roll_for_AB_mass_ratio <= 31:
-            Mass_Ratio = 0.40
-        elif 32 <= roll_for_AB_mass_ratio <= 34:
-            Mass_Ratio = 0.45
-        elif 35 <= roll_for_AB_mass_ratio <= 38:
-            Mass_Ratio = 0.50
-        elif 39 <= roll_for_AB_mass_ratio <= 43:
-            Mass_Ratio = 0.55
-        elif 44 <= roll_for_AB_mass_ratio <= 48:
-            Mass_Ratio = 0.60
-        elif 49 <= roll_for_AB_mass_ratio <= 53:
-            Mass_Ratio = 0.65
-        elif 54 <= roll_for_AB_mass_ratio <= 58:
-            Mass_Ratio = 0.70
-        elif 59 <= roll_for_AB_mass_ratio <= 63:
-            Mass_Ratio = 0.75
-        elif 64 <= roll_for_AB_mass_ratio <= 69:
-            Mass_Ratio = 0.80
-        elif 70 <= roll_for_AB_mass_ratio <= 76:
-            Mass_Ratio = 0.85
-        elif 77 <= roll_for_AB_mass_ratio <= 86:
-            Mass_Ratio = 0.90
-        elif roll_for_AB_mass_ratio >= 88:
-            Mass_Ratio = 0.95
-        print(f"Mass Ratio Between Star A and Star B: {Mass_Ratio}")
-        Mass_B = Mass_A * Mass_Ratio
-        if Mass_B < 0.015:
-            Mass_B = 0.015
-        Mass_B = round(Mass_B, 3)
+
+        a_b_mass_ratio = binary_system_mass_ratio()        
+        print(f"Mass Ratio Between Star A and Star B: {a_b_mass_ratio}")
+        Mass_B = star_mass_from_ratio(Mass_A, a_b_mass_ratio)
         print(f"Mass of Star B: {Mass_B} solar masses")
+        Star_B = Star(mass=Mass_B, category=star_category_from_mass(Mass_B))
 
-        roll_for_BC_mass_ratio = (d100()+30)
-        if roll_for_BC_mass_ratio == 31:
-            Mass_Ratio = 0.40
-        elif 32 <= roll_for_BC_mass_ratio <= 34:
-            Mass_Ratio = 0.45
-        elif 35 <= roll_for_BC_mass_ratio <= 38:
-            Mass_Ratio = 0.50
-        elif 39 <= roll_for_BC_mass_ratio <= 43:
-            Mass_Ratio = 0.55
-        elif 44 <= roll_for_BC_mass_ratio <= 48:
-            Mass_Ratio = 0.60
-        elif 49 <= roll_for_BC_mass_ratio <= 53:
-            Mass_Ratio = 0.65
-        elif 54 <= roll_for_BC_mass_ratio <= 58:
-            Mass_Ratio = 0.70
-        elif 59 <= roll_for_BC_mass_ratio <= 63:
-            Mass_Ratio = 0.75
-        elif 64 <= roll_for_BC_mass_ratio <= 69:
-            Mass_Ratio = 0.80
-        elif 70 <= roll_for_BC_mass_ratio <= 76:
-            Mass_Ratio = 0.85
-        elif 77 <= roll_for_BC_mass_ratio <= 86:
-            Mass_Ratio = 0.90
-        elif roll_for_BC_mass_ratio >= 88:
-            Mass_Ratio = 0.95
-        print(f"Mass Ratio Between Star B and Star C: {Mass_Ratio}")
-        Mass_C = Mass_B * Mass_Ratio
-        if Mass_C < 0.015:
-            Mass_C = 0.015
-        Mass_C = round(Mass_C, 3)
+        b_c_mass_ratio = ternary_system_mass_ratio()
+        print(f"Mass Ratio Between Star B and Star C: {b_c_mass_ratio}")
+        Mass_C = star_mass_from_ratio(Mass_B, b_c_mass_ratio)
         print(f"Mass of Star C: {Mass_C} solar masses")
+        Star_C = Star(mass=Mass_C, category=star_category_from_mass(Mass_C))
+        Star_System = StarSystem(
+            stars=[Star_A, Star_B, Star_C], 
+            stellar_arrangement=StellarArrangement.TRINARY_DISTANT_PAIR
+        )
 
-    elif random_integer == 2:
-        Stellar_Arrangement = "AB-C"
+    else:
+        Stellar_Arrangement = StellarArrangement.TRINARY_CLOSE_PAIR
         print("Triple Star System - AB as close companions with C as distant companion")
-        roll_for_AB_mass_ratio = (d100()+30)
-        if roll_for_AB_mass_ratio == 31:
-            Mass_Ratio = 0.40
-        elif 32 <= roll_for_AB_mass_ratio <= 34:
-            Mass_Ratio = 0.45
-        elif 35 <= roll_for_AB_mass_ratio <= 38:
-            Mass_Ratio = 0.50
-        elif 39 <= roll_for_AB_mass_ratio <= 43:
-            Mass_Ratio = 0.55
-        elif 44 <= roll_for_AB_mass_ratio <= 48:
-            Mass_Ratio = 0.60
-        elif 49 <= roll_for_AB_mass_ratio <= 53:
-            Mass_Ratio = 0.65
-        elif 54 <= roll_for_AB_mass_ratio <= 58:
-            Mass_Ratio = 0.70
-        elif 59 <= roll_for_AB_mass_ratio <= 63:
-            Mass_Ratio = 0.75
-        elif 64 <= roll_for_AB_mass_ratio <= 69:
-            Mass_Ratio = 0.80
-        elif 70 <= roll_for_AB_mass_ratio <= 76:
-            Mass_Ratio = 0.85
-        elif 77 <= roll_for_AB_mass_ratio <= 86:
-            Mass_Ratio = 0.90
-        elif roll_for_AB_mass_ratio >= 88:
-            Mass_Ratio = 0.95
-        print(f"Mass Ratio Between Star A and Star B: {Mass_Ratio}")
-        Mass_B = Mass_A * Mass_Ratio
-        if Mass_B < 0.015:
-            Mass_B = 0.015
+        a_b_mass_ratio = ternary_system_mass_ratio()
+        print(f"Mass Ratio Between Star A and Star B: {a_b_mass_ratio}")
+        Mass_B = star_mass_from_ratio(Mass_A, a_b_mass_ratio)
         print(f"Mass of Star B: {Mass_B} solar masses")
+        Star_B = Star(mass=Mass_B, category=star_category_from_mass(Mass_B))
 
-        roll_for_AC_mass_ratio = d100()
-        if roll_for_AC_mass_ratio <= 4:
-            Mass_Ratio = 0.05
-        elif 5 <= roll_for_AC_mass_ratio <= 8:
-            Mass_Ratio = 0.10
-        elif 9 <= roll_for_AC_mass_ratio <= 12:
-            Mass_Ratio = 0.15
-        elif 13 <= roll_for_AC_mass_ratio <= 16:
-            Mass_Ratio = 0.20
-        elif 17 <= roll_for_AC_mass_ratio <= 20:
-            Mass_Ratio = 0.25
-        elif 21 <= roll_for_AC_mass_ratio <= 24:
-            Mass_Ratio = 0.30
-        elif 25 <= roll_for_AC_mass_ratio <= 28:
-            Mass_Ratio = 0.35
-        elif 29 <= roll_for_AC_mass_ratio <= 31:
-            Mass_Ratio = 0.40
-        elif 32 <= roll_for_AC_mass_ratio <= 34:
-            Mass_Ratio = 0.45
-        elif 35 <= roll_for_AC_mass_ratio <= 38:
-            Mass_Ratio = 0.50
-        elif 39 <= roll_for_AC_mass_ratio <= 43:
-            Mass_Ratio = 0.55
-        elif 44 <= roll_for_AC_mass_ratio <= 48:
-            Mass_Ratio = 0.60
-        elif 49 <= roll_for_AC_mass_ratio <= 53:
-            Mass_Ratio = 0.65
-        elif 54 <= roll_for_AC_mass_ratio <= 58:
-            Mass_Ratio = 0.70
-        elif 59 <= roll_for_AC_mass_ratio <= 63:
-            Mass_Ratio = 0.75
-        elif 64 <= roll_for_AC_mass_ratio <= 69:
-            Mass_Ratio = 0.80
-        elif 70 <= roll_for_AC_mass_ratio <= 76:
-            Mass_Ratio = 0.85
-        elif 77 <= roll_for_AC_mass_ratio <= 86:
-            Mass_Ratio = 0.90
-        elif roll_for_AC_mass_ratio >= 88:
-            Mass_Ratio = 0.95
-        print(f"Mass Ratio Between Star A and Star C: {Mass_Ratio}")
-        Mass_C = Mass_A * Mass_Ratio
-        if Mass_C < 0.015:
-            Mass_C = 0.015
-        Mass_C = round(Mass_C, 3)
+        a_c_mass_ratio = binary_system_mass_ratio()
+        print(f"Mass Ratio Between Star A and Star C: {a_c_mass_ratio}")
+        Mass_C = star_mass_from_ratio(Mass_A, a_c_mass_ratio)
         print(f"Mass of Star C: {Mass_C} solar masses")
+        Star_C = Star(mass=Mass_C, category=star_category_from_mass(Mass_C))
+        Star_System = StarSystem(
+            stars=[Star_A, Star_B, Star_C],
+            stellar_arrangement=StellarArrangement.TRINARY_CLOSE_PAIR
+        )
 
 elif Number_of_Stars == 4:
     Stellar_Arrangement = "AB-CD"
     print("Quadruple Star System - two binary sytems AB and CD with wide separation")
 
-    roll_for_AB_mass_ratio = d100()
-    if roll_for_AB_mass_ratio <= 4:
-        Mass_Ratio = 0.05
-    elif 5 <= roll_for_AB_mass_ratio <= 8:
-        Mass_Ratio = 0.10
-    elif 9 <= roll_for_AB_mass_ratio <= 12:
-        Mass_Ratio = 0.15
-    elif 13 <= roll_for_AB_mass_ratio <= 16:
-        Mass_Ratio = 0.20
-    elif 17 <= roll_for_AB_mass_ratio <= 20:
-        Mass_Ratio = 0.25
-    elif 21 <= roll_for_AB_mass_ratio <= 24:
-        Mass_Ratio = 0.30
-    elif 25 <= roll_for_AB_mass_ratio <= 28:
-        Mass_Ratio = 0.35
-    elif 29 <= roll_for_AB_mass_ratio <= 31:
-        Mass_Ratio = 0.40
-    elif 32 <= roll_for_AB_mass_ratio <= 34:
-        Mass_Ratio = 0.45
-    elif 35 <= roll_for_AB_mass_ratio <= 38:
-        Mass_Ratio = 0.50
-    elif 39 <= roll_for_AB_mass_ratio <= 43:
-        Mass_Ratio = 0.55
-    elif 44 <= roll_for_AB_mass_ratio <= 48:
-        Mass_Ratio = 0.60
-    elif 49 <= roll_for_AB_mass_ratio <= 53:
-        Mass_Ratio = 0.65
-    elif 54 <= roll_for_AB_mass_ratio <= 58:
-        Mass_Ratio = 0.70
-    elif 59 <= roll_for_AB_mass_ratio <= 63:
-        Mass_Ratio = 0.75
-    elif 64 <= roll_for_AB_mass_ratio <= 69:
-        Mass_Ratio = 0.80
-    elif 70 <= roll_for_AB_mass_ratio <= 76:
-        Mass_Ratio = 0.85
-    elif 77 <= roll_for_AB_mass_ratio <= 86:
-        Mass_Ratio = 0.90
-    elif roll_for_AB_mass_ratio >= 88:
-        Mass_Ratio = 0.95
-    print(f"Mass Ratio Between Star A and Star B: {Mass_Ratio}")
-    Mass_B = Mass_A * Mass_Ratio
-    if Mass_B < 0.015:
-        Mass_B = 0.015
-    Mass_B = round(Mass_B, 3)
+    a_b_mass_ratio = binary_system_mass_ratio()
+    print(f"Mass Ratio Between Star A and Star B: {a_b_mass_ratio}")
+    Mass_B = star_mass_from_ratio(Mass_A, a_b_mass_ratio)
     print(f"Mass of Star B: {Mass_B} solar masses")
+    Star_B = Star(mass=Mass_B, category=star_category_from_mass(Mass_B))
 
-    roll_for_AC_mass_ratio = d100()
-    if roll_for_AC_mass_ratio <= 4:
-        Mass_Ratio = 0.05
-    elif 5 <= roll_for_AC_mass_ratio <= 8:
-        Mass_Ratio = 0.10
-    elif 9 <= roll_for_AC_mass_ratio <= 12:
-        Mass_Ratio = 0.15
-    elif 13 <= roll_for_AC_mass_ratio <= 16:
-        Mass_Ratio = 0.20
-    elif 17 <= roll_for_AC_mass_ratio <= 20:
-        Mass_Ratio = 0.25
-    elif 21 <= roll_for_AC_mass_ratio <= 24:
-        Mass_Ratio = 0.30
-    elif 25 <= roll_for_AC_mass_ratio <= 28:
-        Mass_Ratio = 0.35
-    elif 29 <= roll_for_AC_mass_ratio <= 31:
-        Mass_Ratio = 0.40
-    elif 32 <= roll_for_AC_mass_ratio <= 34:
-        Mass_Ratio = 0.45
-    elif 35 <= roll_for_AC_mass_ratio <= 38:
-        Mass_Ratio = 0.50
-    elif 39 <= roll_for_AC_mass_ratio <= 43:
-        Mass_Ratio = 0.55
-    elif 44 <= roll_for_AC_mass_ratio <= 48:
-        Mass_Ratio = 0.60
-    elif 49 <= roll_for_AC_mass_ratio <= 53:
-        Mass_Ratio = 0.65
-    elif 54 <= roll_for_AC_mass_ratio <= 58:
-        Mass_Ratio = 0.70
-    elif 59 <= roll_for_AC_mass_ratio <= 63:
-        Mass_Ratio = 0.75
-    elif 64 <= roll_for_AC_mass_ratio <= 69:
-        Mass_Ratio = 0.80
-    elif 70 <= roll_for_AC_mass_ratio <= 76:
-        Mass_Ratio = 0.85
-    elif 77 <= roll_for_AC_mass_ratio <= 86:
-        Mass_Ratio = 0.90
-    elif roll_for_AC_mass_ratio >= 88:
-        Mass_Ratio = 0.95
-    print(f"Mass Ratio Between Star A and Star C: {Mass_Ratio}")
-    Mass_C = Mass_A * Mass_Ratio
-    if Mass_C < 0.015:
-        Mass_C = 0.015
-    Mass_C = round(Mass_C, 3)
+    a_c_mass_ratio = binary_system_mass_ratio()
+    print(f"Mass Ratio Between Star A and Star C: {a_c_mass_ratio}")
+    Mass_C = star_mass_from_ratio(Mass_A, a_c_mass_ratio)
     print(f"Mass of Star C: {Mass_C} solar masses")
+    Star_C = Star(mass=Mass_C, category=star_category_from_mass(Mass_C))
 
-    roll_for_CD_mass_ratio = (d100()+30)
-    if roll_for_CD_mass_ratio == 31:
-        Mass_Ratio = 0.40
-    elif 32 <= roll_for_CD_mass_ratio <= 34:
-        Mass_Ratio = 0.45
-    elif 35 <= roll_for_CD_mass_ratio <= 38:
-        Mass_Ratio = 0.50
-    elif 39 <= roll_for_CD_mass_ratio <= 43:
-        Mass_Ratio = 0.55
-    elif 44 <= roll_for_CD_mass_ratio <= 48:
-        Mass_Ratio = 0.60
-    elif 49 <= roll_for_CD_mass_ratio <= 53:
-        Mass_Ratio = 0.65
-    elif 54 <= roll_for_CD_mass_ratio <= 58:
-        Mass_Ratio = 0.70
-    elif 59 <= roll_for_CD_mass_ratio <= 63:
-        Mass_Ratio = 0.75
-    elif 64 <= roll_for_CD_mass_ratio <= 69:
-        Mass_Ratio = 0.80
-    elif 70 <= roll_for_CD_mass_ratio <= 76:
-        Mass_Ratio = 0.85
-    elif 77 <= roll_for_CD_mass_ratio <= 86:
-        Mass_Ratio = 0.90
-    elif 87 <= roll_for_CD_mass_ratio <= 130:
-        Mass_Ratio = 0.95
-    print(f"Mass Ratio Between Star C and Star D: {Mass_Ratio}")
-    Mass_D = Mass_C * Mass_Ratio
-    if Mass_D < 0.015:
-        Mass_D = 0.015
-    Mass_D = round(Mass_D, 3)
+    c_d_mass_ratio = ternary_system_mass_ratio()    
+    print(f"Mass Ratio Between Star C and Star D: {c_d_mass_ratio}")
+    Mass_D = star_mass_from_ratio(Mass_C, c_d_mass_ratio)
     print(f"Mass of Star D: {Mass_D} solar masses")
+    Star_D = Star(mass=Mass_D, category=star_category_from_mass(Mass_D))
+    Star_System = StarSystem(
+        stars=[Star_A, Star_B, Star_C, Star_D],
+        stellar_arrangement=StellarArrangement.QUATERNARY
+    )
 
 # Step 4: Star System Age
-
 Population = None
-base_age = None
-age_range = None
-roll_for_stellar_population = d100()
 
-if 1 <= roll_for_stellar_population <= 42: 
-    Population = "Young Population I"
-    Base_Age = 0.0
-    Age_Range = 2.0
-elif 43 <= roll_for_stellar_population <= 76: 
-    Population = "Intermediate Population"
-    Base_Age = 2.0
-    Age_Range = 1.0
-elif 77 <= roll_for_stellar_population <= 95: 
-    Population = "Old Population I"
-    Base_Age = 5.0
-    Age_Range= 3.0
-elif 96 <= roll_for_stellar_population <= 99: 
-    Population = "Disk Population II"
-    Base_Age = 8.0
-    Age_Range = 1.5
-elif 100 == roll_for_stellar_population: 
-    Population = "Halo Population II"
-    Base_Age = 9.5
-    Age_Range = 3.0
 
-roll_for_age_range = d100()
-system_age = Base_Age + (Age_Range*(roll_for_age_range/100))
+def generate_stellar_population() -> tuple[str, float]:    
+    roll_for_stellar_population = d100()
+    if 1 <= roll_for_stellar_population <= 42: 
+        population = StellarPopulation.YOUNG_POPULATION_I
+        base_age = 0.0
+        age_range = 2.0
+    elif 43 <= roll_for_stellar_population <= 76: 
+        population = StellarPopulation.INTERMEDIATE_POPULATION
+        base_age = 2.0
+        age_range = 1.0
+    elif 77 <= roll_for_stellar_population <= 95: 
+        population = StellarPopulation.OLD_POPULATION_I
+        base_age = 5.0
+        age_range= 3.0
+    elif 96 <= roll_for_stellar_population <= 99: 
+        population = StellarPopulation.DISK_POPULATION_II
+        base_age = 8.0
+        age_range = 1.5
+    else:  # 100 
+        population = StellarPopulation.HALO_POPULATION_II
+        base_age = 9.5
+        age_range = 3.0
 
-print(f"Stellar Population: {Population}")
-system_age = round(system_age, 2)
-print(f"System Age: {system_age} Gyr")
+    roll_for_age_range = d100()
+    system_age = round(base_age + (age_range * (roll_for_age_range / 100)), 2)
+
+    print(f"Stellar Population: {population}")
+    print(f"System Age: {system_age} Gyr")
+    return population, system_age
+
+Population, system_age = generate_stellar_population()
+Star_System.system_age = system_age
+
 
 # Step 5: Star System Metallicity
 
 # currently only randomly generated metallicity - will need to tweak to use Gaia estimate or values from SIMBAD (if available)
-Metallicity = None
-roll_for_metallicity = _3d6()
-Metallicity = (roll_for_metallicity / 10)*(1.2-(system_age/13.5))
+def generate_metallicity(population, system_age) -> float:
+    roll_for_metallicity = _3d6()
+    system_age_factor = (1.2 - (system_age / 13.5))
+    metallicity = (roll_for_metallicity * system_age_factor) / 10.0
+    if population is StellarPopulation.HALO_POPULATION_II:
+        metallicity -= 0.2
+    return max(0, round(metallicity, 2))
 
-if Population == "Halo Population II":
-    Metallicity = (Metallicity - 0.2)
 
-if Metallicity < 0:
-    Metallicity = 0
-
-Metallicity = round(Metallicity, 2)
+Metallicity = generate_metallicity(Population, system_age)
 print(f"Metallicity: {Metallicity}")
+Star_System.metallicity = Metallicity
+
+
 
 # Step 6: Stellar Evolution
+from planetary_system_data.steller_evolution import evolve_star
 
-if Number_of_Stars >= 1:
-    Temperature_Effective_of_Star_A = None
-    Luminosity_of_Star_A = None
-    Radius_of_Star_A = None
-    Main_Sequence_Lifespan_of_Star_A = None
 
-    if Mass_A < 0.08:
-        Temperature_Effective_of_Star_A = 18600 * ((Mass_A ** 0.8) / (system_age ** 0.3))
-        Luminosity_of_Star_A = (Temperature_Effective_of_Star_A ** 4) / (1.1e+17)
-        Radius_of_Star_A = 0.00047
-        Main_Sequence_Lifespan_of_Star_A = (1 / (Mass_A ** 2.5)) / 10
-        # theoretical main sequence lifespan, in practice brown dwarf lifespans are longer than the current age of the universe
 
-    elif 0.08 <= Mass_A <= 0.5:
-        Temperature_Effective_of_Star_A = -78806*(Mass_A ** 4) + 125050*(Mass_A ** 3) - 74194*(Mass_A ** 2) + (20692*Mass_A) + 1272.2
-        Luminosity_of_Star_A = 2.1901*(Mass_A ** 4) - 2.2436*(Mass_A ** 3) + 0.919*(Mass_A ** 2) - (0.1023*Mass_A) + 0.0039
-        Main_Sequence_Lifespan_of_Star_A = (1 / (Mass_A ** 2.5)) / 10
-        # theoretical main sequence lifespan, in practice red dwarf lifespans are longer than the current age of the universe
-        
-    elif 0.5 < Mass_A:
-        Initial_Effective_Temperature_of_Star_A = None
-        Final_Effective_Temperature_of_Star_A = None
-        Initial_Luminosity_of_Star_A = None
-        Luminosity_Growth_Rate_of_Star_A = None
-
-        Initial_Effective_Temperature_of_Star_A = 15.992*(Mass_A ** 4) - 198.64*(Mass_A ** 3) + 578.86*(Mass_A ** 2) + (3020.1*Mass_A) + 2060
-        Final_Effective_Temperature_of_Star_A = 15.893*(Mass_A ** 4) + 154.37*(Mass_A ** 3) + 384.94*(Mass_A ** 2) + (2105.7*Mass_A) + 3631.6
-        Initial_Luminosity_of_Star_A = -0.2707*(Mass_A ** 4) + 10.15*(Mass_A ** 3) + 28.137*(Mass_A ** 2) + (31.268*Mass_A) + 11.559
-        if Mass_A <= 4:
-            Luminosity_Growth_Rate_of_Star_A = 0.8295*(Mass_A ** 6) - 9.2448*(Mass_A ** 5) + 40.931*(Mass_A ** 4) - 90.562*(Mass_A ** 3) + 104.59*(Mass_A ** 2) - (59.148*Mass_A) + 13.745
-        elif Mass_A > 4:
-            Luminosity_Growth_Rate_of_Star_A = (0.000005 ** (3.9985*Mass_A)) 
-        Main_Sequence_Lifespan_of_Star_A = 11.452*(Mass_A ** -3.157)
-
-        Temperature_Effective_of_Star_A = Initial_Effective_Temperature_of_Star_A + (system_age / Main_Sequence_Lifespan_of_Star_A) * (Final_Effective_Temperature_of_Star_A - Initial_Effective_Temperature_of_Star_A)
-
-        if (system_age <= (0.8*Main_Sequence_Lifespan_of_Star_A)):
-                Luminosity_of_Star_A = Initial_Luminosity_of_Star_A * (Luminosity_Growth_Rate_of_Star_A ** system_age)
-        elif (system_age > (0.8*Main_Sequence_Lifespan_of_Star_A)):
-                Luminosity_of_Star_A = Initial_Luminosity_of_Star_A * (Luminosity_Growth_Rate_of_Star_A ** (3*system_age - 1.6*Main_Sequence_Lifespan_of_Star_A))
-        
-    if 0.08 <= Mass_A:
-        Radius_of_Star_A = 155000 * ((math.sqrt(Luminosity_of_Star_A))/(Temperature_Effective_of_Star_A * Temperature_Effective_of_Star_A))
-
-    Temperature_Effective_of_Star_A = round(Temperature_Effective_of_Star_A, 1)
-    Luminosity_of_Star_A = round(Luminosity_of_Star_A, 5)
-    Radius_of_Star_A = round(Radius_of_Star_A, 5)
-    print(f"Effective Temperature of Star A: {Temperature_Effective_of_Star_A} Kelvin")
-    print(f"Luminosity of Star A: {Luminosity_of_Star_A} solar luminosities")
-    print(f"Radius of Star A: {Radius_of_Star_A} AU")
-
-if Number_of_Stars >= 2:
-    Temperature_Effective_of_Star_B = None
-    Luminosity_of_Star_B = None
-    Radius_of_Star_B = None
-    Main_Sequence_Lifespan_of_Star_B = None
-    
-    if Mass_B < 0.08:
-        Temperature_Effective_of_Star_B = 18600 * ((Mass_B ** 0.8) / (system_age ** 0.3))
-        Luminosity_of_Star_B = (Temperature_Effective_of_Star_B ** 4) / (1.1e+17)
-        Radius_of_Star_B = 0.00047
-        Main_Sequence_Lifespan_of_Star_B = (1 / (Mass_B ** 2.5)) / 10
-        # theoretical main sequence lifespan, in practice brown dwarf lifespans are longer than the current age of the universe
-
-    elif 0.08 <= Mass_B <= 0.5:
-        Temperature_Effective_of_Star_B = -78806*(Mass_B ** 4) + 125050*(Mass_B ** 3) - 74194*(Mass_B ** 2) + (20692*Mass_B) + 1272.2
-        Luminosity_of_Star_B = 2.1901*(Mass_B ** 4) - 2.2436*(Mass_B ** 3) + 0.919*(Mass_B ** 2) - (0.1023*Mass_B) + 0.0039
-        Main_Sequence_Lifespan_of_Star_B = (1 / (Mass_B ** 2.5)) / 10
-        # theoretical main sequence lifespan, in practice red dwarf lifespans are longer than the current age of the universe
-
-    elif 0.5 < Mass_B:
-        Initial_Effective_Temperature_of_Star_B = None
-        Final_Effective_Temperature_of_Star_B = None
-        Initial_Luminosity_of_Star_B = None
-        Luminosity_Growth_Rate_of_Star_B = None
-
-        Initial_Effective_Temperature_of_Star_B = 15.992*(Mass_B ** 4) - 198.64*(Mass_B ** 3) + 578.86*(Mass_B ** 2) + (3020.1*Mass_B) + 2060
-        Final_Effective_Temperature_of_Star_B = 15.893*(Mass_B ** 4) + 154.37*(Mass_B ** 3) + 384.94*(Mass_B ** 2) + (2105.7*Mass_B) + 3631.6
-        Initial_Luminosity_of_Star_B = -0.2707*(Mass_B ** 4) + 10.15*(Mass_B ** 3) + 28.137*(Mass_B ** 2) + (31.268*Mass_B) + 11.559
-        if Mass_B <= 4:
-            Luminosity_Growth_Rate_of_Star_B = 0.8295*(Mass_B ** 6) - 9.2448*(Mass_B ** 5) + 40.931*(Mass_B ** 4) - 90.562*(Mass_B ** 3) + 104.59*(Mass_B ** 2) - (59.148*Mass_B) + 13.745
-        elif Mass_B > 4:
-            Luminosity_Growth_Rate_of_Star_B = (0.000005 ** (3.9985*Mass_B)) 
-        Main_Sequence_Lifespan_of_Star_B = 11.452*(Mass_B ** -3.157)
-
-        Temperature_Effective_of_Star_B = Initial_Effective_Temperature_of_Star_B + (system_age / Main_Sequence_Lifespan_of_Star_B) * (Final_Effective_Temperature_of_Star_B-Initial_Effective_Temperature_of_Star_B)
-
-        if (system_age <= (0.8*Main_Sequence_Lifespan_of_Star_B)):
-                Luminosity_of_Star_B = Initial_Luminosity_of_Star_B * (Luminosity_Growth_Rate_of_Star_B ** system_age)
-        elif (system_age > (0.8*Main_Sequence_Lifespan_of_Star_B)):
-                Luminosity_of_Star_B = Initial_Luminosity_of_Star_B * (Luminosity_Growth_Rate_of_Star_B ** (3*system_age - 1.6*Main_Sequence_Lifespan_of_Star_B))
-
-    if 0.08 <= Mass_B:
-        Radius_of_Star_B = 155000 * ((math.sqrt(Luminosity_of_Star_B))/(Temperature_Effective_of_Star_B * Temperature_Effective_of_Star_B))
-
-    Temperature_Effective_of_Star_B = round(Temperature_Effective_of_Star_B, 1)
-    Luminosity_of_Star_B = round(Luminosity_of_Star_B, 5)
-    Radius_of_Star_B = round(Radius_of_Star_B, 5)
-    print(f"Effective Temperature of Star B: {Temperature_Effective_of_Star_B} Kelvin")
-    print(f"Luminosity of Star B: {Luminosity_of_Star_B} solar luminosities")
-    print(f"Radius of Star B: {Radius_of_Star_B} AU")
-
-if Number_of_Stars >= 3:
-    
-    Temperature_Effective_of_Star_C = None
-    Luminosity_of_Star_C = None
-    Radius_of_Star_C = None
-    Main_Sequence_Lifespan_of_Star_C = None
-
-    if Mass_C < 0.08:
-        Temperature_Effective_of_Star_C = 18600 * ((Mass_C ** 0.8) / (system_age ** 0.3))
-        Luminosity_of_Star_C = (Temperature_Effective_of_Star_C ** 4) / (1.1e+17)
-        Radius_of_Star_C = 0.00047
-        Main_Sequence_Lifespan_of_Star_C = (1 / (Mass_C ** 2.5)) / 10
-        # theoretical main sequence lifespan, in practice brown dwarf lifespans are longer than the current age of the universe
-
-    elif 0.08 <= Mass_C <= 0.5:
-        Temperature_Effective_of_Star_C = -78806*(Mass_C ** 4) + 125050*(Mass_C ** 3) - 74194*(Mass_C ** 2) + (20692*Mass_C) + 1272.2
-        Luminosity_of_Star_C = 2.1901*(Mass_C ** 4) - 2.2436*(Mass_C ** 3) + 0.919*(Mass_C ** 2) - (0.1023*Mass_C) + 0.0039
-        Main_Sequence_Lifespan_of_Star_C = (1 / (Mass_C ** 2.5)) / 10
-        # theoretical main sequence lifespan, in practice red dwarf lifespans are longer than the current age of the universe
-
-    elif 0.5 < Mass_C:
-        Initial_Effective_Temperature_of_Star_C = None
-        Final_Effective_Temperature_of_Star_C = None
-        Initial_Luminosity_of_Star_C = None
-        Luminosity_Growth_Rate_of_Star_C = None
-
-        Initial_Effective_Temperature_of_Star_C = 15.992*(Mass_C ** 4) - 198.64*(Mass_C ** 3) + 578.86*(Mass_C ** 2) + (3020.1*Mass_C) + 2060
-        Final_Effective_Temperature_of_Star_C = 15.893*(Mass_C ** 4) + 154.37*(Mass_C ** 3) + 384.94*(Mass_C ** 2) + (2105.7*Mass_C) + 3631.6
-        Initial_Luminosity_of_Star_C = -0.2707*(Mass_C ** 4) + 10.15*(Mass_C ** 3) + 28.137*(Mass_C ** 2) + (31.268*Mass_C) + 11.559
-        if Mass_C <= 4:
-            Luminosity_Growth_Rate_of_Star_C = 0.8295*(Mass_C ** 6) - 9.2448*(Mass_C ** 5) + 40.931*(Mass_C ** 4) - 90.562*(Mass_C ** 3) + 104.59*(Mass_C ** 2) - (59.148*Mass_C) + 13.745
-        elif Mass_C > 4:
-            Luminosity_Growth_Rate_of_Star_C = (0.000005 ** (3.9985*Mass_C)) 
-        Main_Sequence_Lifespan_of_Star_C = 11.452*(Mass_C ** -3.157)
-
-        Temperature_Effective_of_Star_C = Initial_Effective_Temperature_of_Star_C + (system_age / Main_Sequence_Lifespan_of_Star_C) * (Final_Effective_Temperature_of_Star_C-Initial_Effective_Temperature_of_Star_C)
-
-        if (system_age <= (0.8*Main_Sequence_Lifespan_of_Star_C)):
-                Luminosity_of_Star_C = Initial_Luminosity_of_Star_C * (Luminosity_Growth_Rate_of_Star_C ** system_age)
-        elif (system_age > (0.8*Main_Sequence_Lifespan_of_Star_C)):
-                Luminosity_of_Star_C = Initial_Luminosity_of_Star_C * (Luminosity_Growth_Rate_of_Star_C ** (3*system_age - 1.6*Main_Sequence_Lifespan_of_Star_C))
-
-    if 0.08 <= Mass_C:
-        Radius_of_Star_C = 155000 * ((math.sqrt(Luminosity_of_Star_C))/(Temperature_Effective_of_Star_C * Temperature_Effective_of_Star_C))
-
-    Temperature_Effective_of_Star_C = round(Temperature_Effective_of_Star_C, 1)
-    Luminosity_of_Star_C = round(Luminosity_of_Star_C, 5)
-    Radius_of_Star_C = round(Radius_of_Star_C, 5)
-    print(f"Effective Temperature of Star C: {Temperature_Effective_of_Star_C} Kelvin")
-    print(f"Luminosity of Star C: {Luminosity_of_Star_C} solar luminosities")
-    print(f"Radius of Star C: {Radius_of_Star_C} AU")
-
-if Number_of_Stars == 4:
-    
-    Temperature_Effective_of_Star_D = None
-    Luminosity_of_Star_D = None
-    Radius_of_Star_D = None
-    Main_Sequence_Lifespan_of_Star_D = None
-    
-    if Mass_D < 0.08:
-        Temperature_Effective_of_Star_D = 18600 * ((Mass_D ** 0.8) / (system_age ** 0.3))
-        Luminosity_of_Star_D = (Temperature_Effective_of_Star_D ** 4) / (1.1e+17)
-        Radius_of_Star_D = 0.00047
-        Main_Sequence_Lifespan_of_Star_D = (1 / (Mass_D ** 2.5)) / 10
-        # theoretical main sequence lifespan, in practice brown dwarf lifespans are longer than the current age of the universe
-
-    elif 0.08 <= Mass_D <= 0.5:
-        Temperature_Effective_of_Star_D = -78806*(Mass_D ** 4) + 125050*(Mass_D ** 3) - 74194*(Mass_D ** 2) + (20692*Mass_D) + 1272.2
-        Luminosity_of_Star_D = 2.1901*(Mass_D ** 4) - 2.2436*(Mass_D ** 3) + 0.919*(Mass_D ** 2) - (0.1023*Mass_D) + 0.0039
-        Main_Sequence_Lifespan_of_Star_D = (1 / (Mass_D ** 2.5)) / 10
-        # theoretical main sequence lifespan, in practice red dwarf lifespans are longer than the current age of the universe
-
-    elif 0.5 < Mass_D:
-        Initial_Effective_Temperature_of_Star_D = None
-        Final_Effective_Temperature_of_Star_D = None
-        Initial_Luminosity_of_Star_D = None
-        Luminosity_Growth_Rate_of_Star_D = None
-
-        Initial_Effective_Temperature_of_Star_D = 15.992*(Mass_D ** 4) - 198.64*(Mass_D ** 3) + 578.86*(Mass_D ** 2) + (3020.1*Mass_D) + 2060
-        Final_Effective_Temperature_of_Star_D = 15.893*(Mass_D ** 4) + 154.37*(Mass_D ** 3) + 384.94*(Mass_D ** 2) + (2105.7*Mass_D) + 3631.6
-        Initial_Luminosity_of_Star_D = -0.2707*(Mass_D ** 4) + 10.15*(Mass_D ** 3) + 28.137*(Mass_D ** 2) + (31.268*Mass_D) + 11.559
-        if Mass_D <= 4:
-            Luminosity_Growth_Rate_of_Star_D = 0.8295*(Mass_D ** 6) - 9.2448*(Mass_D ** 5) + 40.931*(Mass_D ** 4) - 90.562*(Mass_D ** 3) + 104.59*(Mass_D ** 2) - (59.148*Mass_D) + 13.745
-        elif Mass_D > 4:
-            Luminosity_Growth_Rate_of_Star_D = (0.000005 ** (3.9985*Mass_D)) 
-        Main_Sequence_Lifespan_of_Star_D = 11.452*(Mass_D ** -3.157)
-
-        Temperature_Effective_of_Star_D = Initial_Effective_Temperature_of_Star_D + (system_age / Main_Sequence_Lifespan_of_Star_D) * (Final_Effective_Temperature_of_Star_D-Initial_Effective_Temperature_of_Star_D)
-
-        if (system_age <= (0.8*Main_Sequence_Lifespan_of_Star_D)):
-                Luminosity_of_Star_D = Initial_Luminosity_of_Star_D * (Luminosity_Growth_Rate_of_Star_D ** system_age)
-        elif (system_age > (0.8*Main_Sequence_Lifespan_of_Star_D)):
-                Luminosity_of_Star_D = Initial_Luminosity_of_Star_D * (Luminosity_Growth_Rate_of_Star_D ** (3*system_age - 1.6*Main_Sequence_Lifespan_of_Star_D))
-
-    if 0.08 <= Mass_D:
-        Radius_of_Star_D = 155000 * ((math.sqrt(Luminosity_of_Star_D))/(Temperature_Effective_of_Star_D * Temperature_Effective_of_Star_D))
-    
-    Temperature_Effective_of_Star_D = round(Temperature_Effective_of_Star_D, 1)
-    Luminosity_of_Star_D = round(Luminosity_of_Star_D, 5)
-    Radius_of_Star_D = round(Radius_of_Star_D, 5)
-
-    print(f"Effective Temperature of Star D: {Temperature_Effective_of_Star_D} Kelvin")
-    print(f"Luminosity of Star D: {Luminosity_of_Star_D} solar luminosities")
-    print(f"Radius of Star D: {Radius_of_Star_D} AU")
-
-Evolutionary_Stage_of_Star_A = None
-Evolutionary_Stage_of_Star_B = None
-Evolutionary_Stage_of_Star_C = None
-Evolutionary_Stage_of_Star_D = None
-
-if Number_of_Stars >= 1:
-    if system_age < Main_Sequence_Lifespan_of_Star_A:
-        Evolutionary_Stage_of_Star_A = "Main Sequence"
-        print("Star A is still on the main sequence")
-        # If the system’s age is less than the star’s Main Sequence Lifespan, then the star is still on the main sequence.
-
-    if Main_Sequence_Lifespan_of_Star_A <= system_age <= (1.15 * Main_Sequence_Lifespan_of_Star_A):
-        print("Star A has evolved beyond the Main Sequence")
-        # If the system’s age exceeds the star’s Main Sequence Lifespan by no more than 15%, then the star will be a subgiant or red giant
-        roll_for_giant_type = d100()
-        if roll_for_giant_type <= 60:
-            Evolutionary_Stage_of_Star_A = "Subgiant"
-            print("Specifically - Star A has evolved into a subgiant")
-            # On a roll of 01-60, the star is a subgiant
-            Luminosity_of_Star_A = Initial_Luminosity_of_Star_A * (Luminosity_Growth_Rate_of_Star_A ** (1.4 * Main_Sequence_Lifespan_of_Star_A))
-            print(f"Luminosity of Star A has increased to: {Luminosity_of_Star_A} solar luminosities")
-
-        if 61 <= roll_for_giant_type <= 90:
-            Evolutionary_Stage_of_Star_A = "Red Giant Branch"
-            print("Specifically Star has evolved onto the Red Giant Branch")
-            # On a roll of 61-90, the star is on the red giant branch
-            roll_for_red_giant_varriable = (d100() / 100)
-            Temperature_Effective_of_Star_A = 5000 - (roll_for_red_giant_varriable * 2000)
-            Luminosity_of_Star_A = 50 ** (1 + roll_for_red_giant_varriable)
-            print(f"Temperature of Star A has cooled to: {Temperature_Effective_of_Star_A} Kelvin")
-            print(f"Luminosity of Star A has increased to: {Luminosity_of_Star_A} solar luminosities")
-
-        if 91 <= roll_for_giant_type <= 100:
-            Evolutionary_Stage_of_Star_A = "Horizonal Branch"
-            print("Specifically Star A has evolved onto the Horizontal Branch")
-            # On a roll of 91-00, the star is on the horizontal branch
-            Temperature_Effective_of_Star_A = 5000
-            print("Temperature of Star A is now approximately 5000 Kelvin")
-            roll_for_horizontal_giant_varriable = d100()
-            Luminosity_of_Star_A = 50 + (roll_for_horizontal_giant_varriable / 2)
-            print(f"Luminosity of Star A has increased to: {Luminosity_of_Star_A} solar luminosities")
-
-        Radius_of_Star_A = 155000 * ((math.sqrt(Luminosity_of_Star_A))/(Temperature_Effective_of_Star_A * Temperature_Effective_of_Star_A))
-        Radius_of_Star_A = round(Radius_of_Star_A, 5)
-        print(f"Radius of Star A has evolved to: {Radius_of_Star_A} AU")
-
-    if system_age > (1.15 * Main_Sequence_Lifespan_of_Star_A):
-        Evolutionary_Stage_of_Star_A = "White Dwarf"
-        print("Star A has evolved into a White Dwarf")
-        # If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
-        Mass_WDA = 0.43 + (Mass_A / 10.4)
-        Mass_WDA = round(Mass_WDA, 2)
-        print(f"Mass of Star A has decreased to: {Mass_WDA} solar masses")
-        Temperature_Effective_of_White_Dwarf_A = 13500 * ((Mass_WDA ** 0.25) / (((system_age - (1.15 * Main_Sequence_Lifespan_of_Star_A)) ** 0.35)))
-        Temperature_Effective_of_White_Dwarf_A = round(Temperature_Effective_of_White_Dwarf_A, 1)
-        print(f"Temperature of Star A has evolved to: {Temperature_Effective_of_White_Dwarf_A} Kelvin")
-        Radius_of_White_Dwarf_A = 5500 / (math.cbrt(Mass_WDA))
-        Radius_of_White_Dwarf_A = round(Radius_of_White_Dwarf_A, 1)
-        print(f"Radius of Star A has decreased to: {Radius_of_White_Dwarf_A} kilometers")
-        Luminosity_of_White_Dwarf_A = ((Radius_of_White_Dwarf_A ** 2) * (Temperature_Effective_of_White_Dwarf_A ** 4))/ (5.4e26)
-        Luminosity_of_White_Dwarf_A = round(Luminosity_of_White_Dwarf_A, 5)
-        print(f"Luminosity of Star A has evolved to: {Luminosity_of_White_Dwarf_A} solar lumunosities")
-
-if Number_of_Stars >= 2:
-    if system_age < Main_Sequence_Lifespan_of_Star_B:
-        Evolutionary_Stage_of_Star_B = "Main Sequence"
-        print("Star B is still on the main sequence")
-        # If the system’s age is less than the star’s Main Sequence Lifespan, then the star is still on the main sequence.
-
-    if Main_Sequence_Lifespan_of_Star_B <= system_age <= (1.15 * Main_Sequence_Lifespan_of_Star_B):
-        print("Star B has evolved beyond the Main Sequence")
-        # If the system’s age exceeds the star’s Main Sequence Lifespan by no more than 15%, then the star will be a subgiant or red giant
-        roll_for_giant_type = d100()
-        if roll_for_giant_type <= 60:
-            Evolutionary_Stage_of_Star_B = "Subgiant"
-            print("Specifically - Star B has evolved into a subgiant")
-            # On a roll of 01-60, the star is a subgiant
-            Luminosity_of_Star_B = Initial_Luminosity_of_Star_B * (Luminosity_Growth_Rate_of_Star_B ** (1.4 * Main_Sequence_Lifespan_of_Star_B))
-            print(f"Luminosity of Star B has increased to: {Luminosity_of_Star_B} solar luminosities")
-        
-        if 61 <= roll_for_giant_type <= 90:
-            Evolutionary_Stage_of_Star_B = "Red Giant Branch"
-            print("Specifically Star has evolved onto the Red Giant Branch")
-            # On a roll of 61-90, the star is on the red giant branch
-            roll_for_red_giant_varriable = (d100() / 100)
-            Temperature_Effective_of_Star_B = 5000 - (roll_for_red_giant_varriable * 2000)
-            Luminosity_of_Star_B = 50 ** (1 + roll_for_red_giant_varriable)
-            print(f"Temperature of Star B has cooled to: {Temperature_Effective_of_Star_B} Kelvin")
-            print(f"Luminosity of Star B has increased to: {Luminosity_of_Star_B} solar luminosities")
-
-        if 91 <= roll_for_giant_type <= 100:
-            Evolutionary_Stage_of_Star_B = "Horizonal Branch"
-            print("Specifically Star B has evolved onto the Horizontal Branch")
-            # On a roll of 91-00, the star is on the horizontal branch
-            Temperature_Effective_of_Star_B = 5000
-            print("Temperature of Star B is now approximately 5000 Kelvin")
-            roll_for_horizontal_giant_varriable = d100()
-            Luminosity_of_Star_B = 50 + (roll_for_horizontal_giant_varriable / 2)
-            print(f"Luminosity of Star B has increased to: {Luminosity_of_Star_B} solar luminosities")
-
-        Radius_of_Star_B = 155000 * ((math.sqrt(Luminosity_of_Star_B))/(Temperature_Effective_of_Star_B * Temperature_Effective_of_Star_B))
-        Radius_of_Star_B = round(Radius_of_Star_B, 5)
-        print(f"Radius of Star B has evolved to: {Radius_of_Star_B} AU")
-
-    if system_age > (1.15 * Main_Sequence_Lifespan_of_Star_B):
-        Evolutionary_Stage_of_Star_B = "White Dwarf"
-        print("Star B has evolved into a White Dwarf")
-        # If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
-        Mass_WDB = 0.43 + (Mass_B / 10.4)
-        Mass_WDB = round(Mass_WDB, 2)
-        print(f"Mass of Star B has decreased to: {Mass_WDB} solar masses")
-        Temperature_Effective_of_White_Dwarf_B = 13500 * ((Mass_WDB ** 0.25) / (((system_age - (1.15 * Main_Sequence_Lifespan_of_Star_B)) ** 0.35)))
-        Temperature_Effective_of_White_Dwarf_B = round(Temperature_Effective_of_White_Dwarf_B, 1)
-        print(f"Temperature of Star B has evolved to: {Temperature_Effective_of_White_Dwarf_B} Kelvin")
-        Radius_of_White_Dwarf_B = 5500 / (math.cbrt(Mass_WDB))
-        Radius_of_White_Dwarf_B = round(Radius_of_White_Dwarf_B, 1)
-        print(f"Radius of Star B has decreased to: {Radius_of_White_Dwarf_B} kilometers")
-        Luminosity_of_White_Dwarf_B = ((Radius_of_White_Dwarf_B ** 2) * (Temperature_Effective_of_White_Dwarf_B ** 4)) / (5.4e26)
-        Luminosity_of_White_Dwarf_B = round(Luminosity_of_White_Dwarf_B, 5)
-        print(f"Luminosity of Star B has evolved to: {Luminosity_of_White_Dwarf_B} solar lumunosities")
-
-if Number_of_Stars >= 3:
-    if system_age < Main_Sequence_Lifespan_of_Star_C:
-        Evolutionary_Stage_of_Star_C = "Main Sequence"
-        print("Star C is still on the main sequence")
-        # If the system’s age is less than the star’s Main Sequence Lifespan, then the star is still on the main sequence.
-
-    if Main_Sequence_Lifespan_of_Star_C <= system_age <= (1.15 * Main_Sequence_Lifespan_of_Star_C):
-        print("Star C has evolved beyond the Main Sequence")
-        # If the system’s age exceeds the star’s Main Sequence Lifespan by no more than 15%, then the star will be a subgiant or red giant
-        roll_for_giant_type = d100()
-        if roll_for_giant_type <= 60:
-            Evolutionary_Stage_of_Star_C = "Subgiant"
-            print("Specifically - Star C has evolved into a subgiant")
-            # On a roll of 01-60, the star is a subgiant
-            Luminosity_of_Star_C = Initial_Luminosity_of_Star_C * (Luminosity_Growth_Rate_of_Star_C ** (1.4 * Main_Sequence_Lifespan_of_Star_C))
-            print(f"Luminosity of Star C has increased to: {Luminosity_of_Star_A} solar luminosities")
-
-        if 61 <= roll_for_giant_type <= 90:
-            Evolutionary_Stage_of_Star_C = "Red Giant Branch"
-            print("Specifically Star has evolved onto the Red Giant Branch")
-            # On a roll of 61-90, the star is on the red giant branch
-            roll_for_red_giant_varriable = (d100() / 100)
-            Temperature_Effective_of_Star_C = 5000 - (roll_for_red_giant_varriable * 2000)
-            Luminosity_of_Star_C = 50 ** (1 + roll_for_red_giant_varriable)
-            print(f"Temperature of Star C has cooled to: {Temperature_Effective_of_Star_C} Kelvin")
-            print(f"Luminosity of Star C has increased to: {Luminosity_of_Star_C} solar luminosities")
-
-        if 91 <= roll_for_giant_type <= 100:
-            Evolutionary_Stage_of_Star_C = "Horizonal Branch"
-            print("Specifically Star C has evolved onto the Horizontal Branch")
-            # On a roll of 91-00, the star is on the horizontal branch
-            Temperature_Effective_of_Star_C = 5000
-            print("Temperature of Star C is now approximately 5000 Kelvin")
-            roll_for_horizontal_giant_varriable = d100()
-            Luminosity_of_Star_C = 50 + (roll_for_horizontal_giant_varriable / 2)
-            print(f"Luminosity of Star C has increased to: {Luminosity_of_Star_C} solar luminosities")
-
-        Radius_of_Star_C = 155000 * ((math.sqrt(Luminosity_of_Star_C))/(Temperature_Effective_of_Star_C * Temperature_Effective_of_Star_C))
-        Radius_of_Star_C = round(Radius_of_Star_C, 5)
-        print(f"Radius of Star C has evolved to: {Radius_of_Star_C} AU")
-
-    if system_age > (1.15 * Main_Sequence_Lifespan_of_Star_C):
-        Evolutionary_Stage_of_Star_C = "White Dwarf"
-        print("Star C has evolved into a White Dwarf")
-        # If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
-        Mass_WDC = 0.43 + (Mass_C / 10.4)
-        Mass_WDC = round(Mass_WDC, 2)
-        print(f"Mass of Star C has decreased to: {Mass_WDC} solar masses")
-        Temperature_Effective_of_White_Dwarf_C = 13500 * ((Mass_WDC ** 0.25) / (((system_age - (1.15 * Main_Sequence_Lifespan_of_Star_C)) ** 0.35)))
-        Temperature_Effective_of_White_Dwarf_C = round(Temperature_Effective_of_White_Dwarf_C, 1)
-        print(f"Temperature of Star C has evolved to: {Temperature_Effective_of_White_Dwarf_C} Kelvin")
-        Radius_of_White_Dwarf_C = 5500 / (math.cbrt(Mass_WDC))
-        Radius_of_White_Dwarf_C = round(Radius_of_White_Dwarf_C, 1)
-        print(f"Radius of Star C has decreased to: {Radius_of_White_Dwarf_C} kilometers")
-        Luminosity_of_White_Dwarf_C = ((Radius_of_White_Dwarf_C ** 2) * (Temperature_Effective_of_White_Dwarf_C ** 4)) / (5.4e26)
-        Luminosity_of_White_Dwarf_C = round(Luminosity_of_White_Dwarf_C, 5)
-        print(f"Luminosity of Star C has evolved to: {Luminosity_of_White_Dwarf_C} solar lumunosities")
-
-if Number_of_Stars == 4:
-    if system_age < Main_Sequence_Lifespan_of_Star_D:
-        Evolutionary_Stage_of_Star_D = "Main Sequence"
-        print("Star D is still on the main sequence")
-        # If the system’s age is less than the star’s Main Sequence Lifespan, then the star is still on the main sequence.
-
-    if Main_Sequence_Lifespan_of_Star_D <= system_age <= (1.15 * Main_Sequence_Lifespan_of_Star_D):
-        print("Star D has evolved beyond the Main Sequence")
-        # If the system’s age exceeds the star’s Main Sequence Lifespan by no more than 15%, then the star will be a subgiant or red giant
-        roll_for_giant_type = d100()
-        if roll_for_giant_type <= 60:
-            Evolutionary_Stage_of_Star_D = "Subgiant"
-            print("Specifically - Star D has evolved into a subgiant")
-            # On a roll of 01-60, the star is a subgiant
-            Luminosity_of_Star_D = Initial_Luminosity_of_Star_D * (Luminosity_Growth_Rate_of_Star_D ** (1.4 * Main_Sequence_Lifespan_of_Star_D))
-            print(f"Luminosity of Star D has increased to: {Luminosity_of_Star_A} solar luminosities")
-
-        if 61 <= roll_for_giant_type <= 90:
-            Evolutionary_Stage_of_Star_D = "Red Giant Branch"
-            print("Specifically Star has evolved onto the Red Giant Branch")
-            # On a roll of 61-90, the star is on the red giant branch
-            roll_for_red_giant_varriable = (d100() / 100)
-            Temperature_Effective_of_Star_D = 5000 - (roll_for_red_giant_varriable * 2000)
-            Luminosity_of_Star_D = 50 ** (1 + roll_for_red_giant_varriable)
-            print(f"Temperature of Star D has cooled to: {Temperature_Effective_of_Star_D} Kelvin")
-            print(f"Luminosity of Star D has increased to: {Luminosity_of_Star_D} solar luminosities")
-
-        if 91 <= roll_for_giant_type <= 100:
-            Evolutionary_Stage_of_Star_D = "Horizonal Branch"
-            print("Specifically Star D has evolved onto the Horizontal Branch")
-            # On a roll of 91-00, the star is on the horizontal branch
-            Temperature_Effective_of_Star_D = 5000
-            print("Temperature of Star D is now approximately 5000 Kelvin")
-            roll_for_horizontal_giant_varriable = d100()
-            Luminosity_of_Star_D = 50 + (roll_for_horizontal_giant_varriable / 2)
-            print(f"Luminosity of Star D has increased to: {Luminosity_of_Star_D} solar luminosities")
-
-        Radius_of_Star_D = 155000 * ((math.sqrt(Luminosity_of_Star_D))/(Temperature_Effective_of_Star_D * Temperature_Effective_of_Star_D))
-        Radius_of_Star_D = round(Radius_of_Star_D, 5)
-        print(f"Radius of Star D has evolved to: {Radius_of_Star_D} AU")
-
-    if system_age > (1.15 * Main_Sequence_Lifespan_of_Star_D):
-        Evolutionary_Stage_of_Star_D = "White Dwarf"
-        print("Star D has evolved into a White Dwarf")
-        # If the system’s age exceeds the star’s Main Sequence Lifespan by more than 15%, then the star will have become a white dwarf
-        Mass_WDD = 0.43 + (Mass_D / 10.4)
-        Mass_WDD = round(Mass_WDD, 2)
-        print(f"Mass of Star D has decreased to: {Mass_WDD} solar masses")
-        Temperature_Effective_of_White_Dwarf_D = 13500 * ((Mass_WDD ** 0.25) / (((system_age - (1.15 * Main_Sequence_Lifespan_of_Star_D)) ** 0.35)))
-        Temperature_Effective_of_White_Dwarf_D = round(Temperature_Effective_of_White_Dwarf_D, 1)
-        print(f"Temperature of Star D has evolved to: {Temperature_Effective_of_White_Dwarf_D} Kelvin")
-        Radius_of_White_Dwarf_D = 5500 / (math.cbrt(Mass_WDD))
-        Radius_of_White_Dwarf_D = round(Radius_of_White_Dwarf_D, 1)
-        print(f"Radius of Star D has decreased to: {Radius_of_White_Dwarf_D} kilometers")
-        Luminosity_of_White_Dwarf_D = ((Radius_of_White_Dwarf_D ** 2) * (Temperature_Effective_of_White_Dwarf_D ** 4)) / (5.4e26)
-        Luminosity_of_White_Dwarf_D = round(Luminosity_of_White_Dwarf_D, 5)
-        print(f"Luminosity of Star D has evolved to: {Luminosity_of_White_Dwarf_D} solar lumunosities")
 
 # Step 7: Stellar Classification
 
