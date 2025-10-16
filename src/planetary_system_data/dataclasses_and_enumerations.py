@@ -38,9 +38,15 @@ class StellarPopulation(StrEnum):
 class Star:
     mass: float  # in solar masses
     category: StarCategory
-    temperature: float | None = None # in Kelvin
+    name: str
+    effective_temperature: float | None = None # in Kelvin
+    initial_effective_temperature: float | None = None # in Kelvin
+    final_effective_temperature: float | None = None # in Kelvin
+    initial_luminosity: float | None = None # in solar luminosities
+    final_luminosity: float | None = None # in solar luminosities
+    luminosity_growth_rate: float | None = None
     luminosity: float | None = None # in solar luminosities
-    radius: float | None = None # in solar radii
+    radius: float | None = None # in AU
     main_sequence_lifespan: float | None = None  # in billion years
     evolutionary_stage: StellarEvolutionStage | None = None
     age: float | None = None  # in billion years
