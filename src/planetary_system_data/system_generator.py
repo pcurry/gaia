@@ -36,8 +36,7 @@ print(f"Mass of Star A: {Mass_A} solar masses")
 # Step 2: Stellar Multiplicity
 
 def generate_number_of_stars(primary_mass: float) -> int:
-    """Determine the number of stars in the system based on the mass of the primary star
-    and two rolls."""
+    """Determine the number of stars in the system based on the mass of the primary star and two rolls."""
 
     first_roll_for_number_of_stars = _3d6()
     if first_roll_for_number_of_stars < 9:
@@ -3448,6 +3447,40 @@ if Number_of_Stars == 4:
             Star_D_Protoplanet_16_Speed_Flag = "Slow"
 
 # Step 10: Disk Instability
+    # "Very early in the process of planetary formation, the first gas giant planets may form due to disk instability in the protoplanetary disk
+    # Here, the outer protoplanetary disk is perturbed by the gravitation of nearby stars, or due to the formation of large clumps of material by random chance.
+    # The disk then forms spiral-arm structures, which can quickly give rise to unusually massive gas giant planets. Disk instability is more likely to occur if the protoplanetary disk is denser
+    # (that is, if its disk mass factor, determined in Step Nine, is high)."
+
+    # "To determine at random whether disk instability took place, roll 3d6 and add the disk mass modifier determined in Step Nine. If the result is 12 or higher, one or more planets may form
+    # due to disk instability. Otherwise, skip forward to Step Eleven."
+
+    if Number_of_Stars >= 1:
+        Disk_Stability_for_Star_A = "Stable"
+        roll_for_Disk_Stability_Star_A = _3d6()        
+        if (roll_for_Disk_Density_of_Star_A + Disk_Mass_Modifier_Star_A) >= 12:
+            Disk_Stability_for_Star_A = "Unstable"
+
+    if Number_of_Stars >= 2:
+        Disk_Stability_for_Star_B = "Stable"
+        roll_for_Disk_Stability_Star_B = _3d6()
+        if (roll_for_Disk_Density_of_Star_B + Disk_Mass_Modifier_Star_B) >= 12:
+            Disk_Stability_for_Star_B = "Unstable"
+
+    if Number_of_Stars >= 3:
+        Disk_Stability_for_Star_C = "Stable"
+        roll_for_Disk_Stability_Star_C = _3d6()        
+        if (roll_for_Disk_Density_of_Star_C + Disk_Mass_Modifier_Star_C) >= 12:
+            Disk_Stability_for_Star_C = "Unstable"
+
+    if Number_of_Stars == 4:
+        Disk_Stability_for_Star_D = "Stable"
+        roll_for_Disk_Stability_Star_D = _3d6()        
+        if (roll_for_Disk_Density_of_Star_D + Disk_Mass_Modifier_Star_D) >= 12:
+            Disk_Stability_for_Star_D = "Unstable"
+
+    if Disk_Stability_for_Star_A == "Unstable":
+
     # input Step 10 elements
 
 # Step 11: Core Accretion
