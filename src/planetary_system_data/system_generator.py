@@ -4280,8 +4280,39 @@ if Number_of_Stars == 4:
             Disk_Stability_for_Star_D = "Unstable"
 
     if Disk_Stability_for_Star_A == "Unstable":
+        # "If disk instability has taken place, roll 3d6 twice on the Disk Instability Placement Table, adding the disk mass modifier each time. The first roll will indicate in which formation orbit
+        # the first planet may be placed. The second roll will indicate how many planets may be formed during this step."
+    
+        roll_for_first_formation_orbit_star_A = ( _3d6() + Disk_Mass_Modifier_Star_A )
+        if roll_for_first_formation_orbit_star_A <= 5:    
+            first_formation_orbit_star_A = 13
+        if 6 <= roll_for_first_formation_orbit_star_A <= 7:
+            first_formation_orbit_star_A = 12
+        if 8 <= roll_for_first_formation_orbit_star_A <= 9:
+            first_formation_orbit_star_A = 11
+        if 10 <= roll_for_first_formation_orbit_star_A <= 11:
+            first_formation_orbit_star_A = 10
+        if 12 <= roll_for_first_formation_orbit_star_A <= 13:
+            first_formation_orbit_star_A = 9
+        if 14 <= roll_for_first_formation_orbit_star_A <= 15:
+            first_formation_orbit_star_A = 8
+        if roll_for_first_formation_orbit_star_A >= 16:
+            first_formation_orbit_star_A = 7
+    
+        roll_for_number_of_planets_formed_by_disk_instability_star_A = ( _3d6() + Disk_Mass_Modifier_Star_A )
+        if roll_for_number_of_planets_formed_by_disk_instability_star_A <= 11:
+            number_of_planets_formed_by_disk_instability_star_A = 1
+        if 12 <= roll_for_number_of_planets_formed_by_disk_instability_star_A <= 13:
+            number_of_planets_formed_by_disk_instability_star_A = 2
+        if 14 <= roll_for_number_of_planets_formed_by_disk_instability_star_A <= 15:
+            number_of_planets_formed_by_disk_instability_star_A = 3
+        if roll_for_number_of_planets_formed_by_disk_instability_star_A >= 16:
+            number_of_planets_formed_by_disk_instability_star_A = 4
 
-    # input Step 10 elements
+        # "Check the worksheet to see whether the designated first formation orbit falls within a forbidden zone. If it does, then no planets will form in this step despite the possibility of disk
+        # instability; skip forward to Step Eleven"
+
+        # continue to input Step 10 elements
 
 # Step 11: Core Accretion
     # input Step 11 elements
