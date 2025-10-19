@@ -4341,6 +4341,91 @@ if Number_of_Stars == 4:
         # "Otherwise, start with that formation orbit and place a planet on the worksheet in each formation orbit outward, until either: All the required planets have been placed, or
         # the next formation orbit falls into a forbidden zone" - pg. 61
 
+            if number_of_planets_formed_by_disk_instability_star_A >= 1:
+                if first_formation_orbit_star_A == 7:
+                    Star_A_Protoplanet_7_Flag = "Disk Instability Planet"
+                if first_formation_orbit_star_A == 8:
+                    Star_A_Protoplanet_8_Flag = "Disk Instability Planet"
+                if first_formation_orbit_star_A == 9:
+                    Star_A_Protoplanet_9_Flag = "Disk Instability Planet"
+                if first_formation_orbit_star_A == 10:
+                    Star_A_Protoplanet_10_Flag = "Disk Instability Planet"
+                if first_formation_orbit_star_A == 11:
+                    Star_A_Protoplanet_11_Flag = "Disk Instability Planet"
+                if first_formation_orbit_star_A == 12:
+                    Star_A_Protoplanet_12_Flag = "Disk Instability Planet"
+                if first_formation_orbit_star_A == 13:
+                    Star_A_Protoplanet_13_Flag = "Disk Instability Planet"
+
+            if number_of_planets_formed_by_disk_instability_star_A >= 2:
+                if first_formation_orbit_star_A == 7:
+                    if formation_orbit_8_for_Star_A <= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+                        Star_A_Protoplanet_8_Flag = "Disk Instability Planet"
+                if first_formation_orbit_star_A == 8:
+                    if formation_orbit_9_for_Star_A <= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+                        Star_A_Protoplanet_9_Flag = "Disk Instability Planet"
+                if first_formation_orbit_star_A == 9:
+                    if formation_orbit_10_for_Star_A <= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+                        Star_A_Protoplanet_10_Flag = "Disk Instability Planet"
+                if first_formation_orbit_star_A == 10:
+                    if formation_orbit_11_for_Star_A <= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+                        Star_A_Protoplanet_11_Flag = "Disk Instability Planet"
+                if first_formation_orbit_star_A == 11:
+                    if formation_orbit_12_for_Star_A <= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+                        Star_A_Protoplanet_12_Flag = "Disk Instability Planet"
+                if first_formation_orbit_star_A == 12:
+                    if formation_orbit_13_for_Star_A <= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+                        Star_A_Protoplanet_13_Flag = "Disk Instability Planet"
+                if first_formation_orbit_star_A == 13:
+                    if formation_orbit_14_for_Star_A <= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+                        Star_A_Protoplanet_14_Flag = "Disk Instability Planet"
+
+            if number_of_planets_formed_by_disk_instability_star_A >= 3:
+                if first_formation_orbit_star_A == 7:
+                    if formation_orbit_9_for_Star_A <= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+                        Star_A_Protoplanet_9_Flag = "Disk Instability Planet"
+                if first_formation_orbit_star_A == 8:
+                    if formation_orbit_10_for_Star_A <= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+                        Star_A_Protoplanet_10_Flag = "Disk Instability Planet"
+                if first_formation_orbit_star_A == 9:
+                    if formation_orbit_11_for_Star_A <= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+                        Star_A_Protoplanet_11_Flag = "Disk Instability Planet"
+                if first_formation_orbit_star_A == 10:
+                    if formation_orbit_12_for_Star_A <= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+                        Star_A_Protoplanet_12_Flag = "Disk Instability Planet"
+                if first_formation_orbit_star_A == 11:
+                    if formation_orbit_13_for_Star_A <= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+                        Star_A_Protoplanet_13_Flag = "Disk Instability Planet"
+                if first_formation_orbit_star_A == 12:
+                    if formation_orbit_14_for_Star_A <= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+                        Star_A_Protoplanet_14_Flag = "Disk Instability Planet"
+                if first_formation_orbit_star_A == 13:
+                    if formation_orbit_15_for_Star_A <= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+                        Star_A_Protoplanet_15_Flag = "Disk Instability Planet"
+
+            if number_of_planets_formed_by_disk_instability_star_A == 4:
+                if first_formation_orbit_star_A == 7:
+                    if formation_orbit_10_for_Star_A <= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+                        Star_A_Protoplanet_10_Flag = "Disk Instability Planet"
+                if first_formation_orbit_star_A == 8:
+                    if formation_orbit_11_for_Star_A <= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+                        Star_A_Protoplanet_11_Flag = "Disk Instability Planet"
+                if first_formation_orbit_star_A == 9:
+                    if formation_orbit_12_for_Star_A <= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+                        Star_A_Protoplanet_12_Flag = "Disk Instability Planet"
+                if first_formation_orbit_star_A == 10:
+                    if formation_orbit_13_for_Star_A <= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+                        Star_A_Protoplanet_13_Flag = "Disk Instability Planet"
+                if first_formation_orbit_star_A == 11:
+                    if formation_orbit_14_for_Star_A <= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+                        Star_A_Protoplanet_14_Flag = "Disk Instability Planet"
+                if first_formation_orbit_star_A == 12:
+                    if formation_orbit_15_for_Star_A <= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+                        Star_A_Protoplanet_15_Flag = "Disk Instability Planet"
+                if first_formation_orbit_star_A == 13:
+                    if formation_orbit_16_for_Star_A <= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
+                        Star_A_Protoplanet_16_Flag = "Disk Instability Planet"
+
         # continue to input Step 10 elements
 
 # Step 11: Core Accretion
