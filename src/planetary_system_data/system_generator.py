@@ -5037,13 +5037,56 @@ if Number_of_Stars == 4:
 
         Modified_Number_of_Core_Accretion_Planets_Supported_By_Available_Orbits_for_Star_A = Number_of_Core_Accretion_Planets_Supported_By_Available_Orbits_for_Star_A + core_accretion_modifier_Star_A
 
-    # "The number of planets which form due to core accretion is equal to the number supported by the available planetesimal mass, or the result from the Core Accretion Table, whichever is less." (pg. 62)
+    # "The number of planets which form due to core accretion is equal to the number supported by the available planetesimal mass, or the result from the Core Accretion Table, whichever is less." (pg. 63)
 
         Number_of_Core_Accretion_Planets_Star_A = min(Modified_Number_of_Core_Accretion_Planets_Supported_By_Available_Orbits_for_Star_A, Number_of_Core_Accretion_Planets_Supported_By_Planetismal_Mass_for_Star_A)
 
-        # need to add code to address planetarty migration (pg. 63-64)
-        # need to add code to address the grand track (pg. 64)
-        # need to add code to place core-accretion planets (pg. 64)
+        # "Any planets that form during core accretion are likely to migrate inward across the protoplanetary disk, due to interactions between the planet and the mass of the disk. 
+        # This sub-step determines how far such migration will carry the young planets. We will refer to the innermost core-accretion planet as the migrating planet" (pg. 63)
+
+        # "Roll 3d6 on the Planetary Migration Table, modifying the roll by adding the disk mass modifier determined in Step Nine. The result is the formation orbit where the migrating planet
+        # will arrive after all inward migration takes place" (pg. 64)
+
+        roll_for_planetary_migration_table_Star_A = _3d6()
+        if roll_for_planetary_migration_table_Star_A <= 8:
+            formation_orbit_after_migration_for_Star_A = 6
+            planetismal_mass_factor_for_Star_A = 1.0
+        if 9 <= roll_for_planetary_migration_table_Star_A <= 11:
+            formation_orbit_after_migration_for_Star_A = 5
+            planetismal_mass_factor_for_Star_A = 0.75
+        if 12 <= roll_for_planetary_migration_table_Star_A <= 13:
+            formation_orbit_after_migration_for_Star_A = 4
+            planetismal_mass_factor_for_Star_A = 0.5
+        if roll_for_planetary_migration_table_Star_A == 14:
+            formation_orbit_after_migration_for_Star_A = 3
+            planetismal_mass_factor_for_Star_A = 0.25
+        if roll_for_planetary_migration_table_Star_A == 15:
+            formation_orbit_after_migration_for_Star_A = 2
+            planetismal_mass_factor_for_Star_A = 0.25
+        if roll_for_planetary_migration_table_Star_A == 16:
+            formation_orbit_after_migration_for_Star_A = 1
+            planetismal_mass_factor_for_Star_A = 0.25
+        if roll_for_planetary_migration_table_Star_A >= 17:
+            formation_orbit_after_migration_for_Star_A = 0
+            planetismal_mass_factor_for_Star_A = 0.25
+
+        # "If the result indicates a formation orbit which has been removed from the worksheet due to the special case in Step Nine, then the migrating plant will arrive in formation orbit 0 instead" (pg. 64)
+        # need to ADD CODE here
+
+        # "Make a note of the formation orbit where the migrating planet arrives after inward migration." (pg. 64)
+        # need to ADD CODE here
+
+        # "Also, make a note of every formation orbit between that one and formation orbit 5, inclusive. You may think of this as the migrating planet appearing in formation orbit 6, then crossing several 
+        # other formation orbits on its way inward. All of these orbits should be marked as depleted of planetesimals. In a later step, this may affect the formation of terrestrial planets." (pg. 64)
+        # need to ADD CODE here
+
+        # "Make a note of the planetesimal mass factor. This represents the proportion of planetesimals in the inner disk that survive gravitational interaction with the migrating planet, and will also be
+        # relevant to the formation of terrestrial planets." (pg. 64)
+        # this requirement is met by recording the "planetismal_mass_factor_Star_A" parameter above
+
+        # need to ADD CODE to address the grand track (pg. 64)
+
+        # need to ADD CODE to place core-accretion planets (pg. 64)
 
     if Number_of_Stars >= 2:
         if formation_orbit_6_for_Star_B < Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B:
@@ -5064,58 +5107,58 @@ if Number_of_Stars == 4:
     # input Step 12 elements - starting from pg. 67
 
 # Step 13: Planetary Orbital Radii
-    # input Step 13 elements
+    # input Step 13 elements - starting from pg. 69
 
 # Step 14: Planetary Mass
-    # input Step 14 elements
+    # input Step 14 elements - starting from pg. 75
 
 # Step 15: Orbital Eccentricity
-    # input Step 15 elements
+    # input Step 15 elements - starting from pg. 79
 
 # Step 16: Physical Parameters
-    # input Step 16 elements
+    # input Step 16 elements - starting from pg. 81
 
 # Step 17: Natural Satellites
-    # input Step 17 elements
+    # input Step 17 elements - starting from pg. 83
 
 # Step 18: Orbital Period
-    # input Step 18 elements
+    # input Step 18 elements - starting from pg. 89
 
 # Step 19: Rotation Period
-    # input Step 19 elements
+    # input Step 19 elements - starting from page 90
 
 # Step 20: Obliquity
-# input Step 20 elements
+# input Step 20 elements - starting from page 93
 
 # Step 21: Local Calendar
-    # input Step 21 elements
+    # input Step 21 elements - starting from page 95
 
 # Step 22: Blackbody Temperature
-    # input Step 22 elements
+    # input Step 22 elements - starting from page 96
 
 # Step 23: Water
-    # input Step 23 elements
+    # input Step 23 elements - starting from page 98
 
 # Step 24: Geophysics
-    # input Step 24 elements
+    # input Step 24 elements - starting from page 101
 
 # Step 25: Magnetic Field
-    # input Step 25 elements
+    # input Step 25 elements - starting from page 107
 
 # Step 26: Early Atmosphere
-    # input Step 26 elements
+    # input Step 26 elements - starting from page 108
 
 # Step 27: Albedo
-    # input Step 27 elements
+    # input Step 27 elements - starting from page 111
 
 # Step 28: Carbon Dioxide
-    # input Step 28 elements
+    # input Step 28 elements - starting from page 112
 
 # Step 29: Presence of Life
-    # input Step 29 elements
+    # input Step 29 elements - starting from page 114
 
 # Step 30: Average Surface Temperature
-    # input Step 30 elements
+    # input Step 30 elements - starting from page 119
 
 # Step 31: Finalize Atmosphere
-    # input Step 31 elements
+    # input Step 31 elements - starting from page 124
