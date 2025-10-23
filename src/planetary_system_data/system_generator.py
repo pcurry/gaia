@@ -5,23 +5,11 @@ import random
 
 from planetary_system_data.dice import _3d6, _2d6, d100, percentile_roll
 from planetary_system_data.dataclasses_and_enumerations import StarCategory, StellarEvolutionStage, Star, StarSystem, StellarArrangement, StellarPopulation
-from planetary_system_data.primary_star import generate_primary_star
+from planetary_system_data.primary_star import generate_primary_star, star_category_from_mass
 
 # script to procedurally generate realistic (but fictional) star systems
 # reference: Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
 # input user query - option to input real parameter values from stars in Gaia DR3 dataset - e.g. connect with Sectory_Query.py
-
-
-def star_category_from_mass(mass: float) -> StarCategory:
-    if mass < 0.08:
-        return StarCategory.BROWN_DWARF
-    elif 0.08 <= mass < 0.70:
-        return StarCategory.LOW_MASS_STAR
-    elif 0.70 <= mass < 1.28:
-        return StarCategory.INTERMEDIATE_MASS_STAR
-    else:  # mass >= 1.28
-        return StarCategory.HIGH_MASS_STAR
-
 
 # Step 1: Primary Star Mass
 Star_A = generate_primary_star()    
@@ -281,11 +269,8 @@ print(f"Metallicity: {Metallicity}")
 Star_System.metallicity = Metallicity
 
 
-
 # Step 6: Stellar Evolution
-from planetary_system_data.steller_evolution import evolve_star
-
-
+from planetary_system_data.steller_evolution import evolve_star_system
 
 
 # Step 7: Stellar Classification
