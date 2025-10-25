@@ -190,3 +190,4 @@ def generate_primary_star() -> Star:
     category = generate_star_category()
     mass = generate_primary_star_mass(category)
     return Star(mass=mass, category=category, name="Star A")
+
