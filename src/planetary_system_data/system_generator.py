@@ -5,9 +5,10 @@ import random
 from dataclasses_and_enumerations import (
     StarCategory, StellarArrangement, StellarEvolutionStage, StellarPopulation, Star, StarSystem
 )
-from dice import d100, _3d6, _2d6
+from dice import d100, _3d6, _2d6, percentile_roll
 
 from primary_star_mass import generate_primary_star
+from stellar_multiplicity import generate_number_of_stars
 # script to procedurally generate realistic (but fictional) star systems
 # reference: Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
 # input user query - option to input real parameter values from stars in Gaia DR3 dataset - e.g. connect with Sectory_Query.py
@@ -19,37 +20,8 @@ Mass_A = Star_A.mass
 print(f"Mass of Star A: {Star_A.mass} solar masses")
 
 # Step 2: Stellar Multiplicity
-
-Number_of_Stars = 0
-
-def generate_number_of_stars(primary_mass: float) -> int:
-    """Determine the number of stars in the system based on the mass of the primary star and two rolls."""
-
-    first_roll_for_number_of_stars = _3d6()
-    if first_roll_for_number_of_stars < 9:
-        return 1
-    
-    second_roll_for_number_of_stars = d100()
-    multiple_stars = 2
-    if 76 <= second_roll_for_number_of_stars <= 95:
-        multiple_stars = 3
-    elif 96 <= second_roll_for_number_of_stars <= 100:
-        multiple_stars = 4
-
-    if primary_mass < 0.08:
-        return 1 if first_roll_for_number_of_stars <= 13 else multiple_stars
-    elif primary_mass < 0.70:
-        return 1 if first_roll_for_number_of_stars <= 12 else multiple_stars
-    elif primary_mass < 1.00:
-        return 1 if first_roll_for_number_of_stars <= 11 else multiple_stars
-    elif primary_mass < 1.30:
-        return 1 if first_roll_for_number_of_stars <= 10 else multiple_stars
-    else: 
-        return 1 if first_roll_for_number_of_stars <= 9 else multiple_stars
-
-Number_of_Stars = generate_number_of_stars(Mass_A)
+Number_of_Stars = generate_number_of_stars(Star_A.mass)
 print(f"Number of Stars in System: {Number_of_Stars}")
-assert 1 <= Number_of_Stars <= 4
 
 # Step 3: Arrange Components
 
