@@ -1,5 +1,5 @@
 
-from dice import d100, _3d6
+from planetary_system_data.dice import d100, _3d6
 
 
 def generate_number_of_stars(primary_mass: float) -> int:
