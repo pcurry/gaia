@@ -1,10 +1,18 @@
 import random
-import math
 
+from dataclasses_and_enumerations import (
+    StarCategory, StellarArrangement, StellarEvolutionStage, StellarPopulation, Star, StarSystem
+)
+from dice import d100, _3d6, _2d6, percentile_roll
+
+from primary_star_mass import generate_primary_star
+from stellar_multiplicity import generate_number_of_stars
 # script to procedurally generate realistic (but fictional) star systems
 # reference: Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
 # input user query - option to input real parameter values from stars in Gaia DR3 dataset - e.g. connect with Sectory_Query.py
 
+<<<<<<< HEAD
+=======
 # run different pathway if star system known exoplanets (or planets, e.g. the solar system)
 # e.g. will have to create separate code to handle systems with mix of known exoplanets and interpolating additional fictional exoplanets
 
@@ -15,15 +23,21 @@ def _3d6() -> int:
   return (random.randint(1, 6) + random.randint (1, 6) + random.randint (1, 6))
 def _2d6() -> int:
   return (random.randint(1, 6) + random.randint (1, 6))
+>>>>>>> main
 
 # Step 1: Primary Star Mass
-# run primary_star_mass.py
 # only run if don't have star mass (or spectral type) from Gaia / SIMBAD
 # reverse engineer mass from spectral type (if available from Gaia / SIMBAD)
 
+Star_A = generate_primary_star()
+Mass_A = Star_A.mass
+print(f"Mass of Star A: {Star_A.mass} solar masses")
+
 # Step 2: Stellar Multiplicity
-# run stellar_multiplcity.py
 # only run if don't have number of stars in system from Gaia / SIMBAD
+
+Number_of_Stars = generate_number_of_stars(Star_A.mass)
+print(f"Number of Stars in System: {Number_of_Stars}")
 
 # Step 3: Arrange Components
 # run arrange_components.py
