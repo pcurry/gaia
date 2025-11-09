@@ -70,6 +70,5 @@ print(f"Number of Stars in System: {Number_of_Stars}")
 
 # Step 12: Oligarchic Collision
 # run oligarchic_collison.py here
-# input Step 12 elements - starting from pg. 67
 
 # run planet_generator.py for each planet created by the steps above

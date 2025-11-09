@@ -9,7 +9,7 @@
 # input Step 14 elements - starting from pg. 75
 
 # Step 15: Orbital Eccentricity
-# run orbtal_eccrenricity.py here
+# run oribtal_eccentricity.py here
 # input Step 15 elements - starting from pg. 79
 
 # Step 16: Physical Parameters
@@ -73,5 +73,5 @@
 # input Step 30 elements - starting from page 119
 
 # Step 31: Finalize Atmosphere
-# run atmosphere.py here
+# run final_atmosphere.py here
 # input Step 31 elements - starting from page 124
