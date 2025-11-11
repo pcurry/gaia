@@ -1,3 +1,12 @@
+# this is a python script to procedurally generate realistic (but fictional) star systems
+# primary reference: Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
+
+# will need to build in option to input real parameter values from stars in Gaia DR3 dataset - e.g. in similar manner to what has been done in Sectory_Query.py
+# or... take sectors that have been created by Sector_Query.py and generate matching system/planet data for the star systems in that sector
+
+# will also need to develop known_exoplanet.py module to handle cases where exoplanets have been detected / real exoplanet data can be ingested (pg. 176-178)
+# e.g. in these cases there will be both IRL known exoplanets in the system + fair to assume that there are other undetected exoplanets for which fictional but realistic stand-ins can be created here
+
 import random
 
 from dataclasses_and_enumerations import (
@@ -5,30 +14,11 @@ from dataclasses_and_enumerations import (
 )
 from dice import d100, _3d6, _2d6, percentile_roll
 
-from primary_star_mass import generate_primary_star
-from stellar_multiplicity import generate_number_of_stars
-# script to procedurally generate realistic (but fictional) star systems
-# reference: Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
-# input user query - option to input real parameter values from stars in Gaia DR3 dataset - e.g. connect with Sectory_Query.py
-
-<<<<<<< HEAD
-=======
-# run different pathway if star system known exoplanets (or planets, e.g. the solar system)
-# e.g. will have to create separate code to handle systems with mix of known exoplanets and interpolating additional fictional exoplanets
-
-# define dice rolling functions
-def d100() -> int:
-  return random.randint(1, 100)
-def _3d6() -> int:
-  return (random.randint(1, 6) + random.randint (1, 6) + random.randint (1, 6))
-def _2d6() -> int:
-  return (random.randint(1, 6) + random.randint (1, 6))
->>>>>>> main
-
 # Step 1: Primary Star Mass
 # only run if don't have star mass (or spectral type) from Gaia / SIMBAD
 # reverse engineer mass from spectral type (if available from Gaia / SIMBAD)
 
+from primary_star_mass import generate_primary_star
 Star_A = generate_primary_star()
 Mass_A = Star_A.mass
 print(f"Mass of Star A: {Star_A.mass} solar masses")
@@ -36,6 +26,7 @@ print(f"Mass of Star A: {Star_A.mass} solar masses")
 # Step 2: Stellar Multiplicity
 # only run if don't have number of stars in system from Gaia / SIMBAD
 
+from stellar_multiplicity import generate_number_of_stars
 Number_of_Stars = generate_number_of_stars(Star_A.mass)
 print(f"Number of Stars in System: {Number_of_Stars}")
 
