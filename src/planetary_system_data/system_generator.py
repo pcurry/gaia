@@ -7,13 +7,6 @@
 # will also need to develop known_exoplanet.py module to handle cases where exoplanets have been detected / real exoplanet data can be ingested (pg. 176-178)
 # e.g. in these cases there will be both IRL known exoplanets in the system + fair to assume that there are other undetected exoplanets for which fictional but realistic stand-ins can be created here
 
-import random
-
-from dataclasses_and_enumerations import (
-    StarCategory, StellarArrangement, StellarEvolutionStage, StellarPopulation, Star, StarSystem
-)
-from dice import d100, _3d6, _2d6, percentile_roll
-
 # Step 1: Primary Star Mass
 # only run if don't have star mass (or spectral type) from Gaia / SIMBAD
 # reverse engineer mass from spectral type (if available from Gaia / SIMBAD)
