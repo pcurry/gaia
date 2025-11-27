@@ -1,11 +1,10 @@
 
-from planetary_system_data.dice import d100, _3d6
-
+from dice import d100, threeD6
 
 def generate_number_of_stars(primary_mass: float) -> int:
     """Determine the number of stars in the system based on the mass of the primary star and two rolls."""
 
-    first_roll_for_number_of_stars = _3d6()
+    first_roll_for_number_of_stars = threeD6()
     if first_roll_for_number_of_stars < 9:
         return 1
     

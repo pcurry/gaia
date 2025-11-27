@@ -1,5 +1,10 @@
 # this sub-program covers step 3 ("Arrange Components") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
 
+import random
+from dice import d100
+from primary_star_mass import primary_mass
+from stellar_multiplicity import Number_of_Stars
+
 Mass_Ratio = None
 Stellar_Arrangement = None
 

@@ -1,7 +1,6 @@
 
-from planetary_system_data.dice import d100
-from planetary_system_data.dataclasses_and_enumerations import StarCategory, Star
-
+from dice import d100
+from dataclasses_and_enumerations import StarCategory, Star
 
 def generate_star_category() -> StarCategory:
     roll_for_star_type = d100()
