@@ -8,10 +8,41 @@ from stellar_multiplicity import Number_of_Stars
 Mass_Ratio = None
 Stellar_Arrangement = None
 
+# "This step determines how the components of a multiple star system are arranged into a hierarchy of pairs, and the initial mass of each companion star in the system. 
+# Skip this step for singleton star systems"
+
 if Number_of_Stars == 1:
     Stellar_Arrangement = "A"
     print("Single Star System - skipping step #3")
  
+# "Astronomers normally tag the various stellar components in a multiple star system with capital letters in the Latin alphabet: A, B, C, and so on. So, for example, 
+# the famous trinary star Alpha Centauri has three components: the bright yellow-white star Alpha Centauri A, its relatively close orange companion Alpha Centauri B, 
+# and a distant red dwarf companion Alpha Centauri C (also called Proxima Centauri, since it is noticeably closer to Sol than the A-B pair)."
+
+# "Unfortunately, astronomers are not always consistent about which component is given which alphabetic tag. This book always tags the primary star, the star with the
+# highest initial mass in the system, as the A-component. The other components are tagged in order of their distance from the primary star."
+
+# Procedure
+
+# "The procedure for arranging stars in a system varies, depending on the multiplicity of the system."
+
+# "Stars other than the primary are called companion stars. These stars can have any mass, from tiny brown dwarfs up to stars almost as massive as the primary, 
+# although there is a clear tendency toward the latter"
+
+# Binary Star Systems
+
+# "There is only one possible arrangement for the two stars of a binary system. There are two components, A and B, and the primary star or A-component is in a 
+# gravitationally bound pair with the B-component."
+
+# Select the mass for the companion star. To generate its mass at random, roll d100 on the Companion Star Mass Table to determine a mass ratio for the companion."
+
+# "In each case, you may select a mass ratio between the next lower and next higher results on the table. For example, if the result on the table indicates a mass ratio 
+# of 0.60, it would be appropriate to select an actual ratio greater than 0.55 but less than 0.65. The mass ratio cannot be lower than 0.05 or higher than 1.00."
+
+# "In a binary star system, the companion star’s mass will be equal to the mass of the primary star, multiplied by the companion’s mass ratio. Round the companion’s 
+# mass to the nearest hundredth of a solar mass unit. You may wish to round the companion’s mass off further, to match one of the entries in the Stellar Mass Table 
+# (see Step One). In no case will the mass of a companion star be less than 0.015 solar masses; round any such result up to that number."
+
 elif Number_of_Stars <= 2:
     roll_for_binary_mass_ratio = d100()
     if roll_for_binary_mass_ratio <= 4:
@@ -58,6 +89,24 @@ elif Number_of_Stars <= 2:
         Mass_B = 0.015
     Mass_B = round(Mass_B, 3)
     print(f"Mass of Star B: {Mass_B} solar masses")
+
+# Trinary Star Systems
+
+# "There are two possible configurations for the three stars (components A, B, and C) of a trinary system."
+
+# "One possibility is that the primary star (the A-component) has no close companion, but the B and C components move some distance away as a gravitationally bound pair 
+# of close companions (A and B-C)."
+
+# "The other is that the primary star and the B-component move as a bound pair of close companions, with the C-component moving alone at a greater distance (A-B and C).
+
+# "Both arrangements appear to be about equally common. When designing a trinary star system, select either one. To select one at random, flip a coin."
+
+# "In a trinary star system composed of a single A-component and a close B-C pair, the mass of the B component is computed using the Companion Star Mass Table, based on 
+# the mass of the primary star. The mass of the C-component is computed based on the mass of the B-component. When rolling on the Companion Star Mass Table, add 30 to 
+# the roll for the C component."
+
+# "In a trinary star system composed of an A-B close pair and a C distant companion, the mass of each of the B and C components is computed using the Companion Star Mass 
+# Table, based on the mass of the primary star. When rolling on the table, add 30 to the roll for the B component"
 
 elif Number_of_Stars == 3:
     random_integer = random.randint(1, 2)
@@ -221,6 +270,15 @@ elif Number_of_Stars == 3:
             Mass_C = 0.015
         Mass_C = round(Mass_C, 3)
         print(f"Mass of Star C: {Mass_C} solar masses")
+
+# Quaternary System
+
+# "There are many possible arrangements for the four stars (components A, B, C, and D) of a quaternary system. However, by far the most common arrangement, and the most 
+# stable over long periods of time, is one in which two binary pairs (A-B and C-D) orbit one another at a wide separation."
+
+# "In a quaternary star system, the mass of each of the B and C components is computed using the Companion Star Mass Table, based on the mass of the primary star. 
+# The mass of the D-component is computed based on the mass of the C-component. When rolling on the Companion Star Mass Table, add 30 to the roll for both the 
+# B component and the D component"
 
 elif Number_of_Stars == 4:
     Stellar_Arrangement = "AB-CD"
