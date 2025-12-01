@@ -1,5 +1,7 @@
 # this sub-program covers step 7 ("Stellar Classification") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
 
+from stellar_multiplicity import Number_of_Stars
+
 Spectral_Type_of_Star_A = "None"
 if Number_of_Stars >= 1:
     if Evolutionary_Stage_of_Star_A == "White Dwarf":

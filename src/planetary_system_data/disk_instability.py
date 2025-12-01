@@ -1,56 +1,62 @@
 # this sub-program covers step 10 ("Disk Instability") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
 
-    # "Very early in the process of planetary formation, the first gas giant planets may form due to disk instability in the protoplanetary disk
-    # Here, the outer protoplanetary disk is perturbed by the gravitation of nearby stars, or due to the formation of large clumps of material by random chance.
-    # The disk then forms spiral-arm structures, which can quickly give rise to unusually massive gas giant planets. Disk instability is more likely to occur if the protoplanetary disk is denser
-    # (that is, if its disk mass factor, determined in Step Nine, is high)."
+# "Very early in the process of planetary formation, the first gas giant planets may form due to disk instability in the protoplanetary disk
+# Here, the outer protoplanetary disk is perturbed by the gravitation of nearby stars, or due to the formation of large clumps of material by random chance.
+# The disk then forms spiral-arm structures, which can quickly give rise to unusually massive gas giant planets. Disk instability is more likely to occur if the protoplanetary disk is denser
+# (that is, if its disk mass factor, determined in Step Nine, is high)."
 
-    # "To determine at random whether disk instability took place, roll 3d6 and add the disk mass modifier determined in Step Nine. If the result is 12 or higher, one or more planets may form
-    # due to disk instability. Otherwise, skip forward to Step Eleven."
+# "To determine at random whether disk instability took place, roll 3d6 and add the disk mass modifier determined in Step Nine. If the result is 12 or higher, one or more planets may form
+# due to disk instability. Otherwise, skip forward to Step Eleven."
 
-    Disk_Stability_for_Star_A = "TBD"
-    if Number_of_Stars >= 1:
-        Disk_Stability_for_Star_A = "Stable"
-        roll_for_Disk_Stability_Star_A = _3d6()        
-        if (roll_for_Disk_Density_of_Star_A + Disk_Mass_Modifier_Star_A) >= 12:
-            Disk_Stability_for_Star_A = "Unstable"
-            print("Protoplanetary Disk around Star A is unstable - potential for planet formation")
+from stellar_multiplicity import Number_of_Stars
+from dice import threeD6
+from protoplanetary_disk import Disk_Mass_Modifier_Star_A, Disk_Mass_Modifier_Star_B, Disk_Mass_Modifier_Star_C, Disk_Mass_Modifier_Star_D
 
-    if Number_of_Stars >= 2:
+Disk_Stability_for_Star_A = "TBD"
+if Number_of_Stars >= 1:
+    Disk_Stability_for_Star_A = "Stable"
+    roll_for_Disk_Stability_Star_A = threeD6()        
+    if (roll_for_Disk_Stability_Star_A + Disk_Mass_Modifier_Star_A) >= 12:
+        Disk_Stability_for_Star_A = "Unstable"
+        print("Protoplanetary Disk around Star A is unstable - potential for planet formation")
+
+if Number_of_Stars >= 2:
         Disk_Stability_for_Star_B = "Stable"
-        roll_for_Disk_Stability_Star_B = _3d6()
-        if (roll_for_Disk_Density_of_Star_B + Disk_Mass_Modifier_Star_B) >= 12:
+        roll_for_Disk_Stability_Star_B = threeD6()
+        if (roll_for_Disk_Stability_Star_B + Disk_Mass_Modifier_Star_B) >= 12:
             Disk_Stability_for_Star_B = "Unstable"
             print("Protoplanetary Disk around Star B is unstable - potential for planet formation")
-    if Number_of_Stars < 2:
+if Number_of_Stars < 2:
         Disk_Stability_for_Star_B = "Not Applicable"   
 
-    if Number_of_Stars >= 3:
+if Number_of_Stars >= 3:
         Disk_Stability_for_Star_C = "Stable"
-        roll_for_Disk_Stability_Star_C = _3d6()        
-        if (roll_for_Disk_Density_of_Star_C + Disk_Mass_Modifier_Star_C) >= 12:
+        roll_for_Disk_Stability_Star_C = threeD6()        
+        if (roll_for_Disk_Stability_Star_C + Disk_Mass_Modifier_Star_C) >= 12:
             Disk_Stability_for_Star_C = "Unstable"
             print("Protoplanetary Disk around Star C is unstable - potential for planet formation")
-    if Number_of_Stars < 3:
+
+if Number_of_Stars < 3:
         Disk_Stability_for_Star_C = "Not Applicable"   
 
-    if Number_of_Stars == 4:
-        Disk_Stability_for_Star_D = "Stable"
-        roll_for_Disk_Stability_Star_D = _3d6()        
-        if (roll_for_Disk_Density_of_Star_D + Disk_Mass_Modifier_Star_D) >= 12:
+if Number_of_Stars == 4:
+    Disk_Stability_for_Star_D = "Stable"
+    roll_for_Disk_Stability_Star_D = threeD6()        
+    if (roll_for_Disk_Density_of_Star_D + Disk_Mass_Modifier_Star_D) >= 12:
             Disk_Stability_for_Star_D = "Unstable"
             print("Protoplanetary Disk around Star D is unstable - potential for planet formation")
-    if Number_of_Stars < 4:
+if Number_of_Stars < 4:
         Disk_Stability_for_Star_D = "Not Applicable"   
 
-    if Disk_Stability_for_Star_A == "Unstable":
+if Disk_Stability_for_Star_A == "Unstable":
+
         # "If disk instability has taken place, roll 3d6 twice on the Disk Instability Placement Table, adding the disk mass modifier each time. The first roll will indicate in which formation orbit
         # the first planet may be placed. The second roll will indicate how many planets may be formed during this step." - pg 61
 
         # "Check the worksheet to see whether the designated first formation orbit falls within a forbidden zone. If it does, then no planets will form in this step despite the possibility of disk
         # instability; skip forward to Step Eleven" - pg 61
 
-        roll_for_first_formation_orbit_star_A = ( _3d6() + Disk_Mass_Modifier_Star_A )
+        roll_for_first_formation_orbit_star_A = ( threeD6() + Disk_Mass_Modifier_Star_A )
         if roll_for_first_formation_orbit_star_A <= 5:    
             first_formation_orbit_star_A = 13
             if formation_orbit_13_for_Star_A >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
@@ -88,7 +94,7 @@
                 Disk_Stability_for_Star_A = "Disk Instability Aborted"
         
         if Disk_Stability_for_Star_A == "Unstable":
-            roll_for_number_of_planets_formed_by_disk_instability_star_A = ( _3d6() + Disk_Mass_Modifier_Star_A )
+            roll_for_number_of_planets_formed_by_disk_instability_star_A = ( threeD6() + Disk_Mass_Modifier_Star_A )
             if roll_for_number_of_planets_formed_by_disk_instability_star_A <= 11:
                 number_of_planets_formed_by_disk_instability_star_A = 1
             if 12 <= roll_for_number_of_planets_formed_by_disk_instability_star_A <= 13:
@@ -193,7 +199,7 @@
         # "Check the worksheet to see whether the designated first formation orbit falls within a forbidden zone. If it does, then no planets will form in this step despite the possibility of disk
         # instability; skip forward to Step Eleven" - pg 61
 
-        roll_for_first_formation_orbit_Star_B = ( _3d6() + Disk_Mass_Modifier_Star_B )
+        roll_for_first_formation_orbit_Star_B = ( threeD6() + Disk_Mass_Modifier_Star_B )
         if roll_for_first_formation_orbit_Star_B <= 5:    
             first_formation_orbit_Star_B = 13
             if formation_orbit_13_for_Star_B >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B:
@@ -231,7 +237,7 @@
                 Disk_Stability_for_Star_B = "Disk Instability Aborted"
         
         if Disk_Stability_for_Star_B == "Unstable":
-            roll_for_number_of_planets_formed_by_disk_instability_Star_B = ( _3d6() + Disk_Mass_Modifier_Star_B )
+            roll_for_number_of_planets_formed_by_disk_instability_Star_B = ( threeD6() + Disk_Mass_Modifier_Star_B )
             if roll_for_number_of_planets_formed_by_disk_instability_Star_B <= 11:
                 number_of_planets_formed_by_disk_instability_Star_B = 1
             if 12 <= roll_for_number_of_planets_formed_by_disk_instability_Star_B <= 13:
@@ -329,14 +335,14 @@
                     if formation_orbit_16_for_Star_B <= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B:
                         Star_B_Protoplanet_16_Flag = "Disk Instability Planet"
 
-    if Disk_Stability_for_Star_C == "Unstable":
+if Disk_Stability_for_Star_C == "Unstable":
         # "If disk instability has taken place, roll 3d6 twice on the Disk Instability Placement Table, adding the disk mass modifier each time. The first roll will indicate in which formation orbit
         # the first planet may be placed. The second roll will indicate how many planets may be formed during this step." - pg 61
 
         # "Check the worksheet to see whether the designated first formation orbit falls within a forbidden zone. If it does, then no planets will form in this step despite the possibility of disk
         # instability; skip forward to Step Eleven" - pg 61
 
-        roll_for_first_formation_orbit_Star_C = ( _3d6() + Disk_Mass_Modifier_Star_C )
+        roll_for_first_formation_orbit_Star_C = ( threeD6() + Disk_Mass_Modifier_Star_C )
         if roll_for_first_formation_orbit_Star_C <= 5:    
             first_formation_orbit_Star_C = 13
             if formation_orbit_13_for_Star_C >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C:
@@ -374,7 +380,7 @@
                 Disk_Stability_for_Star_C = "Disk Instability Aborted"
         
         if Disk_Stability_for_Star_C == "Unstable":
-            roll_for_number_of_planets_formed_by_disk_instability_Star_C = ( _3d6() + Disk_Mass_Modifier_Star_C )
+            roll_for_number_of_planets_formed_by_disk_instability_Star_C = ( threeD6() + Disk_Mass_Modifier_Star_C )
             if roll_for_number_of_planets_formed_by_disk_instability_Star_C <= 11:
                 number_of_planets_formed_by_disk_instability_Star_C = 1
             if 12 <= roll_for_number_of_planets_formed_by_disk_instability_Star_C <= 13:
@@ -472,14 +478,14 @@
                     if formation_orbit_16_for_Star_C <= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C:
                         Star_C_Protoplanet_16_Flag = "Disk Instability Planet"
 
-    if Disk_Stability_for_Star_D == "Unstable":
+if Disk_Stability_for_Star_D == "Unstable":
         # "If disk instability has taken place, roll 3d6 twice on the Disk Instability Placement Table, adding the disk mass modifier each time. The first roll will indicate in which formation orbit
         # the first planet may be placed. The second roll will indicate how many planets may be formed during this step." - pg 61
 
         # "Check the worksheet to see whether the designated first formation orbit falls within a forbidden zone. If it does, then no planets will form in this step despite the possibility of disk
         # instability; skip forward to Step Eleven" - pg 61
 
-        roll_for_first_formation_orbit_Star_D = ( _3d6() + Disk_Mass_Modifier_Star_D )
+        roll_for_first_formation_orbit_Star_D = ( threeD6() + Disk_Mass_Modifier_Star_D )
         if roll_for_first_formation_orbit_Star_D <= 5:    
             first_formation_orbit_Star_D = 13
             if formation_orbit_13_for_Star_D >= Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_D:
@@ -517,7 +523,7 @@
                 Disk_Stability_for_Star_D = "Disk Instability Aborted"
         
         if Disk_Stability_for_Star_D == "Unstable":
-            roll_for_number_of_planets_formed_by_disk_instability_Star_D = ( _3d6() + Disk_Mass_Modifier_Star_D )
+            roll_for_number_of_planets_formed_by_disk_instability_Star_D = ( threeD6() + Disk_Mass_Modifier_Star_D )
             if roll_for_number_of_planets_formed_by_disk_instability_Star_D <= 11:
                 number_of_planets_formed_by_disk_instability_Star_D = 1
             if 12 <= roll_for_number_of_planets_formed_by_disk_instability_Star_D <= 13:

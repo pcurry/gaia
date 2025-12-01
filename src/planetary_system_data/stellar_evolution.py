@@ -1,5 +1,10 @@
 # this sub-program covers step 6 ("Stellar Evolution") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
 
+import math
+from dice import d100
+from star_system_age import system_age
+from stellar_multiplicity import Number_of_Stars
+
 if Number_of_Stars >= 1:
     Temperature_Effective_of_Star_A = None
     Luminosity_of_Star_A = None

@@ -1,5 +1,7 @@
 # this sub-program covers step 4 ("Star System Age") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
 
+from dice import d100
+
 Population = None
 base_age = None
 age_range = None

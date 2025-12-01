@@ -1,63 +1,70 @@
 # this sub-program covers step 9 ("Protoplanetary Disk") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
 
-    # calculate disk density
-    if Number_of_Stars >= 1:
-        # calculate disk density of Star A
-        roll_for_Disk_Density_of_Star_A = _3d6()
-        if roll_for_Disk_Density_of_Star_A == 3:
+import math
+from dice import threeD6
+from dice import twoD6
+from stellar_multiplicity import Number_of_Stars
+from star_system_metallicity import Metallicity
+
+# calculate disk density
+
+if Number_of_Stars >= 1:
+    # calculate disk density of Star A
+    roll_for_Disk_Density_of_Star_A = threeD6()
+    if roll_for_Disk_Density_of_Star_A == 3:
             Disk_Mass_Factor_Star_A = 0.25
             Disk_Mass_Modifier_Star_A = -6
-        if roll_for_Disk_Density_of_Star_A == 4:
+    if roll_for_Disk_Density_of_Star_A == 4:
             Disk_Mass_Factor_Star_A = 0.32
             Disk_Mass_Modifier_Star_A = -5
-        if roll_for_Disk_Density_of_Star_A == 5:
+    if roll_for_Disk_Density_of_Star_A == 5:
             Disk_Mass_Factor_Star_A = 0.4
             Disk_Mass_Modifier_Star_A = -4
-        if roll_for_Disk_Density_of_Star_A == 6:
+    if roll_for_Disk_Density_of_Star_A == 6:
             Disk_Mass_Factor_Star_A = 0.5
             Disk_Mass_Modifier_Star_A = -3
-        if roll_for_Disk_Density_of_Star_A == 7:
+    if roll_for_Disk_Density_of_Star_A == 7:
             Disk_Mass_Factor_Star_A = 0.6
             Disk_Mass_Modifier_Star_A = -2
-        if roll_for_Disk_Density_of_Star_A == 8:
+    if roll_for_Disk_Density_of_Star_A == 8:
             Disk_Mass_Factor_Star_A = 0.7
             Disk_Mass_Modifier_Star_A = -1
-        if roll_for_Disk_Density_of_Star_A == 9:
+    if roll_for_Disk_Density_of_Star_A == 9:
             Disk_Mass_Factor_Star_A = 0.8
             Disk_Mass_Modifier_Star_A = 0
-        if roll_for_Disk_Density_of_Star_A == 10:
+    if roll_for_Disk_Density_of_Star_A == 10:
             Disk_Mass_Factor_Star_A = 1.0
             Disk_Mass_Modifier_Star_A = 0
-        if roll_for_Disk_Density_of_Star_A == 11:
+    if roll_for_Disk_Density_of_Star_A == 11:
             Disk_Mass_Factor_Star_A = 1.0
             Disk_Mass_Modifier_Star_A = 0
-        if roll_for_Disk_Density_of_Star_A == 12:
+    if roll_for_Disk_Density_of_Star_A == 12:
             Disk_Mass_Factor_Star_A = 1.2
             Disk_Mass_Modifier_Star_A = 0
-        if roll_for_Disk_Density_of_Star_A == 13:
+    if roll_for_Disk_Density_of_Star_A == 13:
             Disk_Mass_Factor_Star_A = 1.4
             Disk_Mass_Modifier_Star_A = 1
-        if roll_for_Disk_Density_of_Star_A == 14:
+    if roll_for_Disk_Density_of_Star_A == 14:
             Disk_Mass_Factor_Star_A = 1.7
             Disk_Mass_Modifier_Star_A = 2
-        if roll_for_Disk_Density_of_Star_A == 15:
+    if roll_for_Disk_Density_of_Star_A == 15:
             Disk_Mass_Factor_Star_A = 2.0
             Disk_Mass_Modifier_Star_A = 3
-        if roll_for_Disk_Density_of_Star_A == 16:
+    if roll_for_Disk_Density_of_Star_A == 16:
             Disk_Mass_Factor_Star_A = 2.5
             Disk_Mass_Modifier_Star_A = 4
-        if roll_for_Disk_Density_of_Star_A == 17:
+    if roll_for_Disk_Density_of_Star_A == 17:
             Disk_Mass_Factor_Star_A = 3.2
             Disk_Mass_Modifier_Star_A = 5
-        if roll_for_Disk_Density_of_Star_A == 18:
+    if roll_for_Disk_Density_of_Star_A == 18:
             Disk_Mass_Factor_Star_A = 4.0
             Disk_Mass_Modifier_Star_A = 6
-        print(f"Disk Mass Factor for Star A: {Disk_Mass_Factor_Star_A}")
-        print(f"Disk Mass Modifier for Star A: {Disk_Mass_Modifier_Star_A}")
+    print(f"Disk Mass Factor for Star A: {Disk_Mass_Factor_Star_A}")
+    print(f"Disk Mass Modifier for Star A: {Disk_Mass_Modifier_Star_A}")
 
-    if Number_of_Stars >= 2:
+if Number_of_Stars >= 2:
         # calculate disk density of Star B
-        roll_for_Disk_Density_of_Star_B = _3d6()
+        roll_for_Disk_Density_of_Star_B = threeD6()
         if roll_for_Disk_Density_of_Star_B == 3:
             Disk_Mass_Factor_Star_B = 0.25
             Disk_Mass_Modifier_Star_B = -6
@@ -109,9 +116,9 @@
         print(f"Disk Mass Factor for Star B: {Disk_Mass_Factor_Star_B}")
         print(f"Disk Mass Modifier for Star B: {Disk_Mass_Modifier_Star_B}")
 
-    if Number_of_Stars >= 3:
+if Number_of_Stars >= 3:
         # calculate disk density of Star C
-        roll_for_Disk_Density_of_Star_C = _3d6()
+        roll_for_Disk_Density_of_Star_C = threeD6()
         if roll_for_Disk_Density_of_Star_C == 3:
             Disk_Mass_Factor_Star_C = 0.25
             Disk_Mass_Modifier_Star_C = -6
@@ -163,8 +170,8 @@
         print(f"Disk Mass Factor for Star C: {Disk_Mass_Factor_Star_C}")
         print(f"Disk Mass Modifier for Star C: {Disk_Mass_Modifier_Star_C}")
 
-    if Number_of_Stars == 4:
-        roll_for_Disk_Density_of_Star_D = _3d6()
+if Number_of_Stars == 4:
+        roll_for_Disk_Density_of_Star_D = threeD6()
         if roll_for_Disk_Density_of_Star_D == 3:
             Disk_Mass_Factor_Star_D = 0.25
             Disk_Mass_Modifier_Star_D = -6
@@ -216,98 +223,98 @@
         print(f"Disk Mass Factor for Star D: {Disk_Mass_Factor_Star_D}")
         print(f"Disk Mass Modifier for Star D: {Disk_Mass_Modifier_Star_D}")
 
-    # calculate planetismal masses
-    if Number_of_Stars >= 1:
+# calculate planetismal masses
+if Number_of_Stars >= 1:
         Planetismal_Mass_for_Star_A = Disk_Mass_Factor_Star_A * Mass_A * Metallicity
         print(f"Planentismal Mass for Star A: {Planetismal_Mass_for_Star_A}")
-    if Number_of_Stars >= 2:
+if Number_of_Stars >= 2:
         Planetismal_Mass_for_Star_B = Disk_Mass_Factor_Star_B * Mass_B * Metallicity
         print(f"Planentismal Mass for Star B: {Planetismal_Mass_for_Star_B}")
-    if Number_of_Stars >= 3:
+if Number_of_Stars >= 3:
         Planetismal_Mass_for_Star_C = Disk_Mass_Factor_Star_C * Mass_C * Metallicity
         print(f"Planentismal Mass for Star C: {Planetismal_Mass_for_Star_C}")
-    if Number_of_Stars == 4:
+if Number_of_Stars == 4:
         Planetismal_Mass_for_Star_D = Disk_Mass_Factor_Star_D * Mass_D * Metallicity
         print(f"Planentismal Mass for Star D: {Planetismal_Mass_for_Star_D}")
 
-    # calculate disk inner edges
-    if Number_of_Stars >= 1:
-        Disk_Inner_Edge_for_Star_A = (_2d6) * 0.005 * (Mass_A ** (1/3))
+# calculate disk inner edges
+if Number_of_Stars >= 1:
+        Disk_Inner_Edge_for_Star_A = (twoD6) * 0.005 * (Mass_A ** (1/3))
         Disk_Inner_Edge_for_Star_A = round(Disk_Inner_Edge_for_Star_A,3)
         print(f"Disk Inner Edge for Star A: {Disk_Inner_Edge_for_Star_A} AU")
-    if Number_of_Stars >= 2:
-        Disk_Inner_Edge_for_Star_B = (_2d6) * 0.005 * (Mass_B ** (1/3))
+if Number_of_Stars >= 2:
+        Disk_Inner_Edge_for_Star_B = (twoD6) * 0.005 * (Mass_B ** (1/3))
         Disk_Inner_Edge_for_Star_B = round(Disk_Inner_Edge_for_Star_B,3)
         print(f"Disk Inner Edge for Star B: {Disk_Inner_Edge_for_Star_B} AU")
-    if Number_of_Stars >= 3:
-        Disk_Inner_Edge_for_Star_C = (_2d6) * 0.005 * (Mass_C ** (1/3))
+if Number_of_Stars >= 3:
+        Disk_Inner_Edge_for_Star_C = (twoD6) * 0.005 * (Mass_C ** (1/3))
         Disk_Inner_Edge_for_Star_C = round(Disk_Inner_Edge_for_Star_C,3)
         print(f"Disk Inner Edge for Star C: {Disk_Inner_Edge_for_Star_C} AU")
-    if Number_of_Stars == 4:
-        Disk_Inner_Edge_for_Star_D = (_2d6) * 0.005 * (Mass_D ** (1/3))
+if Number_of_Stars == 4:
+        Disk_Inner_Edge_for_Star_D = (twoD6) * 0.005 * (Mass_D ** (1/3))
         Disk_Inner_Edge_for_Star_D = round(Disk_Inner_Edge_for_Star_D,3)
         print(f"Disk Inner Edge for Star D: {Disk_Inner_Edge_for_Star_D} AU")
 
-    # calculate ice lines
-    if Number_of_Stars >= 1:
+# calculate ice lines
+if Number_of_Stars >= 1:
         Radius_of_Ice_Line_for_Star_A = 4 * math.sqrt(Initial_Luminosity_of_Star_A)
         Radius_of_Ice_Line_for_Star_A = round(Radius_of_Ice_Line_for_Star_A,3)
         print(f"Ice Line for Star A: {Radius_of_Ice_Line_for_Star_A} AU")
-    if Number_of_Stars >= 2:
+if Number_of_Stars >= 2:
         Radius_of_Ice_Line_for_Star_B = 4 * math.sqrt(Initial_Luminosity_of_Star_B)
         Radius_of_Ice_Line_for_Star_B = round(Radius_of_Ice_Line_for_Star_B,3)
         print(f"Ice Line for Star B: {Radius_of_Ice_Line_for_Star_B} AU")
-    if Number_of_Stars >= 3:
+if Number_of_Stars >= 3:
         Radius_of_Ice_Line_for_Star_C = 4 * math.sqrt(Initial_Luminosity_of_Star_C)
         Radius_of_Ice_Line_for_Star_C = round(Radius_of_Ice_Line_for_Star_C,3)
         print(f"Ice Line for Star C: {Radius_of_Ice_Line_for_Star_C} AU")
-    if Number_of_Stars == 4:
+if Number_of_Stars == 4:
         Radius_of_Ice_Line_for_Star_D = 4 * math.sqrt(Initial_Luminosity_of_Star_D)
         Radius_of_Ice_Line_for_Star_D = round(Radius_of_Ice_Line_for_Star_D,3)
         print(f"Ice Line for Star D: {Radius_of_Ice_Line_for_Star_D} AU")
 
-    # calculate slow accretion lines
-    if Number_of_Stars >= 1:
+# calculate slow accretion lines
+if Number_of_Stars >= 1:
         Radius_of_Slow_Accretion_Line_for_Star_A = 20 * (Mass_A ** (1/3))
         Radius_of_Slow_Accretion_Line_for_Star_A = round(Radius_of_Slow_Accretion_Line_for_Star_A,3)
         print(f"Slow Accretion Line for Star A: {Radius_of_Slow_Accretion_Line_for_Star_A} AU")
-    if Number_of_Stars >= 2:
+if Number_of_Stars >= 2:
         Radius_of_Slow_Accretion_Line_for_Star_B = 20 * (Mass_B ** (1/3))
         Radius_of_Slow_Accretion_Line_for_Star_B = round(Radius_of_Slow_Accretion_Line_for_Star_B,3)
         print(f"Slow Accretion Line for Star B: {Radius_of_Slow_Accretion_Line_for_Star_B} AU")
-    if Number_of_Stars >= 3:
+if Number_of_Stars >= 3:
         Radius_of_Slow_Accretion_Line_for_Star_C = 20 * (Mass_C ** (1/3))
         Radius_of_Slow_Accretion_Line_for_Star_C = round(Radius_of_Slow_Accretion_Line_for_Star_C,3)
         print(f"Slow Accretion Line for Star C: {Radius_of_Slow_Accretion_Line_for_Star_C} AU")
-    if Number_of_Stars == 4:
+if Number_of_Stars == 4:
         Radius_of_Slow_Accretion_Line_for_Star_D = 20 * (Mass_D ** (1/3))
         Radius_of_Slow_Accretion_Line_for_Star_D = round(Radius_of_Slow_Accretion_Line_for_Star_D,3)
         print(f"Slow Accretion Line for Star D: {Radius_of_Slow_Accretion_Line_for_Star_D} AU")
 
-    # calculate forbidden zones
-    if Number_of_Stars == 1:
+# calculate forbidden zones
+if Number_of_Stars == 1:
         print("Single Star System - No Forbidden Zone for Planet Formation")
-    if Number_of_Stars == 2:
+if Number_of_Stars == 2:
         Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A = (1/3) * binary_minimum_distance
         print(f"Forbidden Zone for Star A begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A} AU")
         Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B = (1/3) * binary_minimum_distance
         print(f"Forbidden Zone for Star B begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B} AU")
-    if Number_of_Stars == 3:
-        if Stellar_Arrangement == "A-BC":
+if Number_of_Stars == 3:
+    if Stellar_Arrangement == "A-BC":
             Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A = (1/3) * A_BC_minimum_distance
             print(f"Forbidden Zone for Star A begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A} AU")
             Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B = (1/3) * BC_minimum_distance
             print(f"Forbidden Zone for Star B begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B} AU")
             Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C = (1/3) * BC_minimum_distance
             print(f"Forbidden Zone for Star C begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C} AU")
-        if Stellar_Arrangement == "AB-C":
+    if Stellar_Arrangement == "AB-C":
             Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A = (1/3) * AB_minimum_distance
             print(f"Forbidden Zone for Star A begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A} AU")
             Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B = (1/3) * AB_minimum_distance
             print(f"Forbidden Zone for Star B begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B} AU")
             Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C = (1/3) * AB_C_minimum_distance
             print(f"Forbidden Zone for Star c begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C} AU")
-    if Number_of_Stars == 4:
+if Number_of_Stars == 4:
         Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A = (1/3) * AB_minimum_distance
         print(f"Forbidden Zone for Star A begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A} AU")
         Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B = (1/3) * AB_minimum_distance
@@ -317,8 +324,8 @@
         Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_D = (1/3) * CD_minimum_distance
         print(f"Forbidden Zone for Star D begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_D} AU")
 
-    # arrange planetary formation orbits
-    if Number_of_Stars >= 1:
+# arrange planetary formation orbits
+if Number_of_Stars >= 1:
 
         Star_A_Protoplanet_1_Flag = "Yes"
         Star_A_Protoplanet_1_Speed_Flag = "Fast"

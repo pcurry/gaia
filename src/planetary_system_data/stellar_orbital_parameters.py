@@ -1,11 +1,16 @@
 # this sub-program covers step 8 ("Stellar Orbital Parameters") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
 
+import random
+from dice import d100
+from dice import threeD6
+from stellar_multiplicity import Number_of_Stars
+
 if Number_of_Stars == 1:
     binary_separation_type = "None"
     print("Single Star System - skipping Step #8")
 
 if Number_of_Stars == 2:
-    roll_for_binary_separation_type = _3d6()
+    roll_for_binary_separation_type = threeD6()
     if roll_for_binary_separation_type <= 3:
         binary_separation_type = "Extremely Close"
         binary_separation_base_distance = 0.015
