@@ -24,7 +24,9 @@ Number_of_Stars = generate_number_of_stars(Star_A.mass)
 print(f"Number of Stars in System: {Number_of_Stars}")
 
 # Step 3: Arrange Components
-# run arrange_components.py
+
+from arrange_components import Stellar_Arrangement
+print(f"Stellar Arranagement: {Stellar_Arrangement}")
 
 # Step 4: Star System Age
 # only run if don't have star system age from SIMBAD

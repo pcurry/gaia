@@ -2,8 +2,10 @@
 
 import random
 from dice import d100
-from primary_star_mass import primary_mass
+from primary_star_mass import mass
 from stellar_multiplicity import Number_of_Stars
+
+Mass_A = mass
 
 Mass_Ratio = None
 Stellar_Arrangement = None
