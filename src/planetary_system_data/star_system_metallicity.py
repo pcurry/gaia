@@ -14,6 +14,3 @@ if Population == "Halo Population II":
 
 if Metallicity < 0:
     Metallicity = 0
-
-Metallicity = round(Metallicity, 2)
-print(f"Metallicity: {Metallicity}")

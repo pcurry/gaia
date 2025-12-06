@@ -8,8 +8,6 @@
 # e.g. in these cases there will be both IRL known exoplanets in the system + fair to assume that there are other undetected exoplanets for which fictional but realistic stand-ins can be created here
 
 # Step 1: Primary Star Mass
-# only run if don't have star mass (or spectral type) from Gaia / SIMBAD
-# reverse engineer mass from spectral type (if available from Gaia / SIMBAD)
 
 from primary_star_mass import generate_primary_star
 Star_A = generate_primary_star()
@@ -17,7 +15,6 @@ Mass_A = Star_A.mass
 print(f"Mass of Star A: {Star_A.mass} solar masses")
 
 # Step 2: Stellar Multiplicity
-# only run if don't have number of stars in system from Gaia / SIMBAD
 
 from stellar_multiplicity import generate_number_of_stars
 Number_of_Stars = generate_number_of_stars(Star_A.mass)
@@ -29,12 +26,20 @@ from arrange_components import Stellar_Arrangement
 print(f"Stellar Arranagement: {Stellar_Arrangement}")
 
 # Step 4: Star System Age
-# only run if don't have star system age from SIMBAD
-# run star_system_age.py
+
+from star_system_age import Population
+from star_system_age import system_age
+
+print(f"Stellar Population: {Population}")
+system_age = round(system_age, 2)
+print(f"System Age: {system_age} Gyr")
 
 # Step 5: Star System Metallicity
-# run star_system_metallicity.py
-# only run if don't have metallicity from Gaia / SIMBAD
+
+from star_system_age import Metallicity
+
+Metallicity = round(Metallicity, 2)
+print(f"Metallicity: {Metallicity}")
 
 # Step 6: Stellar Evolution
 # run stellar_evolution.py

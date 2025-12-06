@@ -30,7 +30,3 @@ elif 100 == roll_for_stellar_population:
 
 roll_for_age_range = d100()
 system_age = Base_Age + (Age_Range*(roll_for_age_range/100))
-
-print(f"Stellar Population: {Population}")
-system_age = round(system_age, 2)
-print(f"System Age: {system_age} Gyr")

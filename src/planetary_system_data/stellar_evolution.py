@@ -4,6 +4,7 @@ import math
 from dice import d100
 from star_system_age import system_age
 from stellar_multiplicity import Number_of_Stars
+from system_generator import Mass_A
 
 if Number_of_Stars >= 1:
     Temperature_Effective_of_Star_A = None
