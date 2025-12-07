@@ -1,3 +1,4 @@
+# this sub-program covers step 1 ("Primary Star Mass") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction" - starting from pg. 31
 
 from dice import d100
 from dataclasses_and_enumerations import StarCategory, Star
