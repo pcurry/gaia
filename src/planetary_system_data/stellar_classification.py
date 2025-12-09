@@ -1,6 +1,20 @@
-# this sub-program covers step 7 ("Stellar Classification") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
+# this sub-program covers step 7 ("Stellar Classification") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design 
+# for Interstellar Fiction"
 
 from stellar_multiplicity import Number_of_Stars
+
+from stellar_evolution import Evolutionary_Stage_of_Star_A
+from stellar_evolution import Temperature_Effective_of_Star_A
+
+if Number_of_Stars >= 2:
+    from stellar_evolution import Evolutionary_Stage_of_Star_B
+    from stellar_evolution import Temperature_Effective_of_Star_B
+if Number_of_Stars >= 3:
+    from stellar_evolution import Evolutionary_Stage_of_Star_C
+    from stellar_evolution import Temperature_Effective_of_Star_C
+if Number_of_Stars == 4:
+    from stellar_evolution import Evolutionary_Stage_of_Star_D
+    from stellar_evolution import Temperature_Effective_of_Star_D
 
 Spectral_Type_of_Star_A = "None"
 if Number_of_Stars >= 1:

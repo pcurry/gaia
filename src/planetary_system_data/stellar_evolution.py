@@ -1,10 +1,18 @@
-# this sub-program covers step 6 ("Stellar Evolution") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
+# this sub-program covers step 6 ("Stellar Evolution") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design '
+# for Interstellar Fiction"
 
 import math
 from dice import d100
 from star_system_age import system_age
 from stellar_multiplicity import Number_of_Stars
 from system_generator import Mass_A
+
+if Number_of_Stars >= 2:
+    from arrange_components import Mass_B
+if Number_of_Stars >= 3:
+    from arrange_components import Mass_C
+if Number_of_Stars == 4:
+    from arrange_components import Mass_D
 
 if Number_of_Stars >= 1:
     Temperature_Effective_of_Star_A = None
