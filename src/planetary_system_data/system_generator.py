@@ -1,11 +1,14 @@
 # this is a python script to procedurally generate realistic (but fictional) star systems
 # primary reference: Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
 
-# will need to build in option to input real parameter values from stars in Gaia DR3 dataset - e.g. in similar manner to what has been done in Sectory_Query.py
-# or... take sectors that have been created by Sector_Query.py and generate matching system/planet data for the star systems in that sector
+# will need to build in option to input real parameter values from stars in Gaia DR3 dataset - e.g. in similar manner to what has 
+# been done in Sectory_Query.py... or... take sectors that have been created by Sector_Query.py and generate matching 
+# system/planet data for the star systems in that sector
 
-# will also need to develop known_exoplanet.py module to handle cases where exoplanets have been detected / real exoplanet data can be ingested (pg. 176-178)
-# e.g. in these cases there will be both IRL known exoplanets in the system + fair to assume that there are other undetected exoplanets for which fictional but realistic stand-ins can be created here
+# will also need to develop known_exoplanet.py module to handle cases where exoplanets have been detected / real exoplanet data 
+# can be ingested (pg. 176-178)
+# e.g. in these cases there will be both IRL known exoplanets in the system + fair to assume that there are other undetected 
+# exoplanets for which fictional but realistic stand-ins can be created here
 
 # Step 1: Primary Star Mass
 
