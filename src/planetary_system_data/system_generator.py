@@ -39,7 +39,7 @@ print(f"System Age: {system_age} Gyr")
 
 # Step 5: Star System Metallicity
 
-from star_system_age import Metallicity
+from star_system_metallicity import Metallicity
 
 Metallicity = round(Metallicity, 2)
 print(f"Metallicity: {Metallicity}")
