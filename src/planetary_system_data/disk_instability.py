@@ -1,12 +1,14 @@
-# this sub-program covers step 10 ("Disk Instability") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
+# this sub-program covers step 10 ("Disk Instability") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design 
+# for Interstellar Fiction"
 
-# "Very early in the process of planetary formation, the first gas giant planets may form due to disk instability in the protoplanetary disk
-# Here, the outer protoplanetary disk is perturbed by the gravitation of nearby stars, or due to the formation of large clumps of material by random chance.
-# The disk then forms spiral-arm structures, which can quickly give rise to unusually massive gas giant planets. Disk instability is more likely to occur if the protoplanetary disk is denser
+# "Very early in the process of planetary formation, the first gas giant planets may form due to disk instability in the 
+# protoplanetary disk. Here, the outer protoplanetary disk is perturbed by the gravitation of nearby stars, or due to the 
+# formation of large clumps of material by random chance. The disk then forms spiral-arm structures, which can quickly give rise 
+# to unusually massive gas giant planets. Disk instability is more likely to occur if the protoplanetary disk is denser
 # (that is, if its disk mass factor, determined in Step Nine, is high)."
 
-# "To determine at random whether disk instability took place, roll 3d6 and add the disk mass modifier determined in Step Nine. If the result is 12 or higher, one or more planets may form
-# due to disk instability. Otherwise, skip forward to Step Eleven."
+# "To determine at random whether disk instability took place, roll 3d6 and add the disk mass modifier determined in Step Nine. 
+# If the result is 12 or higher, one or more planets may form due to disk instability. Otherwise, skip forward to Step Eleven."
 
 from stellar_multiplicity import Number_of_Stars
 from dice import threeD6
@@ -42,7 +44,7 @@ if Number_of_Stars < 3:
 if Number_of_Stars == 4:
     Disk_Stability_for_Star_D = "Stable"
     roll_for_Disk_Stability_Star_D = threeD6()        
-    if (roll_for_Disk_Density_of_Star_D + Disk_Mass_Modifier_Star_D) >= 12:
+    if (roll_for_Disk_Stability_Star_D + Disk_Mass_Modifier_Star_D) >= 12:
             Disk_Stability_for_Star_D = "Unstable"
             print("Protoplanetary Disk around Star D is unstable - potential for planet formation")
 if Number_of_Stars < 4:
@@ -50,11 +52,12 @@ if Number_of_Stars < 4:
 
 if Disk_Stability_for_Star_A == "Unstable":
 
-        # "If disk instability has taken place, roll 3d6 twice on the Disk Instability Placement Table, adding the disk mass modifier each time. The first roll will indicate in which formation orbit
-        # the first planet may be placed. The second roll will indicate how many planets may be formed during this step." - pg 61
+# "If disk instability has taken place, roll 3d6 twice on the Disk Instability Placement Table, adding the disk mass modifier 
+# each time. The first roll will indicate in which formation orbit the first planet may be placed. The second roll will indicate 
+# how many planets may be formed during this step." - pg 61
 
-        # "Check the worksheet to see whether the designated first formation orbit falls within a forbidden zone. If it does, then no planets will form in this step despite the possibility of disk
-        # instability; skip forward to Step Eleven" - pg 61
+# "Check the worksheet to see whether the designated first formation orbit falls within a forbidden zone. If it does, then no 
+# planets will form in this step despite the possibility of disk instability; skip forward to Step Eleven" - pg 61
 
         roll_for_first_formation_orbit_star_A = ( threeD6() + Disk_Mass_Modifier_Star_A )
         if roll_for_first_formation_orbit_star_A <= 5:    
