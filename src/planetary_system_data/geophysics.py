@@ -1,34 +1,45 @@
-# this sub-program covers step 24 ("Geophysics") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction" - starting from page 101
+# this sub-program covers step 24 ("Geophysics") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for 
+# Interstellar Fiction" - starting from page 101
 
-# "The lithosphere of a world is the top layer of its rocky structure. The structure and behavior of the lithosphere will be strongly determined by the amount of heat 
-# remaining in the world’s deep interior. The hotter the world’s mantle and core, the more likely it is that heat will escape to and through the world’s surface, 
-# softening or melting surface rocks and possibly giving rise to volcanic eruptions."
+# "The lithosphere of a world is the top layer of its rocky structure. The structure and behavior of the lithosphere will be 
+# strongly determined by the amount of heat remaining in the world’s deep interior. The hotter the world’s mantle and core, the 
+# more likely it is that heat will escape to and through the world’s surface, softening or melting surface rocks and possibly 
+# giving rise to volcanic eruptions."
 
-# "A world’s lithosphere begins as a global sea of magma, but it soon cools, forming a solid crust that provides a (more or less) stable surface. Over time, as the 
-# world cools further, the crust will become thicker and more rigid, eventually forming a single immobile plate that covers the entire sphere."
+# "A world’s lithosphere begins as a global sea of magma, but it soon cools, forming a solid crust that provides a (more or less) 
+# stable surface. Over time, as the world cools further, the crust will become thicker and more rigid, eventually forming a 
+# single immobile plate that covers the entire sphere."
 
-# "On a world with Massive prevalence of water, the lithosphere is inaccessible, submerged beneath deep ice sheets, liquid-water oceans, or (in extreme cases) a 
-# supercritical fluid of water. In any of these cases, the actual surface of the world will be atop the water layers (the hydrosphere). We will determine the 
-# lithosphere’s status in any case, since it will still affect several other properties of the world"
+# "On a world with Massive prevalence of water, the lithosphere is inaccessible, submerged beneath deep ice sheets, liquid-water 
+# oceans, or (in extreme cases) a supercritical fluid of water. In any of these cases, the actual surface of the world will be 
+# atop the water layers (the hydrosphere). We will determine the lithosphere’s status in any case, since it will still affect 
+# several other properties of the world"
 
-# "The possible cases will be sorted into six categories: Molten, Soft, Early Plate, Mature Plate, Ancient Plate, and Solid. These categories are defined as follows."
+# "The possible cases will be sorted into six categories: Molten, Soft, Early Plate, Mature Plate, Ancient Plate, and Solid. 
+# These categories are defined as follows."
 
-# "Molten Lithosphere: Large portions of the world’s lithosphere are still covered by magma oceans. A thin solid crust may form in specific regions. Active volcanoes are extremely common and may appear anywhere 
-# on the lithosphere. Examples: Earth in the Hadean Eon"
+# "Molten Lithosphere: Large portions of the world’s lithosphere are still covered by magma oceans. A thin solid crust may form 
+# in specific regions. Active volcanoes are extremely common and may appear anywhere on the lithosphere. Examples: Earth in the 
+# Hadean Eon"
 
-# "Soft Lithosphere: A solid crust has formed, and no magma oceans remain. However, the lithosphere is not strong enough to resist the upwelling of magma from the world’s mantle, so active volcanoes remain common 
-# and continue to appearanywhere on the lithosphere. Examples: Earth in the early Archean Eon."
+# "Soft Lithosphere: A solid crust has formed, and no magma oceans remain. However, the lithosphere is not strong enough to 
+# resist the upwelling of magma from the world’s mantle, so active volcanoes remain common and continue to appearanywhere on the 
+# lithosphere. Examples: Earth in the early Archean Eon."
 
-# " Early Plate Lithosphere: The lithosphere is becoming strong enough to resist the upwelling of magma from the mantle. The crust is organizing into solid plates. Volcanoes remain common, but (depending on the 
-# presence of active plate tectonics) may be limited to certain locations. Examples: Earth in the later Archean Eon."
+# "Early Plate Lithosphere: The lithosphere is becoming strong enough to resist the upwelling of magma from the mantle. The crust 
+# is organizing into solid plates. Volcanoes remain common, but (depending on the presence of active plate tectonics) may be 
+# limited to certain locations. Examples: Earth in the later Archean Eon."
 
-# "Mature Plate Lithosphere: The organization of the crust into solid plates is complete, with most or all the crust now integrated into the system. Some of the crustal plates are now thicker and more durable. 
-# Volcanoes are less common. Examples: Earth today"
+# "Mature Plate Lithosphere: The organization of the crust into solid plates is complete, with most or all the crust now 
+# integrated into the system. Some of the crustal plates are now thicker and more durable.  Volcanoes are less common. 
+# Examples: Earth today"
 
-# " Ancient Plate Lithosphere: The lithosphere is becoming thick and rigid, and the system of crustal plates is becoming stagnant. Vulcanism is increasingly rare. Examples: Earth billions of years from now, 
-# Mars today."
+# "Ancient Plate Lithosphere: The lithosphere is becoming thick and rigid, and the system of crustal plates is becoming stagnant. 
+# Vulcanism is increasingly rare. 
+# Examples: Earth billions of years from now, Mars today."
 
-# "Solid Lithosphere: The lithosphere is solid and completely stagnant. Vulcanism is vanishingly rare or extinct. Examples: Earth’s moon."
+# "Solid Lithosphere: The lithosphere is solid and completely stagnant. Vulcanism is vanishingly rare or extinct. 
+# Examples: Earth’s moon."
 
 # "A world’s internal heat will normally derive from three different sources:"
 # "The primordial heat of the world’s formation"
@@ -50,78 +61,97 @@
 
 # Codify Equation on page 102
 
-# "CP is the modifier to the 3d6 roll based on the world’s primordial heat budget, and G is the world’s surface gravity in standard gravities as established in Step Nine. Round CP to the
-# nearest integer, noting that the result will be negative for a world with greater than 1.0 G surface gravity. Add the result to the 3d6 roll.
+# "CP is the modifier to the 3d6 roll based on the world’s primordial heat budget, and G is the world’s surface gravity in 
+# standard gravities as established in Step Nine. Round CP to the nearest integer, noting that the result will be negative for 
+# a world with greater than 1.0 G surface gravity. Add the result to the 3d6 roll.
 
 # "Radiogenic Heat: Computing the following:"
 
 # Codify Equation at top of page 103
 
-# "CR is the modifier to the 3d6 roll based on the world’s radiogenic heat budget, and K is the star system’s metallicity as established in Step Five. Round CR to the nearest integer, noting that the result
-# will be negative for worlds in a star system with greater than 1.0 metallicity. Add the result to the 3d6 roll, refer to the Lithosphere Table using the final total, and make note of the result."
+# "CR is the modifier to the 3d6 roll based on the world’s radiogenic heat budget, and K is the star system’s metallicity as 
+# established in Step Five. Round CR to the nearest integer, noting that the result will be negative for worlds in a star system 
+# with greater than 1.0 metallicity. Add the result to the 3d6 roll, refer to the Lithosphere Table using the final total, and 
+# make note of the result."
 
 # Codify Lithosphere Table at top of page 103
 
 # Tidal Heat
 
-# "Not all worlds will have a significant budget of internal heat due to tidal friction. See if the world fits either of the following two cases. If so, compute the quantity F according to the
-# formula given."
+# "Not all worlds will have a significant budget of internal heat due to tidal friction. See if the world fits either of the 
+# following two cases. If so, compute the quantity F according to the formula given."
 
-# "First Case: A major satellite of a gas giant only (not a leftover oligarch, terrestrial planet, or failed core) will experience significant tidal heating if and only if:
-# "There is at least one other major moon in the next outward orbit from the gas giant, as established in Step Seventeen, the first case, and
-# "That “next outward” major moon is in a stable orbital resonance with the moon being developed."
-# "In this case, the resonance between the two orbital periods will maintain a small degree of eccentricity in the first moon’s orbit. This in turn will cause tidal forces imposed by the gas
-# giant to increase and decrease slightly during the moon’s orbital period, leading the moon’s body to “flex” and create friction. In our own planetary system, two of the satellites of Jupiter
+# "First Case: A major satellite of a gas giant only (not a leftover oligarch, terrestrial planet, or failed core) will 
+# experience significant tidal heating if and only if:
+# "There is at least one other major moon in the next outward orbit from the gas giant, as established in Step Seventeen, the 
+# first case, and that “next outward” major moon is in a stable orbital resonance with the moon being developed."
+# "In this case, the resonance between the two orbital periods will maintain a small degree of eccentricity in the first moon’s 
+# orbit. This in turn will cause tidal forces imposed by the gas giant to increase and decrease slightly during the moon’s orbital
+# period, leading the moon’s body to “flex” and create friction. In our own planetary system, two of the satellites of Jupiter
 # fall into this case (Io and Europa).
 
 # "If a moon falls into this case, evaluate the following:"
 
 # Codify Equation on page 103
 
-# "F is a measure of tidal force applied to the moon, with an F of 1.0 being roughly equivalent to the tidal force experienced by Earth due to the Sun. M is the mass of the gas giant in Earth-
-# masses, D is the moon’s radius in kilometers, and R is the moon’s orbital radius in kilometers."
+# "F is a measure of tidal force applied to the moon, with an F of 1.0 being roughly equivalent to the tidal force experienced by 
+# Earth due to the Sun. M is the mass of the gas giant in Earth-masses, D is the moon’s radius in kilometers, and R is the moon’s 
+# orbital radius in kilometers."
 
-# "Second Case: A leftover oligarch, terrestrial planet, or failed core which has no major satellite may experience significant tidal heating due to its primary star. This will take place if and only
-# if the planet is in a spin-orbit resonance with its primary star, as determined in Step Nineteen, and the following is correct:"
+# "Second Case: A leftover oligarch, terrestrial planet, or failed core which has no major satellite may experience significant 
+# tidal heating due to its primary star. This will take place if and only if the planet is in a spin-orbit resonance with its 
+# primary star, as determined in Step Nineteen, and the following is correct:"
 # "The planet’s orbital eccentricity is at least 0.05, or"
 # "The spin-orbit resonance is not 1:1 (the planet is not tide-locked to its primary), or"
 # "Both of the following are true:"
-# "There is at least one other planet (not a planetoid belt) in the next outward orbit from the primary star, as established in Steps Ten through Twelve, and"
-# "That “next outward” planet is in a stable resonance with the planet being developed (that is, the ratio of their two orbital radii was derived from the Resonant Orbit Spacing Table)."
+# "There is at least one other planet (not a planetoid belt) in the next outward orbit from the primary star, as established in 
+# Steps Ten through Twelve, and that “next outward” planet is in a stable resonance with the planet being developed (that is, 
+# the ratio of their two orbital radii was derived from the Resonant Orbit Spacing Table)."
 
-# "In any of these cases, tidal forces imposed by the primary star will cause the planet’s body to flex slightly during its orbital period, giving rise to internal friction and heat. In practice, the
-# effect is likely to be minimal unless the planet orbits very close to its primary star."
+# "In any of these cases, tidal forces imposed by the primary star will cause the planet’s body to flex slightly during its 
+# orbital period, giving rise to internal friction and heat. In practice, the effect is likely to be minimal unless the planet 
+# orbits very close to its primary star."
 
 # "If a planet falls into this case, evaluate the following:"
 
 # Codify Equation at top of page 104
 
-# "F is the same measure of tidal force as in the previous case, applied to the planet. However, in this case M is the mass of the primary star in solar masses, D is the planet’s radius in
-# kilometers, and R is the planet’s orbital radius in AU"
+# "F is the same measure of tidal force as in the previous case, applied to the planet. However, in this case M is the mass of 
+# the primary star in solar masses, D is the planet’s radius in kilometers, and R is the planet’s orbital radius in AU"
 
-# "If the world falls into either of these two cases, and a value for F has been computed, refer to the Tidal Heat Table and compare F to the left-hand column. Make a note of the status given in the 
-# right-hand column for that value of F. If the lithosphere status due to primordial and radiogenic heat is lower on the table than the one given here, then replace that lithosphere status with this one."
+# "If the world falls into either of these two cases, and a value for F has been computed, refer to the Tidal Heat Table and 
+# compare F to the left-hand column. Make a note of the status given in the right-hand column for that value of F. If the 
+# lithosphere status due to primordial and radiogenic heat is lower on the table than the one given here, then replace that 
+# lithosphere status with this one."
 
 # Codify Tidal Heat Table at top of page 104
 
 # Plate Tectonics
 
-# "Even if a world’s crust is organized into solid plates, those plates may or may not be able to move and interact in an active system of plate tectonics. In our own planetary system, several
-# worlds show some sign of plate tectonics. However, only on Earth is the entire crust arranged into a clear set of plates that move across the mantle and actively recycle crust material. The
-# decisive factor seems to be Earth’s extensive prevalence of water, which permeates the crustal rocks and reduces friction among the tectonic plates"
+# "Even if a world’s crust is organized into solid plates, those plates may or may not be able to move and interact in an active 
+# system of plate tectonics. In our own planetary system, several worlds show some sign of plate tectonics. However, only on 
+# Earth is the entire crust arranged into a clear set of plates that move across the mantle and actively recycle crust material. 
+# The decisive factor seems to be Earth’s extensive prevalence of water, which permeates the crustal rocks and reduces friction 
+# among the tectonic plates"
 
-# "Determine the status of the world’s plate tectonics only if its lithosphere is in an Early Plate, Mature Plate, or Ancient Plate status as determined above."
+# "Determine the status of the world’s plate tectonics only if its lithosphere is in an Early Plate, Mature Plate, or Ancient 
+# Plate status as determined above."
 
 # "The possible cases will be sorted into two categories, defined as follows."
 
-# "Mobile Plate Tectonics: The crust’s tectonic plates can move freely past or against one another. As tectonic plates collide, some of them experience subduction, moving down into the mantle and recycling the 
-# crustal material. Orogeny, or the formation of mountain ranges, takes place in such areas as well. Volcanic activity is likely to take place at plate boundaries. Volcanoes may also appear in plate interiors, 
-# at the top of magma plumes rising from the deep mantle. Such shield volcanoes will tend to form arcs or chains, as the tectonic plate moves across the top of the plume"
+# "Mobile Plate Tectonics: The crust’s tectonic plates can move freely past or against one another. As tectonic plates collide, 
+# some of them experience subduction, moving down into the mantle and recycling the crustal material. Orogeny, or the formation of 
+# mountain ranges, takes place in such areas as well. Volcanic activity is likely to take place at plate boundaries. Volcanoes may 
+# also appear in plate interiors, at the top of magma plumes rising from the deep mantle. Such shield volcanoes will tend to form 
+# arcs or chains, as the tectonic plate moves across the top of the plume"
 
-# "Fixed Plate Tectonics: The crust’s tectonic plates are unable to move freely. Little or no subduction takes place to recycle crustal material. Orogeny is rare. As with Mobile Plate Tectonics, volcanoes are 
-# likely to appear at plate boundaries. Shield volcanoes are also possible, but since the tectonic plates are nearly immobile, such volcanoes are likely to grow much larger over time"
+# "Fixed Plate Tectonics: The crust’s tectonic plates are unable to move freely. Little or no subduction takes place to recycle 
+# crustal material. Orogeny is rare. As with Mobile Plate Tectonics, volcanoes are likely to appear at plate boundaries. Shield 
+# volcanoes are also possible, but since the tectonic plates are nearly immobile, such volcanoes are likely to grow much larger 
+# over time"
 
-# "In general, a world is likely to have Mobile Plate Tectonics if it is younger (and therefore still has a hot mantle and core) and has plenty of surface water to reduce friction among the plates.
+# "In general, a world is likely to have Mobile Plate Tectonics if it is younger (and therefore still has a hot mantle and core) 
+# and has plenty of surface water to reduce friction among the plates.
 
 # To determine the status of a world’s plate tectonics at random, roll 3d6 and modify the result as follows:"
 # "+6 if the world has Extensive or Massive prevalence of water"
@@ -131,28 +161,36 @@
 # "A world will have Mobile Plate Tectonics on a modified roll of 11 or greater, and Fixed Plate Tectonics otherwise"
 
 # Special Case: Episodic Resurfacing
-0
-# "If a world has an Early Plate or Mature Plate Lithosphere and has Fixed Plate Tectonics, then vulcanism will follow a pattern of episodic resurfacing."
 
-# "In this case, the lithosphere is too strong to permit magma to reach the surface under normal conditions. Since any tectonic plates are fixed in place, subduction and orogeny are rare.
-# Active volcanoes are also uncommon. However, heat built up in the mantle periodically breaks through, causing massive volcanic outbursts that “resurface” large portions of the lithosphere
+# "If a world has an Early Plate or Mature Plate Lithosphere and has Fixed Plate Tectonics, then vulcanism will follow a pattern 
+# of episodic resurfacing."
+
+# "In this case, the lithosphere is too strong to permit magma to reach the surface under normal conditions. Since any tectonic 
+# plates are fixed in place, subduction and orogeny are rare. Active volcanoes are also uncommon. However, heat built up in the 
+# mantle periodically breaks through, causing massive volcanic outbursts that “resurface” large portions of the lithosphere
 # before the situation restabilizes."
 
-# "For an Early Plate Lithosphere, these resurfacing events will take place millions of years apart. For a Mature Plate Lithosphere, resurfacing becomes much less frequent, tens or even
-# hundreds of millions of years apart. In our own planetary system, Venus is an example of this case."
+# "For an Early Plate Lithosphere, these resurfacing events will take place millions of years apart. For a Mature Plate 
+# Lithosphere, resurfacing becomes much less frequent, tens or even hundreds of millions of years apart. In our own planetary 
+# system, Venus is an example of this case."
 
 # Adjust Hydrographic Coverage
 
-# "In some cases, the amount of a world’s dry land surface will depend on the world’s geophysical parameters. If a world has a strong lithosphere and is geologically active, it will create variation
-# in topographical relief (continents and shield volcanoes) faster than it can be worn down by weathering and erosion. This will tend to give rise to larger masses of dry land. A world that is
-# geologically quiet is more likely to be dominated by shallow oceans or ice sheets."
+# "In some cases, the amount of a world’s dry land surface will depend on the world’s geophysical parameters. If a world has a 
+# strong lithosphere and is geologically active, it will create variation in topographical relief (continents and shield 
+# volcanoes) faster than it can be worn down by weathering and erosion. This will tend to give rise to larger masses of dry land. 
+# A world that is geologically quiet is more likely to be dominated by shallow oceans or ice sheets."
 
-# "If the world has a Molten Lithosphere, and its prevalence of water is not Massive, then it cannot currently support liquid-water oceans or ice sheets. Reduce the prevalence of water
-# to Trace and the base hydrographic coverage to 0%. This does not constitute a runaway greenhouse event. If the world’s surface cools in the future, water may appear."
+# "If the world has a Molten Lithosphere, and its prevalence of water is not Massive, then it cannot currently support 
+# liquid-water oceans or ice sheets. Reduce the prevalence of water to Trace and the base hydrographic coverage to 0%. 
+# This does not constitute a runaway greenhouse event. If the world’s surface cools in the future, water may appear."
 
 # If a world has Extensive prevalence of water, then adjust its base hydrographic coverage as follows:"
-# "If the world has a Soft or Solid lithosphere, roll 3d6+10, treat the result as a percentage, and add it to the base hydrographic coverage (maximum 100%)."
-# "If the world has an Early Plate or Ancient Plate lithosphere, roll 3d6, treat the result as a percentage, and add it to the base hydrographic coverage (maximum 100%)."
+# "If the world has a Soft or Solid lithosphere, roll 3d6+10, treat the result as a percentage, and add it to the base 
+# hydrographic coverage (maximum 100%)."
+# "If the world has an Early Plate or Ancient Plate lithosphere, roll 3d6, treat the result as a percentage, and add it to the 
+# base hydrographic coverage (maximum 100%)."
 
-# "If a world with Extensive water ends up with 100% hydrographic coverage, some or all its oceans or ice sheets are likely to be shallow—no more than a few kilometers deep, and possibly much less. This is 
-# distinct from the case of a world with Massive water, whose oceans or ice sheets will be tens or even hundreds of kilometers deep throughout."
+# "If a world with Extensive water ends up with 100% hydrographic coverage, some or all its oceans or ice sheets are likely to be 
+# shallow—no more than a few kilometers deep, and possibly much less. This is distinct from the case of a world with Massive 
+# water, whose oceans or ice sheets will be tens or even hundreds of kilometers deep throughout."
