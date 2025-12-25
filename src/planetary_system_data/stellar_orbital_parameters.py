@@ -1,9 +1,17 @@
 # this sub-program covers step 8 ("Stellar Orbital Parameters") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
 
 import random
+import math
 from dice import d100
 from dice import threeD6
 from stellar_multiplicity import Number_of_Stars
+from stellar_evolution import Evolutionary_Stage_of_Star_A
+if Number_of_Stars == 2:
+    from stellar_evolution import Evolutionary_Stage_of_Star_B
+if Number_of_Stars == 3:
+    from stellar_evolution import Evolutionary_Stage_of_Star_C
+if Number_of_Stars == 4:
+    from stellar_evolution import Evolutionary_Stage_of_Star_D
 
 if Number_of_Stars == 1:
     binary_separation_type = "None"
@@ -52,7 +60,7 @@ if Number_of_Stars == 2:
     if binary_separation_type == "Very Wide":
         binary_eccentricity_roll_modifier = 0
 
-    roll_for_binary_orbital_eccentricity = _3d6() + binary_eccentricity_roll_modifier 
+    roll_for_binary_orbital_eccentricity = threeD6() + binary_eccentricity_roll_modifier 
     # If at Moderate separation, modify by -2.
     if roll_for_binary_orbital_eccentricity <= 3:
         binary_eccentricity = 0.0
