@@ -13,6 +13,22 @@ if Number_of_Stars == 3:
 if Number_of_Stars == 4:
     from stellar_evolution import Evolutionary_Stage_of_Star_D
 
+if Number_of_Stars >= 1:
+    from stellar_evolution import Mass_WDA
+    from stellar_evolution import Radius_of_White_Dwarf_A
+
+if Number_of_Stars >= 2:
+    from stellar_evolution import Mass_WDB
+    from stellar_evolution import Radius_of_White_Dwarf_B
+
+if Number_of_Stars >= 3:
+    from stellar_evolution import Mass_WDC
+    from stellar_evolution import Radius_of_White_Dwarf_C
+
+if Number_of_Stars == 4:
+    from stellar_evolution import Mass_WDD
+    from stellar_evolution import Radius_of_White_Dwarf_D
+
 if Number_of_Stars == 1:
     binary_separation_type = "None"
     print("Single Star System - skipping Step #8")
@@ -210,7 +226,7 @@ if Number_of_Stars == 3:
         if BC_separation_type == "Wide":
             BC_eccentricity_roll_modifier = 0
 
-        roll_for_BC_orbital_eccentricity = _3d6() + BC_eccentricity_roll_modifier 
+        roll_for_BC_orbital_eccentricity = threeD6() + BC_eccentricity_roll_modifier 
         # If at Moderate separation, modify by -2.
         if roll_for_BC_orbital_eccentricity <= 3:
             BC_eccentricity = 0.0
@@ -289,7 +305,7 @@ if Number_of_Stars == 3:
             if (Roche_Lobe_Radius_B >= Final_Radius_B) and (Roche_Lobe_Radius_C >= Final_Radius_C):
                 print("Confirmed - pair BC is a Detached Binary within an A-BC type triple star system")
  
-        roll_for_A_BC_separation_type = _3d6()
+        roll_for_A_BC_separation_type = threeD6()
         if roll_for_A_BC_separation_type <= 3:
             A_BC_separation_type = "Extremely Close"
             A_BC_separation_base_distance = 0.015
@@ -346,7 +362,7 @@ if Number_of_Stars == 3:
         if A_BC_separation_type == "Very Wide":
             A_BC_eccentricity_roll_modifier = 0
 
-        roll_for_A_BC_orbital_eccentricity = _3d6() + A_BC_eccentricity_roll_modifier 
+        roll_for_A_BC_orbital_eccentricity = threeD6() + A_BC_eccentricity_roll_modifier 
         # If at Moderate separation, modify by -2.
         if roll_for_A_BC_orbital_eccentricity <= 3:
             A_BC_eccentricity = 0.0
@@ -428,7 +444,7 @@ if Number_of_Stars == 3:
         if AB_separation_type == "Wide":
             AB_eccentricity_roll_modifier = 0
 
-        roll_for_AB_orbital_eccentricity = _3d6() + AB_eccentricity_roll_modifier 
+        roll_for_AB_orbital_eccentricity = threeD6() + AB_eccentricity_roll_modifier 
         # If at Moderate separation, modify by -2.
         if roll_for_AB_orbital_eccentricity <= 3:
             AB_eccentricity = 0.0
@@ -506,7 +522,7 @@ if Number_of_Stars == 3:
             if (Roche_Lobe_Radius_A >= Final_Radius_A) and (Roche_Lobe_Radius_B >= Final_Radius_B):
                 print("Confirmed - pair AB is a Detached Binary within an AB-C type triple star system")
 
-        roll_for_AB_C_separation_type = _3d6()
+        roll_for_AB_C_separation_type = threeD6()
         if roll_for_AB_C_separation_type <= 3:
             AB_C_separation_type = "Extremely Close"
             AB_C_separation_base_distance = 0.015
@@ -563,7 +579,7 @@ if Number_of_Stars == 3:
         if AB_C_separation_type == "Very Wide":
             AB_C_eccentricity_roll_modifier = 0
 
-        roll_for_AB_C_orbital_eccentricity = _3d6() + AB_C_eccentricity_roll_modifier 
+        roll_for_AB_C_orbital_eccentricity = threeD6() + AB_C_eccentricity_roll_modifier 
         # If at Moderate separation, modify by -2.
         if roll_for_AB_C_orbital_eccentricity <= 3:
             AB_C_eccentricity = 0.0
@@ -635,7 +651,7 @@ if Number_of_Stars == 4:
         Final_Mass_D = Mass_D
         Final_Radius_D = Radius_of_Star_D
 
-    roll_for_AB_separation_type = ((_3d6())-3)
+    roll_for_AB_separation_type = ((threeD6())-3)
     if roll_for_AB_separation_type <= 3:
         AB_separation_type = "Extremely Close"
         AB_separation_base_distance = 0.015
@@ -672,7 +688,7 @@ if Number_of_Stars == 4:
     if AB_separation_type == "Wide":
         AB_eccentricity_roll_modifier = 0
 
-    roll_for_AB_orbital_eccentricity = _3d6() + AB_eccentricity_roll_modifier 
+    roll_for_AB_orbital_eccentricity = threeD6() + AB_eccentricity_roll_modifier 
     # If at Moderate separation, modify by -2.
     if roll_for_AB_orbital_eccentricity <= 3:
         AB_eccentricity = 0.0
@@ -750,7 +766,7 @@ if Number_of_Stars == 4:
         if (Roche_Lobe_Radius_A >= Final_Radius_A) and (Roche_Lobe_Radius_B >= Final_Radius_B):
             print("Confirmed - pair AB is a Detached Binary within an AB-C type triple star system")
 
-    roll_for_CD_separation_type = ((_3d6())-3)
+    roll_for_CD_separation_type = ((threeD6())-3)
     if roll_for_CD_separation_type <= 3:
         CD_separation_type = "Extremely Close"
         CD_separation_base_distance = 0.015
@@ -787,7 +803,7 @@ if Number_of_Stars == 4:
     if CD_separation_type == "Wide":
         CD_eccentricity_roll_modifier = 0
 
-    roll_for_CD_orbital_eccentricity = _3d6() + CD_eccentricity_roll_modifier 
+    roll_for_CD_orbital_eccentricity = threeD6() + CD_eccentricity_roll_modifier 
     # If at Moderate separation, modify by -2.
     if roll_for_CD_orbital_eccentricity <= 3:
         CD_eccentricity = 0.0
@@ -865,7 +881,7 @@ if Number_of_Stars == 4:
         if (Roche_Lobe_Radius_A >= Final_Radius_A) and (Roche_Lobe_Radius_B >= Final_Radius_B):
             print("Confirmed - pair CD is a Detached Binary within an quadruple star system")
 
-    roll_for_AB_CD_separation_type = _3d6()
+    roll_for_AB_CD_separation_type = threeD6()
     if roll_for_AB_CD_separation_type <= 3:
         AB_CD_separation_type = "Extremely Close"
         AB_CD_separation_base_distance = 0.015
@@ -928,7 +944,7 @@ if Number_of_Stars == 4:
         if AB_CD_separation_type == "Very Wide":
             AB_CD_eccentricity_roll_modifier = 0
 
-        roll_for_AB_CD_orbital_eccentricity = _3d6() + AB_CD_eccentricity_roll_modifier 
+        roll_for_AB_CD_orbital_eccentricity = threeD6() + AB_CD_eccentricity_roll_modifier 
         # If at Moderate separation, modify by -2.
         if roll_for_AB_CD_orbital_eccentricity <= 3:
             AB_CD_eccentricity = 0.0
