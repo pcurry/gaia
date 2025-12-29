@@ -1,31 +1,30 @@
-# this sub-program covers step 8 ("Stellar Orbital Parameters") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
+# this sub-program covers step 8 ("Stellar Orbital Parameters") from Zeigler, 2024 - "Architect of Worlds: Comprehensive 
+# World Design for Interstellar Fiction"
 
 import random
 import math
 from dice import d100
 from dice import threeD6
 from stellar_multiplicity import Number_of_Stars
-from stellar_evolution import Evolutionary_Stage_of_Star_A
-if Number_of_Stars == 2:
-    from stellar_evolution import Evolutionary_Stage_of_Star_B
-if Number_of_Stars == 3:
-    from stellar_evolution import Evolutionary_Stage_of_Star_C
-if Number_of_Stars == 4:
-    from stellar_evolution import Evolutionary_Stage_of_Star_D
 
 if Number_of_Stars >= 1:
+    from system_generator import Mass_A
+    from stellar_evolution import Evolutionary_Stage_of_Star_A
     from stellar_evolution import Mass_WDA
     from stellar_evolution import Radius_of_White_Dwarf_A
 
 if Number_of_Stars >= 2:
+    from stellar_evolution import Evolutionary_Stage_of_Star_B
     from stellar_evolution import Mass_WDB
     from stellar_evolution import Radius_of_White_Dwarf_B
 
 if Number_of_Stars >= 3:
+    from stellar_evolution import Evolutionary_Stage_of_Star_C
     from stellar_evolution import Mass_WDC
     from stellar_evolution import Radius_of_White_Dwarf_C
 
 if Number_of_Stars == 4:
+    from stellar_evolution import Evolutionary_Stage_of_Star_D
     from stellar_evolution import Mass_WDD
     from stellar_evolution import Radius_of_White_Dwarf_D
 
