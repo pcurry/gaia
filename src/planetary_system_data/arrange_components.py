@@ -1,4 +1,5 @@
-# this sub-program covers step 3 ("Arrange Components") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
+# this sub-program covers step 3 ("Arrange Components") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design 
+# for Interstellar Fiction"
 
 import random
 from dice import d100
@@ -10,40 +11,45 @@ Mass_A = mass
 Mass_Ratio = None
 Stellar_Arrangement = None
 
-# "This step determines how the components of a multiple star system are arranged into a hierarchy of pairs, and the initial mass of each companion star in the system. 
-# Skip this step for singleton star systems"
+# "This step determines how the components of a multiple star system are arranged into a hierarchy of pairs, and the initial 
+# mass of each companion star in the system.  Skip this step for singleton star systems"
 
 if Number_of_Stars == 1:
     Stellar_Arrangement = "A"
     print("Single Star System - skipping step #3")
  
-# "Astronomers normally tag the various stellar components in a multiple star system with capital letters in the Latin alphabet: A, B, C, and so on. So, for example, 
-# the famous trinary star Alpha Centauri has three components: the bright yellow-white star Alpha Centauri A, its relatively close orange companion Alpha Centauri B, 
-# and a distant red dwarf companion Alpha Centauri C (also called Proxima Centauri, since it is noticeably closer to Sol than the A-B pair)."
+# "Astronomers normally tag the various stellar components in a multiple star system with capital letters in the Latin alphabet: 
+# A, B, C, and so on. So, for example, the famous trinary star Alpha Centauri has three components: the bright yellow-white star 
+# Alpha Centauri A, its relatively close orange companion Alpha Centauri B, and a distant red dwarf companion Alpha Centauri C 
+# (also called Proxima Centauri, since it is noticeably closer to Sol than the A-B pair)."
 
-# "Unfortunately, astronomers are not always consistent about which component is given which alphabetic tag. This book always tags the primary star, the star with the
-# highest initial mass in the system, as the A-component. The other components are tagged in order of their distance from the primary star."
+# "Unfortunately, astronomers are not always consistent about which component is given which alphabetic tag. This book always 
+# tags the primary star, the star with the highest initial mass in the system, as the A-component. The other components are 
+# tagged in order of their distance from the primary star."
 
 # Procedure
 
 # "The procedure for arranging stars in a system varies, depending on the multiplicity of the system."
 
-# "Stars other than the primary are called companion stars. These stars can have any mass, from tiny brown dwarfs up to stars almost as massive as the primary, 
-# although there is a clear tendency toward the latter"
+# "Stars other than the primary are called companion stars. These stars can have any mass, from tiny brown dwarfs up to stars 
+# almost as massive as the primary, although there is a clear tendency toward the latter"
 
 # Binary Star Systems
 
-# "There is only one possible arrangement for the two stars of a binary system. There are two components, A and B, and the primary star or A-component is in a 
-# gravitationally bound pair with the B-component."
+# "There is only one possible arrangement for the two stars of a binary system. There are two components, A and B, and the 
+# primary star or A-component is in a gravitationally bound pair with the B-component."
 
-# Select the mass for the companion star. To generate its mass at random, roll d100 on the Companion Star Mass Table to determine a mass ratio for the companion."
+# Select the mass for the companion star. To generate its mass at random, roll d100 on the Companion Star Mass Table to determine 
+# a mass ratio for the companion."
 
-# "In each case, you may select a mass ratio between the next lower and next higher results on the table. For example, if the result on the table indicates a mass ratio 
-# of 0.60, it would be appropriate to select an actual ratio greater than 0.55 but less than 0.65. The mass ratio cannot be lower than 0.05 or higher than 1.00."
+# "In each case, you may select a mass ratio between the next lower and next higher results on the table. For example, if the 
+# result on the table indicates a mass ratio of 0.60, it would be appropriate to select an actual ratio greater than 0.55 but 
+# less than 0.65. The mass ratio cannot be lower than 0.05 or higher than 1.00."
 
-# "In a binary star system, the companion star’s mass will be equal to the mass of the primary star, multiplied by the companion’s mass ratio. Round the companion’s 
-# mass to the nearest hundredth of a solar mass unit. You may wish to round the companion’s mass off further, to match one of the entries in the Stellar Mass Table 
-# (see Step One). In no case will the mass of a companion star be less than 0.015 solar masses; round any such result up to that number."
+# "In a binary star system, the companion star’s mass will be equal to the mass of the primary star, multiplied by the companion’s 
+# mass ratio. Round the companion’s mass to the nearest hundredth of a solar mass unit. You may wish to round the companion’s mass 
+# off further, to match one of the entries in the Stellar Mass Table (see Step One). In no case will the mass of a companion star 
+# be less than 0.015 solar masses; round any such result up to that number."
 
 elif Number_of_Stars <= 2:
     roll_for_binary_mass_ratio = d100()

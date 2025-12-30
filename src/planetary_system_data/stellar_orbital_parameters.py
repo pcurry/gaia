@@ -6,25 +6,33 @@ import math
 from dice import d100
 from dice import threeD6
 from stellar_multiplicity import Number_of_Stars
+from arrange_components import Stellar_Arrangement
 
 if Number_of_Stars >= 1:
     from system_generator import Mass_A
     from stellar_evolution import Evolutionary_Stage_of_Star_A
+    from stellar_evolution import Radius_of_Star_A
     from stellar_evolution import Mass_WDA
     from stellar_evolution import Radius_of_White_Dwarf_A
 
 if Number_of_Stars >= 2:
+    from arrange_components import Mass_B
     from stellar_evolution import Evolutionary_Stage_of_Star_B
+    from stellar_evolution import Radius_of_Star_B
     from stellar_evolution import Mass_WDB
     from stellar_evolution import Radius_of_White_Dwarf_B
 
 if Number_of_Stars >= 3:
+    from arrange_components import Mass_C
     from stellar_evolution import Evolutionary_Stage_of_Star_C
+    from stellar_evolution import Radius_of_Star_C
     from stellar_evolution import Mass_WDC
     from stellar_evolution import Radius_of_White_Dwarf_C
 
 if Number_of_Stars == 4:
+    from arrange_components import Mass_D
     from stellar_evolution import Evolutionary_Stage_of_Star_D
+    from stellar_evolution import Radius_of_Star_D
     from stellar_evolution import Mass_WDD
     from stellar_evolution import Radius_of_White_Dwarf_D
 
@@ -188,7 +196,7 @@ if Number_of_Stars == 3:
         Final_Radius_C = Radius_of_Star_C
 
     if Stellar_Arrangement == "A-BC":
-        roll_for_BC_separation_type = ((_3d6())-3)
+        roll_for_BC_separation_type = ((threeD6())-3)
         if roll_for_BC_separation_type <= 3:
             BC_separation_type = "Extremely Close"
             BC_separation_base_distance = 0.015
