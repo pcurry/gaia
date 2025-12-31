@@ -5,6 +5,23 @@ from dice import threeD6
 from dice import twoD6
 from stellar_multiplicity import Number_of_Stars
 from star_system_metallicity import Metallicity
+from arrange_components import Stellar_Arrangement
+
+if Number_of_Stars >= 1:
+    from system_generator import Mass_A
+    from stellar_evolution import Initial_Luminosity_of_Star_A
+
+if Number_of_Stars >= 2:
+    from arrange_components import Mass_B
+    from stellar_evolution import Initial_Luminosity_of_Star_B
+
+if Number_of_Stars >= 3:
+    from arrange_components import Mass_C
+    from stellar_evolution import Initial_Luminosity_of_Star_C
+
+if Number_of_Stars == 4:
+    from arrange_components import Mass_D
+    from stellar_evolution import Initial_Luminosity_of_Star_D
 
 # calculate disk density
 
@@ -295,12 +312,15 @@ if Number_of_Stars == 4:
 if Number_of_Stars == 1:
         print("Single Star System - No Forbidden Zone for Planet Formation")
 if Number_of_Stars == 2:
+        from stellar_orbital_parameters import binary_minimum_distance
         Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A = (1/3) * binary_minimum_distance
         print(f"Forbidden Zone for Star A begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A} AU")
         Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B = (1/3) * binary_minimum_distance
         print(f"Forbidden Zone for Star B begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B} AU")
 if Number_of_Stars == 3:
     if Stellar_Arrangement == "A-BC":
+            from stellar_orbital_parameters import A_BC_minimum_distance
+            from stellar_orbital_parameters import BC_minimum_distance
             Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A = (1/3) * A_BC_minimum_distance
             print(f"Forbidden Zone for Star A begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A} AU")
             Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B = (1/3) * BC_minimum_distance
@@ -308,6 +328,8 @@ if Number_of_Stars == 3:
             Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C = (1/3) * BC_minimum_distance
             print(f"Forbidden Zone for Star C begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C} AU")
     if Stellar_Arrangement == "AB-C":
+            from stellar_orbital_parameters import AB_minimum_distance
+            from stellar_orbital_parameters import AB_C_minimum_distance
             Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A = (1/3) * AB_minimum_distance
             print(f"Forbidden Zone for Star A begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A} AU")
             Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B = (1/3) * AB_minimum_distance
@@ -315,6 +337,8 @@ if Number_of_Stars == 3:
             Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C = (1/3) * AB_C_minimum_distance
             print(f"Forbidden Zone for Star c begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_C} AU")
 if Number_of_Stars == 4:
+        from stellar_orbital_parameters import AB_minimum_distance
+        from stellar_orbital_parameters import CD_minimum_distance
         Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A = (1/3) * AB_minimum_distance
         print(f"Forbidden Zone for Star A begins at {Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A} AU")
         Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_B = (1/3) * AB_minimum_distance
@@ -554,7 +578,7 @@ if Number_of_Stars >= 1:
             print("Formation Orbit 16 is outisde the slow accretion line")
             Star_A_Protoplanet_16_Speed_Flag = "Slow"
 
-    if Number_of_Stars >= 2:
+if Number_of_Stars >= 2:
         Star_B_Protoplanet_1_Flag = "Yes"
         Star_B_Protoplanet_1_Speed_Flag = "Fast"
         Star_B_Protoplanet_2_Flag = "Yes"
@@ -782,7 +806,7 @@ if Number_of_Stars >= 1:
             print("Formation Orbit 16 is outisde the slow accretion line")
             Star_B_Protoplanet_16_Speed_Flag = "Slow"
 
-    if Number_of_Stars >= 3:
+if Number_of_Stars >= 3:
         Star_C_Protoplanet_1_Flag = "Yes"
         Star_C_Protoplanet_1_Speed_Flag = "Fast"
         Star_C_Protoplanet_2_Flag = "Yes"
@@ -1010,7 +1034,7 @@ if Number_of_Stars >= 1:
             print("Formation Orbit 16 is outisde the slow accretion line")
             Star_C_Protoplanet_16_Speed_Flag = "Slow"
 
-    if Number_of_Stars == 4:
+if Number_of_Stars == 4:
         Star_D_Protoplanet_1_Flag = "Yes"
         Star_D_Protoplanet_1_Speed_Flag = "Fast"
         Star_D_Protoplanet_2_Flag = "Yes"
