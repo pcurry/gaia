@@ -1,10 +1,28 @@
-# this sub-program covers step 11 ("Core Accretion") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
+# this sub-program covers step 11 ("Core Accretion") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for 
+# Interstellar Fiction"
 
 from stellar_multiplicity import Number_of_Stars
 from dice import threeD6
 
-# "To begin, check the worksheet to see whether formation orbit 6 falls within a forbidden zone. If it does, then no planets will form in this step; skip forward to Step Twelve" (pg.63)
+# "To begin, check the worksheet to see whether formation orbit 6 falls within a forbidden zone. If it does, then no planets 
+# will form in this step; skip forward to Step Twelve" (pg.63)
 if Number_of_Stars >= 1:
+    from TBD import formation_orbit_6_for_Star_A
+    from TBD import formation_orbit_7_for_Star_A
+    from TBD import formation_orbit_8_for_Star_A
+    from TBD import formation_orbit_9_for_Star_A
+    from TBD import formation_orbit_10_for_Star_A
+    from TBD import formation_orbit_11_for_Star_A
+    from TBD import formation_orbit_12_for_Star_A
+    from TBD import formation_orbit_13_for_Star_A
+    from TBD import formation_orbit_14_for_Star_A
+    from TBD import formation_orbit_15_for_Star_A
+    from TBD import formation_orbit_16_for_Star_A   
+    from TBD import Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A
+    from TBD import Planetismal_Mass_for_Star_A
+    from TBD import Star_A_Protoplanet_6_Flag
+    from TBD import Radius_of_Slow_Accretion_Line_for_Star_A
+
     if formation_orbit_6_for_Star_A < Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
         print("Formation Orbit 6 around Star A does not lie within a forbidden zone")
         if Planetismal_Mass_for_Star_A < 0.11:
@@ -20,7 +38,8 @@ if Number_of_Stars >= 1:
             print("Sufficient Planetismal Mass for any number of Core Accreiton planets to form around Star A")
             Number_of_Core_Accretion_Planets_Supported_By_Planetismal_Mass_for_Star_A = 10
 
-# "beginning with formation orbit 6, count formation orbits outward until the next formation orbit: is already occupied by a disk-instability planet, is outside the slow-accretion line, 
+# "beginning with formation orbit 6, count formation orbits outward until the next formation orbit: is already occupied by a 
+# disk-instability planet, is outside the slow-accretion line, 
 # or falls within a forbidden zone." (pg. 63)
  
     Number_of_Core_Accretion_Planets_Supported_By_Available_Orbits_for_Star_A = 0
@@ -51,7 +70,7 @@ if Number_of_Stars >= 1:
 
     core_accretion_flag_for_Star_A_orbit_8 = "TBD"
     if Star_A_Protoplanet_6_Flag == "Disk Instability Planet":
-            core_accretion_flag_for_Star_A_orbit_8 = "No"
+        core_accretion_flag_for_Star_A_orbit_8 = "No"
         if formation_orbit_8_for_Star_A > Radius_of_Slow_Accretion_Line_for_Star_A:
             core_accretion_flag_for_Star_A_orbit_8 = "No"
         if formation_orbit_8_for_Star_A > Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
@@ -61,9 +80,9 @@ if Number_of_Stars >= 1:
         if core_accretion_flag_for_Star_A_orbit_8 == "Yes":
             Number_of_Core_Accretion_Planets_Supported_By_Available_Orbits_for_Star_A  = (Number_of_Core_Accretion_Planets_Supported_By_Available_Orbits_for_Star_A + 1)
 
-        core_accretion_flag_for_Star_A_orbit_9 = "TBD"
-        if Star_A_Protoplanet_6_Flag == "Disk Instability Planet":
-            core_accretion_flag_for_Star_A_orbit_9 = "No"
+    core_accretion_flag_for_Star_A_orbit_9 = "TBD"
+    if Star_A_Protoplanet_6_Flag == "Disk Instability Planet":
+        core_accretion_flag_for_Star_A_orbit_9 = "No"
         if formation_orbit_9_for_Star_A > Radius_of_Slow_Accretion_Line_for_Star_A:
             core_accretion_flag_for_Star_A_orbit_9 = "No"
         if formation_orbit_9_for_Star_A > Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
@@ -73,9 +92,9 @@ if Number_of_Stars >= 1:
         if core_accretion_flag_for_Star_A_orbit_9 == "Yes":
             Number_of_Core_Accretion_Planets_Supported_By_Available_Orbits_for_Star_A  = (Number_of_Core_Accretion_Planets_Supported_By_Available_Orbits_for_Star_A + 1)
 
-        core_accretion_flag_for_Star_A_orbit_10 = "TBD"
-        if Star_A_Protoplanet_6_Flag == "Disk Instability Planet":
-            core_accretion_flag_for_Star_A_orbit_10 = "No"
+    core_accretion_flag_for_Star_A_orbit_10 = "TBD"
+    if Star_A_Protoplanet_6_Flag == "Disk Instability Planet":
+        core_accretion_flag_for_Star_A_orbit_10 = "No"
         if formation_orbit_10_for_Star_A > Radius_of_Slow_Accretion_Line_for_Star_A:
             core_accretion_flag_for_Star_A_orbit_10 = "No"
         if formation_orbit_10_for_Star_A > Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
@@ -85,9 +104,9 @@ if Number_of_Stars >= 1:
         if core_accretion_flag_for_Star_A_orbit_10 == "Yes":
             Number_of_Core_Accretion_Planets_Supported_By_Available_Orbits_for_Star_A  = (Number_of_Core_Accretion_Planets_Supported_By_Available_Orbits_for_Star_A + 1)
 
-        core_accretion_flag_for_Star_A_orbit_11 = "TBD"
-        if Star_A_Protoplanet_6_Flag == "Disk Instability Planet":
-            core_accretion_flag_for_Star_A_orbit_11 = "No"
+    core_accretion_flag_for_Star_A_orbit_11 = "TBD"
+    if Star_A_Protoplanet_6_Flag == "Disk Instability Planet":
+        core_accretion_flag_for_Star_A_orbit_11 = "No"
         if formation_orbit_11_for_Star_A > Radius_of_Slow_Accretion_Line_for_Star_A:
             core_accretion_flag_for_Star_A_orbit_11 = "No"
         if formation_orbit_11_for_Star_A > Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
@@ -176,15 +195,18 @@ if Number_of_Stars >= 1:
 
         Modified_Number_of_Core_Accretion_Planets_Supported_By_Available_Orbits_for_Star_A = Number_of_Core_Accretion_Planets_Supported_By_Available_Orbits_for_Star_A + core_accretion_modifier_Star_A
 
-    # "The number of planets which form due to core accretion is equal to the number supported by the available planetesimal mass, or the result from the Core Accretion Table, whichever is less." (pg. 63)
+    # "The number of planets which form due to core accretion is equal to the number supported by the available planetesimal 
+    # mass, or the result from the Core Accretion Table, whichever is less." (pg. 63)
 
         Number_of_Core_Accretion_Planets_Star_A = min(Modified_Number_of_Core_Accretion_Planets_Supported_By_Available_Orbits_for_Star_A, Number_of_Core_Accretion_Planets_Supported_By_Planetismal_Mass_for_Star_A)
 
-        # "Any planets that form during core accretion are likely to migrate inward across the protoplanetary disk, due to interactions between the planet and the mass of the disk. 
-        # This sub-step determines how far such migration will carry the young planets. We will refer to the innermost core-accretion planet as the migrating planet" (pg. 63)
+        # "Any planets that form during core accretion are likely to migrate inward across the protoplanetary disk, due to 
+        # interactions between the planet and the mass of the disk. 
+        # This sub-step determines how far such migration will carry the young planets. We will refer to the innermost 
+        # core-accretion planet as the migrating planet" (pg. 63)
 
-        # "Roll 3d6 on the Planetary Migration Table, modifying the roll by adding the disk mass modifier determined in Step Nine. The result is the formation orbit where the migrating planet
-        # will arrive after all inward migration takes place" (pg. 64)
+        # "Roll 3d6 on the Planetary Migration Table, modifying the roll by adding the disk mass modifier determined in Step 
+        # Nine. The result is the formation orbit where the migrating planet will arrive after all inward migration takes place" (pg. 64)
 
         roll_for_planetary_migration_table_Star_A = threeD6()
         if roll_for_planetary_migration_table_Star_A <= 8:
@@ -209,18 +231,22 @@ if Number_of_Stars >= 1:
             formation_orbit_after_migration_for_Star_A = 0
             planetismal_mass_factor_for_Star_A = 0.25
 
-        # "If the result indicates a formation orbit which has been removed from the worksheet due to the special case in Step Nine, then the migrating plant will arrive in formation orbit 0 instead" (pg. 64)
+        # "If the result indicates a formation orbit which has been removed from the worksheet due to the special case in Step 
+        # Nine, then the migrating plant will arrive in formation orbit 0 instead" (pg. 64)
         # need to ADD CODE here
 
         # "Make a note of the formation orbit where the migrating planet arrives after inward migration." (pg. 64)
         # need to ADD CODE here
 
-        # "Also, make a note of every formation orbit between that one and formation orbit 5, inclusive. You may think of this as the migrating planet appearing in formation orbit 6, then crossing several 
-        # other formation orbits on its way inward. All of these orbits should be marked as depleted of planetesimals. In a later step, this may affect the formation of terrestrial planets." (pg. 64)
+        # "Also, make a note of every formation orbit between that one and formation orbit 5, inclusive. You may think of this 
+        # as the migrating planet appearing in formation orbit 6, then crossing several 
+        # other formation orbits on its way inward. All of these orbits should be marked as depleted of planetesimals. In a 
+        # later step, this may affect the formation of terrestrial planets." (pg. 64)
         # need to ADD CODE here
 
-        # "Make a note of the planetesimal mass factor. This represents the proportion of planetesimals in the inner disk that survive gravitational interaction with the migrating planet, and will also be
-        # relevant to the formation of terrestrial planets." (pg. 64)
+        # "Make a note of the planetesimal mass factor. This represents the proportion of planetesimals in the inner disk that 
+        # survive gravitational interaction with the migrating planet, and will also be relevant to the formation of 
+        # terrestrial planets." (pg. 64)
         # this requirement is met by recording the "planetismal_mass_factor_Star_A" parameter above
 
         # need to ADD CODE to address the grand track (pg. 64)
