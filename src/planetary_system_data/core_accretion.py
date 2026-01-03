@@ -7,21 +7,21 @@ from dice import threeD6
 # "To begin, check the worksheet to see whether formation orbit 6 falls within a forbidden zone. If it does, then no planets 
 # will form in this step; skip forward to Step Twelve" (pg.63)
 if Number_of_Stars >= 1:
-    from TBD import formation_orbit_6_for_Star_A
-    from TBD import formation_orbit_7_for_Star_A
-    from TBD import formation_orbit_8_for_Star_A
-    from TBD import formation_orbit_9_for_Star_A
-    from TBD import formation_orbit_10_for_Star_A
-    from TBD import formation_orbit_11_for_Star_A
-    from TBD import formation_orbit_12_for_Star_A
-    from TBD import formation_orbit_13_for_Star_A
-    from TBD import formation_orbit_14_for_Star_A
-    from TBD import formation_orbit_15_for_Star_A
-    from TBD import formation_orbit_16_for_Star_A   
-    from TBD import Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A
-    from TBD import Planetismal_Mass_for_Star_A
-    from TBD import Star_A_Protoplanet_6_Flag
-    from TBD import Radius_of_Slow_Accretion_Line_for_Star_A
+    from protoplanetary_disk import formation_orbit_6_for_Star_A
+    from protoplanetary_disk import formation_orbit_7_for_Star_A
+    from protoplanetary_disk import formation_orbit_8_for_Star_A
+    from protoplanetary_disk import formation_orbit_9_for_Star_A
+    from protoplanetary_disk import formation_orbit_10_for_Star_A
+    from protoplanetary_disk import formation_orbit_11_for_Star_A
+    from protoplanetary_disk import formation_orbit_12_for_Star_A
+    from protoplanetary_disk import formation_orbit_13_for_Star_A
+    from protoplanetary_disk import formation_orbit_14_for_Star_A
+    from protoplanetary_disk import formation_orbit_15_for_Star_A
+    from protoplanetary_disk import formation_orbit_16_for_Star_A   
+    from protoplanetary_disk import Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A
+    from protoplanetary_disk import Planetismal_Mass_for_Star_A
+    from protoplanetary_disk import Star_A_Protoplanet_6_Flag
+    from protoplanetary_disk import Radius_of_Slow_Accretion_Line_for_Star_A
 
     if formation_orbit_6_for_Star_A < Radius_of_Inner_Edge_of_Forbidden_Zone_for_Star_A:
         print("Formation Orbit 6 around Star A does not lie within a forbidden zone")
@@ -176,10 +176,11 @@ if Number_of_Stars >= 1:
         if core_accretion_flag_for_Star_A_orbit_16 == "Yes":
             Number_of_Core_Accretion_Planets_Supported_By_Available_Orbits_for_Star_A  = (Number_of_Core_Accretion_Planets_Supported_By_Available_Orbits_for_Star_A + 1)
     
-    # "make a note of this number" (pg. 63) - condition is satisified by the parameter "Number_of_Core_Accretiom_Planets_Supported_By_Available_Orbits_for_Star_A"
+# "make a note of this number" (pg. 63)
+# condition is satisified by the parameter "Number_of_Core_Accretiom_Planets_Supported_By_Available_Orbits_for_Star_A"
 
-    # "Now roll 3d6 on the Core Accretion Table, and apply the result to the number of formation orbits counted above. The result is the number of planets that may form due to core
-    # accretion, assuming there is sufficient planetesimal mass in the disk"
+# "Now roll 3d6 on the Core Accretion Table, and apply the result to the number of formation orbits counted above. The result 
+# is the number of planets that may form due to core accretion, assuming there is sufficient planetesimal mass in the disk"
 
         roll_for_core_accretion_table_Star_A = threeD6()
         if roll_for_core_accretion_table_Star_A <= 5:
