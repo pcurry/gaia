@@ -6,14 +6,14 @@
 # more likely it is that heat will escape to and through the world’s surface, softening or melting surface rocks and possibly 
 # giving rise to volcanic eruptions."
 
-# "A world’s lithosphere begins as a global sea of magma, but it soon cools, forming a solid crust that provides a (more or less) 
-# stable surface. Over time, as the world cools further, the crust will become thicker and more rigid, eventually forming a 
-# single immobile plate that covers the entire sphere."
+# "A world’s lithosphere begins as a global sea of magma, but it soon cools, forming a solid crust that provides a (more or 
+# less) stable surface. Over time, as the world cools further, the crust will become thicker and more rigid, eventually forming 
+# a single immobile plate that covers the entire sphere."
 
-# "On a world with Massive prevalence of water, the lithosphere is inaccessible, submerged beneath deep ice sheets, liquid-water 
-# oceans, or (in extreme cases) a supercritical fluid of water. In any of these cases, the actual surface of the world will be 
-# atop the water layers (the hydrosphere). We will determine the lithosphere’s status in any case, since it will still affect 
-# several other properties of the world"
+# "On a world with Massive prevalence of water, the lithosphere is inaccessible, submerged beneath deep ice sheets, 
+# liquid-water oceans, or (in extreme cases) a supercritical fluid of water. In any of these cases, the actual surface of the 
+# world will be atop the water layers (the hydrosphere). We will determine the lithosphere’s status in any case, since it will 
+# still affect several other properties of the world"
 
 # "The possible cases will be sorted into six categories: Molten, Soft, Early Plate, Mature Plate, Ancient Plate, and Solid. 
 # These categories are defined as follows."
@@ -26,9 +26,9 @@
 # resist the upwelling of magma from the world’s mantle, so active volcanoes remain common and continue to appearanywhere on the 
 # lithosphere. Examples: Earth in the early Archean Eon."
 
-# "Early Plate Lithosphere: The lithosphere is becoming strong enough to resist the upwelling of magma from the mantle. The crust 
-# is organizing into solid plates. Volcanoes remain common, but (depending on the presence of active plate tectonics) may be 
-# limited to certain locations. Examples: Earth in the later Archean Eon."
+# "Early Plate Lithosphere: The lithosphere is becoming strong enough to resist the upwelling of magma from the mantle. The 
+# crust is organizing into solid plates. Volcanoes remain common, but (depending on the presence of active plate tectonics) may 
+# be limited to certain locations. Examples: Earth in the later Archean Eon."
 
 # "Mature Plate Lithosphere: The organization of the crust into solid plates is complete, with most or all the crust now 
 # integrated into the system. Some of the crustal plates are now thicker and more durable.  Volcanoes are less common. 
@@ -55,7 +55,8 @@
 # Primordial and Radiogenic Heat
 
 # "Begin by rolling 3d6. Modify the dice roll by the following three factors. 
-# Age: Multiply the star system’s age in billions of years by 8, round to the nearest integer, and add the result to the 3d6 roll.
+# Age: Multiply the star system’s age in billions of years by 8, round to the nearest integer, and add the result to the 3d6 
+# roll.
 
 # "Primordial Heat: Compute the following:"
 
@@ -86,17 +87,17 @@
 # "There is at least one other major moon in the next outward orbit from the gas giant, as established in Step Seventeen, the 
 # first case, and that “next outward” major moon is in a stable orbital resonance with the moon being developed."
 # "In this case, the resonance between the two orbital periods will maintain a small degree of eccentricity in the first moon’s 
-# orbit. This in turn will cause tidal forces imposed by the gas giant to increase and decrease slightly during the moon’s orbital
-# period, leading the moon’s body to “flex” and create friction. In our own planetary system, two of the satellites of Jupiter
-# fall into this case (Io and Europa).
+# orbit. This in turn will cause tidal forces imposed by the gas giant to increase and decrease slightly during the moon’s 
+# orbital period, leading the moon’s body to “flex” and create friction. In our own planetary system, two of the satellites of 
+# Jupiter fall into this case (Io and Europa).
 
 # "If a moon falls into this case, evaluate the following:"
 
 # Codify Equation on page 103
 
-# "F is a measure of tidal force applied to the moon, with an F of 1.0 being roughly equivalent to the tidal force experienced by 
-# Earth due to the Sun. M is the mass of the gas giant in Earth-masses, D is the moon’s radius in kilometers, and R is the moon’s 
-# orbital radius in kilometers."
+# "F is a measure of tidal force applied to the moon, with an F of 1.0 being roughly equivalent to the tidal force experienced 
+# by Earth due to the Sun. M is the mass of the gas giant in Earth-masses, D is the moon’s radius in kilometers, and R is the 
+# moon’s orbital radius in kilometers."
 
 # "Second Case: A leftover oligarch, terrestrial planet, or failed core which has no major satellite may experience significant 
 # tidal heating due to its primary star. This will take place if and only if the planet is in a spin-orbit resonance with its 
@@ -140,10 +141,10 @@
 # "The possible cases will be sorted into two categories, defined as follows."
 
 # "Mobile Plate Tectonics: The crust’s tectonic plates can move freely past or against one another. As tectonic plates collide, 
-# some of them experience subduction, moving down into the mantle and recycling the crustal material. Orogeny, or the formation of 
-# mountain ranges, takes place in such areas as well. Volcanic activity is likely to take place at plate boundaries. Volcanoes may 
-# also appear in plate interiors, at the top of magma plumes rising from the deep mantle. Such shield volcanoes will tend to form 
-# arcs or chains, as the tectonic plate moves across the top of the plume"
+# some of them experience subduction, moving down into the mantle and recycling the crustal material. Orogeny, or the formation 
+# of mountain ranges, takes place in such areas as well. Volcanic activity is likely to take place at plate boundaries. 
+# Volcanoes may also appear in plate interiors, at the top of magma plumes rising from the deep mantle. Such shield volcanoes 
+# will tend to form arcs or chains, as the tectonic plate moves across the top of the plume"
 
 # "Fixed Plate Tectonics: The crust’s tectonic plates are unable to move freely. Little or no subduction takes place to recycle 
 # crustal material. Orogeny is rare. As with Mobile Plate Tectonics, volcanoes are likely to appear at plate boundaries. Shield 
@@ -178,8 +179,8 @@
 
 # "In some cases, the amount of a world’s dry land surface will depend on the world’s geophysical parameters. If a world has a 
 # strong lithosphere and is geologically active, it will create variation in topographical relief (continents and shield 
-# volcanoes) faster than it can be worn down by weathering and erosion. This will tend to give rise to larger masses of dry land. 
-# A world that is geologically quiet is more likely to be dominated by shallow oceans or ice sheets."
+# volcanoes) faster than it can be worn down by weathering and erosion. This will tend to give rise to larger masses of dry 
+# land. A world that is geologically quiet is more likely to be dominated by shallow oceans or ice sheets."
 
 # "If the world has a Molten Lithosphere, and its prevalence of water is not Massive, then it cannot currently support 
 # liquid-water oceans or ice sheets. Reduce the prevalence of water to Trace and the base hydrographic coverage to 0%. 
@@ -191,6 +192,6 @@
 # "If the world has an Early Plate or Ancient Plate lithosphere, roll 3d6, treat the result as a percentage, and add it to the 
 # base hydrographic coverage (maximum 100%)."
 
-# "If a world with Extensive water ends up with 100% hydrographic coverage, some or all its oceans or ice sheets are likely to be 
-# shallow—no more than a few kilometers deep, and possibly much less. This is distinct from the case of a world with Massive 
-# water, whose oceans or ice sheets will be tens or even hundreds of kilometers deep throughout."
+# "If a world with Extensive water ends up with 100% hydrographic coverage, some or all its oceans or ice sheets are likely to 
+# be shallow—no more than a few kilometers deep, and possibly much less. This is distinct from the case of a world with 
+# Massive water, whose oceans or ice sheets will be tens or even hundreds of kilometers deep throughout."
