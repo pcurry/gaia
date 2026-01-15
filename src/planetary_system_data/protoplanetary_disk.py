@@ -1,4 +1,5 @@
-# this sub-program covers step 9 ("Protoplanetary Disk") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
+# this sub-program covers step 9 ("Protoplanetary Disk") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design 
+# for Interstellar Fiction" starting from page 56
 
 import math
 from dice import threeD6

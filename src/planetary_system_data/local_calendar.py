@@ -14,8 +14,8 @@
 # "T is the apparent length of the planet’s day in hours, P is the planet’s orbital period in hours as determined in Step Eighteen, while R is the planet’s 
 # rotational period in hours as determined in Step Nineteen."
 
-# "This equation is undefined in cases when the orbital period and rotational period are equal (that is, the planet is tide-locked or in a spin-orbital resonance of 1:1). In this case, the length of
-# the local day is effectively infinite—the sun never moves far in the sky!"
+# "This equation is undefined in cases when the orbital period and rotational period are equal (that is, the planet is tide-locked or in a spin-orbital resonance of 1:1). 
+# In this case, the length of the local day is effectively infinite—the sun never moves far in the sky!"
 
 # "At the other extreme, if the orbital period is much longer than the rotational period, then the day length and the rotational period will be very close together.
 # To determine the length of the local year in local days, simply divide the planet’s orbital period by the length of the local day as computed above."

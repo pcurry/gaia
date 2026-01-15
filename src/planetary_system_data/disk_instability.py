@@ -3,8 +3,8 @@
 
 # "Very early in the process of planetary formation, the first gas giant planets may form due to disk instability in the 
 # protoplanetary disk. Here, the outer protoplanetary disk is perturbed by the gravitation of nearby stars, or due to the 
-# formation of large clumps of material by random chance. The disk then forms spiral-arm structures, which can quickly give rise 
-# to unusually massive gas giant planets. Disk instability is more likely to occur if the protoplanetary disk is denser
+# formation of large clumps of material by random chance. The disk then forms spiral-arm structures, which can quickly give 
+# rise to unusually massive gas giant planets. Disk instability is more likely to occur if the protoplanetary disk is denser
 # (that is, if its disk mass factor, determined in Step Nine, is high)."
 
 # "To determine at random whether disk instability took place, roll 3d6 and add the disk mass modifier determined in Step Nine. 

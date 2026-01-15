@@ -7,8 +7,8 @@
 
 # Procedure
 
-# "Begin by noting the current age of the star system, as established in Step Four. For any of the seven following events, if the total time to the event is greater than the 
-# star system’s age, then that event has not yet taken place on the world under development. Any further events that depend upon that one can be ignored."
+# "Begin by noting the current age of the star system, as established in Step Four. For any of the seven following events, if the total time to the event is greater than 
+# the  star system’s age, then that event has not yet taken place on the world under development. Any further events that depend upon that one can be ignored."
 
 # Abiogenesis (Deep Hydrothermal Vents)
 
