@@ -1,5 +1,5 @@
-# this sub-program covers step 7 ("Stellar Classification") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design 
-# for Interstellar Fiction"
+# this sub-program covers step 7 ("Stellar Classification") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World 
+# Design for Interstellar Fiction" - starting from page 48
 
 from stellar_multiplicity import Number_of_Stars
 

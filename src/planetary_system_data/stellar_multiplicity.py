@@ -1,4 +1,5 @@
-# this sub-program covers step 2 ("Stellar Multiplicity") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction" - starting from pg. 33
+# this sub-program covers step 2 ("Stellar Multiplicity") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World 
+# Design for Interstellar Fiction" - starting from pg. 33
 
 from dice import d100, threeD6
 

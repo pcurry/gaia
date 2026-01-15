@@ -1,4 +1,5 @@
-# this sub-program covers step 5 ("Star System Metallicity") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
+# this sub-program covers step 5 ("Star System Metallicity") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World 
+# Design for Interstellar Fiction" page 38
 
 from dice import threeD6
 from star_system_age import system_age

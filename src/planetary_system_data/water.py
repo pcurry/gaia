@@ -1,5 +1,5 @@
 # this sub-program covers step 23 ("Water") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for 
-# Interstellar Fiction"  - starting from page 98
+# Interstellar Fiction" - starting from page 98
 
 # "Water is one of the most common substances in the universe. Its special properties will have a profound effect on the 
 # surface conditions of any world, from its initial geological development to its eventual climate, and finally to the 

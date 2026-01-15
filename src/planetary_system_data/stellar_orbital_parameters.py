@@ -1,5 +1,5 @@
 # this sub-program covers step 8 ("Stellar Orbital Parameters") from Zeigler, 2024 - "Architect of Worlds: Comprehensive 
-# World Design for Interstellar Fiction"
+# World Design for Interstellar Fiction" - starting from page 49
 
 import random
 import math
@@ -414,7 +414,7 @@ if Number_of_Stars == 3:
         print(f"which is equivalent to {A_BC_orbital_period_days} days")
 
     if Stellar_Arrangement == "AB-C":
-        roll_for_AB_separation_type = ((_3d6())-3)
+        roll_for_AB_separation_type = ((threeD6())-3)
         if roll_for_AB_separation_type <= 3:
             AB_separation_type = "Extremely Close"
             AB_separation_base_distance = 0.015

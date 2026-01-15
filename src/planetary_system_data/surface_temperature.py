@@ -1,5 +1,5 @@
 # this sub-program covers step 30 ("Average Surface Temperature") from Zeigler, 2024 - "Architect of Worlds: Comprehensive 
-# World Design for Interstellar Fiction" starting from page 119
+# World Design for Interstellar Fiction" - starting from page 119
 
 # "In this step, we finish estimating the prevalence of various gases in the atmosphere, possibly adjusting the prevalence of 
 # carbon dioxide. This will finally lead us to an estimate for the average surface temperature for the world, taking all 

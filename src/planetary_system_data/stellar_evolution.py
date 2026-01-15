@@ -1,5 +1,5 @@
-# this sub-program covers step 6 ("Stellar Evolution") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design '
-# for Interstellar Fiction"
+# this sub-program covers step 6 ("Stellar Evolution") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World 
+# Design for Interstellar Fiction" - starting from page 40
 
 import math
 from dice import d100

@@ -1,4 +1,5 @@
-# this sub-program covers step 4 ("Star System Age") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for Interstellar Fiction"
+# this sub-program covers step 4 ("Star System Age") from Zeigler, 2024 - "Architect of Worlds: Comprehensive World Design for 
+# Interstellar Fiction"
 
 from dice import d100
 
